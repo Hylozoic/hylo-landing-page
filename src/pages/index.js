@@ -1,23 +1,32 @@
 import * as React from "react"
-import Layout from "../components/layout"
 import "../styles/styles.scss"
+import Layout from "../components/layout"
+import Button from "../components/button"
 
 const IndexPage = () => {
   return (
     <Layout pageTitle="Home Page">
-      <h1 className="headingStyles">
-        Congratulations
-        <br />
-        <span className="headingAccentStyles">— you just made a Gatsby site! 🎉🎉🎉</span>
-      </h1>
-      <p className="paragraphStyles">
-        Edit <code className="codeStyles">src/pages/index.js</code> to see this page
-        update in real-time. 😎
-      </p>
-      <img
-        alt="Gatsby G Logo"
-        src="data:image/svg+xml,%3Csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2a10 10 0 110 20 10 10 0 010-20zm0 2c-3.73 0-6.86 2.55-7.75 6L14 19.75c3.45-.89 6-4.02 6-7.75h-5.25v1.5h3.45a6.37 6.37 0 01-3.89 4.44L6.06 9.69C7 7.31 9.3 5.63 12 5.63c2.13 0 4 1.04 5.18 2.65l1.23-1.06A7.959 7.959 0 0012 4zm-8 8a8 8 0 008 8c.04 0 .09 0-8-8z' fill='%23639'/%3E%3C/svg%3E"
-      />
+      <div className="hero">
+        <h1 className="headingStyles">
+          Create community<br/>
+          with purpose on Hylo
+        </h1>
+        <div>
+          <Button label="Sign Up" link="/sign-up/"/>
+          <Button label="Log In" link="/log-in/"/>
+        </div>
+      </div>
+      <section className="passion">
+        <div className="passionLeft"></div>
+        <div className="passionRight">
+          <h2>Driven by passion,<br/>
+          united by purpose</h2>
+          <p>Hylo is the place where people who are passionate about their dreams come together to support each other and make them a reality.</p>
+          <p>It's a community where you can connect with others who share your purpose and work towards achieving your goals together.</p>
+          <h3>Ready to find where you belong?</h3>
+          <Button label="Explore Groups" link="/explore/"/>        
+        </div>
+      </section>
     </Layout>
   )
 }
