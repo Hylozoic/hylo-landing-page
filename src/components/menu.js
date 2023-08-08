@@ -18,7 +18,19 @@ const Menu = ({ closeMenu }) => (
         <ul>
           <li><Link to="/about/#vision" onClick={closeMenu}>Vision &amp; Purpose</Link></li>
           <li><Link to="/about/#values" onClick={closeMenu}>Values &amp; Agreements</Link></li>
+          <li><Link to="/about/#product-journey" onClick={closeMenu}>Product Journey</Link></li>
           <li><Link to="/about/#team" onClick={closeMenu}>Team</Link></li>
+        </ul>
+      </li>
+      <li>
+        <h3>
+          <Link to="/guide/" onClick={closeMenu}>Using Hylo</Link>
+        </h3>
+        <ul>
+            <li><Link to="/guide/#community-stewardship" onClick={closeMenu}>Community Stewardship Course</Link></li>
+          <li><Link to="/guide/#case-studies" onClick={closeMenu}>Case Studies</Link></li>
+          <li><Link to="/guide/#documentation" onClick={closeMenu}>Documentation</Link></li>
+          <li><Link to="/guide/#code" onClick={closeMenu}>Code</Link></li>
         </ul>
       </li>
       <li>
