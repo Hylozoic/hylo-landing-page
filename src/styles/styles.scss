@@ -17,6 +17,15 @@ body {
     margin: 0;
 }
 
+h1, h2 {
+    font-size: 48px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 32px;
+}
+
 .pageStyles {
     color: "#232129";
     margin: 0;
@@ -24,7 +33,7 @@ body {
 }
 
 .hero {
-    height: 100vh;
+    height: 75vh;
 }
 
 .headingStyles {
@@ -183,5 +192,33 @@ body {
     background-color: #F0E6B5;
     border-radius: 15px;
     color: #2A4059;
+    display: flex;
+    margin-bottom: 50px; 
 }
+
+.passionLeft {
+    background-color: $accent-color;
+    padding: 25px;
+    width: 50%;
+}
+
+.passionRight {
+    padding: 50px;
+    width: 50%;
+}
+
+ /* Alive Section Styles */
+
+ .alive {
+    display: flex;
+ }
+
+ .aliveLeft {
+    padding: 50px;
+    width: 50%;
+ }
+
+ .aliveRight {
+    width: 50%;
+ }
 
