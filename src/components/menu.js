@@ -48,9 +48,6 @@ const Menu = ({ closeMenu }) => (
         <a className="button menuButton" target="_blank" rel="noopener noreferrer" href="http://eepurl.com/cWIga1">Newsletter</a>
       </li>
     </ul>
-    <div className="acknowledgments">
-      <p>Terran Collective is based in <a href="http://www.ramaytush.com/" target="_blank" rel="noopener noreferrer">Ramaytush Ohlone territory, in Yelamu</a>, which is also called San Francisco.</p>
-    </div>
   </div>
 )
 

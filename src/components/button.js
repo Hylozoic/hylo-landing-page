@@ -6,7 +6,7 @@ const Button = ({ label, link, color, backgroundColor }) => (
   <Link to={link}>
     <button style={{
       backgroundColor,
-      border: `1px solid ${color}`,
+      border: `2px solid ${color}`,
       borderRadius: `21px`,
       color,
       fontFamily: `Circular-Book, sans-serif`,

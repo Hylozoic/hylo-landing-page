@@ -40,7 +40,7 @@ const Header = ({ siteTitle }) => {
         <div className={`menuWrapper ${openStyle}`}>
           <button className="menuToggle" onClick={() => setOpen(!isOpen)}>
             <img src={menuToggleHamburger} alt="Open menu icon" className="openMenu" />
-            <img src={menuToggleX} alt="Close menu icon"className="closeMenu" />
+            <img src={menuToggleX} alt="Close menu icon" className="closeMenu" />
           </button>
           <div className="menuBg"
             onClick={() => setOpen(false)}
