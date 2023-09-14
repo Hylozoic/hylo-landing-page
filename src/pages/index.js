@@ -16,8 +16,10 @@ const IndexPage = () => {
       <div className="hero">
         <div className="headingStyles">
           <h1>Create community<br/>with purpose on Hylo</h1>
-          <Button label="Sign Up" link="/sign-up/"/>
-          <Button label="Log In" link="/log-in/"/>
+          <Button label="Sign Up" link="/sign-up/" background={`linear-gradient(rgba(0,0,0,1), rgba(0,0,0,1)) padding-box,
+              linear-gradient(to right, #BB60A8, #40A1DD) border-box`} color="#fff" border={`4px solid transparent`}/>
+          <Button label="Log In" link="/log-in/" background={`linear-gradient(rgba(0,0,0,1), rgba(0,0,0,1)) padding-box,
+              linear-gradient(to right, #6FCF97, #40A1DD) border-box`} color="#fff" border={`4px solid transparent`}/>
         </div>
       </div>
       <section className="passion">
@@ -31,8 +33,10 @@ const IndexPage = () => {
           united by purpose</h2>
           <p>Hylo is the place where people who are passionate about their dreams come together to support each other and make them a reality.</p>
           <p>It's a community where you can <strong>connect with others who share your purpose</strong> and work towards achieving your goals together.</p>
-          <h3 style={{marginTop: `50px`, textAlign: `center`}}>Ready to find where you belong?<br/>
-          <Button label="Explore Groups" link="/explore/"/></h3>      
+          <div style={{textAlign: `center`}}>
+            <h3>Ready to find where you belong?</h3>
+            <Button label="Explore Groups" link="/explore/" background={`linear-gradient(93deg, #0DC39F 7.65%, #6FCF97 100%)`} color="#fff" />      
+          </div>
         </div>
       </section>
       <section className="alive">
@@ -41,8 +45,10 @@ const IndexPage = () => {
           <p>Many online groups struggle with engagement and need a lot of management. 
             On Hylo, groups transform into vibrant, self-organized, collaborative networks.</p>
           <p>Hylo makes it easy for group members to step up and lead projects and events, enabling the group to grow and deepen its impact.</p>
-          <h3 style={{marginTop: `50px`, textAlign: `center`}}>Ready to gather your people?<br/>
-          <Button label="Create a Group" link="/create/"/></h3>   
+          <div style={{textAlign: `center`}}>
+            <h3>Ready to gather your people?</h3>
+            <Button label="Create a Group" link="/create/" background={`linear-gradient(93deg, #B162AB 7.65%, #0175D8 100%)`} color="#fff"/>  
+          </div>
         </div>
         <div className="aliveRight"></div>
       </section>
@@ -63,7 +69,7 @@ const IndexPage = () => {
           <div className="ecosystemLogos">
             <img src={logos} alt="Partner Logos" />
           </div>
-          <h3 style={{marginTop: `50px`, textAlign: `center`}}>View Contributors</h3>
+          <h3>View Contributors</h3>
           <div className="ecosystemContributors">
             <h2>Hylo is built with care</h2>
             <p>Hylo would not be possible without the generosity, dedication and collaboration of the many contributors 
@@ -73,7 +79,7 @@ const IndexPage = () => {
         </div>
       </section>
       <section className="tools">
-        <h2>The tools you<br/>need to activate<br/>your group</h2>
+        <h2 className="toolsTitle">The tools you<br/>need to activate<br/>your group</h2>
         <div className="tool">
           <details open>
             <summary><h3>Define your group membrane</h3></summary>
@@ -159,7 +165,7 @@ const IndexPage = () => {
           <p>Work together to care for the land and restore healthy ecosystems.</p>
         </div>
         <div className="bioregionalCTA">
-          <Button label="Explore what's alive near you" link="/map/"/>
+          <Button label="Explore what's alive near you" link="/map/" background={`linear-gradient(93deg, #B162AB 7.65%, #0175D8 100%)`} color="#fff" />
         </div>
       </section>
       <section className="planetary">
@@ -174,15 +180,18 @@ const IndexPage = () => {
         <div className="planetaryDetail">
           <div className="planetaryCTA">
             <p>Are you ready to find your people?</p>
-            <Button label="Discover a group to join" link="/explore/"/>
+            <Button label="Discover a group to join" link="/explore/" background={`linear-gradient(rgba(0,0,0,1), rgba(0,0,0,1)) padding-box,
+              linear-gradient(to right, #BB60A8, #40A1DD) border-box`} color="#fff" border={`4px solid transparent`}/>
           </div>
           <div className="planetaryCTA">
             <p>Are you building purpose-driven community?</p>
-            <Button label="Create a group now" link="/create/"/>
+            <Button label="Create a group now" link="/create/" background={`linear-gradient(rgba(0,0,0,1), rgba(0,0,0,1)) padding-box,
+              linear-gradient(to right, #BB60A8, #40A1DD) border-box`} color="#fff" border={`4px solid transparent`}/>
           </div>
           <div className="planetaryCTA">
             <p>Do you want to help us build Hylo?</p>
-            <Button label="Join Building Hylo" link="/participate/"/>
+            <Button label="Join Building Hylo" link="/participate/" background={`linear-gradient(rgba(0,0,0,1), rgba(0,0,0,1)) padding-box,
+              linear-gradient(to right, #BB60A8, #40A1DD) border-box`} color="#fff" border={`4px solid transparent`}/>
           </div>
         </div>
       </section>

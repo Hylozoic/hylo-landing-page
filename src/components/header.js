@@ -36,7 +36,7 @@ const Header = ({ siteTitle }) => {
         </Link>
       </h1>
       <div className="homeMenu">
-        <h3>Hylo is in open beta. We build in the open and you can be a part of it! <Button label="Get Involved" link="/participate/" color={`#40A1DD`} backgroundColor={`#fff`} /></h3>
+        <h3>Hylo is in open beta. We build in the open and you can be a part of it! <Button label="Get Involved" link="/participate/" color={`#40A1DD`} fontSize="16px" /></h3>
         <div className={`menuWrapper ${openStyle}`}>
           <button className="menuToggle" onClick={() => setOpen(!isOpen)}>
             <img src={menuToggleHamburger} alt="Open menu icon" className="openMenu" />

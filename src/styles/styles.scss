@@ -34,6 +34,16 @@ p {
 
 .hero {
     height: 75vh;
+
+    h1 {
+        color: #FFF;
+        text-shadow: 0px 4px 15px rgba(0, 0, 0, 0.50);
+        font-family: Circular Std;
+        font-size: 48px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 55px; /* 100% */
+    }
 }
 
 .headingStyles {
@@ -204,7 +214,35 @@ p {
 
 .passionRight {
     padding: 50px;
-    width: 50%;
+    min-width: 200px;
+    width: 30%;
+
+    h2 {
+        background: linear-gradient(320deg, #0074D8 -20.03%, #0DC39F 94.54%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-family: Circular Std;
+        font-size: 48px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 48px; /* 100% */
+        letter-spacing: -0.96px;
+    }
+
+    strong {
+        font-family: 'Circular-Bold';
+        font-weight: 700;
+    }
+}
+
+.passion, .alive {
+    h3 {
+        font-family: 'Circular-Bold';
+        font-weight: 700;
+        margin: 50px 0 25px;
+        text-align: center;
+    }
 }
 
 /* Alive Section Styles */
@@ -217,7 +255,21 @@ p {
 
 .aliveLeft {
     padding: 50px;
-    width: 50%;
+    min-width: 200px;
+    width: 40%;
+
+    h2 {
+        background: linear-gradient(165deg, #0074D8 24.36%, #BB60A8 50%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-family: Circular Std;
+        font-size: 48px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 48px; /* 100% */
+        letter-spacing: -0.96px;
+    }
 }
 
 .aliveRight {
@@ -239,6 +291,19 @@ p {
  .interdependenceRight {
     padding: 50px 50px 200px;
     width: 50%;
+
+    h2 {
+        background: linear-gradient(92deg, #BB60A8 -3.86%, #FD6A49 60.66%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-family: Circular Std;
+        font-size: 48px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 48px; /* 100% */
+        letter-spacing: -0.96px;
+    }
  }
 
 /* Ecosystem Section Styles */
@@ -259,7 +324,31 @@ p {
 
     p {
         margin: 25px auto;
-        width: 75%;
+        min-width: 250px;
+        width: 50%;
+    }
+
+    h2 {
+        background: linear-gradient(109deg, #FFF 12.13%, #A8D0FF 88.15%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-family: Circular Std;
+        font-size: 48px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 48px; /* 100% */
+        letter-spacing: -0.96px;
+    }
+
+    h3 {
+        margin-top: 50px;
+        text-align: center;
+        background: linear-gradient(93deg, #0DC39F 7.65%, #6FCF97 100%);
+        border-radius: 50px;
+        margin: 50px auto 25px;
+        padding: 10px 40px;
+        width: 200px;
     }
 }
 
@@ -269,6 +358,19 @@ p {
     columns: 2;
     margin: 25vh auto;
     width: 80%;
+}
+
+.toolsTitle {
+    background: linear-gradient(180deg, #6FCF97 0%, #40A1DD 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: Circular Std;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 48px; /* 100% */
+    letter-spacing: -0.96px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -346,8 +448,10 @@ p {
     width: 90%;
 
     h2 {
+        font-family: 'Circular-Bold', sans-serif;
         font-size: 64px;
         line-height: 64px;
+        font-weight: 700;
     }
 
     p {
@@ -426,6 +530,7 @@ footer {
 
 .footerAcknowledgement {
     margin: 100px auto 200px;
+    min-width: 300px;
     text-align: left;
-    width: 80%;
+    width: 50%;
 }
