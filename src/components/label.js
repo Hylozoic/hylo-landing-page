@@ -11,7 +11,7 @@ const Label = ({ label, color, icon }) => (
       fontSize: `24px`,
       alignItems: `center`,
       justifyContent: `center`,
-      margin: `10px 0`,
+      margin: `25px 0`,
       padding: `15px 25px`,
       width: `fit-content`,
     }}>

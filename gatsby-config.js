@@ -6,7 +6,17 @@ module.exports = {
     title: `hylo-landing-page`,
     siteUrl: `https://www.yourdomain.tld`
   },
-  plugins: ["gatsby-plugin-sass", "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp",
+  plugins: [
+    "gatsby-plugin-sass", 
+    "gatsby-plugin-image", 
+    "gatsby-plugin-sharp", 
+    "gatsby-transformer-sharp",
+    {
+      resolve: `gatsby-plugin-scroll-reveal`,
+      options: {
+          threshold: 25, // Percentage of an element's area that needs to be visible to launch animation
+      }
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {

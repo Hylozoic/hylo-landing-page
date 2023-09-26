@@ -58,6 +58,11 @@ p {
     color: #fff;
     margin: 0 100px 0 0;
     text-align: right;
+
+    strong {
+        font-family: 'Circular-Bold', sans-serif;
+        font-weight: 700;
+    }
 }
 
  @media only screen and (max-width: 900px) {
@@ -202,20 +207,20 @@ p {
     border-radius: 15px;
     color: #2A4059;
     display: flex;
-    margin: 0 auto 50px;
+    min-height: 100vh;
+    margin: 0 auto 25%;
     width: 90%; 
 }
 
 .passionLeft {
     background-color: $accent-color;
     padding: 25px;
-    width: 50%;
+    width: 60%;
 }
 
 .passionRight {
-    padding: 50px;
-    min-width: 200px;
-    width: 30%;
+    padding: 10% 5%;
+    width: 40%;
 
     h2 {
         background: linear-gradient(320deg, #0074D8 -20.03%, #0DC39F 94.54%);
@@ -245,17 +250,37 @@ p {
     }
 }
 
+@media only screen and (max-width: 600px) {
+    
+    .passionLeft {
+        width: 100%;
+    }
+    
+    .passionRight {
+        width: 100%;
+    }
+}
+
 /* Alive Section Styles */
+
+.aliveContainer {
+    background: url("../images/bicycle-bg.png") no-repeat;
+    background-size: 100%;
+    background-position-y: -50vh;
+    position: relative;
+    width: 100%;
+    z-index: 2;
+}
 
 .alive {
     display: flex;
+    height: 100vh;
     margin: 0 auto;
-    width: 90%;
+    width: 100%;
 }
 
 .aliveLeft {
-    padding: 50px;
-    min-width: 200px;
+    padding: 10%;
     width: 40%;
 
     h2 {
@@ -276,21 +301,41 @@ p {
     width: 50%;
 }
 
+@media only screen and (max-width: 600px) {
+    .aliveContainer {
+        background: none;
+        position: static;
+        width: 100%;
+    }
+    
+    .aliveLeft {
+        padding: 10%;
+        width: 100%;
+    }
+    
+    .aliveRight {
+      width: 0%;
+    }
+}
+
 /* Interdependence Section Styles */
 
 .interdependence {
+    background: url("../images/interdependence-bg.png") no-repeat;
+    background-size: cover;
     display: flex;
+    height: 100vh;
     margin: 0 auto;
-    width: 90%;
+    width: 100%;
  }
 
- .interdependenceLeft {
+.interdependenceLeft {
     width: 50%;
- }
+}
 
- .interdependenceRight {
-    padding: 50px 50px 200px;
-    width: 50%;
+.interdependenceRight {
+    padding: 50vh 10% 10%;
+    width: 40%;
 
     h2 {
         background: linear-gradient(92deg, #BB60A8 -3.86%, #FD6A49 60.66%);
@@ -304,7 +349,18 @@ p {
         line-height: 48px; /* 100% */
         letter-spacing: -0.96px;
     }
- }
+}
+
+@media only screen and (max-width: 600px) {
+    .interdependenceLeft {
+        width: 0%;
+    }
+    
+    .interdependenceRight {
+      padding: 60vh 10% 10%;
+      width: 100%;
+    }
+}
 
 /* Ecosystem Section Styles */
 
@@ -317,6 +373,8 @@ p {
 }
 
 .ecosystemContainer {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .6) 50%, rgba(0, 0, 0, 0.7) 100%), url("../images/ecosystem-bg.png") no-repeat;
+    background-size: cover;
     border: 2px dashed #fff;
     border-radius: 3px;
     margin: 15px;
@@ -354,10 +412,19 @@ p {
 
 /* Tools Section Styles */
 
+.toolsContainer {
+    background: url("../images/activate-bg.png") no-repeat;
+    background-size: cover;
+    margin: 0 auto;
+    width: 100%;
+}
+
 .tools {
-    columns: 2;
-    margin: 25vh auto;
-    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    width: 90%;
 }
 
 .toolsTitle {
@@ -371,21 +438,24 @@ p {
     font-weight: 700;
     line-height: 48px; /* 100% */
     letter-spacing: -0.96px;
+    margin: 10% auto;
+    width: 50%;
 }
 
 @media only screen and (max-width: 600px) {
-    .tools {
-      columns: 1;
-    }
+    // .tools {
+    //   columns: 1;
+    // }
   }
 
 .tool {
-    border: 2px dashed #fff;
+    background-color: rgba(0, 0, 0, .5);
+    border: 2px dashed #6DCD9A;
     border-radius: 5px;
-    margin: 50px 0;
+    margin: 10px;
     padding: 25px;
     max-width: 475px;
-    width: 80%;
+    width: 40%;
 
     h2 {
         font-size: 64px;
@@ -394,6 +464,8 @@ p {
     h3 {
         display: inline-block;
         font-family: 'Circular-Bold', sans-serif;
+        font-size: 24px;
+        font-weight: 700;
         padding-left: 10px;
     }
 }
@@ -401,15 +473,24 @@ p {
 /* Testimonial Section Styles */
 
 .testimonial {
-    margin: 50px auto 100px;
+    margin: 10% auto;
     text-align: center;
     width: 80%;
 }
 
 /* Bioregional Section Styles */
 
+.bioregionalContainer {
+    background: url("../images/bioregional-bg.png") no-repeat;
+    background-size: cover;
+    background-position-y: bottom;
+    margin: 0;
+    width: 100%;
+}
+
 .bioregional {
     margin: 0 auto;
+    padding-bottom: 10%;
     width: 90%;
 
     h1 {
@@ -442,8 +523,16 @@ p {
 
 /* Planetary Section Styles */
 
+.planetaryContainer {
+    background: url("../images/planetary-bg.png") no-repeat;
+    background-size: cover;
+    padding: 10%;
+    text-align: center;
+}
+
 .planetary {
-    margin: 300px auto 200px;
+    margin: 0 auto;
+    position: relative;
     text-align: center;
     width: 90%;
 
@@ -460,8 +549,35 @@ p {
     }
 }
 
+.planet {
+    left: 15%;
+    top: 15%;
+    position: absolute;
+    z-index: 1;
+    height: 600px;
+    width: 600px;
+}
+
+.planetaryGrid {
+    left: 25%;
+    top: 25%;
+    position: absolute;
+    z-index: 2;
+    height: 600px;
+    width: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .planetaryBelonging {
-    margin: 100px auto;
+    position: absolute;
+    left: 25%;
+    top: 50%;
+    z-index: 3;
+    margin: 0 auto 10%;
+    height: 600px;
+    width: 600px;
 
     h3 {
         font-size: 36px;
@@ -471,6 +587,8 @@ p {
 
 .planetaryDetail {
     display: flex;
+    margin-top: 750px;
+    flex-wrap: wrap;
 
     p {
         font-family: 'Circular-Bold', sans-serif;
@@ -481,11 +599,14 @@ p {
 }
 
 .planetaryCTA {
-    border: 2px dashed #fff;
+    border: 2px dashed rgba(255, 255, 255, 0.5);
     border-radius: 5px;
     margin: 25px;
     padding: 25px 0;
     text-align: center;
+    flex-grow: 1;
+    min-width: 250px;
+    width: 25%;
 }
 
 /* Footer Section Styles */
@@ -504,6 +625,7 @@ footer {
     
     ul {
         display: flex;
+        flex-wrap: wrap;
         justify-content: center;
         list-style-type: none;
         margin-left: 0;
@@ -512,15 +634,18 @@ footer {
 
     li {
         margin: 25px;
+        min-width: 250px;
+        text-align: left;
     }
 
     h2 {
         font-size: 64px;
-        margin: 50px auto 100px;
+        margin: 25% auto;
     }
 
     h3 {
         font-size: 36px;
+        width: 100%;
     }
 
     h4 {
@@ -529,8 +654,13 @@ footer {
 }
 
 .footerAcknowledgement {
-    margin: 100px auto 200px;
-    min-width: 300px;
-    text-align: left;
+    margin: 10% auto;
+    text-align: center;
     width: 50%;
+}
+
+@media only screen and (max-width: 600px) {
+    .footerAcknowledgement {
+        width: 100%;
+    }
 }
