@@ -4,6 +4,7 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import Button from "../components/button"
 import Label from "../components/label"
+import Tool from "../components/tool"
 import leaf from "../images/icon/leaf-icon.svg"
 import heart from "../images/icon/heart-icon.svg"
 import calendar from "../images/icon/calendar-icon.svg"
@@ -35,13 +36,13 @@ const IndexPage = () => {
             </div>
             <div data-sal="slide-down"
               data-sal-duration="500"
-              data-sal-delay="500"
+              data-sal-delay="1000"
               data-sal-easing="ease">
               <Label label="Anyone have extra shovels?" icon={heart} />
             </div>
             <div data-sal="slide-down"
               data-sal-duration="1000"
-              data-sal-delay="1000"
+              data-sal-delay="1500"
               data-sal-easing="easeOutElastic">
               <Label label="Garden Day" icon={calendar} color="#EB5757" />
             </div>
@@ -100,13 +101,13 @@ const IndexPage = () => {
         </section>
         <h2 className="toolsTitle">The tools you<br/>need to activate<br/>your group</h2>
         <div className="tools">
-          <div className="tool">
-            <details open>
-              <summary><h3>Define your group membrane</h3></summary>
-              <p>You decide the visibility and accessibility of your group. 
-                Whether public and open, or invite-only, create the container that feels right.</p>
-            </details>
-          </div>
+          <Tool title="Define your group membrane"
+            text="You decide the visibility and accessibility of your group. 
+            Whether public and open, or invite-only, create the container that feels right."
+            classBg="membrane"
+            imgName="membrane-settings.png"
+            alt="Group privacy settings"
+            index="0" />
           <div className="tool">
             <details closed>
               <summary><h3>Customize your experience</h3></summary>
@@ -199,7 +200,7 @@ const IndexPage = () => {
           at the scale of the biosphere to care for our world.</p>
           <div className="planet"
             data-sal="fade"
-            data-sal-duration="1000"
+            data-sal-duration="500"
             data-sal-delay="0"
             data-sal-easing="ease">
             <img src={planet} alt="Spaceship Earth" />
@@ -207,13 +208,13 @@ const IndexPage = () => {
           <div className="planetaryGrid"
             data-sal="fade"
             data-sal-duration="2000"
-            data-sal-delay="500"
+            data-sal-delay="0"
             data-sal-easing="ease">
             <img src={grid} alt="Planetary Grid" />
           </div>
           <div className="planetaryBelonging"
             data-sal="slide-down"
-            data-sal-duration="1000"
+            data-sal-duration="500"
             data-sal-delay="1000"
             data-sal-easing="easeOutBounce">
             <img src={pin} alt="You are here" />

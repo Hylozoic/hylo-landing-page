@@ -414,15 +414,20 @@ p {
 
 .toolsContainer {
     background: url("../images/activate-bg.png") no-repeat;
-    background-size: cover;
+    background-size: 100%;
+    background-position-y: 50vh;
     margin: 0 auto;
     width: 100%;
 }
 
 .tools {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-flow: column wrap;
+    align-content: flex-start;
+    justify-content: flex-start;
+    column-gap: 0;
+    height: 100vh;
+    min-height: 1000px;
     margin: 0 auto;
     width: 90%;
 }
@@ -436,8 +441,7 @@ p {
     font-size: 48px;
     font-style: normal;
     font-weight: 700;
-    line-height: 48px; /* 100% */
-    letter-spacing: -0.96px;
+    line-height: 50px; /* 100% */
     margin: 10% auto;
     width: 50%;
 }
@@ -449,16 +453,17 @@ p {
   }
 
 .tool {
-    background-color: rgba(0, 0, 0, .5);
+    background: rgba(0, 0, 0, .5);
     border: 2px dashed #6DCD9A;
     border-radius: 5px;
+    display: inline-block;
     margin: 10px;
-    padding: 25px;
     max-width: 475px;
-    width: 40%;
+    width: 49%;
 
     h2 {
         font-size: 64px;
+        text-align: left;
     }
 
     h3 {
@@ -468,6 +473,28 @@ p {
         font-weight: 700;
         padding-left: 10px;
     }
+
+    button {
+        cursor: pointer;
+        background: none;
+        border: none;
+        color: #fff;
+    }
+}
+
+.toolBg {
+    background: transparent;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease;
+    padding: 25px;
+    text-align: center;
+}
+
+.toolBg.membrane {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .6) 50%, rgba(0, 0, 0, 0.7) 100%), url("../images/membrane-bg.png") no-repeat;
+    background-size: cover;
 }
 
 /* Testimonial Section Styles */
@@ -550,12 +577,12 @@ p {
 }
 
 .planet {
-    left: 15%;
-    top: 15%;
+    left: 25%;
+    top: 25%;
     position: absolute;
     z-index: 1;
-    height: 600px;
-    width: 600px;
+    height: 542px;
+    width: 542px;
 }
 
 .planetaryGrid {
@@ -563,8 +590,8 @@ p {
     top: 25%;
     position: absolute;
     z-index: 2;
-    height: 600px;
-    width: 600px;
+    height: 542px;
+    width: 542px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -573,15 +600,18 @@ p {
 .planetaryBelonging {
     position: absolute;
     left: 25%;
-    top: 50%;
+    top: 42%;
     z-index: 3;
     margin: 0 auto 10%;
-    height: 600px;
-    width: 600px;
+    height: 542px;
+    width: 542px;
 
     h3 {
-        font-size: 36px;
+        font-family: 'Circular-Book', sans-serif;
+        font-size: 32px;
+        font-weight: 100;
         margin: 0 auto;
+        text-shadow: 0px 4px 15px rgba(0, 0, 0, 0.75);
     }
 }
 
