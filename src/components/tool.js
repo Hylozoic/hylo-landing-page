@@ -24,24 +24,25 @@ const Tool = ({ title, text, classBg, imgName, alt, index }) => {
       }
     }`);
 
-    console.log(allFile);
-
     const image = allFile.edges.find(edge => edge.node.childImageSharp.fluid.originalName.includes(imgName));
-    const imagePath = image.node ? image.node.childImageSharp.fluid.src : null
-    console.log(image);
+    const imagePath = image && image.node ? image.node.childImageSharp.fluid.src : null
     
     return (
         <div className="tool">
             { isActive ? 
-                <div className={`toolBg ${classBg}`} 
-                    onClick={() => setActive(false)}
-                    onKeyPress={() => setActive(false)} 
-                    role="button" 
-                    aria-expanded="true"
-                    tabIndex={index}>
-                    <h3>{title}</h3>
-                    <p>{text}</p>
-                    <img src={imagePath} alt={alt} />
+                <div className={classBg}>
+                  <div className="toolBg">
+                    <div className="toolDetail" 
+                        onClick={() => setActive(false)}
+                        onKeyPress={() => setActive(false)} 
+                        role="button" 
+                        aria-expanded="true"
+                        tabIndex={index}>
+                        <h3>{title}</h3>
+                        <p>{text}</p>
+                        <img src={imagePath} alt={alt} />
+                    </div>
+                  </div>
                 </div> : <button onClick={() => setActive(true)}><h3>+ {title}</h3></button>
             }
         </div>

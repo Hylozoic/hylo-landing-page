@@ -4,6 +4,7 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import Button from "../components/button"
 import Label from "../components/label"
+import Contributors from "../components/contributors"
 import Tool from "../components/tool"
 import leaf from "../images/icon/leaf-icon.svg"
 import heart from "../images/icon/heart-icon.svg"
@@ -83,20 +84,16 @@ const IndexPage = () => {
       <section className="toolsContainer">
         <section className="ecosystem">
           <div className="ecosystemContainer">
-            <h2>Powering an emerging ecosystem,<br/>building a better world</h2>
-            <p>Hylo is an open source project stewarded by Terran Collective alongside partners, contributors and donors from around the world.</p> 
-            <p>We build Hylo differently; we work directly with real-world groups solving the problems of the future to co-design exactly what they need, and then share it with the world. 
-              Here are just some of the partners and contributors that make Hylo possible.</p>
-            <div className="ecosystemLogos">
-              <img src={logos} alt="Partner Logos" />
+            <div className="ecosystemBg">
+              <h2>Powering an emerging ecosystem,<br/>building a better world</h2>
+              <p>Hylo is an open source project stewarded by Terran Collective alongside partners, contributors and donors from around the world.</p> 
+              <p>We build Hylo differently; we work directly with real-world groups solving the problems of the future to co-design exactly what they need, and then share it with the world. 
+                Here are just some of the partners and contributors that make Hylo possible.</p>
+              <div className="ecosystemLogos">
+                <img src={logos} alt="Partner Logos" />
+              </div>
             </div>
-            <h3>View Contributors</h3>
-            <div className="ecosystemContributors">
-              <h2>Hylo is built with care</h2>
-              <p>Hylo would not be possible without the generosity, dedication and collaboration of the many contributors 
-                that make it all possible. From the current core team, to everyone who has committed code or provided feedback,
-                ideas or donations -- you are what makes Hylo possible.</p>
-            </div> 
+            <Contributors />
           </div>
         </section>
         <h2 className="toolsTitle">The tools you<br/>need to activate<br/>your group</h2>
@@ -108,70 +105,70 @@ const IndexPage = () => {
             imgName="membrane-settings.png"
             alt="Group privacy settings"
             index="0" />
-          <div className="tool">
-            <details closed>
-              <summary><h3>Customize your experience</h3></summary>
-              <p>Our advanced admin settings make it easy to curate an experience that's perfect for your group culture. 
-                Custom views show group members exactly what they need to see and link out to critical resources.</p>
-            </details>
-          </div>
-          <div className="tool">
-            <details closed>
-              <summary><h3>Grow relationships with collaborators</h3></summary>
-              <p>Our web and mobile apps allow community members to deepen relationships and collaborate 
-                through discussions, requests, offers, resources, member directories, direct messaging, and chat.</p>
-            </details>
-          </div>
-          <div className="tool">
-            <details closed>
-              <summary><h3>Host cross-group conversations</h3></summary>
-              <p>Share one post with multiple groups, creating a shared conversation for cross-pollination and emergence.</p>
-            </details>
-          </div>
-          <div className="tool">
-            <details open>
-              <summary><h3>Discover local connections</h3></summary>
-              <p>Hylo has a geographic map and specific tools for bioregional and place-based groups, 
-                facilitating coordination at the scale regeneration actually happens: locally.</p>
-            </details>
-          </div>
-          <div className="tool">
-            <details open>
-              <summary><h3>Guide toward action</h3></summary>
-              <p>Whether planning an annual meeting or a creek restoration day, 
-                Hylo's coordination tools guide groups toward action. 
-                Use Projects to kick-start collaboration and Events to gather online or IRL.</p>
-            </details>
-          </div>
-          <div className="tool">
-            <details closed>
-              <summary><h3>Composable ecosystems</h3></summary>
-              <p>Groups can add unlimited subgroups AND join other groups, 
-                making it easy to form and navigate large networks. 
-                This composability allows people to connect across membranes and work on shared goals.</p>
-            </details>
-          </div>
-          <div className="tool">
-            <details closed>
-              <summary><h3>Understand your network</h3></summary>
-              <p>Hylo is a tool for collective sensemaking, designed to source intelligence from the edges of a network. 
-                By aggregating content from nested groups, we help you understand what's alive in your ecosystem.</p>
-            </details>
-          </div>
-          <div className="tool">
-            <details open>
-              <summary><h3>Nurture a prosocial culture</h3></summary>
-              <p>Hylo facilitates the transition from top-down to peer-to-peer coordination, 
-                helping your group evolve and scale your impact.</p>
-            </details>
-          </div>
-          <div className="tool">
-            <details closed>
-              <summary><h3>No ads, no distractions</h3></summary>
-              <p>Hylo is a public good; a community-led technology commons. 
-                It's free to use, with no extractive revenue model harvesting your data or attention.</p>
-            </details>
-          </div>
+          <Tool title="Customize your experience"
+            text="Our advanced admin settings make it easy to curate an experience that's perfect for your group. 
+            Custom views show members exactly what they need to see and link out to critical resources."
+            classBg="customize"
+            imgName="customize-settings.png"
+            alt="Customization options"
+            index="1" />  
+          <Tool title="Grow relationships with collaborators"
+            text="Our web and mobile apps allow community members to deepen relationships and collaborate 
+            through discussions, requests, offers, resources, member directories, direct messaging, and chat."
+            classBg="relationship"
+            imgName="relationship.png"
+            alt="Relationships"
+            index="2" />
+          <Tool title="Host cross-group conversations"
+            text="Share one post with multiple groups, creating a shared conversation for cross-pollination and emergence."
+            classBg="crossgroup"
+            imgName="crossgroup.png"
+            alt="Cross-group conversation"
+            index="3" />
+          <Tool title="Discover local connections"
+            text="Hylo has a geographic map and specific tools for bioregional and place-based groups, 
+            facilitating coordination at the scale regeneration actually happens: locally."
+            classBg="local"
+            imgName="local.png"
+            alt="Local and Place-based"
+            index="4" />
+          <Tool title="Guide toward action"
+            text="Whether planning an online event or a creek restoration day, 
+            Hylo's coordination tools guide groups toward action. 
+            Use Projects to kick-start collaboration and Events to gather online or IRL."
+            classBg="action"
+            imgName="action.png"
+            alt="Guide toward action"
+            index="5" />
+          <Tool title="Composable ecosystems"
+            text="Groups can add unlimited subgroups AND join other groups, 
+            making it easy to form and navigate large networks. 
+            This composability allows people to connect across membranes and work on shared goals."
+            classBg="composable"
+            imgName="composable.png"
+            alt="Composable ecosystems"
+            index="6" />
+          <Tool title="Understand your network"
+            text="Hylo is a tool for collective sensemaking, designed to source intelligence from the edges of a network. 
+            By aggregating content from nested groups, we help you understand what's alive in your ecosystem."
+            classBg="sensemaking"
+            imgName="sensemaking.png"
+            alt="Sensemaking tools"
+            index="7" />
+          <Tool title="Nurture a prosocial culture"
+            text="Hylo facilitates the transition from top-down to peer-to-peer coordination, 
+            helping your group evolve and scale your impact."
+            classBg="prosocial"
+            imgName="prosocial.png"
+            alt="prosocial culture"
+            index="8" />
+          <Tool title="No ads, no distractions"
+            text="Hylo is a public good; a community-led and non-profit technology commons. 
+            It's free to use, with no extractive revenue model harvesting your data or attention."
+            classBg="publicgood"
+            imgName="publicgood.png"
+            alt="No ads, no distractions"
+            index="9" />
         </div>
       </section>
       <section className="bioregionalContainer">

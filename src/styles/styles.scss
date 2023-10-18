@@ -373,12 +373,9 @@ p {
 }
 
 .ecosystemContainer {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .6) 50%, rgba(0, 0, 0, 0.7) 100%), url("../images/ecosystem-bg.png") no-repeat;
-    background-size: cover;
     border: 2px dashed #fff;
     border-radius: 3px;
     margin: 15px;
-    padding: 50px;
 
     p {
         margin: 25px auto;
@@ -407,6 +404,25 @@ p {
         margin: 50px auto 25px;
         padding: 10px 40px;
         width: 200px;
+    }
+
+    .ecosystemBg {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .6) 50%, rgba(0, 0, 0, 0.7) 90%, #19262E 100%), url("../images/ecosystem-bg.png") no-repeat;
+        background-size: cover;
+        padding: 50px 50px 100px;
+    }
+}
+
+.contributors { 
+    background-color: #19262E;
+    margin: 0;
+    padding: 25px 50px 50px;
+    width: auto;
+
+    button {
+        background: transparent;
+        border: none;
+        color: #efefef;
     }
 }
 
@@ -482,17 +498,72 @@ p {
     }
 }
 
+// to animate bg: add a div and transition from opacity 0 to 1
 .toolBg {
-    background: transparent;
-    -webkit-transition: all .5s ease;
-    -moz-transition: all .5s ease;
-    -o-transition: all .5s ease;
-    transition: all .5s ease;
+    // background-color: #1E181B;
+    // -webkit-transition: all .25s ease;
+    // -moz-transition: all .25s ease;
+    // -o-transition: all .25s ease;
+    // transition: all .25s ease;
+    // opacity: 1;
+}
+
+.toolDetail {
     padding: 25px;
     text-align: center;
 }
 
-.toolBg.membrane {
+.membrane {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .6) 50%, rgba(0, 0, 0, 0.7) 100%), url("../images/membrane-bg.png") no-repeat;
+    background-size: cover;
+}
+
+.customize {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .6) 50%, rgba(0, 0, 0, 0.7) 100%), url("../images/membrane-bg.png") no-repeat;
+    background-size: cover;
+}
+
+.relationship {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .6) 50%, rgba(0, 0, 0, 0.7) 100%), url("../images/membrane-bg.png") no-repeat;
+    background-size: cover;
+}
+
+.crossgroup {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .6) 50%, rgba(0, 0, 0, 0.7) 100%), url("../images/membrane-bg.png") no-repeat;
+    background-size: cover;
+}
+
+.local {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .6) 50%, rgba(0, 0, 0, 0.7) 100%), url("../images/membrane-bg.png") no-repeat;
+    background-size: cover;
+}
+
+.action {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .6) 50%, rgba(0, 0, 0, 0.7) 100%), url("../images/membrane-bg.png") no-repeat;
+    background-size: cover;
+}
+
+.composable {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .6) 50%, rgba(0, 0, 0, 0.7) 100%), url("../images/membrane-bg.png") no-repeat;
+    background-size: cover;
+}
+
+.sensemaking {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .6) 50%, rgba(0, 0, 0, 0.7) 100%), url("../images/membrane-bg.png") no-repeat;
+    background-size: cover;
+}
+
+.prosocial {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .6) 50%, rgba(0, 0, 0, 0.7) 100%), url("../images/membrane-bg.png") no-repeat;
+    background-size: cover;
+}
+
+.prosocial {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .6) 50%, rgba(0, 0, 0, 0.7) 100%), url("../images/membrane-bg.png") no-repeat;
+    background-size: cover;
+}
+
+.publicgood {
     background: linear-gradient(to bottom, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .6) 50%, rgba(0, 0, 0, 0.7) 100%), url("../images/membrane-bg.png") no-repeat;
     background-size: cover;
 }
