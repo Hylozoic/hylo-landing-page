@@ -18,6 +18,7 @@ body {
 }
 
 h1, h2 {
+    font-family: 'Circular-Bold';
     font-size: 48px;
 }
 
@@ -38,7 +39,7 @@ p {
     h1 {
         color: #FFF;
         text-shadow: 0px 4px 15px rgba(0, 0, 0, 0.50);
-        font-family: Circular Std;
+        font-family: 'Circular-Bold';
         font-size: 48px;
         font-style: normal;
         font-weight: 700;
@@ -227,7 +228,7 @@ p {
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        font-family: Circular Std;
+        font-family: 'Circular-Bold';
         font-size: 48px;
         font-style: normal;
         font-weight: 700;
@@ -288,7 +289,7 @@ p {
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        font-family: Circular Std;
+        font-family: 'Circular-Bold';
         font-size: 48px;
         font-style: normal;
         font-weight: 700;
@@ -342,7 +343,7 @@ p {
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        font-family: Circular Std;
+        font-family: 'Circular-Bold';
         font-size: 48px;
         font-style: normal;
         font-weight: 700;
@@ -384,11 +385,11 @@ p {
     }
 
     h2 {
-        background: linear-gradient(109deg, #FFF 12.13%, #A8D0FF 88.15%);
+        background: linear-gradient(109deg, #FD6FDF 12.13%, #79F6AD 88.15%);
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        font-family: Circular Std;
+        font-family: 'Circular-Bold';
         font-size: 48px;
         font-style: normal;
         font-weight: 700;
@@ -414,7 +415,7 @@ p {
 }
 
 .contributors { 
-    background-color: #19262E;
+    background: linear-gradient(180deg, #19262E 0%, #161B1E 8.83%);
     margin: 0;
     padding: 25px 50px 50px;
     width: auto;
@@ -423,6 +424,47 @@ p {
         background: transparent;
         border: none;
         color: #efefef;
+    }
+
+    h2 {
+        background: linear-gradient(109deg, #79F6AD 12.13%, #0044C9 88.15%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
+
+.contributorsCategory {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    button {
+        border-radius: 50px;
+        border: 1px solid #53ADA5;
+        color: #FFF;
+        text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.30);
+        font-family: 'Circular-Bold';
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        margin: 10px;
+        width: 189px;
+        height: 50px;
+        cursor: pointer;
+
+        span {
+            border-radius: 30px;
+            background: rgba(43, 69, 59, 0.25);
+            padding: 3px 10px;
+            flex-shrink: 0;
+        }
+    }
+
+    button.active {
+        background: linear-gradient(93deg, #0DC39F 7.65%, #6FCF97 100%);
     }
 }
 
@@ -453,7 +495,7 @@ p {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-family: Circular Std;
+    font-family: 'Circular-Bold';
     font-size: 48px;
     font-style: normal;
     font-weight: 700;

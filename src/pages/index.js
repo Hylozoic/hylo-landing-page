@@ -86,8 +86,8 @@ const IndexPage = () => {
           <div className="ecosystemContainer">
             <div className="ecosystemBg">
               <h2>Powering an emerging ecosystem,<br/>building a better world</h2>
-              <p>Hylo is an open source project stewarded by Terran Collective alongside partners, contributors and donors from around the world.</p> 
-              <p>We build Hylo differently; we work directly with real-world groups solving the problems of the future to co-design exactly what they need, and then share it with the world. 
+              <p>Hylo is an open source project stewarded by Terran Collective alongside partners, contributors, and donors from around the world.</p> 
+              <p>Hylo is a not-for-profit, community-led technology commons. We work directly with real-world groups solving the problems of the future to co-design exactly what they need, and then share it with the world. 
                 Here are just some of the partners and contributors that make Hylo possible.</p>
               <div className="ecosystemLogos">
                 <img src={logos} alt="Partner Logos" />

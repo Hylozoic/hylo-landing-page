@@ -3,8 +3,9 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `hylo-landing-page`,
-    siteUrl: `https://www.yourdomain.tld`
+    title: `Hylo: Prosocial Coordination for Purpose-Driven Groups`,
+    description: `Hylo is the leading Prosocial coordination and collaboration technology for purpose-driven groups`,
+    siteUrl: `https://hylo.com`
   },
   plugins: [
     "gatsby-plugin-sass", 
