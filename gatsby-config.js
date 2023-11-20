@@ -4,7 +4,7 @@
 module.exports = {
   siteMetadata: {
     title: `Hylo: Prosocial Coordination for Purpose-Driven Groups`,
-    description: `Hylo is the leading Prosocial coordination and collaboration technology for purpose-driven groups`,
+    description: `Hylo is the leading prosocial coordination and collaboration technology for purpose-driven groups.`,
     siteUrl: `https://hylo.com`
   },
   plugins: [

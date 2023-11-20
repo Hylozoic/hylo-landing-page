@@ -175,7 +175,7 @@ const Contributors = () => {
                     title: "Pacific Integral"
                 },
                 {
-                    id: 35,
+                    id: 36,
                     name: "Dan Kittredge",
                     title: "Bionutrients Food Association"
                 },
@@ -242,8 +242,8 @@ const Contributors = () => {
             { isActive ? 
                 <div className="contributorsDetail">
                     <h2>Hylo is built with care</h2>
-                    <p>Hylo would not be possible without the generosity, dedication and collaboration of the many contributors 
-                    that make it all possible. From the current core team, to everyone who has committed code or provided feedback,
+                    <p>Hylo is brought to you through the generosity, dedication, and collaboration of many contributors. 
+                    From the current core team, to everyone who has committed code or provided feedback,
                     ideas or donations -- you are what makes Hylo possible.</p>
                     <div className="contributorsCategory">
                         <button className={isActiveCategory === "team" ? "active" : ""}

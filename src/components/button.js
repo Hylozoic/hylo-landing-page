@@ -15,6 +15,7 @@ const Button = ({ label, link, color, background, border, fontSize }) => (
       fontWeight: `700`,
       margin: `10px`,
       padding: `10px 40px`,
+      cursor: `pointer`,
     }}>
         {label}
     </button>
