@@ -15,6 +15,7 @@ body {
     color: #fff;
     font-family: 'Circular-Book', sans-serif;
     margin: 0;
+    width: 100vw;
 }
 
 h1, h2 {
@@ -50,7 +51,7 @@ p {
 
 .headingStyles {
     font-family: 'Circular-Bold', sans-serif;
-    padding: 30vh 100px 10px;
+    padding: 25vh 100px 10px;
     max-width: 600px;
 }
 
@@ -58,25 +59,30 @@ p {
 
 .homeMenu {
     color: #fff;
-    margin: 0 100px 0 0;
     text-align: right;
 
     strong {
         font-family: 'Circular-Bold', sans-serif;
         font-weight: 700;
     }
+
+    h3 {
+        margin: 0;
+    }
 }
 
- @media only screen and (max-width: 900px) {
-    .homeMenu {
-      display: none;
-    }
-  }
+.menuCTA {
+    margin: 0 100px 0 10px;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
 
   /* Menu Styles */
 
 .menu {
-//max-width: 1024px;
     margin: 0 auto;
     padding: 100px 0;
     position: relative;
@@ -94,34 +100,41 @@ p {
     font-weight: bold;
 }
 
-.menu ul {
-    list-style: none;
+.menuPages {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    text-align: left;
+    margin: 0 auto;
+    width: 90%;
+
+    div {
+        flex-grow: 1;
+        margin: 0 25px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    ul {
+        list-style: none;
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+    } 
+
+    li {
+        cursor: pointer;
+        margin: 10px 0;
+        width: 80%;
+        text-wrap: wrap;
+    }
 }
 
-.menu ul h3 {
-    font-size: 20px;
-}
-
-.menu ul ul {
-    display: block;
-    margin-left: 0;
-}
-
-.menu ul li {
-    margin: 30px;
-    width: 230px;
-}
-
-.menu ul li ul li {
-    margin: 15px;
-}
-
-.menu img {
-    margin: 0 auto 30px auto;
-    display: block;
+.menuHome {
+    margin: 0 auto 30px;
+    text-align: center;
 }
 
 .menuWrapper {
@@ -178,10 +191,9 @@ p {
     position: fixed;
     border-radius: 2px;
     z-index: 1000;
-    top: 22px;
+    top: 15px;
     right: 25px;
     background-color: $accent-color;
-    // box-shadow: 0 10px 15px 0 rgba(0,0,0,0.23);
     outline: none;
     border: none;
 }
@@ -836,8 +848,8 @@ p {
 
 footer {
     background-color: #142956;
-    margin: 0 auto;
-    padding: 50px;
+    margin: 0;
+    padding: 0;
     text-align: center;
     width: 100%;
 

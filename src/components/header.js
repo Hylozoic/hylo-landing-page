@@ -1,7 +1,5 @@
-import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React, { useState } from "react"
-import logo from "../images/logos/hylo-logo-white.svg"
 import Menu from "./menu"
 import Button from "./button"
 import menuToggleHamburger from "../images/icon/menu_hamburger.svg"
@@ -14,29 +12,14 @@ const Header = ({ siteTitle }) => {
   return (
     <header style={{
       backgroundColor: `#40A1DD`,
-      display: `flex`,
-      justifyContent: `space-between`,
-      alignItems: `center`,
-      margin: `0 auto`,
-      padding: `0 25px`,
-      position: `absolute`,
-      top: 0,
+      margin: `0`,
       width: `100%`,
-      zIndex: `100000`,
     }}>
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `#2b80f0`,
-            textDecoration: `none`,
-          }}
-        >
-          <img src={logo} alt="Hylo Logo" />
-        </Link>
-      </h1>
       <div className="homeMenu">
-        <h3><strong>Hylo is in open beta.</strong> We build in the open and you can be a part of it! <Button label="Get Involved" link="/participate/" color={`#40A1DD`} fontSize="16px" /></h3>
+        <div className="menuCTA">
+          <h3><strong>Hylo is in open beta.</strong> We build in the open and you can be a part of it!</h3>
+          <Button label="Get Involved" link="/participate/" color="#40A1DD" fontSize="16px" />
+        </div>
         <div className={`menuWrapper ${openStyle}`}>
           <button className="menuToggle" onClick={() => setOpen(!isOpen)}>
             <img src={menuToggleHamburger} alt="Open menu icon" className="openMenu" />

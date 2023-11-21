@@ -1,11 +1,13 @@
 import * as React from "react"
 import "../styles/styles.scss"
+import { Link } from "gatsby"
 import Layout from "../components/layout"
 import Button from "../components/button"
 import Label from "../components/label"
 import Contributors from "../components/contributors"
 import Tool from "../components/tool"
 import Footer from "../components/footer"
+import logo from "../images/logos/hylo-logo-white.svg"
 import leaf from "../images/icon/leaf-icon.svg"
 import heart from "../images/icon/heart-icon.svg"
 import calendar from "../images/icon/calendar-icon.svg"
@@ -19,6 +21,9 @@ const IndexPage = () => {
     <Layout pageTitle="Home Page">
       <div className="hero">
         <div className="headingStyles">
+          <div className="homeLogo">
+              <img src={logo} alt="Hylo Logo" />
+          </div>
           <h1>Create community<br/>with purpose on Hylo</h1>
           <Button label="Sign Up" link="/sign-up/" background={`linear-gradient(rgba(0,0,0,1), rgba(0,0,0,1)) padding-box,
               linear-gradient(to right, #BB60A8, #40A1DD) border-box`} color="#fff" border={`4px solid transparent`}/>
