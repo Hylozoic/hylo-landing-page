@@ -849,7 +849,7 @@ p {
 footer {
     background-color: #142956;
     margin: 0;
-    padding: 0;
+    padding: 50px 0;
     text-align: center;
     width: 100%;
 
@@ -873,6 +873,10 @@ footer {
         text-align: left;
     }
 
+    p {
+        text-wrap: wrap;
+    }
+
     h2 {
         font-size: 64px;
         margin: 25% auto;
@@ -891,12 +895,17 @@ footer {
 .footerAcknowledgement {
     margin: 10% auto;
     text-align: center;
-    width: 50%;
+    width: 75%;
+}
+
+.footerSeal {
+    margin: 0 auto;
+    width: 90%;
 }
 
 @media only screen and (max-width: 600px) {
     .footerAcknowledgement {
-        width: 100%;
+        width: 90%;
     }
 }
 
@@ -945,4 +954,26 @@ footer {
 .aboutImage {
     margin: 25px auto;
     width: 100%;
+}
+
+.participateSection {
+    display: flex;
+    // flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.asideImage {
+    min-width: 500px;
+
+}
+
+@media only screen and (max-width: 900px) {
+    .participateSection {
+        flex-wrap: wrap;
+    }
+
+    .asideImage {
+        min-width: 350px;
+    }
 }

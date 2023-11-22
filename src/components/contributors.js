@@ -245,6 +245,7 @@ const Contributors = () => {
                     <p>Hylo is brought to you through the generosity, dedication, and collaboration of many contributors. 
                     From the current core team, to everyone who has committed code or provided feedback,
                     ideas or donations -- you are what makes Hylo possible.</p>
+                    <iframe src="https://opencollective.com/embed/hylo/donate" style={{width: "100%", minHeight: "100vh"}}></iframe>
                     <div className="contributorsCategory">
                         <button className={isActiveCategory === "team" ? "active" : ""}
                             onClick={() => setActiveCategory("team")}
