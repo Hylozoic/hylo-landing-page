@@ -34,7 +34,7 @@ const Footer = () => {
             </h4>
             <p><Link to="/participate/#join">Join our open-source community</Link></p>
             <p><Link to="/participate/#gatherings">Attend a community call</Link></p>
-            <p><Link to="/participate/#work-with-us">Work with us</Link></p>
+            <p><Link to="/participate/#partner-with-us">Partner with us</Link></p>
             <p><Link to="/participate/#contribute">Contribute to Hylo</Link></p>
           </li>
           <li>

@@ -27,7 +27,7 @@ const AboutPage = () => {
                   and a lot of human care.
             </p> 
         
-            <h2>Our Vision &amp; Theory of Change</h2>
+            <h2 id="vision">Our Vision &amp; Theory of Change</h2>
 
             <p>Technologies are products of the culture in which they emerge, and they guide the emergence of new cultures. 
                 <strong> New culture and new tools are co-evolutionary.</strong> As we work towards the more beautiful world our hearts know is possible, 
@@ -61,7 +61,7 @@ const AboutPage = () => {
                 and human culture deeply embodies care, peace, and unity. In this future, our children are thriving. 
                 We offer this work for our ancestors and the ones yet to come.</p>
 
-            <h2>How We Work: Participatory Design</h2>
+            <h2 id="how-we-work">How We Work: Participatory Design</h2>
 
             <p>Hylo is built through 100% relationship-driven development. We listen to the needs of our partners — 
                 people already working to grow healthy communities — and collaborate to co-design tools to amplify their work. 
@@ -75,7 +75,7 @@ const AboutPage = () => {
                 Hylo stands out precisely because it is birthed from and embedded within this web of relationship &mdash; 
                 it is an integral part of the emerging ecosystem powering the regenerative movement.</p>
 
-            <h2>Hylo's Stewardship</h2>
+            <h2 id="hylo-stewardship">Hylo's Stewardship</h2>
 
             <p>Hylo is maintained by <a target="_blank" rel="noopener noreferrer" href="http://terran.io">Terran Collective</a>, 
                 a California Bay Area community of care and practice dedicated to amplifying cooperation among people 
@@ -88,7 +88,7 @@ const AboutPage = () => {
                 <img src={sociocracy} alt="Hylo team structure" width="100%" />
             </div>
 
-            <p>Our team operations follow the dynamic governance framework of Sociocracy, with a General Circle, Purpose Circle,
+            <p id="team">Our team operations follow the dynamic governance framework of Sociocracy, with a General Circle, Purpose Circle,
                 Product Circle, Dev Circle, and Community Circle connected to our broader ecosystem of stakeholders.</p>
 
             <div className="aboutImage">

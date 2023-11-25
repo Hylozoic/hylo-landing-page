@@ -25,7 +25,7 @@ const ParticipatePage = () => {
                 </div>
             </div>
         
-            <h2>Join our open-source community</h2>
+            <h2 id="join">Join our open-source community</h2>
             <p>Everyone says they're tired of social media business as usual, 
                 but who's walking the talk and putting energy into the next evolution of social technology? 
                 Our community is doing something radically different. Here's how to get involved:</p>
@@ -47,10 +47,20 @@ const ParticipatePage = () => {
                 communities to collaborate, share resources, sensemake and create at scale. 
                 <br/><a target="_blank" rel="noopener noreferrer" href="https://www.collaborative.tech/"> Join here.</a></p>
 
+            <h2 id="gatherings">Join a community call</h2>
+            <p>We host a monthly community call for folks in our ecosystem to connect and chat about Hylo and their community, 
+                and ask questions and offer input to the Hylo stewardship team. You're invited to join us! </p>
+            <div>
+                <iframe src="https://hylo.com/groups/building-hylo/events?layoutFlags=hideNav" style={{ position: "relative", width: "500px", height: "100vh"}} title="Building Hylo Events"></iframe>
+            </div>
 
-            <h2>Support the commons</h2>
+            <h2 id="partner-with-us">Partner with us</h2>
+            <p>We host a monthly community call for folks in our ecosystem to connect and chat about Hylo and their community, 
+                and ask questions and offer input to the Hylo stewardship team. You're invited to join us! </p>
 
-            <h2>Work with us</h2>
+            <h2 id="contribute">Contribute to Hylo</h2>
+            <p>We host a monthly community call for folks in our ecosystem to connect and chat about Hylo and their community, 
+                and ask questions and offer input to the Hylo stewardship team. You're invited to join us! </p>
 
             
         </div>

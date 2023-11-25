@@ -42,7 +42,7 @@ const Menu = ({ closeMenu }) => (
         <ul>
           <li><Link to="/participate/#join" onClick={closeMenu}>Join our open-source community</Link></li>
           <li><Link to="/participate/#gatherings" onClick={closeMenu}>Attend a community call</Link></li>
-          <li><Link to="/participate/#work-with-us" onClick={closeMenu}>Work with us</Link></li>
+          <li><Link to="/participate/#partner-with-us" onClick={closeMenu}>Partner with us</Link></li>
           <li><Link to="/participate/#contribute" onClick={closeMenu}>Contribute to Hylo</Link></li>
         </ul>
       </div>
