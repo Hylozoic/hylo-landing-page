@@ -62,6 +62,8 @@ const ParticipatePage = () => {
             <p>We host a monthly community call for folks in our ecosystem to connect and chat about Hylo and their community, 
                 and ask questions and offer input to the Hylo stewardship team. You're invited to join us! </p>
 
+            <iframe title="Contribute to Hylo" src="https://opencollective.com/embed/hylo/donate" style={{width: "100%", minHeight: "100vh"}}></iframe>
+
             
         </div>
         <Footer />
