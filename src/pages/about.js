@@ -9,12 +9,12 @@ import team from "../images/team.png"
 const AboutPage = () => {
   return (
     <Layout pageTitle="About Hylo">
-        <div className="hero aboutHero">
+        <div className="hero contentHero">
             <div className="headingStyles">
                 <h1>Unleashing the capacity of purpose-driven groups to change the world</h1>
             </div>
         </div>
-        <div className="aboutContainer">
+        <div className="contentContainer">
             <h2>Hylo is a community-led, prosocial coordination platform for purpose-driven groups.</h2>
 
             <p>Hylo is open-source, non-profit, and driven by participatory design with real-world groups at the forefront of regenerative agriculture, community resilience, peer learning, equity, inclusive capital, and place-based organizing.</p>
@@ -33,7 +33,7 @@ const AboutPage = () => {
                 <strong> New culture and new tools are co-evolutionary.</strong> As we work towards the more beautiful world our hearts know is possible, 
                 we must envision both the culture and corresponding tools that can birth that future.</p>
 
-            <div className="aboutImage">
+            <div className="contentImage">
                 <img src={coevolutionary} alt="Culture and tools evolve together." width="100%" />
             </div>
 
@@ -84,14 +84,14 @@ const AboutPage = () => {
                 <strong> Our goal is to transition to a structure that enshrines Hylo as a technology commons with a participatory 
                 governance model that formally includes stakeholder voices.</strong></p>
 
-            <div className="aboutImage">
+            <div className="contentImage">
                 <img src={sociocracy} alt="Hylo team structure" width="100%" />
             </div>
 
             <p id="team">Our team operations follow the dynamic governance framework of Sociocracy, with a General Circle, Purpose Circle,
                 Product Circle, Dev Circle, and Community Circle connected to our broader ecosystem of stakeholders.</p>
 
-            <div className="aboutImage">
+            <div className="contentImage">
                 <img src={team} alt="Hylo team members" width="100%" />
             </div>
         </div>

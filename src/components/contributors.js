@@ -45,9 +45,9 @@ const Contributors = () => {
             { isActive ? 
                 <div className="contributorsDetail">
                     <h2>Hylo is built with care</h2>
-                    <p>Hylo is brought to you through the generosity, dedication, and collaboration of many contributors. 
+                    <p>Hylo is brought to you through the generosity and dedication of many contributors. 
                     From the current core team, to everyone who has committed code or provided feedback,
-                    ideas or donations -- you are what makes Hylo possible.</p>
+                    ideas, or donations -- you are what makes Hylo possible.</p>
         
                     <div className="contributorsCategory">
                         <button className={isActiveCategory === "team" ? "active" : ""}
@@ -58,7 +58,7 @@ const Contributors = () => {
                             onKeyPress={() => setActiveCategory("cocreators")}>Co-Creators <span>39</span></button>
                         <button className={isActiveCategory === "donors" ? "active" : ""}
                             onClick={() => setActiveCategory("donors")}
-                            onKeyPress={() => setActiveCategory("donors")}>Donors <span>212</span></button>
+                            onKeyPress={() => setActiveCategory("donors")}>Donors <span>231</span></button>
                     </div>
                     <div className="contributorsList">
                         <h3>{contributorsData[isActiveCategory].message}</h3>

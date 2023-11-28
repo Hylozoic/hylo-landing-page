@@ -928,13 +928,13 @@ footer {
     }
 }
 
-/*   ABOUT PAGE STYLES   */
+/*   CONTENT PAGE STYLES   */
 
-.aboutHero {
+.contentHero {
     background-color: #19262E;
 }
 
-.aboutContainer {
+.contentContainer {
     margin: 50px auto;
     width: 75%;
 
@@ -969,16 +969,28 @@ footer {
     a {
         color: #4BB3EB;
     }
+
+    h4 {
+        font-family: "Circular-Book";
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 100;
+        margin-bottom: 10px;
+    }
+
+    li {
+        font-size: 18px;
+        line-height: 24px;
+    }
 }
 
-.aboutImage {
+.contentImage {
     margin: 25px auto;
     width: 100%;
 }
 
-.participateSection {
+.contentSection {
     display: flex;
-    // flex-wrap: wrap;
     justify-content: space-around;
     align-items: flex-start;
 }
@@ -989,7 +1001,7 @@ footer {
 }
 
 @media only screen and (max-width: 900px) {
-    .participateSection {
+    .contentSection {
         flex-wrap: wrap;
     }
 

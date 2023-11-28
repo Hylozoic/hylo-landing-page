@@ -7,15 +7,15 @@ import meme from "../images/meme.png"
 const ParticipatePage = () => {
   return (
     <Layout pageTitle="Participate in Hylo">
-        <div className="hero aboutHero">
+        <div className="hero contentHero">
             <div className="headingStyles">
                 <h1>A public good technology commons co-created by you</h1>
             </div>
         </div>
-        <div className="aboutContainer">
+        <div className="contentContainer">
             <h2>There is a place for you at our table.</h2> 
 
-            <div className="participateSection">
+            <div className="contentSection">
                 <p><strong>You are warmly invited to join the Hylo community</strong> and contribute your unique voice to stewarding this platform. 
                     Hylo is its stakeholders &mdash; this technology is shaped with care by our members, partners, 
                     and our 500+ open source contributors. Come be a part of it!</p>
