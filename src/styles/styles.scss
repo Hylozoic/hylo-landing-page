@@ -18,6 +18,19 @@ body {
     width: 100vw;
 }
 
+body::-webkit-scrollbar {
+    width: 12px;
+}
+
+body::-webkit-scrollbar-track {
+    background: rgba(30, 24, 26, 1.0);
+}
+
+body::-webkit-scrollbar-thumb {
+    background: rgba(64, 161, 221, 1.0);
+    border-radius: 20px;
+}
+
 h1, h2 {
     font-family: 'Circular-Bold';
     font-size: 48px;
@@ -37,6 +50,7 @@ p {
 .hero {
     height: 80vh;
     margin-bottom: 50px;
+    position: relative;
 
     h1 {
         color: #FFF;
@@ -53,7 +67,71 @@ p {
     font-family: 'Circular-Bold', sans-serif;
     padding: 25vh 100px 10px;
     max-width: 600px;
+    position: relative;
+    z-index: 10;
 }
+
+@keyframes zoomIn {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.2);
+    }
+}
+
+.passionMessages {
+    position: relative;
+    z-index: 10;
+
+    .message {
+        background: #FFFFFF;
+        box-shadow: 0px 15px 25px rgba(42, 64, 89, 0.35);
+        border-radius: 10px;
+    }
+}
+
+.backgroundWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+
+    .backgroundImage {
+        width: 100%;
+        padding-top: 100px;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        animation-name: zoomIn;
+        animation-duration: 30s;
+        animation-fill-mode: forwards;
+        background-position: bottom;
+        background-size: cover;
+    }
+    
+    .hero {
+        background-image: url(../images/around-the-fire-web.png);
+    }
+
+    .gardenDay {
+        background-image: url(../images/gardening-web.png);
+    }
+
+    .backgroundFade {
+        position: absolute;
+        width: 100%;
+        height: 100px;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(180deg, rgba(30, 24, 26, 0) 0%, #1E181A 100%);
+
+    }
+}
+
 
 /* Nav Styles */
 
@@ -247,6 +325,7 @@ p {
     background-color: $accent-color;
     padding: 25px;
     width: 60%;
+    position: relative;
 }
 
 .passionRight {
@@ -352,7 +431,6 @@ p {
 /* Interdependence Section Styles */
 
 .interdependence {
-    background: url("../images/interdependence-bg.png") no-repeat;
     background-size: cover;
     display: flex;
     height: 100vh;
@@ -360,8 +438,658 @@ p {
     width: 100%;
  }
 
+@keyframes rotate {
+    to {
+        transform: rotate(180deg);
+    }
+}
+@keyframes bounce {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes highlightBounce {
+    0% {
+        transform: scale(1);
+        border: 3px solid rgba(187, 96, 168, 0);
+    }
+    50% {
+        transform: scale(1.6);
+    }
+    100% {
+        transform: scale(1.4);
+        border: 3px solid rgba(187, 96, 168, 1.0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes pulsing {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1); 
+    }
+}
+
+@keyframes pulsingBig {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.4); 
+    }
+}
 .interdependenceLeft {
     width: 50%;
+
+    .interdependenceAnimation {
+        position: relative;
+        width: 100%;
+
+        .animationWrapper {
+            width: 100%;
+            height: auto;
+            position: relative;
+            border: 1px solid red;
+
+            .elements {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border: 1px solid blue;
+
+                img {
+                    position: absolute;
+                }
+            }
+
+
+            .spacer {
+                position: relative;
+                width: 100%;
+                height: 100%;
+            }
+
+            .hyloIcon {
+                width: 7.9%;
+                height: 7.9%;
+                right: 17.4%;
+                top: 17.4%;
+                transform: scale(0);
+                animation-name: bounce;
+                animation-delay: 0, 1s;
+                animation-duration: .75s, 2s;
+                animation-timing-function: ease-in-out, linear;
+                animation-iteration-count: 1, infinite;
+                animation-fill-mode: forwards;
+            }
+
+            .hyloMembrane {
+                width: 42.8%;
+                height: 42.8%;
+                top: 0;
+                right: 0;
+                transform: scale(0);
+                animation-name: bounce, rotate;
+                animation-delay: 0, .15s;
+                animation-duration: 1s, 15s;
+                animation-timing-function: ease-in-out, linear;
+                animation-iteration-count: 1, infinite;
+                animation-fill-mode: forwards;
+            }
+
+            .hyloName {
+                width: 12.8%;
+                height: 1.9%;
+                top: 26.6%;
+                right: 14.9%;
+                transform: scale(0);
+                animation-name: bounce;
+                animation-delay: .4s;
+                animation-duration: .5s;
+                animation-timing-function: ease-in-out;
+                animation-iteration-count: 1;
+                animation-fill-mode: forwards;
+            }
+
+            .phaIcon {
+                width: 5.2%;
+                height: 5.2%;
+                right: 11.5%;
+                bottom: 11.5%;
+                transform: scale(0);
+                animation-name: bounce;
+                animation-delay: 2s;
+                animation-duration: .75s;
+                animation-timing-function: ease-in-out;
+                animation-iteration-count: 1;
+                animation-fill-mode: forwards;
+            }
+
+            .phaMembrane {
+                width: 28.2%;
+                height: 28.2%;
+                bottom: 0;
+                right: 0;
+                transform: scale(0);
+                animation-name: bounce, rotate;
+                animation-delay: 2s, 2.5s;
+                animation-duration: 1s, 15s;
+                animation-timing-function: ease-in-out, linear;
+                animation-iteration-count: 1, infinite;
+                animation-fill-mode: forwards;
+            }
+
+            .phaName {
+                width: 24.5%;
+                height: 1.9%;
+                bottom: 8%;
+                right: 1.8%;
+                transform: scale(0);
+                animation-name: bounce;
+                animation-delay: 2.25s;
+                animation-duration: .75s;
+                animation-timing-function: ease-in-out;
+                animation-iteration-count: 1;
+                animation-fill-mode: forwards;
+            }
+
+            .zebrasIcon {
+                width: 13.1%;
+                height: 13.1%;
+                top: 41.4%;
+                left: 30.9%;
+                transform: scale(0);
+                animation-name: bounce, pulse;
+                animation-delay: 1s, 2s;
+                animation-duration: .75s, 15s;
+                animation-timing-function: ease-in-out, linear;
+                animation-iteration-count: 1, infinite;
+                animation-fill-mode: forwards;
+            }
+
+            .zebrasMembrane {
+                width: 74.7%;
+                height: 74.7%;
+                left: 0;
+                top: 10.7%;
+                transform: scale(0);
+                animation-name: bounce, rotate;
+                animation-delay: 1s, 1s;
+                animation-duration: 1.5s, 15s;
+                animation-timing-function: ease-in-out, linear;
+                animation-iteration-count: 1, infinite;
+                animation-fill-mode: forwards;
+            }
+
+            .zebrasName {
+                width: 18.4%;
+                height: 2.3%;
+                top: 55%;
+                left: 28.4%;
+                transform: scale(0);
+                animation-name: bounce;
+                animation-delay: 1.65s;
+                animation-duration: .75s;
+                animation-timing-function: ease-in-out;
+                animation-iteration-count: 1;
+                animation-fill-mode: forwards;
+            }
+
+            .subgroupMembrane {
+                width: 17%;
+                height: 17%;
+                top: 74.2%;
+                left: 38.2%;
+                transform: scale(0);
+                animation-name: bounce, rotate;
+                animation-delay: 2s, 2s;
+                animation-duration: 1.5s, 15s;
+                animation-timing-function: ease-in-out, linear;
+                animation-iteration-count: 1, infinite;
+                animation-fill-mode: forwards;
+            }
+
+            .groupSpread1 {
+                width: 46.6%;
+                height: 21.1%;
+                top: 4.5%;
+                left: 36%;
+                opacity: 0;
+                animation-delay: 2.8s;
+                animation-name: fadeIn;
+                animation-duration: .75s;
+                animation-timing-function: ease-in-out;
+                animation-iteration-count: 1;
+                animation-fill-mode: forwards;
+            }
+
+            .groupSpread2 {
+                width: 14%;
+                height: 19.4%;
+                top: 29.1%;
+                left: 19%; 
+                opacity: 0;
+                animation-delay: 2.8s;
+                animation-name: fadeIn;
+                animation-duration: .75s;
+                animation-timing-function: ease-in-out;
+                animation-iteration-count: 1;
+                animation-fill-mode: forwards;
+            }
+
+            .groupSpread3 {
+                width: 38.3%;
+                height: 59%;
+                top: 25.6%;
+                left: 51.3%;
+                opacity: 0;
+                animation-delay: 2.8s;
+                animation-name: fadeIn;
+                animation-duration: .75s;
+                animation-timing-function: ease-in-out;
+                animation-iteration-count: 1;
+                animation-fill-mode: forwards;
+            }
+
+            .messages {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 5;
+
+                .lookingForHelp {
+                    top: 24.5%;
+                    left: 20%;
+                    height: 11.1%;
+                    width: 45.4%;
+                    transform: scale(0);
+                    animation-delay: 2.8s;
+                    animation-name: bounce;
+                    animation-duration: .75s;
+                    animation-timing-function: ease-in-out;
+                    animation-iteration-count: 1;
+                    animation-fill-mode: forwards;
+                }
+
+                .illContribute {
+                    width: 18%;
+                    height: 6.59%;
+                    top: 10.6%;
+                    right: 40%;
+                    animation-delay: 3.6s;
+                    transform: scale(0);
+                    animation-name: bounce;
+                    animation-delay: 4s;
+                    animation-duration: .75s;
+                    animation-timing-function: ease-in-out;
+                    animation-iteration-count: 1;
+                    animation-fill-mode: forwards;
+                }
+
+                .iCanHelp {
+                    width: 16.2%;
+                    height: 6.5%;
+                    top: 47.3%;
+                    left: 57%;
+                    transform: scale(0);
+                    animation-delay: 4.2s;
+                    animation-name: bounce;
+                    animation-duration: .75s;
+                    animation-timing-function: ease-in-out;
+                    animation-iteration-count: 1;
+                    animation-fill-mode: forwards;
+                }
+
+                .meToo {
+                    width: 12.8%;
+                    height: 6.6%;
+                    right: 24.5%;
+                    bottom: 17.4%;
+                    transform: scale(0);
+                    animation-delay: 4.3s;
+                    animation-name: bounce;
+                    animation-duration: .75s;
+                    animation-timing-function: ease-in-out;
+                    animation-iteration-count: 1;
+                    animation-fill-mode: forwards;
+                }
+            }
+
+            .profileImages {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 0;
+
+                img:nth-child(1n) {
+                    border-radius: 100%;
+                    width: 2%;
+                    height: 2%;
+                    opacity: .6;
+                    transform: scale(0);
+                    animation-name: bounce;
+                    animation-duration: .75s;
+                    animation-timing-function: ease-in-out;
+                    animation-iteration-count: 1;
+                    animation-fill-mode: forwards;
+                }
+
+                img:nth-child(2n) {
+                    width: 3%;
+                    height: 3%;
+                    border-radius: 100%;
+                    opacity: .7;
+                    transform: scale(0);
+                    animation-name: bounce;
+                    animation-duration: .75s;
+                    animation-timing-function: ease-in-out;
+                    animation-iteration-count: 1;
+                    animation-fill-mode: forwards;
+                }
+
+                img:nth-child(3n) {
+                    width: 4%;
+                    height: 4%;
+                    opacity: .8;
+                    transform: scale(0);
+                    animation-name: bounce;
+                    animation-duration: .75s;
+                    animation-timing-function: ease-in-out;
+                    animation-iteration-count: 1;
+                    animation-fill-mode: forwards;
+                }
+
+                .profileImage1 {
+                    top: 12.4%;
+                    right: 4.4%;
+                    animation-delay: 1s;
+                }
+                .profileImage2 {
+                    top: 3.3%;
+                    right: 20.2%;
+                    animation-delay: 1.2s;
+                }
+                .profileImage3 {
+                    top: 11.1%;
+                    right: 15.4%;
+                    animation-delay: 1.3s;
+                }
+                .profileImage4 {
+                    top: 20.8%;
+                    right: 5.9%;
+                    animation-delay: 1.4s;
+                }
+                .profileImage5 {
+                    top: 29.3%;
+                    right: 8.6%;
+                    animation-delay: 1.5s;
+                }
+                .profileImage6 {
+                    top: 33.7%;
+                    right: 14.5%;     
+                    animation-delay: 1.6s;               
+                }
+                .profileImage7 {
+                    top: 32%;
+                    right: 19%;
+                    animation-delay: 1.7s;
+                }
+                .profileImage8 {
+                    top: 34.7%;
+                    right: 28.9%;
+                    animation-delay: 1.8s;
+                }
+                img.profileImage9 {
+                    top: 27.4%;
+                    right: 33.6%;
+                    width: 4%;
+                    height: 4%;
+                    border: 3px solid transparent;
+                    animation-name: bounce, highlightBounce;
+                    animation-delay: 1.9s, 2.8s;
+                }
+                .profileImage10 {
+                    top: 10.9%;
+                    right: 31.8%;
+                    animation-delay: 2s;
+                }
+                .profileImage11 {
+                    top: 10.7%;
+                    right: 26%;
+                    animation-delay: 2.1s;
+                }
+                .profileImage12 {
+                    top: 4.5%;
+                    right: 28%;
+                    animation-delay: 2s;
+                }
+                .profileImage13 {
+                    top: 16.2%;
+                    left: 35.2%;
+                    animation-delay: 2.1s;
+                }
+                .profileImage14 {
+                    top: 23.9%;
+                    left: 46.5%;
+                    animation-delay: 2.15s;
+                }
+                .profileImage15 {
+                    top: 32.3%;
+                    left: 44.8%;
+                    animation-delay: 2.2s;
+                }
+                .profileImage16 {
+                    top: 38.6%;
+                    left: 48.4%;
+                    animation-delay: 2.25s;
+                }
+                .profileImage17 {
+                    top: 45.2%;
+                    left: 64.8%;
+                    animation-delay: 2.3s;
+                }
+                .profileImage18 {
+                    top: 54.6%;
+                    left: 59.7%;
+                    animation-delay: 2.6s;
+                }
+                .profileImage19 {
+                    top: 59.7%;
+                    left: 67.1%;
+                    animation-delay: 2.35s;
+                }
+                .profileImage20 {
+                    top: 67.9%;
+                    left: 58.2%;
+                    animation-delay: 2.4s;
+                }
+                .profileImage21 {
+                    top: 63.3%;
+                    left: 52.1%;
+                    animation-delay: 2.45s;
+                }
+                .profileImage22 {
+                    top: 62.3%;
+                    left: 39.4%;
+                    animation-delay: 2.5s;
+                }
+                .profileImage23 {
+                    top: 75.3%;
+                    left: 43.6%;
+                    animation-delay: 2.55s;
+                }
+                .profileImage24 {
+                    top: 78.7%;
+                    left: 48.6%;
+                    animation-delay: 2.6s;
+                }
+                .profileImage25 {
+                    top: 86.1%;
+                    left: 47%;
+                    animation-delay: 2.65s;
+                }
+                .profileImage26 {
+                    top: 63.7%;
+                    left: 29.6%;
+                    animation-delay: 2.7s;
+                }
+                .profileImage27 {
+                    top: 72%;
+                    left: 30%;
+                    animation-delay: 2.75s;
+                }
+                .profileImage28 {
+                    top: 79.5%;
+                    left: 26.6%;
+                    animation-delay: 2.8s;
+                }
+                .profileImage29 {
+                    top: 68.4%;
+                    left: 17%;
+                    animation-delay: 2.85s;
+                }
+                .profileImage30 {
+                    top: 59.1%;
+                    left: 20.4%;
+                    animation-delay: 2.9s;
+                }
+                .profileImage31 {
+                    top: 51.9%;
+                    left: 12.4%;
+                    animation-delay: 2.95s;
+                }
+                .profileImage32 {
+                    top: 62.3%;
+                    left: 9.3%;
+                    animation-delay: 3s;
+                }
+                .profileImage33 {
+                    top: 47.1%;
+                    left: 11.2%;
+                    animation-delay: 3.05s;
+                }
+                .profileImage34 {
+                    top: 48.4%;
+                    left: 7%;
+                    animation-delay: 3.1s;
+                }
+                .profileImage35 {
+                    top: 36.3%;
+                    left: 20.2%;
+                    animation-delay: 3.15s;
+                }
+                .profileImage36 {
+                    top: 29.8%;
+                    left: 8.8%;
+                    animation-delay: 3.2s;
+                }
+                .profileImage37 {
+                    top: 31.2%;
+                    left: 29.6%;
+                    animation-delay: 3.25s;
+                }
+                .profileImage38 {
+                    top: 28.2%;
+                    left: 32.3%;
+                    animation-delay: 3.3s;
+                }
+                .profileImage39 {
+                    top: 21.6%;
+                    left: 21.8%;
+                    animation-delay: 3.35s;
+                }
+                .profileImage40 {
+                    right: 11.6%;
+                    bottom: 25.1%;
+                    animation-delay: 3.4s;
+                }
+                .profileImage41 {
+                    right: 5%;
+                    bottom: 21.2%;
+                    animation-delay: 2.1s;
+                }
+                .profileImage42 {
+                    right: 7.3%;
+                    bottom: 17.9%;
+                    animation-delay: 2.2s;
+                }
+                .profileImage43 {
+                    right: 3.7%;
+                    bottom: 14.4%;
+                    animation-delay: 2.3s;
+                }
+                .profileImage44 {
+                    right: 1.1%;
+                    bottom: 11.4%;
+                    animation-delay: 2.4s;
+                }
+                .profileImage45 {
+                    right: 5.6%;
+                    bottom: 5.2%;
+                    animation-delay: 2.5s;
+                }
+                .profileImage46 {
+                    right: 9.1%;
+                    bottom: 4.5%;
+                    animation-delay: 2.6s;
+                }
+                .profileImage47 {
+                    right: 13%;
+                    bottom: 3%;
+                    animation-delay: 2.7s;
+                }
+                .profileImage48 {
+                    right: 19.6%;
+                    bottom: 4.8%;
+                    animation-delay: 2.8s;
+                }
+                .profileImage49 {
+                    right: 18.8%;
+                    bottom: 13.6%;
+                    animation-delay: 2.9s;
+                }
+                .profileImage50 {
+                    right: 23.4%;
+                    bottom: 13.9%;
+                    animation-delay: 3s;
+                }
+                .profileImage51 {
+                    right: 16.4%;
+                    bottom: 17.4%;
+                    animation-delay: 3.1s;
+                }
+                .profileImage52 {
+                    right: 13.5%;
+                    bottom: 19.6%;
+                    animation-delay: 3.2s;
+                }
+            }
+
+        }
+    }
 }
 
 .interdependenceRight {

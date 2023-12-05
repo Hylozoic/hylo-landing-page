@@ -7,6 +7,7 @@ import Contributors from "../components/contributors"
 import Tool from "../components/tool"
 import Footer from "../components/footer"
 import logo from "../images/logos/hylo-logo-white.svg"
+import heroImage from "../images/around-the-fire-web.png"
 import leaf from "../images/icon/leaf-icon.svg"
 import heart from "../images/icon/heart-icon.svg"
 import calendar from "../images/icon/calendar-icon.svg"
@@ -14,6 +15,80 @@ import logos from "../images/logos/ecosystem-logos.png"
 import pin from "../images/icon/map-pin.svg"
 import planet from "../images/planet.png"
 import grid from "../images/planetary-grid.png"
+
+// animation files
+import animationSpacer from "../images/groups-animation/spacer.png"
+import hyloIcon from "../images/groups-animation/building-hylo-group-icon.png"
+import hyloMembrane from "../images/groups-animation/building-hylo-membrane.svg"
+import hyloName from "../images/groups-animation/building-hylo-name.svg"
+import phaIcon from "../images/groups-animation/pha-group-icon.png"
+import phaMembrane from "../images/groups-animation/pha-membrane.svg"
+import phaName from "../images/groups-animation/pha-name.svg"
+import zebrasIcon from "../images/groups-animation/zebras-unite-group-icon.png"
+import zebrasMembrane from "../images/groups-animation/zebras-unite-membrane.svg"
+import zebrasName from "../images/groups-animation/zebras-name.svg"
+import subgroupMembrane from "../images/groups-animation/subgroup-membrane.svg"
+import lookingForHelp from "../images/groups-animation/looking-for-help.svg"
+import illContribute from "../images/groups-animation/ill-contribute.svg"
+import iCanHelp from "../images/groups-animation/i-can-help.svg"
+import meToo from "../images/groups-animation/me-too.svg"
+import groupSpread1 from "../images/groups-animation/group-spread-1.svg"
+import groupSpread2 from "../images/groups-animation/group-spread-2.svg"
+import groupSpread3 from "../images/groups-animation/group-spread-3.svg"
+
+import profileImage1 from "../images/groups-animation/profile_image_01.jpg"
+import profileImage2 from "../images/groups-animation/profile_image_02.jpg"
+import profileImage3 from "../images/groups-animation/profile_image_03.jpg"
+import profileImage4 from "../images/groups-animation/profile_image_04.jpg"
+import profileImage5 from "../images/groups-animation/profile_image_05.jpg"
+import profileImage6 from "../images/groups-animation/profile_image_06.jpg"
+import profileImage7 from "../images/groups-animation/profile_image_07.jpg"
+import profileImage8 from "../images/groups-animation/profile_image_08.jpg"
+import profileImage9 from "../images/groups-animation/profile_image_09.jpg"
+import profileImage10 from "../images/groups-animation/profile_image_10.jpg"
+import profileImage11 from "../images/groups-animation/profile_image_11.jpg"
+import profileImage12 from "../images/groups-animation/profile_image_12.jpg"
+import profileImage13 from "../images/groups-animation/profile_image_13.jpg"
+import profileImage14 from "../images/groups-animation/profile_image_14.jpg"
+import profileImage15 from "../images/groups-animation/profile_image_15.jpg"
+import profileImage16 from "../images/groups-animation/profile_image_16.jpg"
+import profileImage17 from "../images/groups-animation/profile_image_17.jpg"
+import profileImage18 from "../images/groups-animation/profile_image_18.jpg"
+import profileImage19 from "../images/groups-animation/profile_image_19.jpg"
+import profileImage20 from "../images/groups-animation/profile_image_20.jpg"
+import profileImage21 from "../images/groups-animation/profile_image_21.jpg"
+import profileImage22 from "../images/groups-animation/profile_image_22.jpg"
+import profileImage23 from "../images/groups-animation/profile_image_23.jpg"
+import profileImage24 from "../images/groups-animation/profile_image_24.jpg"
+import profileImage25 from "../images/groups-animation/profile_image_25.jpg"
+import profileImage26 from "../images/groups-animation/profile_image_26.jpg"
+import profileImage27 from "../images/groups-animation/profile_image_27.jpg"
+import profileImage28 from "../images/groups-animation/profile_image_28.jpg"
+import profileImage29 from "../images/groups-animation/profile_image_29.jpg"
+import profileImage30 from "../images/groups-animation/profile_image_30.jpg"
+import profileImage31 from "../images/groups-animation/profile_image_31.jpg"
+import profileImage32 from "../images/groups-animation/profile_image_32.jpg"
+import profileImage33 from "../images/groups-animation/profile_image_33.jpg"
+import profileImage34 from "../images/groups-animation/profile_image_34.jpg"
+import profileImage35 from "../images/groups-animation/profile_image_35.jpg"
+import profileImage36 from "../images/groups-animation/profile_image_36.jpg"
+import profileImage37 from "../images/groups-animation/profile_image_37.jpg"
+import profileImage38 from "../images/groups-animation/profile_image_38.jpg"
+import profileImage39 from "../images/groups-animation/profile_image_39.jpg"
+import profileImage40 from "../images/groups-animation/profile_image_40.jpg"
+import profileImage41 from "../images/groups-animation/profile_image_41.jpg"
+import profileImage42 from "../images/groups-animation/profile_image_42.jpg"
+import profileImage43 from "../images/groups-animation/profile_image_43.jpg"
+import profileImage44 from "../images/groups-animation/profile_image_44.jpg"
+import profileImage45 from "../images/groups-animation/profile_image_45.jpg"
+import profileImage46 from "../images/groups-animation/profile_image_46.jpg"
+import profileImage47 from "../images/groups-animation/profile_image_47.jpg"
+import profileImage48 from "../images/groups-animation/profile_image_48.jpg"
+import profileImage49 from "../images/groups-animation/profile_image_49.jpg"
+import profileImage50 from "../images/groups-animation/profile_image_50.jpg"
+import profileImage51 from "../images/groups-animation/profile_image_51.jpg"
+import profileImage52 from "../images/groups-animation/profile_image_52.jpg"
+
 
 const IndexPage = () => {
   return (
@@ -29,27 +104,36 @@ const IndexPage = () => {
           <Button label="Log In" link="/log-in/" background={`linear-gradient(rgba(0,0,0,1), rgba(0,0,0,1)) padding-box,
               linear-gradient(to right, #6FCF97, #40A1DD) border-box`} color="#fff" border={`4px solid transparent`}/>
         </div>
+        <div className="backgroundWrapper">
+          <div className={'backgroundImage hero'} style={{backgroundImage: `../images/around-the-fire-web.png`}}></div>
+          <div className="backgroundFade"></div>
+        </div>
       </div>
       <div className="aliveContainer">
         <section className="passion">
           <div className="passionLeft">
-            <div data-sal="slide-down"
-              data-sal-duration="500"
-              data-sal-delay="500"
-              data-sal-easing="ease">
-              <Label label="Planning a garden day at the lake!" icon={leaf} />
+            <div className="passionMessages">
+              <div className="message" data-sal="slide-down"
+                data-sal-duration="500"
+                data-sal-delay="500"
+                data-sal-easing="ease">
+                <Label label="Planning a garden day at the lake!" icon={leaf} />
+              </div>
+              <div data-sal="slide-down"
+                data-sal-duration="500"
+                data-sal-delay="1000"
+                data-sal-easing="ease">
+                <Label label="Anyone have extra shovels?" icon={heart} />
+              </div>
+              <div data-sal="slide-down"
+                data-sal-duration="1000"
+                data-sal-delay="1500"
+                data-sal-easing="easeOutElastic">
+                <Label label="Garden Day" icon={calendar} color="#EB5757" />
+              </div>
             </div>
-            <div data-sal="slide-down"
-              data-sal-duration="500"
-              data-sal-delay="1000"
-              data-sal-easing="ease">
-              <Label label="Anyone have extra shovels?" icon={heart} />
-            </div>
-            <div data-sal="slide-down"
-              data-sal-duration="1000"
-              data-sal-delay="1500"
-              data-sal-easing="easeOutElastic">
-              <Label label="Garden Day" icon={calendar} color="#EB5757" />
+            <div className="backgroundWrapper">
+              <div className="backgroundImage gardenDay"></div>
             </div>
           </div>
           <div className="passionRight">
@@ -78,7 +162,88 @@ const IndexPage = () => {
         </section>
       </div>
       <section className="interdependence">
-        <div className="interdependenceLeft"></div>
+        <div className="interdependenceLeft">
+          <div className="interdependenceAnimation">
+            <div className="animationWrapper">
+              <img className="spacer" src={animationSpacer} width="100%" height="100%" />
+              <div className="elements">
+                <img src={hyloIcon} className="hyloIcon" alt=" " />
+                <img src={hyloMembrane} className="hyloMembrane" alt=" " />
+                <img src={hyloName} className="hyloName" alt=" " />
+                <img src={phaIcon} className="phaIcon" alt=" " />
+                <img src={phaMembrane} className="phaMembrane" alt=" " />
+                <img src={phaName} className="phaName" alt=" " />
+                <img src={zebrasIcon} className="zebrasIcon" alt=" " />
+                <img src={zebrasMembrane} className="zebrasMembrane" alt=" " />
+                <img src={zebrasName} className="zebrasName" alt=" " />
+                <img src={subgroupMembrane} className="subgroupMembrane" alt=" " />
+                <img src={groupSpread1} className="groupSpread1" alt=" " />
+                <img src={groupSpread2} className="groupSpread2" alt=" " />
+                <img src={groupSpread3} className="groupSpread3" alt=" " />
+                <div className="messages">
+                  <img src={lookingForHelp} className="lookingForHelp" alt=" " />
+                  <img src={illContribute} className="illContribute" alt=" " />
+                  <img src={iCanHelp} className="iCanHelp" alt=" " />
+                  <img src={meToo} className="meToo" alt=" " />
+                </div>
+                <div className="profileImages">
+                  <img src={profileImage1} className="profileImage1" alt=" " />
+                  <img src={profileImage2} className="profileImage2" alt=" " />
+                  <img src={profileImage3} className="profileImage3" alt=" " />
+                  <img src={profileImage4} className="profileImage4" alt=" " />
+                  <img src={profileImage5} className="profileImage5" alt=" " />
+                  <img src={profileImage6} className="profileImage6" alt=" " />
+                  <img src={profileImage7} className="profileImage7" alt=" " />
+                  <img src={profileImage8} className="profileImage8" alt=" " />
+                  <img src={profileImage9} className="profileImage9" alt=" " />
+                  <img src={profileImage10} className="profileImage10" alt=" " />
+                  <img src={profileImage11} className="profileImage11" alt=" " />
+                  <img src={profileImage12} className="profileImage12" />
+                  <img src={profileImage13} className="profileImage13" />
+                  <img src={profileImage14} className="profileImage14" />
+                  <img src={profileImage15} className="profileImage15" />
+                  <img src={profileImage16} className="profileImage16" />
+                  <img src={profileImage17} className="profileImage17" />
+                  <img src={profileImage18} className="profileImage18" />
+                  <img src={profileImage19} className="profileImage19" />
+                  <img src={profileImage20} className="profileImage20" />
+                  <img src={profileImage21} className="profileImage21" />
+                  <img src={profileImage22} className="profileImage22" />
+                  <img src={profileImage23} className="profileImage23" />
+                  <img src={profileImage24} className="profileImage24" />
+                  <img src={profileImage25} className="profileImage25" />
+                  <img src={profileImage26} className="profileImage26" />
+                  <img src={profileImage27} className="profileImage27" />
+                  <img src={profileImage28} className="profileImage28" />
+                  <img src={profileImage29} className="profileImage29" />
+                  <img src={profileImage30} className="profileImage30" />
+                  <img src={profileImage31} className="profileImage31" />
+                  <img src={profileImage32} className="profileImage32" />
+                  <img src={profileImage33} className="profileImage33" />
+                  <img src={profileImage34} className="profileImage34" />
+                  <img src={profileImage35} className="profileImage35" />
+                  <img src={profileImage36} className="profileImage36" />
+                  <img src={profileImage37} className="profileImage37" />
+                  <img src={profileImage38} className="profileImage38" />
+                  <img src={profileImage39} className="profileImage39" />
+                  <img src={profileImage40} className="profileImage40" />
+                  <img src={profileImage41} className="profileImage41" />
+                  <img src={profileImage42} className="profileImage42" />
+                  <img src={profileImage43} className="profileImage43" />
+                  <img src={profileImage44} className="profileImage44" />
+                  <img src={profileImage45} className="profileImage45" />
+                  <img src={profileImage46} className="profileImage46" />
+                  <img src={profileImage47} className="profileImage47" />
+                  <img src={profileImage48} className="profileImage48" />
+                  <img src={profileImage49} className="profileImage49" />
+                  <img src={profileImage50} className="profileImage50" />
+                  <img src={profileImage51} className="profileImage51" />
+                  <img src={profileImage52} className="profileImage52" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div className="interdependenceRight">
           <h2>Designed for<br/>interdependence</h2>
           <p>Work on projects across groups and get help from throughout your network. 
