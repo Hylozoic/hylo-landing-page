@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, { useEffect } from "react"
 import "../styles/styles.scss"
 import Layout from "../components/layout"
 import Button from "../components/button"
@@ -15,6 +15,10 @@ import logos from "../images/logos/ecosystem-logos.png"
 import pin from "../images/icon/map-pin.svg"
 import planet from "../images/planet.png"
 import grid from "../images/planetary-grid.png"
+import handBackground from  "../images/hand-background.jpg"
+import notification from "../images/notification.png"
+import bikerbg from "../images/bikerbg.jpg"
+import biker from "../images/biker.png"
 
 // animation files
 import animationSpacer from "../images/groups-animation/spacer.png"
@@ -35,7 +39,6 @@ import meToo from "../images/groups-animation/me-too.svg"
 import groupSpread1 from "../images/groups-animation/group-spread-1.svg"
 import groupSpread2 from "../images/groups-animation/group-spread-2.svg"
 import groupSpread3 from "../images/groups-animation/group-spread-3.svg"
-
 import profileImage1 from "../images/groups-animation/profile_image_01.jpg"
 import profileImage2 from "../images/groups-animation/profile_image_02.jpg"
 import profileImage3 from "../images/groups-animation/profile_image_03.jpg"
@@ -89,8 +92,44 @@ import profileImage50 from "../images/groups-animation/profile_image_50.jpg"
 import profileImage51 from "../images/groups-animation/profile_image_51.jpg"
 import profileImage52 from "../images/groups-animation/profile_image_52.jpg"
 
+const addAnimationOnScroll = (listenerClass, targetClass, animationClass, pixelOffset) => {
+  let observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+          if (entry.isIntersecting) {
+              const handleScroll = () => {
+                  const targetElement = document.querySelector(`.${targetClass}`);
+                  if (!targetElement) return;
+                  const targetPosition = entry.target.getBoundingClientRect().top + window.scrollY;
+                  const viewportBottom = window.scrollY + window.innerHeight;
+                  // Check if the bottom of the listener element is at or above the bottom of the viewport
+                  if (targetPosition - pixelOffset <= viewportBottom) {
+                      targetElement.classList.add(animationClass);
+                      observer.unobserve(entry.target);
+                      window.removeEventListener('scroll', handleScroll);
+                  }
+              };
+              window.addEventListener('scroll', handleScroll, { passive: true });
+          }
+      });
+  }, {
+      rootMargin: '0px 0px -200px 0px', // Adjusts the bottom of the root's bounding box
+      threshold: 0.01 // A very small threshold to detect the start of intersection
+  });
+
+  // Start observing the listener element
+  const listenerElement = document.querySelector(`.${listenerClass}`);
+  if (listenerElement) {
+      observer.observe(listenerElement);
+  }
+};
 
 const IndexPage = () => {
+    useEffect(() => {
+      addAnimationOnScroll("interdependenceLeft", "interdependenceAnimation", "animate", 200);
+      addAnimationOnScroll("aliveRight", "holdingPhone", "animate", 400);
+      addAnimationOnScroll("passionLeft", "passionMessages", "animate", 400);
+      addAnimationOnScroll("passionLeft", "gardenDay", "animate", 600);
+  }, []);
   return (
     <Layout pageTitle="Home Page">
       <div className="hero">
@@ -98,11 +137,13 @@ const IndexPage = () => {
           <div className="homeLogo">
               <img src={logo} alt="Hylo Logo" />
           </div>
-          <h1>Create community<br/>with purpose on Hylo</h1>
+          <h1><span>Create</span> <span>community</span><br/><span>with</span> <span>purpose</span> <span>on</span> <span>Hylo</span></h1>
+          <div className="actions">
           <Button label="Sign Up" link="/sign-up/" background={`linear-gradient(rgba(0,0,0,1), rgba(0,0,0,1)) padding-box,
               linear-gradient(to right, #BB60A8, #40A1DD) border-box`} color="#fff" border={`4px solid transparent`}/>
           <Button label="Log In" link="/log-in/" background={`linear-gradient(rgba(0,0,0,1), rgba(0,0,0,1)) padding-box,
               linear-gradient(to right, #6FCF97, #40A1DD) border-box`} color="#fff" border={`4px solid transparent`}/>
+          </div>
         </div>
         <div className="backgroundWrapper">
           <div className={'backgroundImage hero'} style={{backgroundImage: `../images/around-the-fire-web.png`}}></div>
@@ -116,18 +157,18 @@ const IndexPage = () => {
               <div className="message" data-sal="slide-down"
                 data-sal-duration="500"
                 data-sal-delay="500"
-                data-sal-easing="ease">
+                data-sal-easing="easeOutElastic">
                 <Label label="Planning a garden day at the lake!" icon={leaf} />
               </div>
-              <div data-sal="slide-down"
+              <div className="message" data-sal="slide-down"
                 data-sal-duration="500"
                 data-sal-delay="1000"
-                data-sal-easing="ease">
+                data-sal-easing="easeOutElastic">
                 <Label label="Anyone have extra shovels?" icon={heart} />
               </div>
-              <div data-sal="slide-down"
+              <div className="message" data-sal="slide-down"
                 data-sal-duration="1000"
-                data-sal-delay="1500"
+                data-sal-delay="2500"
                 data-sal-easing="easeOutElastic">
                 <Label label="Garden Day" icon={calendar} color="#EB5757" />
               </div>
@@ -137,117 +178,141 @@ const IndexPage = () => {
             </div>
           </div>
           <div className="passionRight">
-            <h2>Driven by passion,<br/>
-            united by purpose</h2>
-            <p>Hylo is the place where people who are passionate about their dreams come together to support each other and make them a reality.</p>
-            <p>It's a community where you can <strong>connect with others who share your purpose</strong> and work towards achieving your goals together.</p>
-            <div style={{textAlign: `center`}}>
-              <h3>Ready to find where you belong?</h3>
-              <Button label="Explore Groups" link="/explore/" background={`linear-gradient(93deg, #0DC39F 7.65%, #6FCF97 100%)`} color="#fff" />      
+            <div className="sticky">
+              <h2>Driven by passion,<br/>
+              united by purpose</h2>
+              <p>Hylo is the place where people who are passionate about their dreams come together to support each other and make them a reality.</p>
+              <p>It's a community where you can <strong>connect with others who share your purpose</strong> and work towards achieving your goals together.</p>
+              <div style={{textAlign: `center`}}>
+                <h3>Ready to find where you belong?</h3>
+                <Button label="Explore Groups" link="/explore/" background={`linear-gradient(93deg, #0DC39F 7.65%, #6FCF97 100%)`} color="#fff" />      
+              </div>
             </div>
           </div>
         </section>
         <section className="alive">
           <div className="aliveLeft">
-            <h2>Watch your group<br/>come alive</h2>
-            <p>Many online groups struggle with engagement. 
-              On Hylo, groups transform into vibrant, self-organized, collaborative networks.</p>
-            <p>Hylo makes it easy for group members to step into leadership, enabling the group to grow and deepen its impact.</p>
-            <div style={{textAlign: `center`}}>
-              <h3>Ready to gather your people?</h3>
-              <Button label="Create a Group" link="/create/" background={`linear-gradient(93deg, #B162AB 7.65%, #0175D8 100%)`} color="#fff"/>  
+            <div className="pad">
+              <h2>Watch your group<br/>come alive</h2>
+              <p>Many online groups struggle with engagement. 
+                On Hylo, groups transform into vibrant, self-organized, collaborative networks.</p>
+              <p>Hylo makes it easy for group members to step into leadership, enabling the group to grow and deepen its impact.</p>
+              <div style={{textAlign: `center`}}>
+                <h3>Ready to gather your people?</h3>
+                <Button label="Create a Group" link="/create/" background={`linear-gradient(93deg, #B162AB 7.65%, #0175D8 100%)`} color="#fff"/>  
+              </div>
             </div>
           </div>
-          <div className="aliveRight"></div>
+          <div className="aliveRight">
+            <div className="holdingPhone">
+              <img src={notification} className="notification" />
+              <div className="mask">
+                <img src={bikerbg} className="bikerbg" />
+              </div>
+              <img src={handBackground} className="handBackground" />
+              <div className="tallMask">
+                <img src={biker} className="biker" />
+              </div>
+            </div>
+          </div>
         </section>
       </div>
       <section className="interdependence">
+        <div className="topBg" style={{backgroundImage: "../images/alive-bottom-bg.svg"}}></div>
         <div className="interdependenceLeft">
-          <div className="interdependenceAnimation">
-            <div className="animationWrapper">
-              <img className="spacer" src={animationSpacer} width="100%" height="100%" />
-              <div className="elements">
-                <img src={hyloIcon} className="hyloIcon" alt=" " />
-                <img src={hyloMembrane} className="hyloMembrane" alt=" " />
-                <img src={hyloName} className="hyloName" alt=" " />
-                <img src={phaIcon} className="phaIcon" alt=" " />
-                <img src={phaMembrane} className="phaMembrane" alt=" " />
-                <img src={phaName} className="phaName" alt=" " />
-                <img src={zebrasIcon} className="zebrasIcon" alt=" " />
-                <img src={zebrasMembrane} className="zebrasMembrane" alt=" " />
-                <img src={zebrasName} className="zebrasName" alt=" " />
-                <img src={subgroupMembrane} className="subgroupMembrane" alt=" " />
-                <img src={groupSpread1} className="groupSpread1" alt=" " />
-                <img src={groupSpread2} className="groupSpread2" alt=" " />
-                <img src={groupSpread3} className="groupSpread3" alt=" " />
-                <div className="messages">
-                  <img src={lookingForHelp} className="lookingForHelp" alt=" " />
-                  <img src={illContribute} className="illContribute" alt=" " />
-                  <img src={iCanHelp} className="iCanHelp" alt=" " />
-                  <img src={meToo} className="meToo" alt=" " />
-                </div>
-                <div className="profileImages">
-                  <img src={profileImage1} className="profileImage1" alt=" " />
-                  <img src={profileImage2} className="profileImage2" alt=" " />
-                  <img src={profileImage3} className="profileImage3" alt=" " />
-                  <img src={profileImage4} className="profileImage4" alt=" " />
-                  <img src={profileImage5} className="profileImage5" alt=" " />
-                  <img src={profileImage6} className="profileImage6" alt=" " />
-                  <img src={profileImage7} className="profileImage7" alt=" " />
-                  <img src={profileImage8} className="profileImage8" alt=" " />
-                  <img src={profileImage9} className="profileImage9" alt=" " />
-                  <img src={profileImage10} className="profileImage10" alt=" " />
-                  <img src={profileImage11} className="profileImage11" alt=" " />
-                  <img src={profileImage12} className="profileImage12" />
-                  <img src={profileImage13} className="profileImage13" />
-                  <img src={profileImage14} className="profileImage14" />
-                  <img src={profileImage15} className="profileImage15" />
-                  <img src={profileImage16} className="profileImage16" />
-                  <img src={profileImage17} className="profileImage17" />
-                  <img src={profileImage18} className="profileImage18" />
-                  <img src={profileImage19} className="profileImage19" />
-                  <img src={profileImage20} className="profileImage20" />
-                  <img src={profileImage21} className="profileImage21" />
-                  <img src={profileImage22} className="profileImage22" />
-                  <img src={profileImage23} className="profileImage23" />
-                  <img src={profileImage24} className="profileImage24" />
-                  <img src={profileImage25} className="profileImage25" />
-                  <img src={profileImage26} className="profileImage26" />
-                  <img src={profileImage27} className="profileImage27" />
-                  <img src={profileImage28} className="profileImage28" />
-                  <img src={profileImage29} className="profileImage29" />
-                  <img src={profileImage30} className="profileImage30" />
-                  <img src={profileImage31} className="profileImage31" />
-                  <img src={profileImage32} className="profileImage32" />
-                  <img src={profileImage33} className="profileImage33" />
-                  <img src={profileImage34} className="profileImage34" />
-                  <img src={profileImage35} className="profileImage35" />
-                  <img src={profileImage36} className="profileImage36" />
-                  <img src={profileImage37} className="profileImage37" />
-                  <img src={profileImage38} className="profileImage38" />
-                  <img src={profileImage39} className="profileImage39" />
-                  <img src={profileImage40} className="profileImage40" />
-                  <img src={profileImage41} className="profileImage41" />
-                  <img src={profileImage42} className="profileImage42" />
-                  <img src={profileImage43} className="profileImage43" />
-                  <img src={profileImage44} className="profileImage44" />
-                  <img src={profileImage45} className="profileImage45" />
-                  <img src={profileImage46} className="profileImage46" />
-                  <img src={profileImage47} className="profileImage47" />
-                  <img src={profileImage48} className="profileImage48" />
-                  <img src={profileImage49} className="profileImage49" />
-                  <img src={profileImage50} className="profileImage50" />
-                  <img src={profileImage51} className="profileImage51" />
-                  <img src={profileImage52} className="profileImage52" />
+          <div className="pad">
+            <div className="interdependenceAnimation">
+              <div className="animationWrapper">
+                <img className="spacer" src={animationSpacer} width="100%" height="100%" />
+                <div className="elements">
+                  <img src={hyloIcon} className="hyloIcon" alt=" " />
+                  <img src={hyloMembrane} className="hyloMembrane" alt=" " />
+                  <img src={hyloName} className="hyloName" alt=" " />
+                  <img src={phaIcon} className="phaIcon" alt=" " />
+                  <img src={phaMembrane} className="phaMembrane" alt=" " />
+                  <img src={phaName} className="phaName" alt=" " />
+                  <img src={zebrasIcon} className="zebrasIcon" alt=" " />
+                  <img src={zebrasMembrane} className="zebrasMembrane" alt=" " />
+                  <img src={zebrasName} className="zebrasName" alt=" " />
+                  <img src={subgroupMembrane} className="subgroupMembrane" alt=" " />
+                  <img src={groupSpread1} className="groupSpread1" alt=" " />
+                  <img src={groupSpread2} className="groupSpread2" alt=" " />
+                  <img src={groupSpread3} className="groupSpread3" alt=" " />
+                  <div className="messages">
+                    <img src={lookingForHelp} className="lookingForHelp" alt=" " />
+                    <img src={illContribute} className="illContribute" alt=" " />
+                    <img src={iCanHelp} className="iCanHelp" alt=" " />
+                    <img src={meToo} className="meToo" alt=" " />
+                  </div>
+                  <div className="profileImages">
+                    <img src={profileImage1} className="profileImage1" alt=" " />
+                    <img src={profileImage2} className="profileImage2" alt=" " />
+                    <img src={profileImage3} className="profileImage3" alt=" " />
+                    <img src={profileImage4} className="profileImage4" alt=" " />
+                    <img src={profileImage5} className="profileImage5" alt=" " />
+                    <img src={profileImage6} className="profileImage6" alt=" " />
+                    <img src={profileImage7} className="profileImage7" alt=" " />
+                    <img src={profileImage8} className="profileImage8" alt=" " />
+                    <img src={profileImage9} className="profileImage9" alt=" " />
+                    <img src={profileImage10} className="profileImage10" alt=" " />
+                    <img src={profileImage11} className="profileImage11" alt=" " />
+                    <img src={profileImage12} className="profileImage12" />
+                    <img src={profileImage13} className="profileImage13" />
+                    <img src={profileImage14} className="profileImage14" />
+                    <img src={profileImage15} className="profileImage15" />
+                    <img src={profileImage16} className="profileImage16" />
+                    <img src={profileImage17} className="profileImage17" />
+                    <img src={profileImage18} className="profileImage18" />
+                    <img src={profileImage19} className="profileImage19" />
+                    <img src={profileImage20} className="profileImage20" />
+                    <img src={profileImage21} className="profileImage21" />
+                    <img src={profileImage22} className="profileImage22" />
+                    <img src={profileImage23} className="profileImage23" />
+                    <img src={profileImage24} className="profileImage24" />
+                    <img src={profileImage25} className="profileImage25" />
+                    <img src={profileImage26} className="profileImage26" />
+                    <img src={profileImage27} className="profileImage27" />
+                    <img src={profileImage28} className="profileImage28" />
+                    <img src={profileImage29} className="profileImage29" />
+                    <img src={profileImage30} className="profileImage30" />
+                    <img src={profileImage31} className="profileImage31" />
+                    <img src={profileImage32} className="profileImage32" />
+                    <img src={profileImage33} className="profileImage33" />
+                    <img src={profileImage34} className="profileImage34" />
+                    <img src={profileImage35} className="profileImage35" />
+                    <img src={profileImage36} className="profileImage36" />
+                    <img src={profileImage37} className="profileImage37" />
+                    <img src={profileImage38} className="profileImage38" />
+                    <img src={profileImage39} className="profileImage39" />
+                    <img src={profileImage40} className="profileImage40" />
+                    <img src={profileImage41} className="profileImage41" />
+                    <img src={profileImage42} className="profileImage42" />
+                    <img src={profileImage43} className="profileImage43" />
+                    <img src={profileImage44} className="profileImage44" />
+                    <img src={profileImage45} className="profileImage45" />
+                    <img src={profileImage46} className="profileImage46" />
+                    <img src={profileImage47} className="profileImage47" />
+                    <img src={profileImage48} className="profileImage48" />
+                    <img src={profileImage49} className="profileImage49" />
+                    <img src={profileImage50} className="profileImage50" />
+                    <img src={profileImage51} className="profileImage51" />
+                    <img src={profileImage52} className="profileImage52" />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div className="interdependenceRight">
-          <h2>Designed for<br/>interdependence</h2>
-          <p>Work on projects across groups and get help from throughout your network. 
-              With cross-group collaboration, you'll access more resources and make things happen faster.</p>
+          <div className="pad"
+                data-sal="fade-in"
+                data-sal-duration="1000"
+                data-sal-delay="0"
+                data-sal-easing="easeOutElastic">
+            <h2>Designed for<br/>interdependence</h2>
+            <p>Work on projects across groups and get help from throughout your network. 
+                With cross-group collaboration, you'll access more resources and make things happen faster.</p>
+          </div>
         </div>
       </section>
       <section className="toolsContainer">

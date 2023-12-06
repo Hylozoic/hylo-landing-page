@@ -14,6 +14,7 @@ const Header = ({ siteTitle }) => {
       backgroundColor: `#40A1DD`,
       margin: `0`,
       width: `100%`,
+      position: 'relative',
     }}>
       <div className="homeMenu">
         <div className="menuCTA">
