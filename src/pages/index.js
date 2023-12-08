@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
-import "../styles/styles.scss"
 import Layout from "../components/layout"
+import "../styles/styles.scss"
 import Button from "../components/button"
 import Label from "../components/label"
 import Contributors from "../components/contributors"
@@ -13,12 +13,31 @@ import heart from "../images/icon/heart-icon.svg"
 import calendar from "../images/icon/calendar-icon.svg"
 import logos from "../images/logos/ecosystem-logos.png"
 import pin from "../images/icon/map-pin.svg"
-import planet from "../images/planet.png"
-import grid from "../images/planetary-grid.png"
+import planet from "../images/planet-earth.png"
+import earthGlow from "../images/earth-glow.svg"
+import grid from "../images/planetary-interconnections.svg"
+import planetaryMembranes from "../images/planetary-membranes.svg"
+import youBelong from "../images/you-belong.svg"
 import handBackground from  "../images/hand-background.jpg"
 import notification from "../images/notification.png"
 import bikerbg from "../images/bikerbg.jpg"
 import biker from "../images/biker.png"
+import valleyBackground from "../images/bioregion-background.jpg"
+import westForkMembrane from "../images/west-fork-membrane.svg"
+import northVillageMembrane from "../images/north-village-membrane.svg"
+import redMembrane from "../images/red-membrane.svg"
+import blueMembrane from "../images/blue-membrane.svg"
+import yellowMembrane from "../images/yellow-membrane.svg"
+import westForkConnector from "../images/west-fork-connector.svg"
+import interconnections from "../images/interconnections.svg"
+import blueVillage from "../images/blue-village.svg"
+import redVillage from "../images/red-village.svg"
+import yellowVillage from "../images/yellow-village.svg"
+import northVillage from "../images/north-village.svg"
+import westForkRiver from "../images/west-fork-river.svg"
+import southVillage from "../images/south-village.svg"
+import greenMembrane from "../images/green-membrane.svg"
+import toolsBg from "../images/active-bg.svg"
 
 // animation files
 import animationSpacer from "../images/groups-animation/spacer.png"
@@ -125,10 +144,13 @@ const addAnimationOnScroll = (listenerClass, targetClass, animationClass, pixelO
 
 const IndexPage = () => {
     useEffect(() => {
-      addAnimationOnScroll("interdependenceLeft", "interdependenceAnimation", "animate", 200);
+      addAnimationOnScroll("interdependenceLeft", "interdependenceElements", "animate", 200);
       addAnimationOnScroll("aliveRight", "holdingPhone", "animate", 400);
       addAnimationOnScroll("passionLeft", "passionMessages", "animate", 400);
       addAnimationOnScroll("passionLeft", "gardenDay", "animate", 600);
+      addAnimationOnScroll("valleyBackground", "bioregionElements", "animate", -500);
+      addAnimationOnScroll("ecosystemContainer", "bgContainer", "animate", 0);
+      addAnimationOnScroll("planetaryDescription", "planetaryCoordination", "animate", -500);
   }, []);
   return (
     <Layout pageTitle="Home Page">
@@ -154,21 +176,21 @@ const IndexPage = () => {
         <section className="passion">
           <div className="passionLeft">
             <div className="passionMessages">
-              <div className="message" data-sal="slide-down"
-                data-sal-duration="500"
+              <div className="message message1" data-sal="slide-up"
+                data-sal-duration="0"
                 data-sal-delay="500"
                 data-sal-easing="easeOutElastic">
                 <Label label="Planning a garden day at the lake!" icon={leaf} />
               </div>
-              <div className="message" data-sal="slide-down"
-                data-sal-duration="500"
-                data-sal-delay="1000"
+              <div className="message message2" data-sal="slide-up"
+                data-sal-duration="333"
+                data-sal-delay="10s"
                 data-sal-easing="easeOutElastic">
                 <Label label="Anyone have extra shovels?" icon={heart} />
               </div>
-              <div className="message" data-sal="slide-down"
-                data-sal-duration="1000"
-                data-sal-delay="2500"
+              <div className="message message3" data-sal="slide-up"
+                data-sal-duration="999"
+                data-sal-delay="2750"
                 data-sal-easing="easeOutElastic">
                 <Label label="Garden Day" icon={calendar} color="#EB5757" />
               </div>
@@ -179,10 +201,19 @@ const IndexPage = () => {
           </div>
           <div className="passionRight">
             <div className="sticky">
-              <h2>Driven by passion,<br/>
+              <h2 data-sal="slide-up"
+                data-sal-duration="1000"
+                data-sal-delay="2500"
+                data-sal-easing="easeOutElastic">Driven by passion,<br/>
               united by purpose</h2>
-              <p>Hylo is the place where people who are passionate about their dreams come together to support each other and make them a reality.</p>
-              <p>It's a community where you can <strong>connect with others who share your purpose</strong> and work towards achieving your goals together.</p>
+              <p data-sal="slide-up"
+                data-sal-duration="1000"
+                data-sal-delay="2500"
+                data-sal-easing="easeOutElastic">Hylo is the place where people who are passionate about their dreams come together to support each other and make them a reality.</p>
+              <p data-sal="slide-up"
+                data-sal-duration="1000"
+                data-sal-delay="2500"
+                data-sal-easing="easeOutElastic">It's a community where you can <strong>connect with others who share your purpose</strong> and work towards achieving your goals together.</p>
               <div style={{textAlign: `center`}}>
                 <h3>Ready to find where you belong?</h3>
                 <Button label="Explore Groups" link="/explore/" background={`linear-gradient(93deg, #0DC39F 7.65%, #6FCF97 100%)`} color="#fff" />      
@@ -193,10 +224,19 @@ const IndexPage = () => {
         <section className="alive">
           <div className="aliveLeft">
             <div className="pad">
-              <h2>Watch your group<br/>come alive</h2>
-              <p>Many online groups struggle with engagement. 
+              <h2 data-sal="slide-up"
+                data-sal-duration="1000"
+                data-sal-delay="2500"
+                data-sal-easing="easeOutElastic">Watch your group<br/>come alive</h2>
+              <p data-sal="slide-up"
+                data-sal-duration="1000"
+                data-sal-delay="2500"
+                data-sal-easing="easeOutElastic">Many online groups struggle with engagement. 
                 On Hylo, groups transform into vibrant, self-organized, collaborative networks.</p>
-              <p>Hylo makes it easy for group members to step into leadership, enabling the group to grow and deepen its impact.</p>
+              <p data-sal="slide-up"
+                data-sal-duration="1000"
+                data-sal-delay="2500"
+                data-sal-easing="easeOutElastic">Hylo makes it easy for group members to step into leadership, enabling the group to grow and deepen its impact.</p>
               <div style={{textAlign: `center`}}>
                 <h3>Ready to gather your people?</h3>
                 <Button label="Create a Group" link="/create/" background={`linear-gradient(93deg, #B162AB 7.65%, #0175D8 100%)`} color="#fff"/>  
@@ -224,7 +264,7 @@ const IndexPage = () => {
             <div className="interdependenceAnimation">
               <div className="animationWrapper">
                 <img className="spacer" src={animationSpacer} width="100%" height="100%" />
-                <div className="elements">
+                <div className="interdependenceElements">
                   <img src={hyloIcon} className="hyloIcon" alt=" " />
                   <img src={hyloMembrane} className="hyloMembrane" alt=" " />
                   <img src={hyloName} className="hyloName" alt=" " />
@@ -318,138 +358,292 @@ const IndexPage = () => {
       <section className="toolsContainer">
         <section className="ecosystem">
           <div className="ecosystemContainer">
-            <div className="ecosystemBg">
-              <h2>Powering an emerging ecosystem,<br/>building a better world</h2>
-              <p>Hylo is an open source project stewarded by Terran Collective alongside partners, contributors, and donors from around the world.</p> 
-              <p>Hylo is a not-for-profit, community-led technology commons. We work with real-world groups to co-design technology solutions to their needs, and then share them with the world. 
-                Here are just some of the partners and contributors that have shaped Hylo.</p>
-              <div className="ecosystemLogos">
-                <img src={logos} alt="Partner Logos" />
+            <div className="ecosystemDetails">
+              <div className="content">
+                <h2
+                  data-sal="fade-in"
+                  data-sal-duration="1000"
+                  data-sal-delay="250"
+                  data-sal-easing="easeOutElastic">Powering an emerging ecosystem,<br/>building a better world</h2>
+                <p
+                  data-sal="fade-in"
+                  data-sal-duration="1000"
+                  data-sal-delay="250"
+                  data-sal-easing="easeOutElastic">Hylo is an open source project stewarded by Terran Collective alongside partners, contributors, and donors from around the world.</p> 
+                <p
+                  data-sal="fade-in"
+                  data-sal-duration="1000"
+                  data-sal-delay="250"
+                  data-sal-easing="easeOutElastic">Hylo is a not-for-profit, community-led technology commons. We work with real-world groups to co-design technology solutions to their needs, and then share them with the world. 
+                  Here are just some of the partners and contributors that have shaped Hylo.</p>
+                <div className="ecosystemLogos"
+                  data-sal="fade-in"
+                  data-sal-duration="1000"
+                  data-sal-delay="250"
+                  data-sal-easing="easeOutElastic">
+                  <img src={logos} alt="Partner Logos" />
+                </div>
+              </div>
+              <div className="bgContainer">
+                <div className="ecosystemBackground"></div>
+                <div className="ecosystemFade"></div>
               </div>
             </div>
             <Contributors />
           </div>
         </section>
-        <h2 className="toolsTitle">The tools you<br/>need to activate<br/>your group</h2>
         <div className="tools">
-          <Tool title="Define your group membrane"
-            text="You decide the visibility and accessibility of your group. 
-            Whether public and open, or invite-only, create the container that feels right."
-            classBg="membrane"
-            imgName="membrane-settings.png"
-            alt="Group privacy settings"
-            index="0" />
-          <Tool title="Customize your experience"
-            text="Our advanced admin settings make it easy to curate an experience that's perfect for your group. 
-            Custom views show members exactly what they need to see and link out to critical resources."
-            classBg="customize"
-            imgName="customize-ui.png"
-            alt="Customization options"
-            index="1" />  
-          <Tool title="Grow relationships with collaborators"
-            text="Our web and mobile apps allow community members to deepen relationships and collaborate 
-            through discussions, requests, offers, resources, member directories, direct messaging, and chat."
-            classBg="relationship"
-            imgName="relationships-ui-feature.png"
-            alt="Relationships"
-            index="2" />
-          <Tool title="Host cross-group conversations"
-            text="Share one post with multiple groups, creating a shared conversation for cross-pollination and emergence."
-            classBg="crossgroup"
-            imgName="crossgroup.png"
-            alt="Cross-group conversation"
-            index="3" />
-          <Tool title="Discover local connections"
-            text="Hylo has a geographic map and specific tools for bioregional and place-based groups, 
-            facilitating coordination at the scale regeneration actually happens: locally."
-            classBg="local"
-            imgName="local.png"
-            alt="Local and Place-based"
-            index="4" />
-          <Tool title="Guide toward action"
-            text="Whether planning an online event or a creek restoration day, 
-            Hylo's coordination tools guide groups toward action. 
-            Use Projects to kick-start collaboration and Events to gather online or IRL."
-            classBg="action"
-            imgName="action.png"
-            alt="Guide toward action"
-            index="5" />
-          <Tool title="Composable ecosystems"
-            text="Groups can add unlimited subgroups AND join other groups, 
-            making it easy to form and navigate large networks. 
-            This composability allows people to connect across membranes and work on shared goals."
-            classBg="composable"
-            imgName="composable.png"
-            alt="Composable ecosystems"
-            index="6" />
-          <Tool title="Understand your network"
-            text="Hylo is a tool for collective sensemaking, designed to source intelligence from the edges of a network. 
-            By aggregating content from nested groups, we help you understand what's alive in your ecosystem."
-            classBg="sensemaking"
-            imgName="sensemaking.png"
-            alt="Sensemaking tools"
-            index="7" />
-          <Tool title="Nurture a prosocial culture"
-            text="Hylo facilitates the transition from top-down to peer-to-peer coordination, 
-            helping your group evolve and scale your impact."
-            classBg="prosocial"
-            imgName="prosocial.png"
-            alt="prosocial culture"
-            index="8" />
-          <Tool title="No ads, no distractions"
-            text="Hylo is a public good; a community-led and non-profit technology commons. 
-            It's free to use, with no extractive revenue model harvesting your data or attention."
-            classBg="publicgood"
-            imgName="publicgood.png"
-            alt="No ads, no distractions"
-            index="9" />
+          <div className="toolsList1">
+            <h2 className="toolsTitle">The tools you need to activate your group</h2>
+            <div
+                data-sal="fade-in"
+                data-sal-duration="1000"
+                data-sal-delay="250"
+                data-sal-easing="easeOutElastic">
+              <Tool title="Define your group membrane"
+                text="You decide the visibility and accessibility of your group. 
+                Whether public and open, or invite-only, create the container that feels right."
+                classBg="membrane"
+                imgName="membrane-settings.png"
+                alt="Group privacy settings"
+                index="0" />
+            </div>
+            <div
+                data-sal="fade-in"
+                data-sal-duration="1000"
+                data-sal-delay="250"
+                data-sal-easing="easeOutElastic">
+            <Tool title="Customize your experience"
+              text="Our advanced admin settings make it easy to curate an experience that's perfect for your group. 
+              Custom views show members exactly what they need to see and link out to critical resources."
+              classBg="customize"
+              imgName="customize-ui.png"
+              alt="Customization options"
+              index="1" />  
+            </div>
+            <div
+                data-sal="fade-in"
+                data-sal-duration="1000"
+                data-sal-delay="250"
+                data-sal-easing="easeOutElastic">
+            <Tool title="Grow relationships with collaborators"
+              text="Our web and mobile apps allow community members to deepen relationships and collaborate 
+              through discussions, requests, offers, resources, member directories, direct messaging, and chat."
+              classBg="relationship"
+              imgName="relationships-ui-feature.png"
+              alt="Relationships"
+              index="2" />
+            </div>
+
+              <div
+                  data-sal="fade-in"
+                  data-sal-duration="1000"
+                  data-sal-delay="250"
+                  data-sal-easing="easeOutElastic">
+            <Tool title="Host cross-group conversations"
+              text="Share one post with multiple groups, creating a shared conversation for cross-pollination and emergence."
+              classBg="crossgroup"
+              imgName="crossgroup.png"
+              alt="Cross-group conversation"
+              index="3" />
+            </div>
+
+              <div
+                  data-sal="fade-in"
+                  data-sal-duration="1000"
+                  data-sal-delay="250"
+                  data-sal-easing="easeOutElastic">
+            <Tool title="Discover local connections"
+              text="Hylo has a geographic map and specific tools for bioregional and place-based groups, 
+              facilitating coordination at the scale regeneration actually happens: locally."
+              classBg="local"
+              imgName="local.png"
+              alt="Local and Place-based"
+              index="4" />
+            </div>
+
+              <div
+                  data-sal="fade-in"
+                  data-sal-duration="1000"
+                  data-sal-delay="500"
+                  data-sal-easing="easeOutElastic">
+              </div>
+          </div>
+          <div className="toolsList2">
+
+          <div
+              data-sal="fade-in"
+              data-sal-duration="1000"
+              data-sal-delay="250"
+              data-sal-easing="easeOutElastic">
+            <Tool title="Guide toward action"
+              text="Whether planning an online event or a creek restoration day, 
+              Hylo's coordination tools guide groups toward action. 
+              Use Projects to kick-start collaboration and Events to gather online or IRL."
+              classBg="action"
+              imgName="action.png"
+              alt="Guide toward action"
+              index="5" />
+            </div>
+
+              <div
+                  data-sal="fade-in"
+                  data-sal-duration="1000"
+                  data-sal-delay="250"
+                  data-sal-easing="easeOutElastic">
+            <Tool title="Composable ecosystems"
+              text="Groups can add unlimited subgroups AND join other groups, 
+              making it easy to form and navigate large networks. 
+              This composability allows people to connect across membranes and work on shared goals."
+              classBg="composable"
+              imgName="composable.png"
+              alt="Composable ecosystems"
+              index="6" />
+            </div>
+
+              <div
+                  data-sal="fade-in"
+                  data-sal-duration="1000"
+                  data-sal-delay="250"
+                  data-sal-easing="easeOutElastic">
+            <Tool title="Understand your network"
+              text="Hylo is a tool for collective sensemaking, designed to source intelligence from the edges of a network. 
+              By aggregating content from nested groups, we help you understand what's alive in your ecosystem."
+              classBg="sensemaking"
+              imgName="sensemaking.png"
+              alt="Sensemaking tools"
+              index="7" />
+            </div>
+
+              <div
+                  data-sal="fade-in"
+                  data-sal-duration="1000"
+                  data-sal-delay="250"
+                  data-sal-easing="easeOutElastic">
+            <Tool title="Nurture a prosocial culture"
+              text="Hylo facilitates the transition from top-down to peer-to-peer coordination, 
+              helping your group evolve and scale your impact."
+              classBg="prosocial"
+              imgName="prosocial.png"
+              alt="prosocial culture"
+              index="8" />
+            </div>
+
+              <div
+                  data-sal="fade-in"
+                  data-sal-duration="1000"
+                  data-sal-delay="250"
+                  data-sal-easing="easeOutElastic">
+            <Tool title="No ads, no distractions"
+              text="Hylo is a public good; a community-led and non-profit technology commons. 
+              It's free to use, with no extractive revenue model harvesting your data or attention."
+              classBg="publicgood"
+              imgName="publicgood.png"
+              alt="No ads, no distractions"
+              index="9" />
+            </div>
+          </div>
+        </div>
+        <div className="greenWaves">
+          <img src={toolsBg} className="toolsBg" />
         </div>
       </section>
       <section className="bioregionalContainer">
-        <div className="testimonial">
-          <div style={{backgroundColor: `#333`, height: `75vh`, width: `100%`}}>Madelynn video here</div>
-        </div>
-        <div className="bioregional">
-          <h2>The future is</h2>
-          <h1>bioregional</h1>
-          <p>A "bioregion" is a natural membrane expressed by features of the landscape, like watersheds and mountain ranges. Hylo empowers communities to coordinate at the scale of their landscape.</p>
-          <div className="bioregionalDetail">
-            <p>Get involved in local happenings and celebrate the place you call home.</p>
-            <p>Find local businesses and projects to support for a more resilient community.</p>
-            <p>Work together to care for the land and restore healthy ecosystems.</p>
+        <div className="topSection">
+          <div className="testimonial">
+            <div style={{backgroundColor: `#333`, height: `75vh`, width: `100%`}}>Madelynn video here</div>
           </div>
-          <div className="bioregionalCTA">
+          <div className="bioregional">
+            <h2
+                data-sal="fade-in"
+                data-sal-duration="1000"
+                data-sal-delay="250"
+                data-sal-easing="easeOutElastic">The future is</h2>
+            <h1
+                data-sal="fade-in"
+                data-sal-duration="1000"
+                data-sal-delay="250"
+                data-sal-easing="easeOutElastic">a place</h1>
+            <p
+                data-sal="fade-in"
+                data-sal-duration="1000"
+                data-sal-delay="250"
+                data-sal-easing="easeOutElastic">The landscape around each of us is alive with activity. Hylo empowers communities to coordinate at the scale of their local landscape -- their bioregion -- and come alive in the places they inhabit.</p>
+            <div className="bioregionalDetail">
+              <p
+                data-sal="fade-in"
+                data-sal-duration="1000"
+                data-sal-delay="250"
+                data-sal-easing="easeOutElastic">Get involved in local happenings and celebrate the place you call home.</p>
+              <p
+                data-sal="fade-in"
+                data-sal-duration="1000"
+                data-sal-delay="250"
+                data-sal-easing="easeOutElastic">Find local businesses and projects to support for a more resilient community.</p>
+              <p
+                data-sal="fade-in"
+                data-sal-duration="1000"
+                data-sal-delay="250"
+                data-sal-easing="easeOutElastic">Work together to care for the land and restore healthy ecosystems.</p>
+            </div>
+          </div>
+        </div>
+        <div className="bioregionAnimation">
+          <div className="bioregionElements">
+            <div className="locationMarkers">
+              <img src={blueVillage} className="blueVillage" />
+              <img src={redVillage} className="redVillage" />
+              <img src={yellowVillage} className="yellowVillage" />
+              <img src={northVillage} className="northVillage" />
+              <img src={southVillage} className="southVillage" />
+              <img src={westForkRiver} className="westForkRiver" />
+            </div>
+            <div className="membranes">
+              <img src={westForkMembrane} className="westForkMembrane" />
+              <img src={northVillageMembrane} className="northVillageMembrane" />
+              <img src={redMembrane} className="redMembrane" />
+              <img src={blueMembrane} className="blueMembrane" />
+              <img src={yellowMembrane} className="yellowMembrane" />
+              <img src={greenMembrane} className="greenMembrane" />
+            </div>
+            <div className="connections">
+              <img src={westForkConnector} className="westForkConnector" />
+              <img src={interconnections} className="interconnections" />
+            </div>
+          </div>
+          <div className="bioregionalCTA"
+                data-sal="slide-up"
+                data-sal-duration="1000"
+                data-sal-delay="0"
+                data-sal-easing="easeOutElastic">
             <Button label="Explore what's alive near you" link="/map/" background={`linear-gradient(93deg, #B162AB 7.65%, #0175D8 100%)`} color="#fff" />
           </div>
+          <img src={valleyBackground} className="valleyBackground" />
+          <div className="valleyFade"></div>
         </div>
       </section>
       <section className="planetaryContainer">
+        <div className="starFade"></div>
         <div className="planetary">
           <h2>Let's unlock<br/>planetary regeneration</h2>
-          <p>By sowing the seeds of a network of Earth's bioregions, 
+          <p className="planetaryDescription">By sowing the seeds of a network of Earth's bioregions, 
           we nurture a global regenerative culture that collaborates 
           at the scale of the biosphere to care for our world.</p>
-          <div className="planet"
-            data-sal="fade"
-            data-sal-duration="500"
-            data-sal-delay="0"
-            data-sal-easing="ease">
-            <img src={planet} alt="Spaceship Earth" />
-          </div>
-          <div className="planetaryGrid"
-            data-sal="fade"
-            data-sal-duration="2000"
-            data-sal-delay="0"
-            data-sal-easing="ease">
-            <img src={grid} alt="Planetary Grid" />
-          </div>
-          <div className="planetaryBelonging"
-            data-sal="slide-down"
-            data-sal-duration="500"
-            data-sal-delay="1000"
-            data-sal-easing="easeOutBounce">
-            <img src={pin} alt="You are here" />
-            <h3>You belong here.</h3>
+          <div class="planetaryCoordination">
+            <div className="planet">
+              <img src={planet} alt="Spaceship Earth" className="planetEarth"/>
+              <img src={earthGlow} className="earthGlow" />
+            </div>
+            <div className="planetaryGrid">
+              <img src={grid} alt="Planetary Grid" />
+            </div>
+            <div className="planetaryMembranes">
+              <img src={planetaryMembranes} className="planetaryMembranesImage" />
+            </div>
+            <div className="planetaryBelonging">
+              <img src={pin} alt="You are here" className="youAreHere"/>
+              <img src={youBelong} className="youBelong" />
+            </div>
           </div>
           <div className="planetaryDetail">
             <div className="planetaryCTA">

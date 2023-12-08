@@ -14,7 +14,7 @@ const Tool = ({ title, text, classBg, imgName, alt, index }) => {
         edges {
           node {
             childImageSharp {
-              fluid(maxWidth: 425, quality: 100) {
+              fluid(maxWidth: 100, quality: 100) {
                 originalName
                 ...GatsbyImageSharpFluid
               }

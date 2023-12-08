@@ -44,7 +44,7 @@ const Contributors = () => {
         <div className="contributors">
             { isActive ? 
                 <div className="contributorsDetail">
-                    <h2>Hylo is built with care</h2>
+                    <h2><span>Hylo</span> <span>is</span> <span>built</span> <span>with</span> <span>care</span></h2>
                     <p>Hylo is brought to you through the generosity and dedication of many contributors. 
                     From the current core team, to everyone who has committed code or provided feedback,
                     ideas, or donations -- you are what makes Hylo possible.</p>
@@ -85,7 +85,7 @@ const Contributors = () => {
                             </ul> : ""
                         }
                     </div>
-                </div> : <button onClick={() => setActive(true)}><h3>View Contributors</h3></button>
+                </div> : <button onClick={() => setActive(true)} className="viewContributors"><h3>View Contributors</h3></button>
             }
         </div>
     );
