@@ -151,6 +151,7 @@ const IndexPage = () => {
       addAnimationOnScroll("valleyBackground", "bioregionElements", "animate", -500);
       addAnimationOnScroll("ecosystemContainer", "bgContainer", "animate", 0);
       addAnimationOnScroll("planetaryDescription", "planetaryCoordination", "animate", -500);
+      addAnimationOnScroll("planetaryDescription", "planetaryContainer", "animate", -500);
   }, []);
   return (
     <Layout pageTitle="Home Page">

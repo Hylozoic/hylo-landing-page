@@ -42,11 +42,11 @@
 @keyframes zoomOutIn {
     0% {
         opacity: 0;
-        transform: scale(5);
+        transform: scale(.9);
     }
     30% {
         opacity: 1;
-        transform: scale(1.5);
+        transform: scale(1.05);
     }
     100% {
         opacity: 1;
@@ -2426,12 +2426,31 @@ p {
 
 /* Planetary Section Styles */
 
+@keyframes animateStars {
+    0% {
+        background-size: 100%;
+
+    }
+    100% {
+        background-size: 110%;
+
+    }
+}
+
+.animate.planetaryContainer {
+    animation-name: animateStars;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+
 .planetaryContainer {
     background: url("../images/starfield.jpg") no-repeat;
-    background-size: cover;
+    background-size: 100%;
     padding: 10%;
     text-align: center;
+    animation-duration: 3s;
     position: relative;
+    background-position: center;
 
     .starFade {
         width: 100%;
@@ -2552,7 +2571,7 @@ p {
     .planetaryBelonging {
         position: absolute;
         left: 24%;
-        top: 42%;
+        top: 35%;
         z-index: 3;
         margin: 0 auto 10%;
         width: 50%;
