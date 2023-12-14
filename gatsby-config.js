@@ -7,7 +7,6 @@ module.exports = {
     description: `Hylo is the leading prosocial coordination and collaboration technology for purpose-driven groups.`,
     siteUrl: `https://hylo.com`
   },
-  pathPrefix: "/hylo-landing-page",
   plugins: [
     "gatsby-plugin-sass", 
     "gatsby-plugin-image", 
