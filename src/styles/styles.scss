@@ -412,10 +412,6 @@ p {
     }
 }
 
-
-/* Nav Styles */
-
-.homeMenu {
 @keyframes zoomIn {
     0% {
         opacity: 0;
@@ -431,6 +427,9 @@ p {
     }
 }
 
+/* Nav Styles */
+
+.homeMenu {
     color: #fff;
     text-align: right;
     position: absolute;
@@ -439,6 +438,7 @@ p {
     width: 100%;
     z-index: 1;
     padding-right: 100px;
+    z-index: 1000;
 
     strong {
         font-family: 'Circular-Bold', sans-serif;
@@ -602,6 +602,7 @@ p {
     opacity: 0;
     animation-name: fadeInBounce;
     animation-duration: 1s;
+    box-shadow: 0px 8px 15px 0px rgba(0, 0, 0, 0.15);
     animation-delay: 1.2s;
     animation-fill-mode: forwards;
     animation-timing-function: ease-out;
@@ -980,6 +981,10 @@ p {
                 img {
                     position: absolute;
                 }
+
+                > img {
+                    z-index: 100;
+                }
             }
 
 
@@ -1177,7 +1182,7 @@ p {
                 left: 0;
                 width: 100%;
                 height: 100%;
-                z-index: 5;
+                z-index: 150;
 
                 .lookingForHelp {
                     top: 24.5%;
@@ -1983,16 +1988,22 @@ p {
     position: relative;
     z-index: 5;
 
-    .toolsRight {
+    .toolsList1 {
         width: 50%;
         display: flex;
         flex-direction: column;
     }
 
-    .toolsLeft {
+    .toolsList2 {
         display: flex;
         width: 50%;
         flex-direction: column;
+    }
+
+    .tool-images img {
+        margin-top: 15px;
+        border-radius: 5px;
+        box-shadow: 0px 8px 15px 0px rgba(0, 0, 0, 0.15);
     }
 }
 
@@ -2016,8 +2027,8 @@ p {
   }
 
 .tool {
-    background: rgba(0, 0, 0, .5);
-    border: 2px dashed rgba(109, 205, 154, .5);
+    background: rgba(0, 0, 0, .3);
+    border: 2px dashed rgba(109, 205, 154, .3);
     border-radius: 5px;
     display: inline-block;
     margin: 10px;
@@ -2034,6 +2045,10 @@ p {
         font-size: 24px;
         font-weight: 700;
         padding-left: 10px;
+    }
+
+    p {
+        margin-bottom: 0;
     }
 
     button {
@@ -2057,60 +2072,73 @@ p {
 .toolDetail {
     padding: 25px;
     text-align: center;
+    animation: fadeInBounce .5s ease-out;
+    animation-delay: .75s;
+    opacity: 0; /* Start with opacity 0 */
+    height: 0; /* Start with height 0 */
+    overflow: hidden; /* Hide content until expanded */
+    animation-fill-mode: forwards;
+    height: 90px;
+    overflow: hidden;
+    transition: all 0.5s ease-out;
+
+    img {
+        width: 100%;
+    }
 }
 
-.membrane {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .6) 50%, rgba(0, 0, 0, 0.7) 100%), url("../images/membrane-bg.png") no-repeat;
+.toolDetail.active {
+    opacity: 1;
+    height: auto; 
+}
+
+.tool0 {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .6) 50%, rgba(0, 0, 0, 0.7) 100%), url("../images/tools/tool0.jpg") no-repeat;
     background-size: cover;
 }
 
-.customize {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .6) 50%, rgba(0, 0, 0, 0.7) 100%), url("../images/membrane-bg.png") no-repeat;
+.tool1 {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .6) 50%, rgba(0, 0, 0, 0.7) 100%), url("../images/tools/tool1.jpg") no-repeat;
     background-size: cover;
 }
 
-.relationship {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .6) 50%, rgba(0, 0, 0, 0.7) 100%), url("../images/membrane-bg.png") no-repeat;
+.tool2 {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .6) 50%, rgba(0, 0, 0, 0.7) 100%), url("../images/tools/tool2.jpg") no-repeat;
     background-size: cover;
 }
 
-.crossgroup {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .6) 50%, rgba(0, 0, 0, 0.7) 100%), url("../images/membrane-bg.png") no-repeat;
+.tool3 {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .6) 50%, rgba(0, 0, 0, 0.7) 100%), url("../images/tools/tool3.jpg") no-repeat;
     background-size: cover;
 }
 
-.local {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .6) 50%, rgba(0, 0, 0, 0.7) 100%), url("../images/membrane-bg.png") no-repeat;
+.tool4 {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .6) 50%, rgba(0, 0, 0, 0.7) 100%), url("../images/tools/tool4.jpg") no-repeat;
     background-size: cover;
 }
 
-.action {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .6) 50%, rgba(0, 0, 0, 0.7) 100%), url("../images/membrane-bg.png") no-repeat;
+.tool5 {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .6) 50%, rgba(0, 0, 0, 0.7) 100%), url("../images/tools/tool5.jpg") no-repeat;
     background-size: cover;
 }
 
-.composable {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .6) 50%, rgba(0, 0, 0, 0.7) 100%), url("../images/membrane-bg.png") no-repeat;
+.tool6 {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .6) 50%, rgba(0, 0, 0, 0.7) 100%), url("../images/tools/tool6.jpg") no-repeat;
     background-size: cover;
 }
 
-.sensemaking {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .6) 50%, rgba(0, 0, 0, 0.7) 100%), url("../images/membrane-bg.png") no-repeat;
+.tool7 {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .6) 50%, rgba(0, 0, 0, 0.7) 100%), url("../images/tools/tool7.jpg") no-repeat;
     background-size: cover;
 }
 
-.prosocial {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .6) 50%, rgba(0, 0, 0, 0.7) 100%), url("../images/membrane-bg.png") no-repeat;
+.tool8 {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .6) 50%, rgba(0, 0, 0, 0.7) 100%), url("../images/tools/tool8.jpg") no-repeat;
     background-size: cover;
 }
 
-.prosocial {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .6) 50%, rgba(0, 0, 0, 0.7) 100%), url("../images/membrane-bg.png") no-repeat;
-    background-size: cover;
-}
-
-.publicgood {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .6) 50%, rgba(0, 0, 0, 0.7) 100%), url("../images/membrane-bg.png") no-repeat;
+.tool9 {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .6) 50%, rgba(0, 0, 0, 0.7) 100%), url("../images/tools/tool9.jpg") no-repeat;
     background-size: cover;
 }
 
@@ -2444,8 +2472,6 @@ p {
 }
 
 .planetaryContainer {
-    background: url("../images/starfield.jpg") no-repeat;
-    background-size: 100%;
     padding: 10%;
     text-align: center;
     animation-duration: 3s;
@@ -2460,6 +2486,27 @@ p {
         left: 0;
         z-index: 0;
         background: linear-gradient(0deg, rgba(9, 9, 10, 0) 0%, #060C13 74.48%);
+    }
+
+    .starFadeBottom {
+        width: 100%;
+        height: 150px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 0;
+        background: linear-gradient(0deg, #060C13 0%, rgba(9, 9, 10, 0) 74.48%); 
+    }
+
+    .starBg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: url("../images/starfield.jpg") no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
     }
 }
 
@@ -2486,11 +2533,16 @@ p {
     display: block;
 }
 
+.planetAnimationContainer {
+    height: 1500px;
+    margin-bottom: -100px;
+}
+
 .planetaryCoordination {
     position: relative;
     width: 100%;
     max-width: 550px;
-    margin: 50px auto 200px auto;
+    margin: 50px auto 50px auto;
     position: sticky;
     display: none;
     z-index: 3;
@@ -2520,11 +2572,12 @@ p {
             opacity: 0;
             top: 0;
             left: 0;
-            transform: scale(1.25);
+            transform: scale(1.2);
             z-index: 0;
+            opacity: .5;
             animation-name: fadeIn;
-            animation-duration: 2s;
-            animation-delay: 1.5s;
+            animation-duration: 5s;
+            animation-delay: 0;
             animation-fill-mode: forwards;
             animation-timing-function: ease-out;
         }
@@ -2539,7 +2592,7 @@ p {
         opacity: 0;
         animation-name: fadeIn;
         animation-duration: 2s;
-        animation-delay: 1.5s;
+        animation-delay: 1.75s;
         animation-fill-mode: forwards;
         animation-timing-function: ease-out;
 
@@ -2559,7 +2612,7 @@ p {
         opacity: 0;
         animation-name: zoomOutIn;
         animation-duration: 1.5s;
-        animation-delay: .75s;
+        animation-delay: 1.25s;
         animation-fill-mode: forwards;
         animation-timing-function: ease-out;
 
@@ -2605,8 +2658,6 @@ p {
 
 .planetaryDetail {
     display: flex;
-    margin-top: 750px;
-    flex-wrap: wrap;
     position: relative;
     z-index: 20;
 
@@ -2632,7 +2683,7 @@ p {
 /* Footer Section Styles */
 
 footer {
-    background-color: #142956;
+    background-color: #060C13;
     margin: 0;
     padding: 50px 0;
     text-align: center;
@@ -2660,32 +2711,50 @@ footer {
 
     p {
         text-wrap: wrap;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 18px;
+        opacity: .6;
     }
 
     h2 {
-        font-size: 64px;
+        font-size: 24px;
         margin: 25% auto;
     }
 
     h3 {
-        font-size: 36px;
+        font-size: 18px;
         width: 100%;
+        opacity: .8;
     }
 
     h4 {
-        font-size: 24px;
+        font-size: 18px;
     }
 }
 
 .footerAcknowledgement {
-    margin: 10% auto;
+    margin: 0 auto;
     text-align: center;
     width: 75%;
+    font-weight: normal;
+
+    p {
+        opacity: .3;
+    }
 }
 
 .footerSeal {
-    margin: 0 auto;
+    margin: 200px auto 0 auto;
     width: 90%;
+
+    h3 {
+        opacity: .6;
+    }
+
+    a {
+        text-decoration: underline;
+    }
 }
 
 @media only screen and (max-width: 600px) {

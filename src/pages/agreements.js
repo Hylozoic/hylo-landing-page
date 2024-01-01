@@ -10,7 +10,7 @@ const AgreementsPage = () => {
     <Layout pageTitle="Hylo Agreements">
         <div className="hero contentHero">
             <div className="headingStyles">
-                <h1>A public good technology commons co-created by you</h1>
+                <h1>Clear agreements are essential to prosocial coordination</h1>
             </div>
         </div>
         <div className="contentContainer">

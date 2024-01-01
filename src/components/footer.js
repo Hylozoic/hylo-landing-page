@@ -47,16 +47,12 @@ const Footer = () => {
             <p><Link to="/agreements/#privacy-policy">Privacy Policy</Link></p>
           </li>
         </ul>
-        <div className="footerAcknowledgement">
-          <p>Terran Collective acknowledges that we gather on the unceded territory of the Lisjan Ohlone people, 
-          who have lived in Huchiun (colonially known as the East Bay of the California Bay Area, USA) from time immemorial. 
-          We honor our relationship with our Ohlone neighbors and our shared responsibility 
-          to their homeland where we reside today.</p>
-        </div>
         <div className="footerSeal">
           <img src={logo} alt="Hylo Logo" />
-          <h3>Hylo = hylozoism = the idea that matter is alive and in service to life</h3>
-          <h2>all . beings . thriving</h2>
+          <h3>The name "hylo" comes from <a href="https://en.wikipedia.org/wiki/Hylozoism">hylozoism</a>, which means: <em>everything is alive</em></h3>
+        </div>
+        <div className="footerAcknowledgement">
+          <p>Hylo emerged from the Bay Area Bioregion, supported and sustained by the mighty Sacramento River. This territory has been stewarded since before time by the peoples here. The place that birthed Hylo is known to the Lisjan Ohlone as Huichin. Hylo now receives contributions from all over the world. Wherever we builders go, we will honor truth in history. Wherever we we builders are we seek to be in right relationship -- to the living world, and its stewards.</p>
         </div>
       </footer>
   );

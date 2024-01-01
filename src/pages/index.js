@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import Layout from "../components/layout"
 import "../styles/styles.scss"
 import Button from "../components/button"
@@ -7,7 +7,6 @@ import Contributors from "../components/contributors"
 import Tool from "../components/tool"
 import Footer from "../components/footer"
 import logo from "../images/logos/hylo-logo-white.svg"
-import heroImage from "../images/around-the-fire-web.png"
 import leaf from "../images/icon/leaf-icon.svg"
 import heart from "../images/icon/heart-icon.svg"
 import calendar from "../images/icon/calendar-icon.svg"
@@ -143,15 +142,22 @@ const addAnimationOnScroll = (listenerClass, targetClass, animationClass, pixelO
 };
 
 const IndexPage = () => {
-    useEffect(() => {
-      addAnimationOnScroll("interdependenceLeft", "interdependenceElements", "animate", 200);
-      addAnimationOnScroll("aliveRight", "holdingPhone", "animate", 400);
-      addAnimationOnScroll("passionLeft", "passionMessages", "animate", 400);
-      addAnimationOnScroll("passionLeft", "gardenDay", "animate", 600);
-      addAnimationOnScroll("valleyBackground", "bioregionElements", "animate", -500);
-      addAnimationOnScroll("ecosystemContainer", "bgContainer", "animate", 0);
-      addAnimationOnScroll("planetaryDescription", "planetaryCoordination", "animate", -500);
-      addAnimationOnScroll("planetaryDescription", "planetaryContainer", "animate", -500);
+
+  const [activeToolId, setActiveToolId] = useState(null);
+
+  const handleSetActive = (id) => {
+    setActiveToolId(id === activeToolId ? null : id); // Toggle active state
+  };
+
+  useEffect(() => {
+    addAnimationOnScroll("interdependenceLeft", "interdependenceElements", "animate", 200);
+    addAnimationOnScroll("aliveRight", "holdingPhone", "animate", 400);
+    addAnimationOnScroll("passionLeft", "passionMessages", "animate", 400);
+    addAnimationOnScroll("passionLeft", "gardenDay", "animate", 600);
+    addAnimationOnScroll("valleyBackground", "bioregionElements", "animate", -500);
+    addAnimationOnScroll("ecosystemContainer", "bgContainer", "animate", 0);
+    addAnimationOnScroll("planetaryDescription", "planetaryCoordination", "animate", -500);
+    addAnimationOnScroll("planetaryDescription", "planetaryContainer", "animate", -500);
   }, []);
   return (
     <Layout pageTitle="Home Page">
@@ -246,13 +252,13 @@ const IndexPage = () => {
           </div>
           <div className="aliveRight">
             <div className="holdingPhone">
-              <img src={notification} className="notification" />
+              <img src={notification} className="notification" alt=" " />
               <div className="mask">
-                <img src={bikerbg} className="bikerbg" />
+                <img src={bikerbg} className="bikerbg" alt=" " />
               </div>
-              <img src={handBackground} className="handBackground" />
+              <img src={handBackground} className="handBackground" alt=" " />
               <div className="tallMask">
-                <img src={biker} className="biker" />
+                <img src={biker} className="biker" alt=" " />
               </div>
             </div>
           </div>
@@ -264,7 +270,7 @@ const IndexPage = () => {
           <div className="pad">
             <div className="interdependenceAnimation">
               <div className="animationWrapper">
-                <img className="spacer" src={animationSpacer} width="100%" height="100%" />
+                <img className="spacer" src={animationSpacer} width="100%" height="100%" alt=" " />
                 <div className="interdependenceElements">
                   <img src={hyloIcon} className="hyloIcon" alt=" " />
                   <img src={hyloMembrane} className="hyloMembrane" alt=" " />
@@ -297,47 +303,47 @@ const IndexPage = () => {
                     <img src={profileImage9} className="profileImage9" alt=" " />
                     <img src={profileImage10} className="profileImage10" alt=" " />
                     <img src={profileImage11} className="profileImage11" alt=" " />
-                    <img src={profileImage12} className="profileImage12" />
-                    <img src={profileImage13} className="profileImage13" />
-                    <img src={profileImage14} className="profileImage14" />
-                    <img src={profileImage15} className="profileImage15" />
-                    <img src={profileImage16} className="profileImage16" />
-                    <img src={profileImage17} className="profileImage17" />
-                    <img src={profileImage18} className="profileImage18" />
-                    <img src={profileImage19} className="profileImage19" />
-                    <img src={profileImage20} className="profileImage20" />
-                    <img src={profileImage21} className="profileImage21" />
-                    <img src={profileImage22} className="profileImage22" />
-                    <img src={profileImage23} className="profileImage23" />
-                    <img src={profileImage24} className="profileImage24" />
-                    <img src={profileImage25} className="profileImage25" />
-                    <img src={profileImage26} className="profileImage26" />
-                    <img src={profileImage27} className="profileImage27" />
-                    <img src={profileImage28} className="profileImage28" />
-                    <img src={profileImage29} className="profileImage29" />
-                    <img src={profileImage30} className="profileImage30" />
-                    <img src={profileImage31} className="profileImage31" />
-                    <img src={profileImage32} className="profileImage32" />
-                    <img src={profileImage33} className="profileImage33" />
-                    <img src={profileImage34} className="profileImage34" />
-                    <img src={profileImage35} className="profileImage35" />
-                    <img src={profileImage36} className="profileImage36" />
-                    <img src={profileImage37} className="profileImage37" />
-                    <img src={profileImage38} className="profileImage38" />
-                    <img src={profileImage39} className="profileImage39" />
-                    <img src={profileImage40} className="profileImage40" />
-                    <img src={profileImage41} className="profileImage41" />
-                    <img src={profileImage42} className="profileImage42" />
-                    <img src={profileImage43} className="profileImage43" />
-                    <img src={profileImage44} className="profileImage44" />
-                    <img src={profileImage45} className="profileImage45" />
-                    <img src={profileImage46} className="profileImage46" />
-                    <img src={profileImage47} className="profileImage47" />
-                    <img src={profileImage48} className="profileImage48" />
-                    <img src={profileImage49} className="profileImage49" />
-                    <img src={profileImage50} className="profileImage50" />
-                    <img src={profileImage51} className="profileImage51" />
-                    <img src={profileImage52} className="profileImage52" />
+                    <img src={profileImage12} className="profileImage12" alt=" " />
+                    <img src={profileImage13} className="profileImage13" alt=" " />
+                    <img src={profileImage14} className="profileImage14" alt=" " />
+                    <img src={profileImage15} className="profileImage15" alt=" " />
+                    <img src={profileImage16} className="profileImage16" alt=" " />
+                    <img src={profileImage17} className="profileImage17" alt=" " />
+                    <img src={profileImage18} className="profileImage18" alt=" " />
+                    <img src={profileImage19} className="profileImage19" alt=" " />
+                    <img src={profileImage20} className="profileImage20" alt=" " />
+                    <img src={profileImage21} className="profileImage21" alt=" " />
+                    <img src={profileImage22} className="profileImage22" alt=" " />
+                    <img src={profileImage23} className="profileImage23" alt=" " />
+                    <img src={profileImage24} className="profileImage24" alt=" " />
+                    <img src={profileImage25} className="profileImage25" alt=" " />
+                    <img src={profileImage26} className="profileImage26" alt=" " />
+                    <img src={profileImage27} className="profileImage27" alt=" " />
+                    <img src={profileImage28} className="profileImage28" alt=" " />
+                    <img src={profileImage29} className="profileImage29" alt=" " />
+                    <img src={profileImage30} className="profileImage30" alt=" " />
+                    <img src={profileImage31} className="profileImage31" alt=" " />
+                    <img src={profileImage32} className="profileImage32" alt=" " />
+                    <img src={profileImage33} className="profileImage33" alt=" " />
+                    <img src={profileImage34} className="profileImage34" alt=" " />
+                    <img src={profileImage35} className="profileImage35" alt=" " />
+                    <img src={profileImage36} className="profileImage36" alt=" " />
+                    <img src={profileImage37} className="profileImage37" alt=" " />
+                    <img src={profileImage38} className="profileImage38" alt=" " />
+                    <img src={profileImage39} className="profileImage39" alt=" " />
+                    <img src={profileImage40} className="profileImage40" alt=" " />
+                    <img src={profileImage41} className="profileImage41" alt=" " />
+                    <img src={profileImage42} className="profileImage42" alt=" " />
+                    <img src={profileImage43} className="profileImage43" alt=" " />
+                    <img src={profileImage44} className="profileImage44" alt=" " />
+                    <img src={profileImage45} className="profileImage45" alt=" " />
+                    <img src={profileImage46} className="profileImage46" alt=" " />
+                    <img src={profileImage47} className="profileImage47" alt=" " />
+                    <img src={profileImage48} className="profileImage48" alt=" " />
+                    <img src={profileImage49} className="profileImage49" alt=" " />
+                    <img src={profileImage50} className="profileImage50" alt=" " />
+                    <img src={profileImage51} className="profileImage51" alt=" " />
+                    <img src={profileImage52} className="profileImage52" alt=" " />
                   </div>
                 </div>
               </div>
@@ -401,152 +407,174 @@ const IndexPage = () => {
                 data-sal-duration="1000"
                 data-sal-delay="250"
                 data-sal-easing="easeOutElastic">
-              <Tool title="Define your group membrane"
-                text="You decide the visibility and accessibility of your group. 
-                Whether public and open, or invite-only, create the container that feels right."
-                classBg="membrane"
-                imgName="membrane-settings.png"
-                alt="Group privacy settings"
-                index="0" />
+                <Tool title="Define your group membrane"
+                  text="You decide the visibility and accessibility of your group. 
+                  Whether public and open, or invite-only, create the container that feels right."
+                  classBg="tool0"
+                  img1Name="define-membrane-1.jpg"
+                  img2Name="define-membrane-2.jpg"
+                  alt="Group privacy settings"
+                  index="0"
+                  id="0"
+                  setActive={handleSetActive}
+                  isActive={activeToolId === "0"} />
             </div>
             <div
                 data-sal="fade-in"
                 data-sal-duration="1000"
                 data-sal-delay="250"
                 data-sal-easing="easeOutElastic">
-            <Tool title="Customize your experience"
-              text="Our advanced admin settings make it easy to curate an experience that's perfect for your group. 
-              Custom views show members exactly what they need to see and link out to critical resources."
-              classBg="customize"
-              imgName="customize-ui.png"
-              alt="Customization options"
-              index="1" />  
+              <Tool title="Customize your experience"
+                text="Our advanced admin settings make it easy to curate an experience that's perfect for your group. 
+                Custom views show members exactly what they need to see and link out to critical resources."
+                classBg="tool1"
+                img1Name="customize-experience-1.jpg"
+                img2Name="customize-experience-2.jpg"
+                img3Name="customize-experience-3.jpg"
+                alt="Customization options"
+                index="1" 
+                id="1"
+                setActive={handleSetActive}
+                isActive={activeToolId === "1"} />  
             </div>
             <div
                 data-sal="fade-in"
                 data-sal-duration="1000"
                 data-sal-delay="250"
                 data-sal-easing="easeOutElastic">
-            <Tool title="Grow relationships with collaborators"
-              text="Our web and mobile apps allow community members to deepen relationships and collaborate 
-              through discussions, requests, offers, resources, member directories, direct messaging, and chat."
-              classBg="relationship"
-              imgName="relationships-ui-feature.png"
-              alt="Relationships"
-              index="2" />
+              <Tool title="Grow relationships with collaborators"
+                text="Our web and mobile apps allow community members to deepen relationships and collaborate 
+                through discussions, requests, offers, resources, member directories, direct messaging, and chat."
+                classBg="tool2"
+                img1Name="grow-relationships-1.jpg"
+                img2Name="grow-relationships-2.jpg"
+                img3Name="grow-relationships-3.jpg"
+                alt="Relationships"
+                index="2" 
+                id="2"
+                setActive={handleSetActive}
+                isActive={activeToolId === "2"} />
             </div>
-
-              <div
-                  data-sal="fade-in"
-                  data-sal-duration="1000"
-                  data-sal-delay="250"
-                  data-sal-easing="easeOutElastic">
-            <Tool title="Host cross-group conversations"
-              text="Share one post with multiple groups, creating a shared conversation for cross-pollination and emergence."
-              classBg="crossgroup"
-              imgName="crossgroup.png"
-              alt="Cross-group conversation"
-              index="3" />
+            <div
+                data-sal="fade-in"
+                data-sal-duration="1000"
+                data-sal-delay="250"
+                data-sal-easing="easeOutElastic">
+              <Tool title="Host cross-group conversations"
+                text="Share one post with multiple groups, creating a shared conversation for cross-pollination and emergence."
+                classBg="tool3"
+                img1Name="cross-group-convo.jpg"
+                alt="Cross-group conversation"
+                active="true"
+                index="3" 
+                id="3"
+                setActive={handleSetActive}
+                isActive={activeToolId === "3"} />
             </div>
-
-              <div
-                  data-sal="fade-in"
-                  data-sal-duration="1000"
-                  data-sal-delay="250"
-                  data-sal-easing="easeOutElastic">
-            <Tool title="Discover local connections"
-              text="Hylo has a geographic map and specific tools for bioregional and place-based groups, 
-              facilitating coordination at the scale regeneration actually happens: locally."
-              classBg="local"
-              imgName="local.png"
-              alt="Local and Place-based"
-              index="4" />
-            </div>
-
-              <div
-                  data-sal="fade-in"
-                  data-sal-duration="1000"
-                  data-sal-delay="500"
-                  data-sal-easing="easeOutElastic">
-              </div>
           </div>
+          
           <div className="toolsList2">
-
-          <div
+            <div
               data-sal="fade-in"
               data-sal-duration="1000"
               data-sal-delay="250"
               data-sal-easing="easeOutElastic">
-            <Tool title="Guide toward action"
-              text="Whether planning an online event or a creek restoration day, 
-              Hylo's coordination tools guide groups toward action. 
-              Use Projects to kick-start collaboration and Events to gather online or IRL."
-              classBg="action"
-              imgName="action.png"
-              alt="Guide toward action"
-              index="5" />
+              <Tool title="Guide toward action"
+                text="Whether planning an online event or a creek restoration day, 
+                Hylo's coordination tools guide groups toward action. 
+                Use Projects to kick-start collaboration and Events to gather online or IRL."
+                classBg="tool5"
+                img1Name="guide-towards-action-1.jpg"
+                img2Name="guide-towards-action-2.jpg"
+                alt="Guide toward action"
+                index="5" 
+                id="5"
+                setActive={handleSetActive}
+                isActive={activeToolId === "5"} />
             </div>
-
-              <div
-                  data-sal="fade-in"
-                  data-sal-duration="1000"
-                  data-sal-delay="250"
-                  data-sal-easing="easeOutElastic">
+            <div
+                data-sal="fade-in"
+                data-sal-duration="1000"
+                data-sal-delay="250"
+                data-sal-easing="easeOutElastic">
             <Tool title="Composable ecosystems"
               text="Groups can add unlimited subgroups AND join other groups, 
               making it easy to form and navigate large networks. 
               This composability allows people to connect across membranes and work on shared goals."
-              classBg="composable"
-              imgName="composable.png"
+              classBg="tool6"
+              img1Name="composable-ecosystems.jpg"
               alt="Composable ecosystems"
-              index="6" />
+              index="6" 
+              id="6"
+              setActive={handleSetActive}
+              isActive={activeToolId === "6"} />
             </div>
-
-              <div
-                  data-sal="fade-in"
-                  data-sal-duration="1000"
-                  data-sal-delay="250"
-                  data-sal-easing="easeOutElastic">
-            <Tool title="Understand your network"
-              text="Hylo is a tool for collective sensemaking, designed to source intelligence from the edges of a network. 
-              By aggregating content from nested groups, we help you understand what's alive in your ecosystem."
-              classBg="sensemaking"
-              imgName="sensemaking.png"
-              alt="Sensemaking tools"
-              index="7" />
+            <div
+                data-sal="fade-in"
+                data-sal-duration="1000"
+                data-sal-delay="250"
+                data-sal-easing="easeOutElastic">
+              <Tool title="Understand your network"
+                text="Hylo is a tool for collective sensemaking, designed to source intelligence from the edges of a network. 
+                By aggregating content from nested groups, we help you understand what's alive in your ecosystem."
+                classBg="tool7"
+                alt="Sensemaking tools"
+                index="7" 
+                id="7"
+                setActive={handleSetActive}
+                isActive={activeToolId === "7"} />
             </div>
-
-              <div
-                  data-sal="fade-in"
-                  data-sal-duration="1000"
-                  data-sal-delay="250"
-                  data-sal-easing="easeOutElastic">
-            <Tool title="Nurture a prosocial culture"
-              text="Hylo facilitates the transition from top-down to peer-to-peer coordination, 
-              helping your group evolve and scale your impact."
-              classBg="prosocial"
-              imgName="prosocial.png"
-              alt="prosocial culture"
-              index="8" />
+            <div
+                data-sal="fade-in"
+                data-sal-duration="1000"
+                data-sal-delay="250"
+                data-sal-easing="easeOutElastic">
+              <Tool title="Nurture a prosocial culture"
+                text="Hylo facilitates the transition from top-down to peer-to-peer coordination, 
+                helping your group evolve and scale your impact."
+                classBg="tool8"
+                alt="prosocial culture"
+                index="8" 
+                id="8"
+                setActive={handleSetActive}
+                isActive={activeToolId === "8"} />
             </div>
-
-              <div
-                  data-sal="fade-in"
-                  data-sal-duration="1000"
-                  data-sal-delay="250"
-                  data-sal-easing="easeOutElastic">
-            <Tool title="No ads, no distractions"
-              text="Hylo is a public good; a community-led and non-profit technology commons. 
-              It's free to use, with no extractive revenue model harvesting your data or attention."
-              classBg="publicgood"
-              imgName="publicgood.png"
-              alt="No ads, no distractions"
-              index="9" />
+            <div
+                data-sal="fade-in"
+                data-sal-duration="1000"
+                data-sal-delay="250"
+                data-sal-easing="easeOutElastic">
+              <Tool title="No ads, no distractions"
+                text="Hylo is a public good; a community-led and non-profit technology commons. 
+                It's free to use, with no extractive revenue model harvesting your data or attention."
+                classBg="tool9"
+                alt="No ads, no distractions"
+                index="9" 
+                id="9"
+                setActive={handleSetActive}
+                isActive={activeToolId === "9"} />
+            </div>
+            <div
+                data-sal="fade-in"
+                data-sal-duration="1000"
+                data-sal-delay="250"
+                data-sal-easing="easeOutElastic">
+                <Tool title="Discover local connections"
+                  text="Hylo has a geographic map and specific tools for bioregional and place-based groups, 
+                  facilitating coordination at the scale regeneration actually happens: locally."
+                  classBg="tool4"
+                  img1Name="discover-local.jpg"
+                  alt="Local and Place-based"
+                  index="4"
+                  id="4"
+                  setActive={handleSetActive}
+                  isActive={activeToolId === "4"}  />
             </div>
           </div>
+
         </div>
         <div className="greenWaves">
-          <img src={toolsBg} className="toolsBg" />
+          <img src={toolsBg} className="toolsBg" alt=" " />
         </div>
       </section>
       <section className="bioregionalContainer">
@@ -564,7 +592,7 @@ const IndexPage = () => {
                 data-sal="fade-in"
                 data-sal-duration="1000"
                 data-sal-delay="250"
-                data-sal-easing="easeOutElastic">a place</h1>
+                data-sal-easing="easeOutElastic">bioregional</h1>
             <p
                 data-sal="fade-in"
                 data-sal-duration="1000"
@@ -592,24 +620,24 @@ const IndexPage = () => {
         <div className="bioregionAnimation">
           <div className="bioregionElements">
             <div className="locationMarkers">
-              <img src={blueVillage} className="blueVillage" />
-              <img src={redVillage} className="redVillage" />
-              <img src={yellowVillage} className="yellowVillage" />
-              <img src={northVillage} className="northVillage" />
-              <img src={southVillage} className="southVillage" />
-              <img src={westForkRiver} className="westForkRiver" />
+              <img src={blueVillage} className="blueVillage" alt=" "  />
+              <img src={redVillage} className="redVillage" alt=" " />
+              <img src={yellowVillage} className="yellowVillage" alt=" " />
+              <img src={northVillage} className="northVillage" alt=" " />
+              <img src={southVillage} className="southVillage" alt=" " />
+              <img src={westForkRiver} className="westForkRiver" alt=" " />
             </div>
             <div className="membranes">
-              <img src={westForkMembrane} className="westForkMembrane" />
-              <img src={northVillageMembrane} className="northVillageMembrane" />
-              <img src={redMembrane} className="redMembrane" />
-              <img src={blueMembrane} className="blueMembrane" />
-              <img src={yellowMembrane} className="yellowMembrane" />
-              <img src={greenMembrane} className="greenMembrane" />
+              <img src={westForkMembrane} className="westForkMembrane" alt=" " />
+              <img src={northVillageMembrane} className="northVillageMembrane" alt=" " />
+              <img src={redMembrane} className="redMembrane" alt=" " />
+              <img src={blueMembrane} className="blueMembrane" alt=" " />
+              <img src={yellowMembrane} className="yellowMembrane" alt=" " />
+              <img src={greenMembrane} className="greenMembrane" alt=" " />
             </div>
             <div className="connections">
-              <img src={westForkConnector} className="westForkConnector" />
-              <img src={interconnections} className="interconnections" />
+              <img src={westForkConnector} className="westForkConnector" alt=" " />
+              <img src={interconnections} className="interconnections" alt=" " />
             </div>
           </div>
           <div className="bioregionalCTA"
@@ -619,31 +647,32 @@ const IndexPage = () => {
                 data-sal-easing="easeOutElastic">
             <Button label="Explore what's alive near you" link="/map/" background={`linear-gradient(93deg, #B162AB 7.65%, #0175D8 100%)`} color="#fff" />
           </div>
-          <img src={valleyBackground} className="valleyBackground" />
+          <img src={valleyBackground} className="valleyBackground" alt=" " />
           <div className="valleyFade"></div>
         </div>
       </section>
       <section className="planetaryContainer">
+        <div className="starBg"></div>
         <div className="starFade"></div>
         <div className="planetary">
-          <h2>Let's unlock<br/>planetary regeneration</h2>
-          <p className="planetaryDescription">By sowing the seeds of a network of Earth's bioregions, 
-          we nurture a global regenerative culture that collaborates 
-          at the scale of the biosphere to care for our world.</p>
-          <div class="planetaryCoordination">
-            <div className="planet">
-              <img src={planet} alt="Spaceship Earth" className="planetEarth"/>
-              <img src={earthGlow} className="earthGlow" />
-            </div>
-            <div className="planetaryGrid">
-              <img src={grid} alt="Planetary Grid" />
-            </div>
-            <div className="planetaryMembranes">
-              <img src={planetaryMembranes} className="planetaryMembranesImage" />
-            </div>
-            <div className="planetaryBelonging">
-              <img src={pin} alt="You are here" className="youAreHere"/>
-              <img src={youBelong} className="youBelong" />
+          <h2>Planetary regeneration<br/> is within reach</h2>
+          <p className="planetaryDescription">Join us in nurturing a culture of stewardship that unlocks collaboration at the scale of the biosphere.</p>
+          <div className="planetAnimationContainer">
+            <div className="planetaryCoordination">
+              <div className="planet">
+                <img src={planet} alt="Spaceship Earth" className="planetEarth" />
+                <img src={earthGlow} className="earthGlow" alt=" " />
+              </div>
+              <div className="planetaryGrid">
+                <img src={grid} alt="Planetary Grid" />
+              </div>
+              <div className="planetaryMembranes">
+                <img src={planetaryMembranes} className="planetaryMembranesImage" alt=" " />
+              </div>
+              <div className="planetaryBelonging">
+                <img src={pin} alt="You are here" className="youAreHere" />
+                <img src={youBelong} className="youBelong" alt=" " />
+              </div>
             </div>
           </div>
           <div className="planetaryDetail">
@@ -664,6 +693,7 @@ const IndexPage = () => {
             </div>
           </div>
         </div>
+        <div className="starFadeBottom"></div>
       </section>
       <Footer />
     </Layout>
