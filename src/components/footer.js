@@ -42,9 +42,10 @@ const Footer = () => {
               <Link to="/agreements/">Hylo Agreements</Link>
             </h4>
             <p><Link to="/agreements/#values">Hylo Values</Link></p>
+            <p><Link to="/agreements/#code-of-conduct">Code of Conduct</Link></p>
             <p><Link to="/agreements/#hylo-platform-agreements">Hylo Platform Agreements</Link></p>
-            <p><Link to="/agreements/#terms-of-use">Our Commitments &amp; Terms of Use</Link></p>
-            <p><Link to="/agreements/#privacy-policy">Privacy Policy</Link></p>
+            <p><Link to="/terms">Terms of Use</Link></p>
+            <p><Link to="/privacy">Privacy Policy</Link></p>
           </li>
         </ul>
         <div className="footerSeal">

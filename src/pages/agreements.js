@@ -18,8 +18,8 @@ const AgreementsPage = () => {
 
             <p>Alongside our <Link to="/about/#vision">Purpose &amp; Vision</Link>, Hylo is driven by a strong set of values. 
                 These values were derived by the current Hylo stewardship team through a prosocial process to 
-                identify our most strongly held and shared values that animate our work. We are committed to upholding them
-                 in all that we do, and we ask that everyone using the platform uphold them as well.</p>
+                identify the most strongly held and shared values that animate our work. We are committed to upholding them
+                 in all that we do, and we ask that everyone using the platform honor them as well.</p>
 
             <div className="contentImage">
                 <img src={values} alt="Hylo values" width="100%" />
@@ -51,7 +51,7 @@ const AgreementsPage = () => {
             <ul>
                 <li>We facilitate co-creation of Hylo through our participatory design processes, engaging our stakeholders
                      in the development of our tools and platforms.</li>
-                <li>We will create opportunities for input and open-source contributions through the Building Hylo group.</li>
+                <li>We create opportunities for input and open-source contributions through the Building Hylo group.</li>
                 <li>Before building new systems or tools, we look for and integrate or adopt solutions that are already working.</li>
                 <li>Our code is open source, and we work to use open standards and protocols whenever possible to enable
                      interoperability with other tools and platforms.</li>
@@ -79,7 +79,7 @@ const AgreementsPage = () => {
             <h4>Our Commitments</h4>
             <ul>
                 <li>We commit ourselves to building safe and inclusive digital spaces.</li>
-                <li>We commit to equitable distribution of compensation and recognition among Hylo's core stewardship team.</li>
+                <li>We commit to equitable distribution of compensation and recognition among Hylo's core stewardship team and contributors.</li>
                 <li>We are informed by global wisdom traditions including traditional, Indigenous, and place-based knowledge, 
                     and incorporate these learnings into our design, development practices, and product direction.</li>
                 <li>We commit to following the <a target="_blank" rel="noopener noreferrer" href="https://designjustice.org/read-the-principles">Design Justice principles</a>.</li>
@@ -169,32 +169,51 @@ const AgreementsPage = () => {
 
             <h4>Using Your <strong>Agency</strong> on Hylo</h4>
             <ul>
-                <li>Take care when deciding what to share in your group; don't overshare or 
-                    post private information, or re-share personal stories someone told you without their consent.</li>
                 <li>Step forward to suggest or make changes in your group when something isn't working, 
                     instead of waiting for others to do it.</li>
                 <li>Adjust Hylo settings to create an experience that works for you in terms of Notifications, Stream ranking, and Post aggregation.</li>
+                <li>Take care when deciding what to share in your group; don't overshare or 
+                    post private information, or re-share personal stories someone told you without their consent.</li>
             </ul>
 
-            <h3>Unacceptable Behaviors</h3>
-            <p>We've compiled this list by drawing from the exemplary work of the <a target="_blank" rel="noopener noreferrer" href="https://www.contributor-covenant.org/version/2/1/code_of_conduct/">Contributor Covenant</a> and 
-                the <a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/document/d/1T_yvFkH24hCkKMoWvGt2iTP4yNDR0vWRkC81tesFEyw/edit#heading=h.iajzjy3x6llo">Inclusive Cultural Covenant</a>.
-                These behaviors are not allowed on Hylo. If you see this type of content, please Flag it immediately.</p>
+            <h3>Hylo's Town Square: The Public Context</h3>
+            <p>One way Hylo is unique is that in addition to private group spaces, there is a Public stream of 
+                any posts with the "Public" toggle switched on. The Public stream is a fun and inspiring look 
+                at cool things happening all over the world. We treasure the quality of the content here and 
+                want to keep it a space where people can participate freely and safely. To honor this special 
+                collaborative space, <strong>we ask that you only share content in Public that is appropriate for a general audience</strong>, 
+                including children age 13 and up.</p>
 
+            <p>The Public Context also includes the Group Explorer, where you can discover groups to join. 
+                In order to appear in the Group Explorer, groups must adhere to this guideline as well. 
+                To earn the privilege of sharing in public on Hylo, <a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/forms/d/e/1FAIpQLScuxRGl65OMCVkjjsFllWwK4TQjddkufMu9rukIocgmhyHL7w/viewform?usp=sf_link">groups must apply via this form</a> and affirm their 
+                commitment to upholding the Cultural Norms & Code of Conduct. Public content and public groups 
+                are monitored by the Hylo platform stewards, with a goal to create a more collective moderation process soon.</p>
+
+            <h3>Unacceptable Behavior in Public Posts or Groups</h3>
             <ol>
-                <li>The use of sexualized or violent language or imagery, and sexual attention of any kind</li>
+                <li>The use of sexualized or violent language or imagery, and sexual attention of any kind.</li>
                 <li>Trolling, insulting, or derogatory comments, and personal or political attacks 
-                    (we also recommend avoiding the use of snark, sarcasm, teasing and other things that don't translate well online)</li>
-                <li>Public or private harassment such as threats, intimidation, pressure, or unwanted attention</li>
-                <li>Publishing others' private information, such as a physical or email address, without their explicit permission</li>
-                <li>Other conduct which could reasonably be considered inappropriate in a professional setting</li>
-                <li>Threatening or inciting violence against any persons, groups, or 'types' of people</li>
+                    (we also recommend avoiding the use of snark, sarcasm, teasing and other things that don't translate well online). Please keep political discourse respectful.</li>
+                <li>Spamming - sharing multiple unsolicited posts promoting products, services, or links, particularly without giving any context for why you are sharing it, or without making any attempt to connect with others around it.</li>
+                <li>Other conduct which could reasonably be considered inappropriate in a professional setting.</li>
+            </ol>
+
+            <h3>Unacceptable Behavior Anywhere on Hylo</h3>
+            <p>These behaviors are not allowed on Hylo, period. If you see this type of content, please flag it immediately.</p>
+            <ol>
+                <li>Public or private harassment such as threats, intimidation, pressure, or unwanted attention.</li>
+                <li>Publishing others' private information, such as a physical or email address, without their explicit permission.</li>
+                <li>Threatening or inciting violence against any persons, groups, or 'types' of people.</li>
                 <li>Characterizing anyone's personality or behaviors, or making jokes about them, 
                     on the basis of inherent traits such as national origin, ethnicity, race, gender, 
                     gender identity and expression, sexual orientation, disability or medical condition, or lifestyle factors 
-                    such as parenthood or employment</li>
-                <li>Carrying out or advocating for any illegal activities</li>
+                    such as parenthood or employment.</li>
+                <li>Carrying out or advocating for any illegal activities.</li>
             </ol>
+
+            <p>We've compiled this list by drawing from the exemplary work of the <a target="_blank" rel="noopener noreferrer" href="https://www.contributor-covenant.org/version/2/1/code_of_conduct/">Contributor Covenant</a> and 
+                the <a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/document/d/1T_yvFkH24hCkKMoWvGt2iTP4yNDR0vWRkC81tesFEyw/edit#heading=h.iajzjy3x6llo">Inclusive Cultural Covenant</a>.</p>
 
             <h2>Accountability &amp; Enforcement</h2>
             <p>Violations of the Code of Conduct will be subject to an accountability process to correct the behavior and repair harm. 
@@ -259,22 +278,22 @@ const AgreementsPage = () => {
             <ul>
                 <li>I pledge to behave on Hylo in ways that contribute to an open, welcoming, diverse, inclusive, 
                     and healthy community, and to support other members in feeling respected, safe, and appreciated.
-                    [wellbeing] [liberation]</li>
+                    <span class="agreementTag wellbeing">wellbeing</span> <span class="agreementTag liberation">liberation</span></li>
                 <li>I will respect differing opinions, viewpoints, and experiences, and work to find common ground 
                     and shared values with other Hylo members. 
-                    [co-creation] [adaptation] [liberation]</li>
+                    <span class="agreementTag cocreation">co-creation</span> <span class="agreementTag adaptation">adaptation</span> <span class="agreementTag liberation">liberation</span></li>
                 <li>I commit to learning from every interaction. I will listen to feedback, adapt my contributions 
                     based on community needs, and embrace responsibility for mistakes as opportunities for growth. 
-                    [adaptation]</li>
+                    <span class="agreementTag adaptation">adaptation</span> <span class="agreementTag liberation">liberation</span></li>
                 <li>I pledge to share my voice, ideas, and skills in service to my group(s) on Hylo, 
                     recognizing that our collective efforts lead to higher quality and more meaningful outcomes. 
-                    [co-creation]</li>
+                    <span class="agreementTag cocreation">co-creation</span> <span class="agreementTag stewardship">stewardship</span></li>
                 <li>If I see an opportunity to improve something on the Hylo platform or within my group, 
                     I will take action to make it better.
-                    [stewardship] [agency]</li>
+                    <span class="agreementTag stewardship">stewardship</span> <span class="agreementTag agency">agency</span></li>
                 <li>I commit to upholding the Code of Conduct &amp; Cultural Norms, and I agree to participate in the 
                     Accountability & Enforcement when necessary. 
-                    [stewardship] [agency]</li>
+                    <span class="agreementTag stewardship">stewardship</span> <span class="agreementTag wellbeing">wellbeing</span></li>
             </ul>
 
 

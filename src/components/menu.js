@@ -52,9 +52,10 @@ const Menu = ({ closeMenu }) => (
         </h3>
         <ul>
           <li><Link to="/agreements/#values" onClick={closeMenu}>Hylo Values</Link></li>
+          <li><Link to="/agreements/#code-of-conduct" onClick={closeMenu}>Code of Conduct</Link></li>
           <li><Link to="/agreements/#hylo-platform-agreements" onClick={closeMenu}>Hylo Platform Agreements</Link></li>
-          <li><Link to="/agreements/#terms-of-use" onClick={closeMenu}>Our Commitments &amp; Terms of Use</Link></li>
-          <li><Link to="/agreements/#privacy-policy" onClick={closeMenu}>Privacy Policy</Link></li>
+          <li><Link to="/terms" onClick={closeMenu}>Terms of Use</Link></li>
+          <li><Link to="/privacy" onClick={closeMenu}>Privacy Policy</Link></li>
         </ul>
       </div>
     </div>
