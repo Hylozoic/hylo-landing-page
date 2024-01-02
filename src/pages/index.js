@@ -146,6 +146,7 @@ const IndexPage = () => {
   const [activeToolId, setActiveToolId] = useState(null);
 
   const handleSetActive = (id) => {
+    console.log("handleSetActive called with id:", id); // Add this line
     setActiveToolId(id === activeToolId ? null : id); // Toggle active state
   };
 
@@ -159,6 +160,7 @@ const IndexPage = () => {
     addAnimationOnScroll("planetaryDescription", "planetaryCoordination", "animate", -500);
     addAnimationOnScroll("planetaryDescription", "planetaryContainer", "animate", -500);
   }, []);
+  
   return (
     <Layout pageTitle="Home Page">
       <div className="hero">
@@ -414,7 +416,7 @@ const IndexPage = () => {
                   img1Name="define-membrane-1.jpg"
                   img2Name="define-membrane-2.jpg"
                   alt="Group privacy settings"
-                  index="0"
+                  index={0}
                   id="0"
                   setActive={handleSetActive}
                   isActive={activeToolId === "0"} />
@@ -432,7 +434,7 @@ const IndexPage = () => {
                 img2Name="customize-experience-2.jpg"
                 img3Name="customize-experience-3.jpg"
                 alt="Customization options"
-                index="1" 
+                index={1}
                 id="1"
                 setActive={handleSetActive}
                 isActive={activeToolId === "1"} />  
@@ -450,7 +452,7 @@ const IndexPage = () => {
                 img2Name="grow-relationships-2.jpg"
                 img3Name="grow-relationships-3.jpg"
                 alt="Relationships"
-                index="2" 
+                index={2}
                 id="2"
                 setActive={handleSetActive}
                 isActive={activeToolId === "2"} />
@@ -466,7 +468,7 @@ const IndexPage = () => {
                 img1Name="cross-group-convo.jpg"
                 alt="Cross-group conversation"
                 active="true"
-                index="3" 
+                index={3} 
                 id="3"
                 setActive={handleSetActive}
                 isActive={activeToolId === "3"} />
@@ -487,7 +489,7 @@ const IndexPage = () => {
                 img1Name="guide-towards-action-1.jpg"
                 img2Name="guide-towards-action-2.jpg"
                 alt="Guide toward action"
-                index="5" 
+                index={4} 
                 id="5"
                 setActive={handleSetActive}
                 isActive={activeToolId === "5"} />
@@ -504,7 +506,7 @@ const IndexPage = () => {
               classBg="tool6"
               img1Name="composable-ecosystems.jpg"
               alt="Composable ecosystems"
-              index="6" 
+              index={5} 
               id="6"
               setActive={handleSetActive}
               isActive={activeToolId === "6"} />
@@ -519,7 +521,7 @@ const IndexPage = () => {
                 By aggregating content from nested groups, we help you understand what's alive in your ecosystem."
                 classBg="tool7"
                 alt="Sensemaking tools"
-                index="7" 
+                index={6}
                 id="7"
                 setActive={handleSetActive}
                 isActive={activeToolId === "7"} />
@@ -534,7 +536,7 @@ const IndexPage = () => {
                 helping your group evolve and scale your impact."
                 classBg="tool8"
                 alt="prosocial culture"
-                index="8" 
+                index={7}
                 id="8"
                 setActive={handleSetActive}
                 isActive={activeToolId === "8"} />
@@ -549,7 +551,7 @@ const IndexPage = () => {
                 It's free to use, with no extractive revenue model harvesting your data or attention."
                 classBg="tool9"
                 alt="No ads, no distractions"
-                index="9" 
+                index={8}
                 id="9"
                 setActive={handleSetActive}
                 isActive={activeToolId === "9"} />
@@ -565,7 +567,7 @@ const IndexPage = () => {
                   classBg="tool4"
                   img1Name="discover-local.jpg"
                   alt="Local and Place-based"
-                  index="4"
+                  index={9}
                   id="4"
                   setActive={handleSetActive}
                   isActive={activeToolId === "4"}  />

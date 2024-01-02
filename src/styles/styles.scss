@@ -2075,16 +2075,27 @@ p {
     animation: fadeInBounce .5s ease-out;
     animation-delay: .75s;
     opacity: 0; /* Start with opacity 0 */
-    height: 0; /* Start with height 0 */
+    height: 0px; /* Start with height 0 */
     overflow: hidden; /* Hide content until expanded */
     animation-fill-mode: forwards;
     height: 90px;
     overflow: hidden;
-    transition: all 0.5s ease-out;
+    transition: all .5s ease-out;
+    transition: height 1s ease-in-out; /* Match this with the timeout duration */
+    overflow: hidden;
+    height: 0; /* Initially closed */
 
     img {
         width: 100%;
     }
+}
+
+.tool .hidden {
+    display: none;
+}
+
+.tool .visible {
+    display: block;
 }
 
 .toolDetail.active {
