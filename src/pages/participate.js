@@ -54,9 +54,26 @@ const ParticipatePage = () => {
                 <iframe src="https://hylo.com/groups/building-hylo/events?layoutFlags=hideNav" style={{ position: "relative", width: "500px", height: "100vh"}} title="Building Hylo Events"></iframe>
             </div>
 
+            <h2 id="community-stewardship">Get community stewardship support</h2>
+            <p>An online community is a living thing, like a garden -- it needs care and attention to thrive. 
+                Hylo is designed to help group stewards build engagement and collaboration, but no technology can take the place of dedicated tending from a human. 
+                If building community online feels daunting, we are here to help! The <a target="_blank" rel="noopener noreferrer" href="https://hylozoic.gitbook.io/hylo/guides/building-engagement-in-your-group">Hylo documentation</a> includes a lot of guidance to help your group thrive and effectively take action toward your goals.</p>
+            <p>If you're looking for more support, the Hylo team offer community stewardship support at a variety of levels. Over the years, 
+                we've learned a lot about what works and what doesn't for growing community online, and we love to share that insight to guide groups toward success. 
+                You can learn more about our <a target="_blank" rel="noopener noreferrer" href="https://hylozoic.gitbook.io/hylo/about/community-stewardship-support-program-csaas">community stewardship offerings here</a>.
+            </p>
+
             <h2 id="partner-with-us">Partner with us</h2>
-            <p>We host a monthly community call for folks in our ecosystem to connect and chat about Hylo and their community, 
-                and ask questions and offer input to the Hylo stewardship team. You're invited to join us! </p>
+            <p>Our partners are purpose-driven groups at the leading edge of creating a culture that works for all. Their sectors are
+                as varied as regenerative agriculture, inclusive capital, bioregional organizing, health and wellbeing, climate action, 
+                and lots more. Each of them were searching for a community platform that could meet their needs, and coming up short until they found Hylo.
+                Together, we co-design unique new features for Hylo that help them achieve their purpose, and everyone on Hylo gets to enjoy these tools, too.
+            </p>
+            <p>Do you have a vision for coordination tools to meet your specific needs? Let's build them together! Our partners contribute
+                the resources, experience, and clear need, and our team contributes facilitation, creativity, and technical expertise to manifest 
+                your vision. <strong>Trust us, this is going to be way more fun than trying to build your own community tool</strong> from scratch as a non-profit or affinity group.
+            </p>
+            <p>To explore partnership possibilities, please reach out to <strong>hello@hylo.com</strong>.</p>
 
             <h2 id="contribute">Contribute to Hylo</h2>
             <p>We host a monthly community call for folks in our ecosystem to connect and chat about Hylo and their community, 
