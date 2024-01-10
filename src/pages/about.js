@@ -13,6 +13,10 @@ const AboutPage = () => {
             <div className="headingStyles">
                 <h1>Unleashing the capacity of purpose-driven groups to change the world</h1>
             </div>
+            <div className="backgroundWrapper">
+                <div className={'backgroundImage about'} style={{backgroundImage: `../images/about-page-header.png`}}></div>
+                <div className="backgroundFade"></div>
+            </div>
         </div>
         <div className="contentContainer">
             <h2>Hylo is a community-led, prosocial coordination platform for purpose-driven groups.</h2>
@@ -80,7 +84,8 @@ const AboutPage = () => {
             <p>Hylo is maintained by <a target="_blank" rel="noopener noreferrer" href="http://terran.io">Terran Collective</a>, 
                 a California Bay Area community of care and practice dedicated to amplifying cooperation among people 
                 regenerating our communities and the planet. Hylo Foundation is a fiscally-sponsored 501c3, and Terran co-stewards 
-                Hylo with Holo Ltd (the makers of Holochain) who make the technology available under the open source Apache License 2.0. 
+                Hylo with Holo Ltd (the makers of Holochain) who make the technology available under the open source Apache License 2.0.
+                We are in the process of assembling an advisory board and establishing an indepedent business entity for Hylo.  
                 <strong> Our goal is to transition to a structure that enshrines Hylo as a technology commons with a participatory 
                 governance model that formally includes stakeholder voices.</strong></p>
 
@@ -94,6 +99,42 @@ const AboutPage = () => {
             <div className="contentImage">
                 <img src={team} alt="Hylo team members" width="100%" />
             </div>
+
+            <p><strong>Tibet Sprague, Director of Technology</strong><br/>
+            Tibet Sprague is a systems entrepreneur, communitarian technologist, and passionate evangelist of the more beautiful world our hearts know is possible. 
+            He is founder and core steward of the Terran Collective, and Director of Technology for Hylo. 
+            He also stewards the Collaborative Technology Alliance, facilitating collaboration and interoperability among humane social technologists and platforms. 
+            Tibet loves to weave community, facilitate councils and other prosocial processes, and bring people together to regenerate the Bay Area bioregion he resides in. 
+            </p>
+            <p><strong>Clare Politano, Director of Product</strong><br/>
+            Clare is a mother, a technologist, a land steward, and a community organizer weaving systems and tools for a 
+            regenerative future. With a background in non-profit communications and software engineering, she has spent over
+             a decade at the forefront of using technology as a tool to mobilize communities for change. 
+             Clare leads product development for Hylo, where she facilitates processes to co-design tech solutions for 
+             real-world groups. Through this work, Clare has developed a specialization in participatory governance and community 
+             stewardship, guiding numerous groups to grow communities that are equitable and impactful. 
+             She is a ProSocial facilitator and holds a B.A. in Political Science from the University of Virginia.
+            </p>
+            <p><strong>Krisha Subramanian, Community Lead</strong><br/>
+            Krisha has a background in business development and sales, though her passions lie in holistic wellness, 
+            regenerative living, social justice, and earth-based traditions. She is a life-long student of Ayurveda 
+            and is in perpetual inquiry around how we can live in greater harmony with ourselves, our community, and planet. 
+            She stewards a 50-hectare regenerative land project in the cloud forest of Costa Rica.
+            </p>
+            <p><strong>Aaron Broduer, Director of Design</strong><br/>
+            Aaron is an interface and systems designer, artist, musician, builder, and entrepreneur. 
+            His work in technology designing and building social apps, sales systems, satellite solar design tools, 
+            distributed governance tools, and nationwide activism platforms has touched millions. 
+            He is dedicated to designing systems and tools for resilience and thriving in an uncertain future. 
+            He experiments with building closed-loop products with lighting business <a target="_blank" rel="noopener noreferrer" href="https://www.alchemica.ai/">Alchemica</a>, 
+            and he is a contributor to the Holochain ecosystem through <a target="_blank" rel="noopener noreferrer" href="https://lightningrodlabs.org/">Lightningrod Labs</a>.
+            </p>
+            <p><strong>Tom Watson, Senior Software Engineer</strong><br/>
+            Hailing from Canberra, Australia, Tom arrives into 2024 deeply pondering 1) our relationship to place, 
+            2) cultural practices that build community (eg: rites of passage) and 
+            3) What is “regenerative culture”, and can we define it without it being captured by the marketing departments of the hegemony. 
+            Tom has been focusing on mobile development for the team over the last year.
+            </p>
         </div>
         <Footer />
     </Layout>

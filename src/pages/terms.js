@@ -8,7 +8,11 @@ const TermsPage = () => {
     <Layout pageTitle="Hylo Terms of Use">
         <div className="hero contentHero">
             <div className="headingStyles">
-                <h1></h1>
+                <h1>Terms of Use</h1>
+            </div>
+            <div className="backgroundWrapper">
+                <div className={'backgroundImage terms'} style={{backgroundImage: `../images/agreements-page-header.png`}}></div>
+                <div className="backgroundFade"></div>
             </div>
         </div>
         <div className="contentContainer">

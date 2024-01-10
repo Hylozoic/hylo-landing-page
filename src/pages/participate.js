@@ -11,6 +11,10 @@ const ParticipatePage = () => {
             <div className="headingStyles">
                 <h1>A public good technology commons co-created by you</h1>
             </div>
+            <div className="backgroundWrapper">
+                <div className={'backgroundImage participate'} style={{backgroundImage: `../images/participate-page-header.png`}}></div>
+                <div className="backgroundFade"></div>
+            </div>
         </div>
         <div className="contentContainer">
             <h2>There is a place for you at our table.</h2> 
@@ -55,7 +59,7 @@ const ParticipatePage = () => {
             </div>
 
             <h2 id="community-stewardship">Get community stewardship support</h2>
-            <p>An online community is a living thing, like a garden -- it needs care and attention to thrive. 
+            <p><strong>An online community is a living thing</strong>, like a garden -- it needs care and attention to thrive. 
                 Hylo is designed to help group stewards build engagement and collaboration, but no technology can take the place of dedicated tending from a human. 
                 If building community online feels daunting, we are here to help! The <a target="_blank" rel="noopener noreferrer" href="https://hylozoic.gitbook.io/hylo/guides/building-engagement-in-your-group">Hylo documentation</a> includes a lot of guidance to help your group thrive and effectively take action toward your goals.</p>
             <p>If you're looking for more support, the Hylo team offer community stewardship support at a variety of levels. Over the years, 

@@ -12,6 +12,10 @@ const AgreementsPage = () => {
             <div className="headingStyles">
                 <h1>Clear agreements are essential to prosocial coordination</h1>
             </div>
+            <div className="backgroundWrapper">
+                <div className={'backgroundImage agreements'} style={{backgroundImage: `../images/agreements-page-header.png`}}></div>
+                <div className="backgroundFade"></div>
+            </div>
         </div>
         <div className="contentContainer">
             <h2 id="values">Our Values &amp; Commitments</h2>
