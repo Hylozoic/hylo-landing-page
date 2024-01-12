@@ -2047,6 +2047,7 @@ p {
     border: 2px dashed rgba(109, 205, 154, .3);
     border-radius: 5px;
     display: inline-block;
+    position: relative;
     margin: 10px;
     width: 90%;
 
@@ -2060,19 +2061,31 @@ p {
         font-family: 'Circular-Bold', sans-serif;
         font-size: 24px;
         font-weight: 700;
-        padding-left: 10px;
+        padding-top: 0;
+        margin-top: 10px;
     }
 
     p {
         margin-bottom: 0;
+        opacity: 0;
     }
 
     button {
         cursor: pointer;
         background: none;
+        outline: 0;
         border: none;
-        color: #fff;
     }
+
+    img {
+        opacity: 0;
+    }
+}
+
+.active.tool p, .active.tool img {
+    animation: fadeInBounce .5s ease-out;
+    animation-delay: .75s;
+    animation-fill-mode: forwards;
 }
 
 // to animate bg: add a div and transition from opacity 0 to 1
@@ -2090,20 +2103,25 @@ p {
     text-align: center;
     animation: fadeInBounce .5s ease-out;
     animation-delay: .75s;
-    opacity: 0; /* Start with opacity 0 */
-    height: 0px; /* Start with height 0 */
-    overflow: hidden; /* Hide content until expanded */
     animation-fill-mode: forwards;
-    height: 90px;
-    overflow: hidden;
     transition: all .5s ease-out;
-    transition: height 1s ease-in-out; /* Match this with the timeout duration */
+    transition: height .5s ease-in-out; /* Match this with the timeout duration */
     overflow: hidden;
-    height: 0; /* Initially closed */
+    height: 90px; /* Initially closed */
+    opacity: 0;
 
     img {
         width: 100%;
     }
+}
+
+.setActiveButton {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
 }
 
 .tool .hidden {
@@ -2172,6 +2190,7 @@ p {
 /* Testimonial Section Styles */
 
 .testimonial {
+    display: none;
     margin: 10% auto;
     text-align: center;
     width: 80%;
@@ -2184,6 +2203,7 @@ p {
     background-position-y: bottom;
     margin: 0;
     width: 100%;
+    padding-top: 150px;
 
     .topSection {
         background: linear-gradient(180.95deg, rgba(77, 121, 196, 0) 0.76%, rgba(0, 94, 255, 0) 0.77%, rgba(44, 115, 180, 0.744792) 60.66%, #5C7490 78.56%, #5C8B90 96.56%);
@@ -2467,14 +2487,19 @@ p {
     }
 }
 
-.bioregionalDetail {
+.bioregionalDetails {
     display: flex;
 
-    p {
-        border: 2px dashed #fff;
+    .bioregionalDetail {
+        border: 2px dashed rgba(255,255,255,.25);
         border-radius: 5px;
         margin: 25px 10px;
         padding: 25px;
+
+        p {
+            padding: 0;
+            margin: 0;
+        }
     }
 }
 

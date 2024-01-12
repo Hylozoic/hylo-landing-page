@@ -70,20 +70,20 @@ const Tool = ({ id, isActive, setActive, title, text, classBg, img1Name, img2Nam
     }, [isActive]);
 
     useEffect(() => {
-        if (isActive && toolDetailRef.current && imagesLoaded) {
-            const fullHeight = toolDetailRef.current.scrollHeight;
-            toolDetailRef.current.style.height = `${fullHeight}px`;
-        } else if (toolDetailRef.current) {
-
-        }
+      if (isActive && toolDetailRef.current && imagesLoaded) {
+          const fullHeight = toolDetailRef.current.scrollHeight;
+          toolDetailRef.current.style.height = `${fullHeight}px`;
+      } else if (toolDetailRef.current) {
+          toolDetailRef.current.style.height = '50px'; // Collapse the tool
+      }
     }, [isActive, imagesLoaded]);
 
     return (
         <div  className={`tool ${isActive ? 'active' : ''}`}>
-            { isActive ? 
+
                 <div className={classBg}>
                   <div className="toolBg">
-                    <div ref={toolDetailRef} className="toolDetail" 
+                    <div ref={toolDetailRef} className={`toolDetail ${isActive ? 'active' : ''}`} 
                         onClick={() => setActive(false)}
                         onKeyPress={() => setActive(false)} 
                         role="button" 
@@ -98,9 +98,10 @@ const Tool = ({ id, isActive, setActive, title, text, classBg, img1Name, img2Nam
                         </div>
                     </div>
                   </div>
-                </div> : <button onClick={() => setActive(id)}><h3>+ {title}</h3></button>
+                </div>
+                <button onClick={() => setActive(id)} className="setActiveButton"></button>
 
-            }
+      
         </div>
     );
 }

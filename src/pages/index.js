@@ -37,6 +37,9 @@ import westForkRiver from "../images/west-fork-river.svg"
 import southVillage from "../images/south-village.svg"
 import greenMembrane from "../images/green-membrane.svg"
 import toolsBg from "../images/active-bg.svg"
+import localHappenings from "../images/local-happenings.svg"
+import businesses from "../images/businesses.svg"
+import workTogether from "../images/work-together.svg"
 
 // animation files
 import animationSpacer from "../images/groups-animation/spacer.png"
@@ -516,6 +519,22 @@ const IndexPage = () => {
                 data-sal-duration="1000"
                 data-sal-delay="250"
                 data-sal-easing="easeOutElastic">
+                <Tool title="Discover local connections"
+                  text="Hylo has a geographic map and specific tools for bioregional and place-based groups, 
+                  facilitating coordination at the scale regeneration actually happens: locally."
+                  classBg="tool4"
+                  img1Name="discover-local.jpg"
+                  alt="Local and Place-based"
+                  index={9}
+                  id="4"
+                  setActive={handleSetActive}
+                  isActive={activeToolId === "4"}  />
+            </div>
+            <div
+                data-sal="fade-in"
+                data-sal-duration="1000"
+                data-sal-delay="250"
+                data-sal-easing="easeOutElastic">
               <Tool title="Understand your network"
                 text="Hylo is a tool for collective sensemaking, designed to source intelligence from the edges of a network. 
                 By aggregating content from nested groups, we help you understand what's alive in your ecosystem."
@@ -556,22 +575,6 @@ const IndexPage = () => {
                 setActive={handleSetActive}
                 isActive={activeToolId === "9"} />
             </div>
-            <div
-                data-sal="fade-in"
-                data-sal-duration="1000"
-                data-sal-delay="250"
-                data-sal-easing="easeOutElastic">
-                <Tool title="Discover local connections"
-                  text="Hylo has a geographic map and specific tools for bioregional and place-based groups, 
-                  facilitating coordination at the scale regeneration actually happens: locally."
-                  classBg="tool4"
-                  img1Name="discover-local.jpg"
-                  alt="Local and Place-based"
-                  index={9}
-                  id="4"
-                  setActive={handleSetActive}
-                  isActive={activeToolId === "4"}  />
-            </div>
           </div>
 
         </div>
@@ -600,22 +603,31 @@ const IndexPage = () => {
                 data-sal-duration="1000"
                 data-sal-delay="250"
                 data-sal-easing="easeOutElastic">The landscape around each of us is alive with activity. Hylo empowers communities to coordinate at the scale of their local landscape -- their bioregion -- and come alive in the places they inhabit.</p>
-            <div className="bioregionalDetail">
-              <p
+            <div className="bioregionalDetails">
+              <div className="bioregionalDetail"
                 data-sal="fade-in"
                 data-sal-duration="1000"
                 data-sal-delay="250"
-                data-sal-easing="easeOutElastic">Get involved in local happenings and celebrate the place you call home.</p>
-              <p
+                data-sal-easing="easeOutElastic">
+                  <img src={localHappenings} />
+                  <p>Get involved in local happenings and celebrate the place you call home.</p>
+              </div>
+              <div className="bioregionalDetail"
                 data-sal="fade-in"
                 data-sal-duration="1000"
                 data-sal-delay="250"
-                data-sal-easing="easeOutElastic">Find local businesses and projects to support for a more resilient community.</p>
-              <p
+                data-sal-easing="easeOutElastic">
+                  <img src={businesses} />
+                  <p>Find local businesses and projects to support for a more resilient community.</p>
+              </div>
+              <div className="bioregionalDetail"
                 data-sal="fade-in"
                 data-sal-duration="1000"
                 data-sal-delay="250"
-                data-sal-easing="easeOutElastic">Work together to care for the land and restore healthy ecosystems.</p>
+                data-sal-easing="easeOutElastic">
+                  <img src={workTogether} />
+                  <p>Work together to care for the land and restore healthy ecosystems.</p>
+                </div>
             </div>
           </div>
         </div>
