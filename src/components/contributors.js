@@ -7,18 +7,20 @@ const Contributors = () => {
     const [isActive, setActive] = useState(false)
     const [isActiveCategory, setActiveCategory] = useState("team")
 
-    const Contributor = ({id, name, title}) => 
+    const Contributor = ({id, name, title, url}) =>
         <li key={id}>
-            <img src="" alt="" className="" />
-            <div className="contributorName">
-                <h4>{name}</h4>
-                <h5>{title}</h5>
-            </div>
+            <a href={url} target='__blank'>
+                <img src="" alt="" className="" />
+                <div className="contributorName">
+                    <h4>{name}</h4>
+                    <h5>{title}</h5>
+                </div>
+            </a>
         </li>
 
     const OpenCollectiveDonor = (member) => {
         let memberRecord;
-        
+
         if (member.role === "BACKER" && member.image) {
             memberRecord = <li key={member.MemberId}>
                 <span className="circle-image">
@@ -39,16 +41,16 @@ const Contributors = () => {
         }
         return memberRecord;
     }
-    
+
     return (
         <div className="contributors">
-            { isActive ? 
+            { isActive ?
                 <div className="contributorsDetail">
                     <h2><span>Hylo</span> <span>is</span> <span>built</span> <span>with</span> <span>care</span></h2>
-                    <p>Hylo is brought to you through the generosity and dedication of many contributors. 
+                    <p>Hylo is brought to you through the generosity and dedication of many contributors.
                     From the current core team, to everyone who has committed code or provided feedback,
                     ideas, or donations -- you are what makes Hylo possible.</p>
-        
+
                     <div className="contributorsCategory">
                         <button className={isActiveCategory === "team" ? "active" : ""}
                             onClick={() => setActiveCategory("team")}

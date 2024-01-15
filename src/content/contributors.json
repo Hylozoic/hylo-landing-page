@@ -6,37 +6,43 @@
           "id": 1,
           "name": "Tibet Sprague",
           "title": "Director of Technology",
-          "img": "tibet.jpg"
+          "img": "tibet.jpg",
+          "url": "https://www.linkedin.com/in/tibetsprague/"
         },
         {
           "id": 2,
           "name": "Clare Politano",
           "title": "Director of Product",
-          "img": "clare.jpg"
+          "img": "clare.jpg",
+          "url": "https://www.linkedin.com/in/clarepolitano/"
         },
         {
           "id": 3,
           "name": "Aaron Brodeur",
           "title": "Director of Design",
-          "img": "aaron.jpg"
+          "img": "aaron.jpg",
+          "url": "https://www.linkedin.com/in/aaronbrodeur/"
         },
         {
           "id": 4,
           "name": "Krisha Subramanian",
           "title": "Community Lead",
-          "img": "krisha.jpg"
+          "img": "krisha.jpg",
+          "url": "https://www.linkedin.com/in/krisha-subramanian-6911a939/"
         },
         {
           "id": 5,
           "name": "Thomas Watson",
           "title": "Software Engineer",
-          "img": "tom.jpg"
+          "img": "tom.jpg",
+          "url": "https://www.linkedin.com/in/thomasgwatson/"
         },
         {
           "id": 6,
           "name": "Loren Johnson",
           "title": "Software Engineer",
-          "img": "loren.jpg"
+          "img": "loren.jpg",
+          "url": "https://www.linkedin.com/in/johnsonloren/"
         }
       ]
     },
@@ -46,12 +52,14 @@
         {
           "id": 11,
           "name": "Edward West",
-          "title": "Co-Founder"
+          "title": "Co-Founder",
+          "url": "https://www.linkedin.com/in/edwardwest"
         },
         {
           "id": 12,
           "name": "Julia Pope",
-          "title": "Co-Founder"
+          "title": "Co-Founder",
+          "url": "https://www.linkedin.com/in/julia-pope-34073878/"
         },
         {
           "id": 13,
@@ -175,7 +183,7 @@
         },
         {
           "id": 38,
-          "name": "Tood Hoskins",
+          "name": "Todd Hoskins",
           "title": "Tribal Resource Center"
         },
         {
