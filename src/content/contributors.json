@@ -6,42 +6,42 @@
           "id": 1,
           "name": "Tibet Sprague",
           "title": "Director of Technology",
-          "img": "tibet.jpg",
+          "img": "headshot_tibet.png",
           "url": "https://www.linkedin.com/in/tibetsprague/"
         },
         {
           "id": 2,
           "name": "Clare Politano",
           "title": "Director of Product",
-          "img": "clare.jpg",
+          "img": "headshot_clare.png",
           "url": "https://www.linkedin.com/in/clarepolitano/"
         },
         {
           "id": 3,
           "name": "Aaron Brodeur",
           "title": "Director of Design",
-          "img": "aaron.jpg",
+          "img": "headshot_aaron.png",
           "url": "https://www.linkedin.com/in/aaronbrodeur/"
         },
         {
           "id": 4,
           "name": "Krisha Subramanian",
           "title": "Community Lead",
-          "img": "krisha.jpg",
+          "img": "headshot_krisha.png",
           "url": "https://www.linkedin.com/in/krisha-subramanian-6911a939/"
         },
         {
           "id": 5,
           "name": "Thomas Watson",
           "title": "Software Engineer",
-          "img": "tom.jpg",
+          "img": "headshot_tom.png",
           "url": "https://www.linkedin.com/in/thomasgwatson/"
         },
         {
           "id": 6,
           "name": "Loren Johnson",
           "title": "Software Engineer",
-          "img": "loren.jpg",
+          "img": "headshot_loren.png",
           "url": "https://www.linkedin.com/in/johnsonloren/"
         }
       ]
@@ -59,6 +59,7 @@
           "id": 12,
           "name": "Julia Pope",
           "title": "Co-Founder",
+          "img": "headshot_julia.png",
           "url": "https://www.linkedin.com/in/julia-pope-34073878/"
         },
         {

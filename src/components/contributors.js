@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Image from './image';
 import JSONData from "../content/open-collective-contributors.json"
 import contributorsData from "../content/contributors.json"
 
@@ -7,10 +8,10 @@ const Contributors = () => {
     const [isActive, setActive] = useState(false)
     const [isActiveCategory, setActiveCategory] = useState("team")
 
-    const Contributor = ({id, name, title, url}) =>
+    const Contributor = ({id, name, title, img, url}) =>
         <li key={id}>
             <a href={url} target='__blank'>
-                <img src="" alt="" className="" />
+                {img && <Image imageName={img} className="contributorImage" width='30px' />}
                 <div className="contributorName">
                     <h4>{name}</h4>
                     <h5>{title}</h5>
