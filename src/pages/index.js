@@ -6,7 +6,6 @@ import Label from "../components/label"
 import Contributors from "../components/contributors"
 import Tool from "../components/tool"
 import Footer from "../components/footer"
-import logo from "../images/logos/hylo-logo-white.svg"
 import leaf from "../images/icon/leaf-icon.svg"
 import heart from "../images/icon/heart-icon.svg"
 import calendar from "../images/icon/calendar-icon.svg"
@@ -163,14 +162,11 @@ const IndexPage = () => {
     addAnimationOnScroll("planetaryDescription", "planetaryCoordination", "animate", -500);
     addAnimationOnScroll("planetaryDescription", "planetaryContainer", "animate", -500);
   }, []);
-  
+
   return (
     <Layout pageTitle="Home Page">
       <div className="hero">
         <div className="headingStyles">
-          <div className="homeLogo">
-              <img src={logo} alt="Hylo Logo" />
-          </div>
           <h1><span>Create</span> <span>community</span><br/><span>with</span> <span>purpose</span> <span>on</span> <span>Hylo</span></h1>
           <div className="actions">
           <Button label="Sign Up" link="/sign-up/" background={`linear-gradient(rgba(0,0,0,1), rgba(0,0,0,1)) padding-box,
@@ -228,7 +224,7 @@ const IndexPage = () => {
                 data-sal-easing="easeOutElastic">It's a community where you can <strong>connect with others who share your purpose</strong> and work towards achieving your goals together.</p>
               <div style={{textAlign: `center`}}>
                 <h3>Ready to find where you belong?</h3>
-                <Button label="Explore Groups" link="/explore/" background={`linear-gradient(93deg, #0DC39F 7.65%, #6FCF97 100%)`} color="#fff" />      
+                <Button label="Explore Groups" link="/explore/" background={`linear-gradient(93deg, #0DC39F 7.65%, #6FCF97 100%)`} color="#fff" />
               </div>
             </div>
           </div>
@@ -243,7 +239,7 @@ const IndexPage = () => {
               <p data-sal="slide-up"
                 data-sal-duration="1000"
                 data-sal-delay="2500"
-                data-sal-easing="easeOutElastic">Many online groups struggle with engagement. 
+                data-sal-easing="easeOutElastic">Many online groups struggle with engagement.
                 On Hylo, groups transform into vibrant, self-organized, collaborative networks.</p>
               <p data-sal="slide-up"
                 data-sal-duration="1000"
@@ -251,7 +247,7 @@ const IndexPage = () => {
                 data-sal-easing="easeOutElastic">Hylo makes it easy for group members to step into leadership, enabling the group to grow and deepen its impact.</p>
               <div style={{textAlign: `center`}}>
                 <h3>Ready to gather your people?</h3>
-                <Button label="Create a Group" link="/create/" background={`linear-gradient(93deg, #B162AB 7.65%, #0175D8 100%)`} color="#fff"/>  
+                <Button label="Create a Group" link="/create/" background={`linear-gradient(93deg, #B162AB 7.65%, #0175D8 100%)`} color="#fff"/>
               </div>
             </div>
           </div>
@@ -362,7 +358,7 @@ const IndexPage = () => {
                 data-sal-delay="0"
                 data-sal-easing="easeOutElastic">
             <h2>Designed for<br/>interdependence</h2>
-            <p>Work on projects across groups and get help from throughout your network. 
+            <p>Work on projects across groups and get help from throughout your network.
                 With cross-group collaboration, you'll access more resources and make things happen faster.</p>
           </div>
         </div>
@@ -381,12 +377,12 @@ const IndexPage = () => {
                   data-sal="fade-in"
                   data-sal-duration="1000"
                   data-sal-delay="250"
-                  data-sal-easing="easeOutElastic">Hylo is an open source project stewarded by Terran Collective alongside partners, contributors, and donors from around the world.</p> 
+                  data-sal-easing="easeOutElastic">Hylo is an open source project stewarded by Terran Collective alongside partners, contributors, and donors from around the world.</p>
                 <p
                   data-sal="fade-in"
                   data-sal-duration="1000"
                   data-sal-delay="250"
-                  data-sal-easing="easeOutElastic">Hylo is a not-for-profit, community-led technology commons. We work with real-world groups to co-design technology solutions to their needs, and then share them with the world. 
+                  data-sal-easing="easeOutElastic">Hylo is a not-for-profit, community-led technology commons. We work with real-world groups to co-design technology solutions to their needs, and then share them with the world.
                   Here are just some of the partners and contributors that have shaped Hylo.</p>
                 <div className="ecosystemLogos"
                   data-sal="fade-in"
@@ -413,7 +409,7 @@ const IndexPage = () => {
                 data-sal-delay="250"
                 data-sal-easing="easeOutElastic">
                 <Tool title="Define your group membrane"
-                  text="You decide the visibility and accessibility of your group. 
+                  text="You decide the visibility and accessibility of your group.
                   Whether public and open, or invite-only, create the container that feels right."
                   classBg="tool0"
                   img1Name="define-membrane-1.jpg"
@@ -430,7 +426,7 @@ const IndexPage = () => {
                 data-sal-delay="250"
                 data-sal-easing="easeOutElastic">
               <Tool title="Customize your experience"
-                text="Our advanced admin settings make it easy to curate an experience that's perfect for your group. 
+                text="Our advanced admin settings make it easy to curate an experience that's perfect for your group.
                 Custom views show members exactly what they need to see and link out to critical resources."
                 classBg="tool1"
                 img1Name="customize-experience-1.jpg"
@@ -440,7 +436,7 @@ const IndexPage = () => {
                 index={1}
                 id="1"
                 setActive={handleSetActive}
-                isActive={activeToolId === "1"} />  
+                isActive={activeToolId === "1"} />
             </div>
             <div
                 data-sal="fade-in"
@@ -448,7 +444,7 @@ const IndexPage = () => {
                 data-sal-delay="250"
                 data-sal-easing="easeOutElastic">
               <Tool title="Grow relationships with collaborators"
-                text="Our web and mobile apps allow community members to deepen relationships and collaborate 
+                text="Our web and mobile apps allow community members to deepen relationships and collaborate
                 through discussions, requests, offers, resources, member directories, direct messaging, and chat."
                 classBg="tool2"
                 img1Name="grow-relationships-1.jpg"
@@ -471,13 +467,13 @@ const IndexPage = () => {
                 img1Name="cross-group-convo.jpg"
                 alt="Cross-group conversation"
                 active="true"
-                index={3} 
+                index={3}
                 id="3"
                 setActive={handleSetActive}
                 isActive={activeToolId === "3"} />
             </div>
           </div>
-          
+
           <div className="toolsList2">
             <div
               data-sal="fade-in"
@@ -485,14 +481,14 @@ const IndexPage = () => {
               data-sal-delay="250"
               data-sal-easing="easeOutElastic">
               <Tool title="Guide toward action"
-                text="Whether planning an online event or a creek restoration day, 
-                Hylo's coordination tools guide groups toward action. 
+                text="Whether planning an online event or a creek restoration day,
+                Hylo's coordination tools guide groups toward action.
                 Use Projects to kick-start collaboration and Events to gather online or IRL."
                 classBg="tool5"
                 img1Name="guide-towards-action-1.jpg"
                 img2Name="guide-towards-action-2.jpg"
                 alt="Guide toward action"
-                index={4} 
+                index={4}
                 id="5"
                 setActive={handleSetActive}
                 isActive={activeToolId === "5"} />
@@ -503,13 +499,13 @@ const IndexPage = () => {
                 data-sal-delay="250"
                 data-sal-easing="easeOutElastic">
             <Tool title="Composable ecosystems"
-              text="Groups can add unlimited subgroups AND join other groups, 
-              making it easy to form and navigate large networks. 
+              text="Groups can add unlimited subgroups AND join other groups,
+              making it easy to form and navigate large networks.
               This composability allows people to connect across membranes and work on shared goals."
               classBg="tool6"
               img1Name="composable-ecosystems.jpg"
               alt="Composable ecosystems"
-              index={5} 
+              index={5}
               id="6"
               setActive={handleSetActive}
               isActive={activeToolId === "6"} />
@@ -520,7 +516,7 @@ const IndexPage = () => {
                 data-sal-delay="250"
                 data-sal-easing="easeOutElastic">
                 <Tool title="Discover local connections"
-                  text="Hylo has a geographic map and specific tools for bioregional and place-based groups, 
+                  text="Hylo has a geographic map and specific tools for bioregional and place-based groups,
                   facilitating coordination at the scale regeneration actually happens: locally."
                   classBg="tool4"
                   img1Name="discover-local.jpg"
@@ -536,7 +532,7 @@ const IndexPage = () => {
                 data-sal-delay="250"
                 data-sal-easing="easeOutElastic">
               <Tool title="Understand your network"
-                text="Hylo is a tool for collective sensemaking, designed to source intelligence from the edges of a network. 
+                text="Hylo is a tool for collective sensemaking, designed to source intelligence from the edges of a network.
                 By aggregating content from nested groups, we help you understand what's alive in your ecosystem."
                 classBg="tool7"
                 alt="Sensemaking tools"
@@ -551,7 +547,7 @@ const IndexPage = () => {
                 data-sal-delay="250"
                 data-sal-easing="easeOutElastic">
               <Tool title="Nurture a prosocial culture"
-                text="Hylo facilitates the transition from top-down to peer-to-peer coordination, 
+                text="Hylo facilitates the transition from top-down to peer-to-peer coordination,
                 helping your group evolve and scale your impact."
                 classBg="tool8"
                 alt="prosocial culture"
@@ -566,7 +562,7 @@ const IndexPage = () => {
                 data-sal-delay="250"
                 data-sal-easing="easeOutElastic">
               <Tool title="No ads, no distractions"
-                text="Hylo is a public good; a community-led and non-profit technology commons. 
+                text="Hylo is a public good; a community-led and non-profit technology commons.
                 It's free to use, with no extractive revenue model harvesting your data or attention."
                 classBg="tool9"
                 alt="No ads, no distractions"

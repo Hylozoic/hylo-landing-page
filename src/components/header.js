@@ -1,7 +1,10 @@
 import PropTypes from "prop-types"
 import React, { useState } from "react"
+import "../styles/styles.scss"
+import { Link } from "gatsby"
 import Menu from "./menu"
 import Button from "./button"
+import logo from "../images/logos/hylo-logo-white.svg"
 import menuToggleHamburger from "../images/icon/menu_hamburger.svg"
 import menuToggleX from "../images/icon/menu_x.svg"
 
@@ -18,6 +21,9 @@ const Header = ({ siteTitle }) => {
     }}>
       <div className="homeMenu">
         <div className="menuCTA">
+          <Link to='/' className="homeLogo">
+              <img src={logo} alt="Hylo Logo" />
+          </Link>
           <h3><strong>Hylo is in open beta.</strong> We build in the open and you can be a part of it!</h3>
           <Button label="Get Involved" link="/participate/" color="#40A1DD" fontSize="16px" />
         </div>
