@@ -9,7 +9,6 @@ import Footer from "../components/footer"
 import leaf from "../images/icon/leaf-icon.svg"
 import heart from "../images/icon/heart-icon.svg"
 import calendar from "../images/icon/calendar-icon.svg"
-import logos from "../images/logos/ecosystem-logos.png"
 import pin from "../images/icon/map-pin.svg"
 import planet from "../images/planet-earth.png"
 import earthGlow from "../images/earth-glow.svg"
@@ -39,6 +38,22 @@ import toolsBg from "../images/active-bg.svg"
 import localHappenings from "../images/local-happenings.svg"
 import businesses from "../images/businesses.svg"
 import workTogether from "../images/work-together.svg"
+import gardenDayUser1 from "../images/garden-day-user-1.png"
+import gardenDayUser2 from "../images/garden-day-user-2.png"
+import gardenDayUser3 from "../images/garden-day-user-3.png"
+
+// stewards of hylo
+import bionutrientFoodAssociation from "../images/stewards/bionutrient-food-association.png"
+import newPublic from "../images/stewards/new-public.png"
+import openTeam from "../images/stewards/open-team.png"
+import pacificIntegral from "../images/stewards/pacific-integral.png"
+import planetaryHealthAlliance from "../images/stewards/planetary-health-alliance.png"
+import prosocialWorld from "../images/stewards/prosocial-world.png"
+import regenNetwork from "../images/stewards/regen-network.png"
+import salmonNationTrust from "../images/stewards/salmon-nation-trust.png"
+import terranCollective from "../images/stewards/terran-collective.png"
+import tribalResourceCenter from "../images/stewards/tribal-resource-center.png"
+import zebrasUnite from "../images/stewards/zebras-unite.png"
 
 // animation files
 import animationSpacer from "../images/groups-animation/spacer.png"
@@ -189,11 +204,13 @@ const IndexPage = () => {
                 data-sal-delay="500"
                 data-sal-easing="easeOutElastic">
                 <Label label="Planning a garden day at the lake!" icon={leaf} />
+                <div className="gardenDayUser"><img src={gardenDayUser1} /></div>
               </div>
               <div className="message message2" data-sal="slide-up"
                 data-sal-duration="333"
                 data-sal-delay="10s"
                 data-sal-easing="easeOutElastic">
+                <div className="gardenDayUser"><img src={gardenDayUser2} /></div>
                 <Label label="Anyone have extra shovels?" icon={heart} />
               </div>
               <div className="message message3" data-sal="slide-up"
@@ -201,6 +218,7 @@ const IndexPage = () => {
                 data-sal-delay="2750"
                 data-sal-easing="easeOutElastic">
                 <Label label="Garden Day" icon={calendar} color="#EB5757" />
+                <div className="gardenDayUser"><img src={gardenDayUser3} /></div>
               </div>
             </div>
             <div className="backgroundWrapper">
@@ -384,12 +402,74 @@ const IndexPage = () => {
                   data-sal-delay="250"
                   data-sal-easing="easeOutElastic">Hylo is a not-for-profit, community-led technology commons. We work with real-world groups to co-design technology solutions to their needs, and then share them with the world.
                   Here are just some of the partners and contributors that have shaped Hylo.</p>
-                <div className="ecosystemLogos"
-                  data-sal="fade-in"
-                  data-sal-duration="1000"
-                  data-sal-delay="250"
-                  data-sal-easing="easeOutElastic">
-                  <img src={logos} alt="Partner Logos" />
+                <div className="ecosystemLogos">
+                  <img src={zebrasUnite} alt="Zebras Unite!"
+                    data-sal="fade-in"
+                    data-sal-duration="1000"
+                    data-sal-delay="250"
+                    data-sal-easing="easeOutElastic" />
+
+                  <img src={bionutrientFoodAssociation} alt="Bionutrient Food Association"
+                    data-sal="fade-in"
+                    data-sal-duration="1000"
+                    data-sal-delay="250"
+                    data-sal-easing="easeOutElastic" />
+
+                  <img src={newPublic} alt="New_ Public"
+                    data-sal="fade-in"
+                    data-sal-duration="1000"
+                    data-sal-delay="250"
+                    data-sal-easing="easeOutElastic" />
+
+                  <img src={openTeam} alt="Open Team"
+                    data-sal="fade-in"
+                    data-sal-duration="1000"
+                    data-sal-delay="250"
+                    data-sal-easing="easeOutElastic" />
+
+                  <img src={pacificIntegral} alt="Pacific Integral"
+                    data-sal="fade-in"
+                    data-sal-duration="1000"
+                    data-sal-delay="250"
+                    data-sal-easing="easeOutElastic" />
+
+                  <img src={planetaryHealthAlliance} alt="Planetary Health Alliance"
+                    data-sal="fade-in"
+                    data-sal-duration="1000"
+                    data-sal-delay="250"
+                    data-sal-easing="easeOutElastic" />
+
+                  <img src={prosocialWorld} alt="Prosocial World"
+                    data-sal="fade-in"
+                    data-sal-duration="1000"
+                    data-sal-delay="250"
+                    data-sal-easing="easeOutElastic" />
+
+                  <img src={regenNetwork} alt="Regen Network"
+                    data-sal="fade-in"
+                    data-sal-duration="1000"
+                    data-sal-delay="250"
+                    data-sal-easing="easeOutElastic" />
+
+                  <img src={tribalResourceCenter} alt="Tribal Resource Center"
+                    data-sal="fade-in"
+                    data-sal-duration="1000"
+                    data-sal-delay="250"
+                    data-sal-easing="easeOutElastic" />
+
+                  <img src={salmonNationTrust} alt="Salmon Nation Trust"
+                    data-sal="fade-in"
+                    data-sal-duration="1000"
+                    data-sal-delay="250"
+                    data-sal-easing="easeOutElastic" />
+
+                  <img src={terranCollective} alt="Terran Collective"
+                    data-sal="fade-in"
+                    data-sal-duration="1000"
+                    data-sal-delay="250"
+                    data-sal-easing="easeOutElastic" />
+
+
                 </div>
               </div>
               <div className="bgContainer">
