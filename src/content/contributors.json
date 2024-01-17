@@ -153,8 +153,28 @@
           "title": "OpenTEAM"
         },
         {
+          "name": "Laura Demmel",
+          "title": "OpenTEAM"
+        },
+        {
+          "name": "Greg Austic",
+          "title": "Our Sci"
+        },
+        {
           "id": 32,
           "name": "Marie Suders",
+          "title": "Planetary Health Alliance"
+        },
+        {
+          "name": "Max Rose",
+          "title": "Planetary Health Alliance"
+        },
+        {
+          "name": "Jeremy Pivor",
+          "title": "Planetary Health Alliance"
+        },
+        {
+          "name": "Joanna Wagner",
           "title": "Planetary Health Alliance"
         },
         {
@@ -178,8 +198,21 @@
           "title": "Pacific Integral"
         },
         {
+          "id": 34,
+          "name": "Holly Harlan",
+          "title": "Pacific Integral"
+        },
+        {
           "id": 37,
           "name": "Dan Kittredge",
+          "title": "Bionutrients Food Association"
+        },
+        {
+          "name": "Mariette Papic",
+          "title": "Bionutrients Food Association"
+        },
+        {
+          "name": "Jonas Hunter",
           "title": "Bionutrients Food Association"
         },
         {
@@ -191,11 +224,28 @@
           "id": 50,
           "name": "Jeff Parrett",
           "title": "Rising Foundation"
+        },
+        {
+          "id": 50,
+          "name": "Ferananda Ibarra",
+          "title": "Coventina Foundation"
+        },
+        {
+          "name": "Gregory Landua",
+          "title": "Regen Network"
+        },
+        {
+          "name": "Sam Liebeskind",
+          "title": "New_ Public"
         }
       ]
     },
     "donors": {
       "message": "These allies have contributed resources to support Hylo's growth and evolution through Open Collective. Our previous campaign received 466 financial contributions.",
-      "humans": []
+      "humans": [
+        {
+          "name": "Karie Crisp"
+        }
+      ]
     }
 }

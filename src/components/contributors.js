@@ -8,10 +8,10 @@ const Contributors = () => {
     const [isActive, setActive] = useState(false)
     const [isActiveCategory, setActiveCategory] = useState("team")
 
-    const Contributor = ({id, name, title, img, url}) =>
-        <li key={id}>
+    const Contributor = ({name, title, img, url}) =>
+        <li key={name + title}>
             <a href={url} target='__blank'>
-                {img && <Image imageName={img} className="contributorImage" width='30px' />}
+                {img && <Image imageName={img} className="contributorImage" width='50px' />}
                 <div className="contributorName">
                     <h4>{name}</h4>
                     <h5>{title}</h5>
