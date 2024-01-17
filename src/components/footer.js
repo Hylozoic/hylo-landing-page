@@ -26,7 +26,7 @@ const Footer = () => {
             <p><a target="_blank" rel="noopener noreferrer" href="https://hylozoic.gitbook.io/hylo/guides/onboarding-your-group">Steward Guide <img src={external} alt="External Link" /></a></p>
             <p><a target="_blank" rel="noopener noreferrer" href="https://hylozoic.gitbook.io/hylo/">Documentation <img src={external} alt="External Link" /></a></p>
             <p><a target="_blank" rel="noopener noreferrer" href="https://hylozoic.gitbook.io/hylo/about/community-stewardship-support-program-csaas">Community Stewardship Support <img src={external} alt="External Link" /></a></p>
-            <p><a target="_blank" rel="noopener noreferrer" href="https://github.com/Hylozoic">Code <img src={external} alt="External Link" /></a></p>
+            <p><a target="_blank" rel="noopener noreferrer" href="https://github.com/Hylozoic">Hylo Codebase <img src={external} alt="External Link" /></a></p>
           </li>
           <li>
             <h4>
