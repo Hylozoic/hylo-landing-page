@@ -5,7 +5,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 const Image = ({ imageName, className, width }) => {
   const data = useStaticQuery(graphql`
     query {
-      allFile(filter: {sourceInstanceName: {eq: "images"}}) {
+      allFile(filter: { sourceInstanceName: {eq: "images"}, extension: {regex: "/(jpg)|(jpeg)|(png)/"} }) {
         edges {
           node {
             id
