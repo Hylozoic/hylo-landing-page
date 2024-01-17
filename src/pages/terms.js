@@ -29,7 +29,7 @@ const TermsPage = () => {
             <h3>2. Service</h3>
             <p>Hylo is a platform where certain users ("Posters") can share "Posts", such as  "Discussions", "Offers", and "Requests" in the form of content, including, but not limited to, videos, photographs, images, artwork, graphics, audio clips, comments, data, text, hyperlinks, software, scripts, projects, other material and information, and associated trademarks and copyrightable works (collectively, "Posts") with other users ("Readers"). Posters can choose to make their Content available to specific Groups, which they choose, or any user of the Service through the "Public" context. Posters may receive comments and feedback on the Posts from Posters and react to Posts that they like by clicking an emoji button. Visitors to and users of the Service (collectively, "Users") may have the ability to contribute, add, create, upload, submit, distribute, facilitate the distribution of, collect, post, or otherwise make accessible ("Submit") Content. "User Submissions" means any Content Submitted by Users.</p>
 
-            <p>Users can get access to the Service by establishing an account on our website at http://www.hylo.com, or through the iOS and Android apps.</p> 
+            <p>Users can get access to the Service by establishing an account on our website at http://www.hylo.com, or through the iOS and Android apps.</p>
 
             <p>All Service users must be at least 13 years old. If you are under 13 years of age, please do not use or access the Service at any time or in any manner. If you are under 18 years of age, you must have the consent of a legal guardian to access the Service.</p>
 
@@ -91,7 +91,7 @@ const TermsPage = () => {
 
             Oakland, CA 94610<br/>
 
-            Email: hello@hylo.com</p>
+            Email: <a href="mailto:hello@hylo.com">hello@hylo.com</a></p>
 
             <p>Hylo may, in accordance with the Digital Millennium Copyright Act (the "DMCA"), terminate user accounts of registered users who are deemed, in Hylo's sole discretion, to be repeat infringers of any intellectual property rights of others or who violate provisions of this Terms of Service.</p>
 
