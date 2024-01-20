@@ -41,6 +41,7 @@ import workTogether from "../images/work-together.svg"
 import gardenDayUser1 from "../images/garden-day-user-1.png"
 import gardenDayUser2 from "../images/garden-day-user-2.png"
 import gardenDayUser3 from "../images/garden-day-user-3.png"
+import aroundTheFire from "../images/around-the-fire-web.jpg"
 
 // stewards of hylo
 import bionutrientFoodAssociation from "../images/stewards/bionutrient-food-association.png"
@@ -191,7 +192,7 @@ const IndexPage = () => {
           </div>
         </div>
         <div className="backgroundWrapper">
-          <div className={'backgroundImage hero'} style={{backgroundImage: `../images/around-the-fire-web.png`}}></div>
+          <div className={'backgroundImage hero'} style={{backgroundImage: aroundTheFire}}></div>
           <div className="backgroundFade"></div>
         </div>
       </div>
@@ -210,7 +211,7 @@ const IndexPage = () => {
                 data-sal-duration="333"
                 data-sal-delay="10s"
                 data-sal-easing="easeOutElastic">
-                <div className="gardenDayUser"><img src={gardenDayUser2} /></div>
+                <div className="gardenDayUser user2"><img src={gardenDayUser2} /></div>
                 <Label label="Anyone have extra shovels?" icon={heart} />
               </div>
               <div className="message message3" data-sal="slide-up"
