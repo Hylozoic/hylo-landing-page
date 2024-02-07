@@ -185,26 +185,37 @@ const AgreementsPage = () => {
             </ul>
 
             <h3>Hylo's Town Square: The Public Context</h3>
-            <p>One way Hylo is unique is that in addition to private group spaces, there is a <a href="https://hylo.com/public" target="_blank">Public stream</a> of
-                any posts with the "Public" toggle switched on. The Public stream is a fun and inspiring look
-                at cool things happening all over the world. We treasure the quality of the content here and
-                want to keep it a space where people can participate freely and safely. To honor this special
-                collaborative space, <strong>we ask that you only share content in Public that is appropriate for a general audience</strong>,
-                including children age 13 and up.</p>
+            <p>One way Hylo is unique is that in addition to private group spaces, there is a <a href="https://hylo.com/public" target="_blank">Public stream</a>.
+            The Public stream is a fun and inspiring look at collaborations happening all over the world. To honor this special collaborative space, 
+            <strong>we ask that you only share content in Public that is appropriate for a general audience.</strong></p>
+
+            <p><strong>The Public Context is for cross-pollination, not for advertising or promotion.</strong> If you share a post to the Public stream, 
+                it should include a clear invitation for folks to participate in a meaningful way. For example:</p>
+
+            <ul>
+                <li>OK: "I'm hosting a workshop on permaculture. What topics are you most interested in learning about?"</li>
+                <li>OK: "I'm offering a legal clinic for cooperatives. Can folks please share this with co-ops in your community or mention them in the comments?"</li>
+                <li>OK: "Here's an article I found. I thought it was interesting that “......”. What do you think about this topic?"</li>
+            </ul>
+
+            <ul>
+                <li>NOT OK: "Rereve Health Family Healthcare is a patient-focused medical facility. Call now!"</li>
+                <li>NOT OK: "Taxi service to Prague! Taxi service to Berlin!"</li>
+                <li>NOT OK: [video title] [video link] [hashtags] [no other commentary]</li>
+            </ul>
 
             <p>The Public Context also includes the <a href="https://www.hylo.com/public/groups" target="_blank">Group Explorer</a>, where you can discover groups to join.
-                In order to appear in the Group Explorer, groups must adhere to this guideline as well.
-                To earn the privilege of sharing in public on Hylo, <a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/forms/d/e/1FAIpQLScuxRGl65OMCVkjjsFllWwK4TQjddkufMu9rukIocgmhyHL7w/viewform?usp=sf_link">groups must apply via this form</a> and affirm their
-                commitment to upholding the Cultural Norms & Code of Conduct. Public content and public groups
-                are monitored by the Hylo platform stewards, with a goal to create a more collective moderation process soon.</p>
+            <strong>To earn the privilege of appearing in the Group Explorer and the ability to share public posts, 
+                <a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/forms/d/e/1FAIpQLScuxRGl65OMCVkjjsFllWwK4TQjddkufMu9rukIocgmhyHL7w/viewform?usp=sf_link">groups must apply via this form</a></strong> 
+                and affirm their commitment to upholding the Cultural Norms & Code of Conduct. Public content and public groups
+                are monitored by the Hylo platform stewards.</p>
 
             <h3>Unacceptable Behavior in Public Posts or Groups</h3>
             <ol>
-                <li>The use of sexualized or violent language or imagery, and sexual attention of any kind.</li>
-                <li>Trolling, insulting, or derogatory comments, and personal or political attacks
-                    (we also recommend avoiding the use of snark, sarcasm, teasing and other things that don't translate well online). Please keep political discourse respectful.</li>
-                <li>Spamming - sharing multiple unsolicited posts promoting products, services, or links, particularly without giving any context for why you are sharing it, or without making any attempt to connect with others around it.</li>
-                <li>Other conduct which could reasonably be considered inappropriate in a professional setting.</li>
+                <li><strong>Sexual or Violent Content:</strong> Do not use sexualized or violent language or imagery, or express sexual attention or advances of any kind.</li>
+                <li><strong>Trolling:</strong> Please do not make deliberately antagonistic, insulting, or derogatory comments, or personal or political attacks (we also recommend avoiding the use of snark, sarcasm, teasing and other things that don't translate well online). Please keep discussions respectful.</li>
+                <li><strong>Inappropriate Content:</strong> Please refrain from conduct which could reasonably be considered inappropriate in a professional setting.</li>
+                <li><strong>Spam, Advertising, or Promotion:</strong> No promoting products, services, or links, particularly without making any attempt to collaborate with others.</li>
             </ol>
 
             <h3>Unacceptable Behavior Anywhere on Hylo</h3>

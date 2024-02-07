@@ -143,26 +143,15 @@
       "message": "These stakeholders have played a key role in shaping Hylo.",
       "humans": [
         {
-          "id": 30,
-          "name": "Dorn Cox",
-          "title": "OpenTEAM"
-        },
-        {
-          "id": 31,
-          "name": "Nat Irwin",
-          "title": "OpenTEAM"
-        },
-        {
-          "name": "Laura Demmel",
-          "title": "OpenTEAM"
-        },
-        {
           "name": "Greg Austic",
           "title": "Our Sci"
         },
         {
-          "id": 32,
-          "name": "Marie Suders",
+          "name": "Community",
+          "title": "OpenTEAM"
+        },
+        {
+          "name": "Marie Studer",
           "title": "Planetary Health Alliance"
         },
         {
@@ -237,6 +226,10 @@
         {
           "name": "Sam Liebeskind",
           "title": "New_ Public"
+        },
+        {
+          "name": "Scott Nelson",
+          "title": ""
         }
       ]
     },

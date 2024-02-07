@@ -80,8 +80,9 @@ const ParticipatePage = () => {
             <p>To explore partnership possibilities, please reach out to <strong><a href="mailto:hello@hylo.com">hello@hylo.com</a></strong>.</p>
 
             <h2 id="contribute">Contribute to Hylo</h2>
-            <p>We host a monthly community call for folks in our ecosystem to connect and chat about Hylo and their community,
-                and ask questions and offer input to the Hylo stewardship team. You're invited to join us! </p>
+            <p>Hylo is resourced by groups and individuals that receive value from the platform. If Hylo helps you move toward your purpose, please 
+                become a supporter by signing up for a small recurring contribution. Thanks!
+            </p>
 
             <iframe title="Contribute to Hylo" src="https://opencollective.com/embed/hylo/donate" style={{width: "100%", minHeight: "100vh"}}></iframe>
 
