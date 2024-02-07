@@ -11,7 +11,7 @@ const PrivacyPage = () => {
                 <h1>Privacy Policy</h1>
             </div>
             <div className="backgroundWrapper">
-                <div className={'backgroundImage terms'} style={{backgroundImage: `../images/agreements-page-header.png`}}></div>
+                <div className={'backgroundImage terms'} style={{backgroundImage: `../images/terms-page-header.png`}}></div>
                 <div className="backgroundFade"></div>
             </div>
         </div>
