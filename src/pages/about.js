@@ -72,10 +72,10 @@ const AboutPage = () => {
                 The tools we build into Hylo as a result of these participatory design processes are then available for every
                 group on Hylo to use and benefit from.</p>
 
-            <p>Our partners include the <a href='https://www.planetaryhealthalliance.org/' target='_blank'>Planetary Health Alliance</a>,
-                <a href='https://www.prosocial.world/' target='_blank'>Prosocial World</a>,
-                <a href='https://openteam.community/' target='_blank'>OpenTEAM</a>,
-                <a href='https://www.regen.network/' target='_blank'>Regen Network</a>,
+            <p>Our partners include the <a href='https://www.planetaryhealthalliance.org/' target='_blank' rel="noopener noreferrer">Planetary Health Alliance</a>,
+                <a href='https://www.prosocial.world/' target='_blank' rel="noopener noreferrer">Prosocial World</a>,
+                <a href='https://openteam.community/' target='_blank' rel="noopener noreferrer">OpenTEAM</a>,
+                <a href='https://www.regen.network/' target='_blank' rel="noopener noreferrer">Regen Network</a>,
                 <a href="https://salmonnation.net" target="_blank" rel="noopener noreferrer">Salmon Nation</a>,
                 and many other active groups leading the movement to create a world that works for all.
                 Because Hylo is built in deep partnership with these groups according to their real-world needs,
@@ -88,7 +88,7 @@ const AboutPage = () => {
             <p>Hylo is maintained by <a target="_blank" rel="noopener noreferrer" href="http://terran.io">Terran Collective</a>,
                 a California Bay Area community of care and practice dedicated to amplifying cooperation among people
                 regenerating our communities and the planet. Hylo Foundation is a fiscally-sponsored 501c3, and Terran co-stewards
-                Hylo with <a href='https://holo.host' target='_blank'>Holo Ltd</a> (the makers of <a href='https://www.holochain.org' target='_blank'>Holochain</a>)
+                Hylo with <a href='https://holo.host' target='_blank' rel="noopener noreferrer">Holo Ltd</a> (the makers of <a href='https://www.holochain.org' target='_blank' rel="noopener noreferrer">Holochain</a>)
                 who make the technology available under the open source Apache License 2.0.
                 We are in the process of assembling an advisory board and establishing an indepedent business entity for Hylo.
                 <strong> Our goal is to transition to a structure that enshrines Hylo as a technology commons with a participatory
@@ -105,13 +105,13 @@ const AboutPage = () => {
                 <img src={team} alt="Hylo team members" width="100%" />
             </div>
 
-            <p><strong><a href="https://tibetsprague.com" target="_blank">Tibet Sprague, Director of Technology</a></strong><br/>
+            <p><strong><a href="https://tibetsprague.com" target="_blank" rel="noopener noreferrer">Tibet Sprague, Director of Technology</a></strong><br/>
             Tibet Sprague is a systems entrepreneur, communitarian technologist, and passionate evangelist of the more beautiful world our hearts know is possible.
             He is founder and core steward of the Terran Collective, and Director of Technology for Hylo.
             He also stewards the Collaborative Technology Alliance, facilitating collaboration and interoperability among humane social technologists and platforms.
             Tibet loves to weave community, facilitate councils and other prosocial processes, and bring people together to regenerate the Bay Area bioregion he resides in.
             </p>
-            <p><strong><a href="https://www.linkedin.com/in/clarepolitano/" target="_blank">Clare Politano, Director of Product</a></strong><br/>
+            <p><strong><a href="https://www.linkedin.com/in/clarepolitano/" target="_blank" rel="noopener noreferrer">Clare Politano, Director of Product</a></strong><br/>
             Clare is a mother, a technologist, a land steward, and a community organizer weaving systems and tools for a
             regenerative future. With a background in non-profit communications and software engineering, she has spent over
              a decade at the forefront of using technology as a tool to mobilize communities for change.
@@ -120,13 +120,13 @@ const AboutPage = () => {
              stewardship, guiding numerous groups to grow communities that are equitable and impactful.
              She is a ProSocial facilitator and holds a B.A. in Political Science from the University of Virginia.
             </p>
-            <p><strong><a href='https://www.linkedin.com/in/krisha-subramanian-6911a939/' target="_blank">Krisha Subramanian, Community Lead</a></strong><br/>
+            <p><strong><a href='https://www.linkedin.com/in/krisha-subramanian-6911a939/' target="_blank" rel="noopener noreferrer">Krisha Subramanian, Community Lead</a></strong><br/>
             Krisha has a background in business development and sales, though her passions lie in holistic wellness,
             regenerative living, social justice, and earth-based traditions. She is a life-long student of Ayurveda
             and is in perpetual inquiry around how we can live in greater harmony with ourselves, our community, and planet.
             She stewards a 50-hectare regenerative land project in the cloud forest of Costa Rica.
             </p>
-            <p><strong><a href="https://www.linkedin.com/in/aaronbrodeur/" target="_blank">Aaron Broduer, Director of Design</a></strong><br/>
+            <p><strong><a href="https://www.linkedin.com/in/aaronbrodeur/" target="_blank" rel="noopener noreferrer">Aaron Broduer, Director of Design</a></strong><br/>
             Aaron is an interface and systems designer, artist, musician, builder, and entrepreneur.
             His work in technology designing and building social apps, sales systems, satellite solar design tools,
             distributed governance tools, and nationwide activism platforms has touched millions.
@@ -134,7 +134,7 @@ const AboutPage = () => {
             He experiments with building closed-loop products with lighting business <a target="_blank" rel="noopener noreferrer" href="https://www.alchemica.ai/">Alchemica</a>,
             and he is a contributor to the Holochain ecosystem through <a target="_blank" rel="noopener noreferrer" href="https://lightningrodlabs.org/">Lightningrod Labs</a>.
             </p>
-            <p><strong><a href="https://www.linkedin.com/in/thomasgwatson/" target="_blank">Tom Watson, Senior Software Engineer</a></strong><br/>
+            <p><strong><a href="https://www.linkedin.com/in/thomasgwatson/" target="_blank" rel="noopener noreferrer">Tom Watson, Senior Software Engineer</a></strong><br/>
             Hailing from Canberra, Australia, Tom arrives into 2024 deeply pondering 1) our relationship to place,
             2) cultural practices that build community (eg: rites of passage) and
             3) What is “regenerative culture”, and can we define it without it being captured by the marketing departments of the hegemony.

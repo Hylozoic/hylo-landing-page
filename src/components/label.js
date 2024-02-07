@@ -10,7 +10,6 @@ const Label = ({ label, color, icon }) => (
       fontFamily: `Circular-Bold, sans-serif`,
       fontSize: `24px`,
       alignItems: `center`,
-      justifyContent: `center`,
       margin: `25px 0`,
       padding: `15px`,
       boxShadow: '0px 15px 25px rgba(42, 64, 89, 0.45)',
