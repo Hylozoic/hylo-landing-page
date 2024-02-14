@@ -198,6 +198,13 @@ p {
     line-height: 32px;
 }
 
+.header {
+    background-color: #40a1dd;
+    margin: 0;
+    width: 100%;
+    position: relative;
+}
+
 .pageStyles {
     color: "#232129";
     margin: 0;
@@ -205,7 +212,7 @@ p {
 }
 
 .hero {
-    height: 100vh;
+    height: 98vh;
     margin-bottom: 50px;
     position: relative;
     display: flex;
@@ -375,6 +382,21 @@ p {
     }
 }
 
+.passionLabel {
+    background-color: #fff;
+    border-radius: 10px;
+    display: flex;
+    font-family: 'Circular-Bold', sans-serif;
+    font-size: 24px;
+    align-items: center;
+    margin: 25px 0;
+    padding: 15px;
+    box-shadow: 0px 15px 25px rgba(42, 64, 89, 0.45);
+    flex-grow: 1;
+    justify-content: flex-start;
+    width: fit-content;
+}
+
 .backgroundWrapper {
     position: absolute;
     top: 0;
@@ -486,7 +508,6 @@ p {
     left: 0;
     width: 100%;
     z-index: 1;
-    padding-right: 100px;
     z-index: 1000;
 
     strong {
@@ -2524,9 +2545,8 @@ p {
 }
 
 .planetaryContainer {
-    padding: 10%;
+    padding: 0;
     text-align: center;
-    overflow: hidden;
     animation-duration: 3s;
     position: relative;
     background-position: center;
@@ -2551,6 +2571,15 @@ p {
         background: linear-gradient(0deg, #060C13 0%, rgba(9, 9, 10, 0) 74.48%);
     }
 
+    .starBgContainer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
     .starBg {
         position: absolute;
         top: 0;
@@ -2570,7 +2599,7 @@ p {
     margin: 0 auto;
     position: relative;
     text-align: center;
-    width: 90%;
+    width: 100%;
 
     h2 {
         font-family: 'Circular-Bold', sans-serif;
@@ -2716,6 +2745,8 @@ p {
     display: flex;
     position: relative;
     z-index: 20;
+    max-width: 1200px;
+    margin: 0 auto;
 
     p {
         font-family: 'Circular-Bold', sans-serif;
@@ -2725,8 +2756,14 @@ p {
     }
 }
 
+
+
+.planetaryDetail .ctaButton {
+    font-size: 18px;
+}
+
 .planetaryCTA {
-    border: 2px dashed rgba(255, 255, 255, 0.5);
+    border: 2px dashed rgba(255, 255, 255, 0.25);
     border-radius: 5px;
     margin: 25px;
     padding: 25px 0;
@@ -2734,6 +2771,9 @@ p {
     flex-grow: 1;
     min-width: 250px;
     width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 /* Footer Section Styles */
@@ -2926,9 +2966,128 @@ footer {
     border: 2px solid #0884D8;
 }
 
+.ctaButton {
+    background: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0)) padding-box padding-box, linear-gradient(to right, rgb(187, 96, 168), rgb(64, 161, 221)) border-box border-box;
+    border: 4px solid transparent;
+    border-radius: 50px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 8px 15px 0px;
+    color: rgb(255, 255, 255);
+    font-family: Circular-Bold, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 10px;
+    padding: 10px 40px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
 
 
-@media only screen and (max-width: 600px) {
+@media (max-width: 1200px) {
+    .interdependence {
+        overflow: hidden;
+    }
+
+    .interdependenceRight .pad {
+        padding: 0 30px 0 50px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .planetaryDetail p {
+        line-height: 24px;
+        font-size: 18px;
+    }
+
+    .passionLabel {
+        font-size: 18px;
+    }
+
+    .passionLeft {
+        width: calc(50% - 40px);
+        padding: 20px;
+    }
+
+    footer li {
+        text-align: center;
+    }
+}
+
+@media (max-width: 900px) {
+
+    p {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .passionRight {
+        width: calc(50% - 40px);
+        padding: 20px;
+    }
+
+    .passionRight, .interdependenceRight, .aliveLeft, .ecosystemContainer, .active.tool {
+        h2 {
+            font-size: 36px;
+            line-height: 36px;
+        }
+
+        p {
+            font-size: 16px;
+        }
+    }
+
+    .active.tool p {
+        line-height: 24px;
+    }
+
+    .contentContainer {
+        width: 90%;
+    }
+
+    .contentSection {
+        flex-wrap: wrap;
+    }
+
+    .asideImage {
+        min-width: 350px;
+    }
+
+    .planetaryDetail {
+        flex-direction: column;
+
+        .ctaButton {
+            width: 240px;
+        }
+    }
+
+    .planetaryCTA {
+        width: auto;
+        flex-direction: row;
+    }
+    .bioregionalContainer {
+        overflow-x: hidden;
+    }
+
+    .bioregionalContainer .bioregionAnimation {
+        width: 150%;
+        position: relative;
+        left: -25%;
+    }
+
+    .planetaryCoordination {
+        width: 70%;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .alive, .passion, .tools {
+        flex-direction: column;
+    }
+
+    p {
+        font-size: 14px;
+    }
 
     .passionLeft {
         width: 100%;
@@ -2964,19 +3123,5 @@ footer {
 
     .footerAcknowledgement {
         width: 90%;
-    }
-}
-
-@media only screen and (max-width: 900px) {
-    .contentContainer {
-        width: 90%;
-    }
-
-    .contentSection {
-        flex-wrap: wrap;
-    }
-
-    .asideImage {
-        min-width: 350px;
     }
 }

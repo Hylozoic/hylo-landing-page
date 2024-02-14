@@ -13,12 +13,7 @@ const Header = ({ siteTitle }) => {
   const openStyle = isOpen ? `open` : ``;
 
   return (
-    <header style={{
-      backgroundColor: `#40A1DD`,
-      margin: `0`,
-      width: `100%`,
-      position: 'relative',
-    }}>
+    <header className="header">
       <div className="homeMenu">
         <div className="menuCTA">
           <Link to='/' className="homeLogo">

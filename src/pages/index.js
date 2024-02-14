@@ -744,7 +744,9 @@ const IndexPage = () => {
         </div>
       </section>
       <section className="planetaryContainer">
-        <div className="starBg"></div>
+        <div className="starBgContainer">
+          <div className="starBg"></div>
+        </div>
         <div className="starFade"></div>
         <div className="planetary">
           <h2>Planetary regeneration<br/> is within reach</h2>
@@ -770,18 +772,16 @@ const IndexPage = () => {
           <div className="planetaryDetail">
             <div className="planetaryCTA">
               <p>Are you ready to find your people?</p>
-              <ExternalButton label="Explore groups" link="https://www.hylo.com/public/groups" background={`linear-gradient(rgba(0,0,0,1), rgba(0,0,0,1)) padding-box,
-                linear-gradient(to right, #BB60A8, #40A1DD) border-box`} color="#fff" border={`4px solid transparent`}/>
+              <a href="https://www.hylo.com/public/groups" className="ctaButton">Explore groups</a>
             </div>
             <div className="planetaryCTA">
               <p>Are you building purpose-driven community?</p>
-              <ExternalButton label="Create a group" link="https://www.hylo.com/all/create/group" background={`linear-gradient(rgba(0,0,0,1), rgba(0,0,0,1)) padding-box,
-                linear-gradient(to right, #BB60A8, #40A1DD) border-box`} color="#fff" border={`4px solid transparent`}/>
+              <a href="https://www.hylo.com/all/create/group" className="ctaButton">Create a group</a>
             </div>
             <div className="planetaryCTA">
               <p>Do you want to co-create Hylo?</p>
-              <ExternalButton label="Join Building Hylo" link="https://www.hylo.com/groups/building-hylo/join/RcDe6vcG7u" background={`linear-gradient(rgba(0,0,0,1), rgba(0,0,0,1)) padding-box,
-                linear-gradient(to right, #BB60A8, #40A1DD) border-box`} color="#fff" border={`4px solid transparent`}/>
+              <a href="https://www.hylo.com/groups/building-hylo/join/RcDe6vcG7u" class="ctaButton">Join Building Hylo</a>
+        
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { container } from "./layout.module.css"
+import { container, main } from "./layout.module.css"
 import Header from "./header"
 
 const Layout = ({ pageTitle, children }) => {
@@ -7,7 +7,7 @@ const Layout = ({ pageTitle, children }) => {
     <>
         <Header />
         <div className={container}>
-            <main>
+            <main className={main}>
                 {children}
             </main>
         </div>
