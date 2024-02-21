@@ -233,21 +233,21 @@ const AgreementsPage = () => {
             </ul>
 
             <p>The Public Context also includes the <a href="https://www.hylo.com/public/groups" target="_blank" rel="noopener noreferrer">Group Explorer</a>, where you can discover groups to join.
-            <strong>To earn the privilege of appearing in the Group Explorer and the ability to share public posts, <a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/forms/d/e/1FAIpQLScuxRGl65OMCVkjjsFllWwK4TQjddkufMu9rukIocgmhyHL7w/viewform?usp=sf_link">groups must apply via this form</a></strong> and 
+            <strong>To earn the privilege of appearing in the Group Explorer and the ability to share public posts, <a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/forms/d/e/1FAIpQLScuxRGl65OMCVkjjsFllWwK4TQjddkufMu9rukIocgmhyHL7w/viewform?usp=sf_link">groups may apply via this form</a></strong> and 
             affirm their commitment to upholding the Cultural Norms & Code of Conduct. Public content and public groups are monitored by the Hylo platform stewards.</p>
 
             <h3>Unacceptable Behavior in Public Posts or Groups</h3>
             <ol>
-                <li><strong>Sexual or Violent Content:</strong> Do not use sexualized or violent language or imagery, or express sexual attention or advances of any kind.</li>
+                <li><strong>Sexual or Violent Content:</strong> Do not use sexualized or violent language or imagery, or express sexual attention or advances of any kind, within any publicly visible areas such as posts, comments, user profile images, group icons, or header images.</li>
                 <li><strong>Trolling:</strong> Please do not make deliberately antagonistic, insulting, or derogatory comments, or personal or political attacks (we also recommend avoiding the use of snark, sarcasm, teasing and other things that don't translate well online). Please keep discussions respectful.</li>
                 <li><strong>Inappropriate Content:</strong> Please refrain from conduct which could reasonably be considered inappropriate in a professional setting.</li>
-                <li><strong>Spam, Advertising, or Promotion:</strong> No promoting products, services, or links, particularly without making any attempt to collaborate with others.</li>
+                <li><strong>Spam, Advertising, or Promotion:</strong> No promoting products, services, or links without making an earnest attempt to collaborate with others around the content.</li>
             </ol>
 
             <h3>Unacceptable Behavior Anywhere on Hylo</h3>
             <p>These behaviors are not allowed on Hylo, period. If you see this type of content, please flag it immediately.</p>
 
-            <p><strong>Violence, Abuse, or Self-Harm</strong>
+            <p><strong>Violence, Abuse, &amp; Self-Harm</strong>
                 <ol>
                     <li>We do not allow public or private harassment such as threats, intimidation, pressure, or unwanted attention.</li>
                     <li>It is never ok to threaten or incite violence against any persons, groups, or 'types' of people, or glorify, or express desire for violence or harm, or to promote violent and hateful entities.</li>
@@ -260,7 +260,7 @@ const AgreementsPage = () => {
                 </ol>
             </p>
 
-            <p><strong>Privacy and Consent</strong>
+            <p><strong>Privacy &amp; Consent</strong>
                 <ol>
                     <li>You may not publish or post others' private information, such as a physical or email address, without their explicit permission, nor threaten to expose private information or incentivize others to do so.</li>
                     <li>Non-Consensual Nudity: You may not post or share intimate photos or videos of someone that were produced or distributed without their consent.</li>
@@ -285,7 +285,7 @@ const AgreementsPage = () => {
             </p>
 
             <p>We've compiled this list by drawing from the exemplary work of the <a target="_blank" rel="noopener noreferrer" href="https://www.contributor-covenant.org/version/2/1/code_of_conduct/">Contributor Covenant</a> and
-                the <a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/document/d/1T_yvFkH24hCkKMoWvGt2iTP4yNDR0vWRkC81tesFEyw/edit#heading=h.iajzjy3x6llo">Inclusive Cultural Covenant</a>.</p>
+                the <a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/document/d/1T_yvFkH24hCkKMoWvGt2iTP4yNDR0vWRkC81tesFEyw/edit#heading=h.iajzjy3x6llo">Inclusive Cultural Covenant</a>, as well as Twitter's and Instagram's guidelines.</p>
 
             <h2>Accountability &amp; Enforcement</h2>
             <p>Violations of the Code of Conduct will be subject to an accountability process to correct the behavior and repair harm.
