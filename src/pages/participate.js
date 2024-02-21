@@ -55,7 +55,7 @@ const ParticipatePage = () => {
             <p>We host a monthly community call for folks in our ecosystem to connect and chat about Hylo and their community,
                 and ask questions and offer input to the Hylo stewardship team. You're invited to join us! </p>
             <div>
-                <iframe src="https://hylo.com/groups/building-hylo/events?layoutFlags=hideNav" style={{ position: "relative", width: "500px", height: "100vh"}} title="Building Hylo Events"></iframe>
+                <iframe src="https://hylo.com/groups/building-hylo/events?layoutFlags=hideNav" style={{ position: "relative", width: "100%", height: "100vh"}} title="Building Hylo Events"></iframe>
             </div>
 
             <h2 id="community-stewardship">Get community stewardship support</h2>
