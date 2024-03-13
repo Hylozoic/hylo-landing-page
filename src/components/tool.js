@@ -99,7 +99,7 @@ const Tool = ({ id, isActive, setActive, title, text, classBg, img1Name, img2Nam
                     </div>
                   </div>
                 </div>
-                <button onClick={() => setActive(id)} className="setActiveButton"></button>
+                <button onClick={() => setActive(id)} className="setActiveButton" aria-label="Toggle this tool open/closed"></button>
 
       
         </div>

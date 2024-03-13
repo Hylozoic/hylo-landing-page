@@ -780,7 +780,7 @@ const IndexPage = () => {
             </div>
             <div className="planetaryCTA">
               <p>Do you want to co-create Hylo?</p>
-              <a href="https://www.hylo.com/groups/building-hylo/join/RcDe6vcG7u" class="ctaButton">Join Building Hylo</a>
+              <a href="https://www.hylo.com/groups/building-hylo/join/RcDe6vcG7u" className="ctaButton">Join Building Hylo</a>
         
             </div>
           </div>

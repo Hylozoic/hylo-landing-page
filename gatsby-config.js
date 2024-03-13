@@ -14,6 +14,12 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-scroll-reveal",
     {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        "icon": "src/images/icon/favicon-16x16.png"
+      }
+    },
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         "name": "images",

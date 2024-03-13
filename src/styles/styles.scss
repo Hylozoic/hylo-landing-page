@@ -582,7 +582,7 @@ p {
 
     div {
         flex-grow: 1;
-        margin: 0 25px;
+        margin: 10px 25px;
     }
 
     h3 {
@@ -2982,6 +2982,8 @@ footer {
     display: inline-block;
 }
 
+/*  RESPONSIVE LAYOUT STYLES   */
+
 
 @media (max-width: 1200px) {
     .interdependence {
@@ -3052,6 +3054,20 @@ footer {
         min-width: 350px;
     }
 
+    .interdependence {
+        flex-wrap: wrap;
+    }
+
+    .interdependenceLeft {
+        width: 100%;
+        display: block;
+    }
+
+    .interdependenceRight {
+      width: 100%;
+      display: block;
+    }
+
     .planetaryDetail {
         flex-direction: column;
 
@@ -3090,11 +3106,13 @@ footer {
     }
 
     .passionLeft {
-        width: 100%;
+        padding: 5%;
+        border-radius: 15px 15px 0 0;
+        width: 95%;
     }
 
     .passionRight {
-        width: 100%;
+        width: 90%;
     }
 
     .aliveContainer {
@@ -3111,14 +3129,17 @@ footer {
     .aliveRight {
       width: 0%;
     }
-    
-    .interdependenceLeft {
-        width: 0%;
-    }
 
-    .interdependenceRight {
-      padding: 60vh 10% 10%;
-      width: 100%;
+    .tools {
+        align-content: center;
+
+        .toolsList1 {
+            width: 100%;
+        }
+    
+        .toolsList2 {
+            width: 100%;
+        }
     }
 
     .footerAcknowledgement {
