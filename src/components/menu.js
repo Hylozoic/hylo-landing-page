@@ -24,9 +24,7 @@ const Menu = ({ closeMenu }) => (
         </ul>
       </div>
       <div>
-        <h3>
-          <Link to="/guide/" onClick={closeMenu}>Using Hylo</Link>
-        </h3>
+        <h3>Using Hylo</h3>
         <ul>
           <li><a target="_blank" rel="noopener noreferrer" href="https://hylozoic.gitbook.io/hylo/guides/hylo-user-guide">Member Guide <img src={external} alt="External Link" /></a></li>
           <li><a target="_blank" rel="noopener noreferrer" href="https://hylozoic.gitbook.io/hylo/guides/onboarding-your-group">Steward Guide <img src={external} alt="External Link" /></a></li>

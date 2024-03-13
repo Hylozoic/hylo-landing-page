@@ -35,7 +35,7 @@ const ParticipatePage = () => {
                 Our community is doing something radically different. Here's how to get involved:</p>
 
             <h3>Building Hylo</h3>
-            <p>This is the main group for our open-source community with almost 600 participants shaping the future of Hylo.
+            <p>This is the main group for our open-source community with over 600 participants shaping the future of Hylo.
                 Join this group to get the earliest product news, comment on upcoming designs and features,
                 share your ideas for the platform, learn about opportunities to contribute, and ask questions and chat
                 with the Hylo stewardship team and wider community. <br/><a target="_blank" rel="noopener noreferrer" href="https://www.hylo.com/groups/building-hylo/join/RcDe6vcG7u">Join here.</a></p>
@@ -54,9 +54,12 @@ const ParticipatePage = () => {
             <h2 id="gatherings">Join a community call</h2>
             <p>We host a monthly community call for folks in our ecosystem to connect and chat about Hylo and their community,
                 and ask questions and offer input to the Hylo stewardship team. You're invited to join us! </p>
-            <div>
-                <iframe src="https://hylo.com/groups/building-hylo/events?layoutFlags=hideNav" style={{ position: "relative", width: "100%", height: "100vh"}} title="Building Hylo Events"></iframe>
-            </div>
+            <h3>Upcoming Calls</h3>
+            <ul>
+                <li><a target="_blank" rel="noopener noreferrer" href="https://lu.ma/hylo">March 20, 2024 @ 10am PDT (Register Here)</a></li>
+                <li><a target="_blank" rel="noopener noreferrer" href="https://lu.ma/hyloapril">April 16, 2024 @ 12pm PDT (Register Here)</a></li>
+                <li><a target="_blank" rel="noopener noreferrer" href="https://lu.ma/hylomay">May 23, 2024 @ 3pm PDT (Register Here)</a></li>
+            </ul>
 
             <h2 id="community-stewardship">Get community stewardship support</h2>
             <p><strong>An online community is a living thing</strong>, like a garden -- it needs care and attention to thrive.
@@ -75,7 +78,7 @@ const ParticipatePage = () => {
             </p>
             <p>Do you have a vision for coordination tools to meet your specific needs? Let's build them together! Our partners contribute
                 the resources, experience, and clear need, and our team contributes facilitation, creativity, and technical expertise to manifest
-                your vision. <strong>Trust us, this is going to be way more fun than trying to build your own community tool</strong> from scratch as a non-profit or affinity group.
+                your vision. <strong>Trust us, this is going to be way more fun than trying to build your own community platform from scratch.</strong>
             </p>
             <p>To explore partnership possibilities, please reach out to <strong><a href="mailto:hello@hylo.com">hello@hylo.com</a></strong>.</p>
 

@@ -19,9 +19,7 @@ const Footer = () => {
             <p><Link to="/about/#team">Team</Link></p>
           </li>
           <li>
-            <h4>
-              <Link to="/guide/">Using Hylo</Link>
-            </h4>
+            <h4>Using Hylo</h4>
             <p><a target="_blank" rel="noopener noreferrer" href="https://hylozoic.gitbook.io/hylo/guides/hylo-user-guide">Member Guide <img src={external} alt="External Link" /></a></p>
             <p><a target="_blank" rel="noopener noreferrer" href="https://hylozoic.gitbook.io/hylo/guides/onboarding-your-group">Steward Guide <img src={external} alt="External Link" /></a></p>
             <p><a target="_blank" rel="noopener noreferrer" href="https://hylozoic.gitbook.io/hylo/">Documentation <img src={external} alt="External Link" /></a></p>
@@ -53,7 +51,7 @@ const Footer = () => {
           <h3>The name "hylo" comes from <a href="https://en.wikipedia.org/wiki/Hylozoism">hylozoism</a>, which means: <em>everything is alive</em></h3>
         </div>
         <div className="footerAcknowledgement">
-          <p>Hylo emerged from the Bay Area Bioregion, supported and sustained by the mighty Sacramento River. This territory has been stewarded since before time by the peoples here. The place that birthed Hylo is known to the Lisjan Ohlone as Huichin. Hylo now receives contributions from all over the world. Wherever we builders go, we will honor truth in history. Wherever we we builders are we seek to be in right relationship -- to the living world, and its stewards.</p>
+          <p>Hylo emerged from the California Bay Area Bioregion, supported and sustained by the mighty Sacramento River. This territory has been stewarded since before time by the original peoples here. The place that birthed Hylo is known to the Lisjan Ohlone as Huichin. Hylo now receives contributions from all over the world. Wherever we builders go, we will honor truth in history. Wherever we we builders are, we seek to be in right relationship -- with the more-than-human living world, and its ancestral stewards.</p>
         </div>
       </footer>
   );
