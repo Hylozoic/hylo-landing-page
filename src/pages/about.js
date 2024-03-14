@@ -110,6 +110,7 @@ const AboutPage = () => {
             He is founder and core steward of the Terran Collective, and Director of Technology for Hylo.
             He also stewards the Collaborative Technology Alliance, facilitating collaboration and interoperability among humane social technologists and platforms.
             Tibet loves to weave community, facilitate councils and other prosocial processes, and bring people together to regenerate the Bay Area bioregion he resides in.
+            Tibet graduated from Brown University with a degree in Computer Science.
             </p>
             <p><strong><a href="https://www.linkedin.com/in/clarepolitano/" target="_blank" rel="noopener noreferrer">Clare Politano, Director of Product</a></strong><br/>
             Clare is a mother, a technologist, a land steward, and a community organizer weaving systems and tools for a
@@ -139,6 +140,16 @@ const AboutPage = () => {
             2) cultural practices that build community (eg: rites of passage) and
             3) What is “regenerative culture”, and can we define it without it being captured by the marketing departments of the hegemony.
             Tom has been focusing on mobile development for the team over the last year.
+            </p>
+            <p><strong><a href="https://www.linkedin.com/in/yasmineelbaggari/" target="_blank" rel="noopener noreferrer">Yasmine El Baggari, Community Steward</a></strong><br/>
+            A native of Morocco, now based in San Francisco, Yasmine is passionate about connecting people and bridging cultures 
+            to encourage a more peaceful caring world. She launched <a href="https://www.voyaj.com/" target="_blank" rel="noopener noreferrer">Voyaj</a>, 
+            a platform that connects people from around the globe for one-on-one meaningful exchanges to foster global understanding. 
+            For the past four years, Yasmine's reach has included work with the World Bank, a Masters in Human Development and Psychology at Harvard Graduate School of Education, 
+            and with the US State Department as an "Engage America" Ambassador. She has spoken at international conferences, 
+            including the World Economic Forum, the Middle East Studies Association, and Obama's Global Entrepreneurship Summit. 
+            Yasmine has traveled to all 50 U.S. states, 40+ countries on her own and was welcomed by 250+ families globally. 
+            She is simply on a mission to bring back openness, curiosity, and empathy into our world.
             </p>
         </div>
         <Footer />
