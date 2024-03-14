@@ -55,7 +55,7 @@ const Contributors = () => {
                     <div className="contributorsCategory">
                         <button className={isActiveCategory === "team" ? "active" : ""}
                             onClick={() => setActiveCategory("team")}
-                            onKeyPress={() => setActiveCategory("team")}>Core Team <span>18</span></button>
+                            onKeyPress={() => setActiveCategory("team")}>Core Team <span>19</span></button>
                         <button className={isActiveCategory === "cocreators" ? "active" : ""}
                             onClick={() => setActiveCategory("cocreators")}
                             onKeyPress={() => setActiveCategory("cocreators")}>Co-Creators <span>20</span></button>

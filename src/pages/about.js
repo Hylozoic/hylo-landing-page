@@ -72,11 +72,7 @@ const AboutPage = () => {
                 The tools we build into Hylo as a result of these participatory design processes are then available for every
                 group on Hylo to use and benefit from.</p>
 
-            <p>Our partners include the <a href='https://www.planetaryhealthalliance.org/' target='_blank' rel="noopener noreferrer">Planetary Health Alliance</a>,
-                <a href='https://www.prosocial.world/' target='_blank' rel="noopener noreferrer">Prosocial World</a>,
-                <a href='https://openteam.community/' target='_blank' rel="noopener noreferrer">OpenTEAM</a>,
-                <a href='https://www.regen.network/' target='_blank' rel="noopener noreferrer">Regen Network</a>,
-                <a href="https://salmonnation.net" target="_blank" rel="noopener noreferrer">Salmon Nation</a>,
+            <p>Our partners include the <a href='https://www.planetaryhealthalliance.org/' target='_blank' rel="noopener noreferrer">Planetary Health Alliance</a>, <a href='https://www.prosocial.world/' target='_blank' rel="noopener noreferrer">Prosocial World</a>, <a href='https://openteam.community/' target='_blank' rel="noopener noreferrer">OpenTEAM</a>, <a href='https://www.regen.network/' target='_blank' rel="noopener noreferrer">Regen Network</a>, <a href="https://salmonnation.net" target="_blank" rel="noopener noreferrer">Salmon Nation</a>,
                 and many other active groups leading the movement to create a world that works for all.
                 Because Hylo is built in deep partnership with these groups according to their real-world needs,
                 <strong> this platform is a unique expression of these communities and their values. </strong>

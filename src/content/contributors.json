@@ -39,10 +39,10 @@
         },
         {
           "id": 6,
-          "name": "Loren Johnson",
-          "title": "Software Engineer",
-          "img": "headshot_loren.png",
-          "url": "https://www.linkedin.com/in/johnsonloren/"
+          "name": "Yasmine El Baggari",
+          "title": "Community Steward",
+          "img": "headshot_yasmine.png",
+          "url": "https://www.linkedin.com/in/yasmineelbaggari/"
         }
       ]
     },
@@ -53,6 +53,7 @@
           "id": 11,
           "name": "Edward West",
           "title": "Co-Founder",
+          "img": "headshot_edward.png",
           "url": "https://www.linkedin.com/in/edwardwest"
         },
         {
@@ -61,6 +62,13 @@
           "title": "Co-Founder",
           "img": "headshot_julia.png",
           "url": "https://www.linkedin.com/in/julia-pope-34073878/"
+        },
+        {
+          "id": 6,
+          "name": "Loren Johnson",
+          "title": "Software Engineer",
+          "img": "headshot_loren.png",
+          "url": "https://www.linkedin.com/in/johnsonloren/"
         },
         {
           "id": 13,
@@ -110,31 +118,6 @@
         {
           "id": 22,
           "name": "Ray Marceau",
-          "title": "Software Engineer"
-        },
-        {
-          "id": 23,
-          "name": "Veselin Nikolov",
-          "title": "Software Engineer"
-        },
-        {
-          "id": 24,
-          "name": "Samuel Plumppu",
-          "title": "Software Engineer"
-        },
-        {
-          "id": 25,
-          "name": "Willem Olding",
-          "title": "Software Engineer"
-        },
-        {
-          "id": 26,
-          "name": "Aaron Edwards",
-          "title": "Software Engineer"
-        },
-        {
-          "id": 27,
-          "name": "Jason Prado",
           "title": "Software Engineer"
         }
       ]
