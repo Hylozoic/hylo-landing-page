@@ -74,7 +74,7 @@ const Tool = ({ id, isActive, setActive, title, text, classBg, img1Name, img2Nam
           const fullHeight = toolDetailRef.current.scrollHeight;
           toolDetailRef.current.style.height = `${fullHeight}px`;
       } else if (toolDetailRef.current) {
-          toolDetailRef.current.style.height = '50px'; // Collapse the tool
+          toolDetailRef.current.style.height = '90px'; // Collapse the tool
       }
     }, [isActive, imagesLoaded]);
 

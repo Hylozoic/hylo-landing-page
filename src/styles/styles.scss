@@ -175,6 +175,10 @@ body {
     overflow-x:hidden;
 }
 
+body * {
+    transition: all .25s ease;
+}
+
 body::-webkit-scrollbar {
     width: 12px;
 }
@@ -210,6 +214,8 @@ p {
     margin: 0;
     padding: 0;
 }
+
+
 
 .hero {
     height: 98vh;
@@ -343,7 +349,6 @@ p {
 }
 
 .passionMessages {
-    position: relative;
     z-index: 10;
     position: sticky;
     top: 20%;
@@ -2093,7 +2098,11 @@ p {
         font-size: 24px;
         font-weight: 700;
         padding-top: 0;
-        margin-top: 10px;
+        height: 90px;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        display: flex;
     }
 
     p {
@@ -2130,7 +2139,6 @@ p {
 }
 
 .toolDetail {
-    padding: 25px;
     text-align: center;
     animation: fadeInBounce .5s ease-out;
     animation-delay: .75s;
@@ -2140,6 +2148,7 @@ p {
     overflow: hidden;
     height: 90px; /* Initially closed */
     opacity: 0;
+    padding: 0 20px 1px 20px;
 
     img {
         width: 100%;
@@ -2985,6 +2994,11 @@ footer {
     display: inline-block;
 }
 
+.renderedCtaButton {
+    font-size: 24px;
+    padding: 10px 40px;
+}
+
 /*  RESPONSIVE LAYOUT STYLES   */
 
 
@@ -3031,6 +3045,20 @@ footer {
 }
 
 @media (max-width: 900px) {
+    .headingStyles {
+        position: absolute;
+        top: auto;
+        bottom: 100px;
+
+        h1 {
+            font-size: 36px;
+            line-height: 48px;
+        }
+    }
+
+    .menuCTA h3 {
+        display: none;
+    }
 
     p {
         font-size: 16px;
@@ -3053,8 +3081,8 @@ footer {
 
     .passionRight, .interdependenceRight, .aliveLeft, .ecosystemContainer, .active.tool {
         h2 {
-            font-size: 48px;
-            line-height: 54px;
+            font-size: 36px;
+            line-height: 48px;
         }
 
         p {
@@ -3127,8 +3155,25 @@ footer {
 
 @media (max-width: 600px) {
 
+    .hero {
+        padding: 0;
+    }
+
+    .headingStyles {
+        width: 100%;
+        text-align: center;
+    }
+
     .alive, .passion, .tools {
         flex-direction: column;
+    }
+
+    .alive {
+        flex-direction: column-reverse;
+    }
+
+    .passionRight h2, .aliveLeft h2, .interdependenceRight h2, .bioregional h2, .bioregional h1 {
+        text-align: center;
     }
 
     p {
@@ -3145,7 +3190,13 @@ footer {
     .passionLeft {
         padding: 5%;
         border-radius: 15px 15px 0 0;
-        width: 95%;
+        overflow: hidden;
+        width: 90%;
+        min-height: 600px;
+    }
+
+    .backgroundWrapper {
+        border-radius: 0 0 0 0;
     }
 
     .passionRight {
@@ -3153,18 +3204,30 @@ footer {
     }
 
     .aliveContainer {
-        background: none;
         position: static;
         width: 100%;
     }
 
     .aliveLeft {
-        padding: 10%;
+        padding: 0%;
         width: 100%;
+
+        .pad {
+            padding: 20px;
+        }
     }
 
+    .ecosystemContainer .ecosystemDetails {
+        padding: 50px 0;
+    }
+
+
     .aliveRight {
-      width: 0%;
+      width: 100%;
+
+      .holdingPhone {
+        margin-bottom: -50px;
+      }
     }
 
     .tools {
@@ -3237,5 +3300,10 @@ footer {
 
     .footerAcknowledgement {
         width: 90%;
+    }
+
+    .renderedCtaButton {
+        font-size: 16px;
+        padding: 10px 20px;
     }
 }

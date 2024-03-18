@@ -2,7 +2,7 @@ import PropTypes from "prop-types"
 import React from "react"
 import { Link } from "gatsby"
 
-const Button = ({ label, link, color, background, border, fontSize }) => (
+const Button = ({ label, link, color, background, border }) => (
   <Link to={link}>
     <button style={{
       background,
@@ -11,12 +11,10 @@ const Button = ({ label, link, color, background, border, fontSize }) => (
       boxShadow: `0px 8px 15px 0px rgba(0, 0, 0, 0.15)`,
       color,
       fontFamily: `Circular-Bold, sans-serif`,
-      fontSize,
       fontWeight: `700`,
       margin: `10px`,
-      padding: `10px 40px`,
       cursor: `pointer`,
-    }}>
+    }} class="renderedCtaButton">
         {label}
     </button>
   </Link>
@@ -28,14 +26,12 @@ Button.propTypes = {
   color: PropTypes.string,
   background: PropTypes.string,
   border: PropTypes.string,
-  fontSize: PropTypes.string,
 }
 
 Button.defaultProps = {
   color: `#252523`,
   background: `#fff`,
   border: `none`,
-  fontSize: `24px`,
 }
 
 export default Button
