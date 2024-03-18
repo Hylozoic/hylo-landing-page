@@ -127,23 +127,21 @@ const AgreementsPage = () => {
                 in making this place more enjoyable and more useful for everyone. We ask all Hylo participants
                 to commit to upholding our <Link to="#code-of-conduct">Cultural Norms &amp; Code of Conduct</Link> and <Link to="/terms">Terms of Use</Link> by consenting to the Hylo Platform Agreements. We are so happy you are with us on this journey. Welcome to Hylo!</p>
             <ul>
-                <li>I pledge to behave on Hylo in ways that contribute to an open, welcoming, diverse, inclusive,
-                    and healthy community, and to support other members in feeling respected, safe, and appreciated.
+                <li>I pledge to behave on Hylo in ways that contribute to an open, welcoming, and healthy community, and to support other members in feeling respected and appreciated.
                     <span class="agreementTag wellbeing">wellbeing</span> <span class="agreementTag liberation">liberation</span></li>
-                <li>I will respect differing opinions, viewpoints, and experiences, and work to find common ground
+                <li>I will respect differing viewpoints and experiences, and work to find common ground
                     and shared values with other Hylo members.
                     <span class="agreementTag cocreation">co-creation</span> <span class="agreementTag adaptation">adaptation</span> <span class="agreementTag liberation">liberation</span></li>
-                <li>I commit to learning from every interaction. I will listen to feedback, adapt my contributions
-                    based on community needs, and embrace responsibility for mistakes as opportunities for growth.
+                <li>I commit to learning from every interaction. I will listen to feedback, adapt, and embrace responsibility for mistakes as opportunities for growth.
                     <span class="agreementTag adaptation">adaptation</span> <span class="agreementTag liberation">liberation</span></li>
                 <li>I pledge to share my voice, ideas, and skills in service to my group(s) on Hylo,
-                    recognizing that our collective efforts lead to higher quality and more meaningful outcomes.
+                    recognizing that working together leads to better outcomes.
                     <span class="agreementTag cocreation">co-creation</span> <span class="agreementTag stewardship">stewardship</span></li>
                 <li>If I see an opportunity to improve something on the Hylo platform or within my group,
                     I will take action to make it better.
                     <span class="agreementTag stewardship">stewardship</span> <span class="agreementTag agency">agency</span></li>
                 <li>I commit to upholding the <Link to="#code-of-conduct">Code of Conduct &amp; Cultural Norms</Link>, and <Link to="/terms">Terms of Use</Link>,
-                    and I agree to participate in the Accountability & Enforcement when necessary.
+                    and I agree to participate in accountability processes when necessary.
                     <span class="agreementTag stewardship">stewardship</span> <span class="agreementTag wellbeing">wellbeing</span></li>
             </ul>
             
