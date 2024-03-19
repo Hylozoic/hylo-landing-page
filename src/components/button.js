@@ -11,10 +11,10 @@ const Button = ({ label, link, color, background, border }) => (
       boxShadow: `0px 8px 15px 0px rgba(0, 0, 0, 0.15)`,
       color,
       fontFamily: `Circular-Bold, sans-serif`,
-      fontWeight: `700`,
+      fontWeight: `200`,
       margin: `10px`,
       cursor: `pointer`,
-    }} class="renderedCtaButton">
+    }} className="renderedCtaButton">
         {label}
     </button>
   </Link>
