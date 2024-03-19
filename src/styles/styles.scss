@@ -362,7 +362,7 @@ a {
 .passionMessages {
     z-index: 10;
     position: sticky;
-    top: 20%;
+    top: 25%;
     display: none;
 
     .message {
@@ -411,6 +411,10 @@ a {
     flex-grow: 1;
     justify-content: flex-start;
     width: fit-content;
+
+    img {
+        margin-right: 15px;
+    }
 }
 
 .backgroundWrapper {
@@ -2619,6 +2623,8 @@ a {
         font-size: 64px;
         line-height: 64px;
         font-weight: $bold-weight;
+        margin: 0;
+        padding-top: 100px;
     }
 
     p {
@@ -2997,7 +3003,7 @@ footer {
     display: inline-block;
 }
 
-.renderedCtaButton {
+.renderedCtaButton, .contributors h3 {
     font-size: 24px;
     padding: 10px 40px;
 }
@@ -3006,6 +3012,12 @@ footer {
 
 
 @media (max-width: 1200px) {
+
+    .headingStyles {
+        top: auto;
+        position: absolute;
+        bottom: 150px;
+    }
     .interdependence {
         overflow: hidden;
     }
@@ -3027,6 +3039,10 @@ footer {
 
     .passionLabel {
         font-size: 18px;
+
+        img {
+            margin-right: 10px;
+        }
     }
 
     .passionLeft {
@@ -3044,6 +3060,11 @@ footer {
 
     footer li {
         text-align: center;
+    }
+
+    .renderedCtaButton, .contributors h3 {
+        font-size: 16px;
+        padding: 10px 20px;
     }
 }
 
@@ -3074,6 +3095,14 @@ footer {
         div {
             margin-bottom: 25px;;
             width: 40%;
+        }
+    }
+
+    .passionLabel {
+        font-size: 16px; 
+
+        img {
+            height: 36px;
         }
     }
 
@@ -3157,6 +3186,10 @@ footer {
 }
 
 @media (max-width: 600px) {
+
+    .ecosystem {
+        width: 95%;
+    }
 
     .hero {
         padding: 0;
@@ -3243,6 +3276,10 @@ footer {
         .toolsList2 {
             width: 100%;
         }
+
+        .tool {
+            width: 95%;
+        }
     }
 
     .bioregional {
@@ -3264,6 +3301,7 @@ footer {
         .bioregionalDetail {
             display: flex;
             margin: 10px;
+            align-items: center;
 
             p {
                 margin-left: 25px;
@@ -3284,6 +3322,7 @@ footer {
 
     .planetaryCTA {
         margin: 10px;
+        flex-direction: column;
     }
 
     .contentContainer {
@@ -3304,9 +3343,56 @@ footer {
     .footerAcknowledgement {
         width: 90%;
     }
+}
 
-    .renderedCtaButton {
+
+@media (max-width: 425px) {
+
+    .passionLabel {
+        font-size: 14px;
+    }
+
+    .planetaryCoordination {
+        top: 30%;
+    }
+
+    .headingStyles h1 {
+        font-size: 24px;
+        line-height: 36px;
+    }
+
+
+    .planetary h2, .passionRight h2, .aliveLeft h2, .interdependenceRight h2, .bioregional h2, .bioregional h1, .passionRight h2, .interdependenceRight h2, .aliveLeft h2, .ecosystemContainer h2, .active.tool h2, .toolsTitle {
+        font-size: 24px;
+        line-height: 32px;
+    }
+
+    .planetary h2 {
+        margin-bottom: 15px;
+    }
+
+    .tool h3 {
+        font-size: 18px;
+    }
+
+    p, .passionRight p, .interdependenceRight p, .aliveLeft p, .ecosystemContainer p, .active.tool p {
+        font-size: 14px;
+    }
+
+    .planetaryDetail .ctaButton {
         font-size: 16px;
-        padding: 10px 20px;
+        min-width: 100px;
+    }
+}
+
+
+@media (max-width: 375px) {
+    
+    .interdependenceLeft .interdependenceAnimation {
+        transform: translateX(-8%);
+    }
+
+    .menuCTA .renderedCtaButton {
+        display: none;
     }
 }

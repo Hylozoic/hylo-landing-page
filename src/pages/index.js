@@ -56,6 +56,7 @@ import salmonNationTrust from "../images/stewards/salmon-nation-trust.png"
 import terranCollective from "../images/stewards/terran-collective.png"
 import tribalResourceCenter from "../images/stewards/tribal-resource-center.png"
 import zebrasUnite from "../images/stewards/zebras-unite.png"
+import holochain from "../images/stewards/holochain.png"
 
 // animation files
 import animationSpacer from "../images/groups-animation/spacer.png"
@@ -530,6 +531,17 @@ const IndexPage = () => {
                     data-sal-easing="easeOutElastic"
                   >
                     <img src={terranCollective} alt="Terran Collective" />
+                  </a>
+
+                  <a href='https://www.holochain.org/'
+                    target='_blank'
+                    rel="noreferrer"
+                    data-sal="fade-in"
+                    data-sal-duration="1000"
+                    data-sal-delay="250"
+                    data-sal-easing="easeOutElastic"
+                  >
+                    <img src={holochain} alt="Holochain" />
                   </a>
                 </div>
               </div>

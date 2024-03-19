@@ -89,7 +89,7 @@ const Contributors = () => {
                             </ul> : ""
                         }
                     </div>
-                </div> : <button onClick={() => setActive(true)} className="viewContributors"><h3>View Contributors</h3></button>
+                </div> : <button onClick={() => setActive(true)} className="viewContributors renderedCtabutton"><h3>View Contributors</h3></button>
             }
         </div>
     );
