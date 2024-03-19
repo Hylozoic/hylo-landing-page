@@ -150,32 +150,34 @@
           "title": "Planetary Health Alliance"
         },
         {
-          "id": 33,
           "name": "Madelynn Martinere",
           "title": "Zebras Unite"
         },
         {
-          "id": 34,
+          "name": "Cameron Burgess",
+          "title": "Armillaria"
+        },
+        {
           "name": "Paul Atkins",
           "title": "ProSocial World"
         },
         {
-          "id": 35,
           "name": "Sage Gibbons",
           "title": "ProSocial World"
         },
         {
-          "id": 36,
+          "name": "Jeff Genung",
+          "title": "ProSocial World"
+        },
+        {
           "name": "Geoff Fitch",
           "title": "Pacific Integral"
         },
         {
-          "id": 34,
           "name": "Holly Harlan",
           "title": "Pacific Integral"
         },
         {
-          "id": 37,
           "name": "Dan Kittredge",
           "title": "Bionutrients Food Association"
         },
@@ -188,19 +190,18 @@
           "title": "Bionutrients Food Association"
         },
         {
-          "id": 38,
           "name": "Todd Hoskins",
           "title": "Tribal Resource Center"
         },
         {
-          "id": 50,
           "name": "Jeff Parrett",
-          "title": "Rising Foundation"
+          "title": "Rising Foundation",
+          "url": "https://therisingfoundation.org"
         },
         {
-          "id": 50,
           "name": "Ferananda Ibarra",
-          "title": "Coventina Foundation"
+          "title": "Coventina Foundation",
+          "url": "httpshttps://www.linkedin.com/in/ferananda/"
         },
         {
           "name": "Gregory Landua",
@@ -213,6 +214,11 @@
         {
           "name": "Scott Nelson",
           "title": ""
+        },
+        {
+          "name": "Stuart Fulton",
+          "title": "COBI",
+          "url": "https://cobi.org.mx"
         }
       ]
     },

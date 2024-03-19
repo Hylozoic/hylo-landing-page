@@ -56,13 +56,13 @@ const Contributors = () => {
                     <div className="contributorsCategory">
                         <button className={isActiveCategory === "team" ? "active" : ""}
                             onClick={() => setActiveCategory("team")}
-                            onKeyPress={() => setActiveCategory("team")}>Core Team <span>19</span></button>
+                            onKeyPress={() => setActiveCategory("team")}>Core Team <span>{contributorsData["team"].humans.length + contributorsData["contributors"].humans.length}</span></button>
                         <button className={isActiveCategory === "cocreators" ? "active" : ""}
                             onClick={() => setActiveCategory("cocreators")}
-                            onKeyPress={() => setActiveCategory("cocreators")}>Co-Creators <span>20</span></button>
+                            onKeyPress={() => setActiveCategory("cocreators")}>Co-Creators <span>{contributorsData["cocreators"].humans.length}</span></button>
                         <button className={isActiveCategory === "donors" ? "active" : ""}
                             onClick={() => setActiveCategory("donors")}
-                            onKeyPress={() => setActiveCategory("donors")}>Donors <span>482</span></button>
+                            onKeyPress={() => setActiveCategory("donors")}>Donors <span>{JSONData.length + contributorsData["donors"].humans.length + 466}</span></button>
                     </div>
                     <div className="contributorsList">
                         <h3>{contributorsData[isActiveCategory].message}</h3>

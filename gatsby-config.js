@@ -8,9 +8,9 @@ module.exports = {
     siteUrl: `https://hylo.com`
   },
   plugins: [
-    "gatsby-plugin-sass", 
-    "gatsby-plugin-image", 
-    "gatsby-plugin-sharp", 
+    "gatsby-plugin-sass",
+    "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     "gatsby-plugin-scroll-reveal",
     {
