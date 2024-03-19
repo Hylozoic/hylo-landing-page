@@ -2,10 +2,16 @@
   "name": "hylo-landing-page",
   "version": "1.0.0",
   "private": true,
-  "description": "hylo-landing-page",
+  "description": "The home page for Hylo: the prosocial coordination platform for a thriving planet",
   "author": "Clare Politano",
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "hylo",
+    "prosocial",
+    "bioregionalism",
+    "social networking",
+    "collaboration",
+    "community"
   ],
   "scripts": {
     "develop": "gatsby develop",

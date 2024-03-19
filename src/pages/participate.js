@@ -1,8 +1,11 @@
 import * as React from "react"
-import "../styles/styles.scss"
-import Layout from "../components/layout"
+
 import Footer from "../components/footer"
+import Layout from "../components/layout"
+
 import meme from "../images/meme.png"
+
+import "../styles/styles.scss"
 
 const ParticipatePage = () => {
   return (
@@ -83,7 +86,7 @@ const ParticipatePage = () => {
             <p>To explore partnership possibilities, please reach out to <strong><a href="mailto:hello@hylo.com">hello@hylo.com</a></strong>.</p>
 
             <h2 id="contribute">Contribute to Hylo</h2>
-            <p>Hylo is resourced by groups and individuals that receive value from the platform. If Hylo helps you move toward your purpose, please 
+            <p>Hylo is resourced by groups and individuals that receive value from the platform. If Hylo helps you move toward your purpose, please
                 become a supporter by signing up for a small recurring contribution. Thanks!
             </p>
 

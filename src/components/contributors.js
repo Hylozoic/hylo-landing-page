@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Image from './image';
+
 import JSONData from "../content/open-collective-contributors.json"
 import contributorsData from "../content/contributors.json"
 

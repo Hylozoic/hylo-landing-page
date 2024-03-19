@@ -1,10 +1,13 @@
 import * as React from "react"
-import "../styles/styles.scss"
-import Layout from "../components/layout"
+
 import Footer from "../components/footer"
+import Layout from "../components/layout"
+
 import coevolutionary from "../images/coevolutionary.png"
 import sociocracy from "../images/sociocracy.png"
 import team from "../images/team.png"
+
+import "../styles/styles.scss"
 
 const AboutPage = () => {
   return (
@@ -138,13 +141,13 @@ const AboutPage = () => {
             Tom has been focusing on mobile development for the team over the last year.
             </p>
             <p><strong><a href="https://www.linkedin.com/in/yasmineelbaggari/" target="_blank" rel="noopener noreferrer">Yasmine El Baggari, Community Steward</a></strong><br/>
-            A native of Morocco, now based in San Francisco, Yasmine is passionate about connecting people and bridging cultures 
-            to encourage a more peaceful caring world. She launched <a href="https://www.voyaj.com/" target="_blank" rel="noopener noreferrer">Voyaj</a>, 
-            a platform that connects people from around the globe for one-on-one meaningful exchanges to foster global understanding. 
-            For the past four years, Yasmine's reach has included work with the World Bank, a Masters in Human Development and Psychology at Harvard Graduate School of Education, 
-            and with the US State Department as an "Engage America" Ambassador. She has spoken at international conferences, 
-            including the World Economic Forum, the Middle East Studies Association, and Obama's Global Entrepreneurship Summit. 
-            Yasmine has traveled to all 50 U.S. states, 40+ countries on her own and was welcomed by 250+ families globally. 
+            A native of Morocco, now based in San Francisco, Yasmine is passionate about connecting people and bridging cultures
+            to encourage a more peaceful caring world. She launched <a href="https://www.voyaj.com/" target="_blank" rel="noopener noreferrer">Voyaj</a>,
+            a platform that connects people from around the globe for one-on-one meaningful exchanges to foster global understanding.
+            For the past four years, Yasmine's reach has included work with the World Bank, a Masters in Human Development and Psychology at Harvard Graduate School of Education,
+            and with the US State Department as an "Engage America" Ambassador. She has spoken at international conferences,
+            including the World Economic Forum, the Middle East Studies Association, and Obama's Global Entrepreneurship Summit.
+            Yasmine has traveled to all 50 U.S. states, 40+ countries on her own and was welcomed by 250+ families globally.
             She is simply on a mission to bring back openness, curiosity, and empathy into our world.
             </p>
         </div>

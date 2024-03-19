@@ -1,7 +1,8 @@
 import * as React from "react"
-import "../styles/styles.scss"
-import Layout from "../components/layout"
 import Footer from "../components/footer"
+import Layout from "../components/layout"
+
+import "../styles/styles.scss"
 
 const PrivacyPage = () => {
   return (
@@ -15,7 +16,7 @@ const PrivacyPage = () => {
                 <div className="backgroundFade"></div>
             </div>
         </div>
-        <div className="contentContainer">  
+        <div className="contentContainer">
             <h2>Hylo Privacy Policy, Version 2.0</h2>
             <h3>Effective Date: January 1, 2024</h3>
 
@@ -30,7 +31,7 @@ const PrivacyPage = () => {
             <ul>
                 <li><strong>Registration</strong>. You may create an account directly on the Site, or through the iOS or Android mobile apps. When you register, we will ask for your email address and your user name. Once you are a registered user you can update your profile and you may elect to provide additional information ( e.g. a location and certain user preferences).</li>
 
-                <li><strong>IP Address</strong>. An Internet Protocol (IP) address is a unique string of numbers that is assigned to your computer by your Internet Service Provider. Web servers automatically identify your computer by its IP address. We will use your IP address to help diagnose problems with our server and to administer our Service. 
+                <li><strong>IP Address</strong>. An Internet Protocol (IP) address is a unique string of numbers that is assigned to your computer by your Internet Service Provider. Web servers automatically identify your computer by its IP address. We will use your IP address to help diagnose problems with our server and to administer our Service.
                 Cookies. A “cookie” is a small data file that can be placed on your hard drive when you visit certain websites. We use cookies to collect, store and sometimes track information for statistical purposes to improve the services we provide. If you are a registered user, we will use a cookie to save your settings and to provide customizable and personalized services. These cookies do not enable third parties to access any of your personally identifiable information. Additionally, be aware that if you visit other websites you may be required to accept cookies. We do not control use of these cookies and expressly disclaim responsibility for information collected through them.</li>
             </ul>
 
@@ -41,7 +42,7 @@ const PrivacyPage = () => {
 
                 <li><strong>Email</strong>. From time to time, we may send you email messages informing you of changes to our Service, such as new features and services and updated information.</li>
             </ul>
-            
+
             <h3>With whom do we share your personally identifiable information, and in what circumstances?</h3>
 
             <p>We will not share your personally identifiable information with third parties (aside from entities that perform services for us, such as processing credit card payments, that either are bound to comply with our privacy policy or have privacy policies that protect your information) unless you have “opted-in” to such sharing.</p>
@@ -54,7 +55,7 @@ const PrivacyPage = () => {
 
             <h3>How can I update my Profile?</h3>
 
-            <p>You can help us maintain the accuracy of your profile by keeping profile information up-to-date. If at any time you wish to update your information or stop receiving communication from us, you may visit hylo.com and update your profile.</p> 
+            <p>You can help us maintain the accuracy of your profile by keeping profile information up-to-date. If at any time you wish to update your information or stop receiving communication from us, you may visit hylo.com and update your profile.</p>
 
             <h3>How can I delete my Profile and all data associated with it?</h3>
 

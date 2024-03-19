@@ -1,9 +1,12 @@
 import * as React from "react"
-import "../styles/styles.scss"
 import { Link } from "gatsby"
-import Layout from "../components/layout"
+
 import Footer from "../components/footer"
+import Layout from "../components/layout"
+
 import values from "../images/hylo-values.png"
+
+import "../styles/styles.scss"
 
 const AgreementsPage = () => {
   return (
@@ -144,7 +147,7 @@ const AgreementsPage = () => {
                     and I agree to participate in accountability processes when necessary.
                     <span class="agreementTag stewardship">stewardship</span> <span class="agreementTag wellbeing">wellbeing</span></li>
             </ul>
-            
+
 
             <h2 id="code-of-conduct">Cultural Norms &amp; Code of Conduct</h2>
 
@@ -212,10 +215,10 @@ const AgreementsPage = () => {
 
             <h3>Hylo's Town Square: The Public Context</h3>
             <p>One way Hylo is unique is that in addition to private group spaces, there is a <a href="https://hylo.com/public" target="_blank" rel="noopener noreferrer">Public stream</a>.
-            The Public stream is a fun and inspiring look at collaborations happening all over the world. To honor this special collaborative space, 
+            The Public stream is a fun and inspiring look at collaborations happening all over the world. To honor this special collaborative space,
             <strong> we ask that you only share content in Public that is appropriate for a general audience.</strong></p>
 
-            <p><strong>The Public Context is for cross-pollination, not for advertising or promotion.</strong> If you share a post to the Public stream, 
+            <p><strong>The Public Context is for cross-pollination, not for advertising or promotion.</strong> If you share a post to the Public stream,
                 it should include a clear invitation for folks to participate in a meaningful way. For example:</p>
 
             <ul>
@@ -231,7 +234,7 @@ const AgreementsPage = () => {
             </ul>
 
             <p>The Public Context also includes the <a href="https://www.hylo.com/public/groups" target="_blank" rel="noopener noreferrer">Group Explorer</a>, where you can discover groups to join.
-            <strong>To earn the privilege of appearing in the Group Explorer and the ability to share public posts, <a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/forms/d/e/1FAIpQLScuxRGl65OMCVkjjsFllWwK4TQjddkufMu9rukIocgmhyHL7w/viewform?usp=sf_link">groups may apply via this form</a></strong> and 
+            <strong>To earn the privilege of appearing in the Group Explorer and the ability to share public posts, <a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/forms/d/e/1FAIpQLScuxRGl65OMCVkjjsFllWwK4TQjddkufMu9rukIocgmhyHL7w/viewform?usp=sf_link">groups may apply via this form</a></strong> and
             affirm their commitment to upholding the Cultural Norms & Code of Conduct. Public content and public groups are monitored by the Hylo platform stewards.</p>
 
             <h3>Unacceptable Behavior in Public Posts or Groups</h3>

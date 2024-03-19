@@ -1,7 +1,8 @@
 import * as React from "react"
-import "../styles/styles.scss"
-import Layout from "../components/layout"
 import Footer from "../components/footer"
+import Layout from "../components/layout"
+
+import "../styles/styles.scss"
 
 const TermsPage = () => {
   return (

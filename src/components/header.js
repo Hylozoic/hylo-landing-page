@@ -1,12 +1,15 @@
+import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React, { useState } from "react"
-import "../styles/styles.scss"
-import { Link } from "gatsby"
-import Menu from "./menu"
+
 import Button from "./button"
+import Menu from "./menu"
+
 import logo from "../images/logos/hylo-logo-white.svg"
 import menuToggleHamburger from "../images/icon/menu_hamburger.svg"
 import menuToggleX from "../images/icon/menu_x.svg"
+
+import "../styles/styles.scss"
 
 const Header = ({ siteTitle }) => {
   const [isOpen, setOpen] = useState(false);

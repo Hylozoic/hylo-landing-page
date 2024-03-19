@@ -1,5 +1,6 @@
 import { Link } from "gatsby"
 import * as React from "react"
+
 import logo from "../images/logos/hylo-logo-white.svg"
 import external from "../images/icon/external.svg"
 

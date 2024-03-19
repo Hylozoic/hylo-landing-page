@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react"
-import Layout from "../components/layout"
-import "../styles/styles.scss"
-import ExternalButton from "../components/externalbutton"
-import Label from "../components/label"
+
 import Contributors from "../components/contributors"
-import Tool from "../components/tool"
+import ExternalButton from "../components/externalbutton"
 import Footer from "../components/footer"
+import Label from "../components/label"
+import Layout from "../components/layout"
+import Tool from "../components/tool"
+
 import leaf from "../images/icon/leaf-icon.svg"
 import heart from "../images/icon/heart-icon.svg"
 import calendar from "../images/icon/calendar-icon.svg"
@@ -127,6 +128,8 @@ import profileImage49 from "../images/groups-animation/profile_image_49.jpg"
 import profileImage50 from "../images/groups-animation/profile_image_50.jpg"
 import profileImage51 from "../images/groups-animation/profile_image_51.jpg"
 import profileImage52 from "../images/groups-animation/profile_image_52.jpg"
+
+import "../styles/styles.scss"
 
 const addAnimationOnScroll = (listenerClass, targetClass, animationClass, pixelOffset) => {
   let observer = new IntersectionObserver((entries, observer) => {
@@ -781,7 +784,7 @@ const IndexPage = () => {
             <div className="planetaryCTA">
               <p>Do you want to co-create Hylo?</p>
               <a href="https://www.hylo.com/groups/building-hylo/join/RcDe6vcG7u" className="ctaButton">Join Building Hylo</a>
-        
+
             </div>
           </div>
         </div>
