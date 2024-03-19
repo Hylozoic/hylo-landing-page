@@ -400,81 +400,137 @@ const IndexPage = () => {
                   data-sal="fade-in"
                   data-sal-duration="1000"
                   data-sal-delay="250"
-                  data-sal-easing="easeOutElastic">Hylo is an open source project stewarded by Terran Collective alongside partners, contributors, and donors from around the world.</p>
+                  data-sal-easing="easeOutElastic">Hylo is an open source project stewarded by <a href='https://terran.io' target='_blank' rel="noreferrer">Terran Collective</a> alongside partners, contributors, and donors from around the world.</p>
                 <p
                   data-sal="fade-in"
                   data-sal-duration="1000"
                   data-sal-delay="250"
                   data-sal-easing="easeOutElastic">Hylo is a not-for-profit, community-led technology commons. We work with real-world groups to co-design technology solutions to their needs, and then share them with the world.
                   Here are just some of the partners and contributors that have shaped Hylo.</p>
-                <div className="ecosystemLogos">
-                  <img src={zebrasUnite} alt="Zebras Unite!"
+                <div className="ecosystemLogos" data-sal="slide-down"
+                      data-sal-duration="1000"
+                      data-sal-delay="250"
+                      data-sal-easing="easeOutElastic">
+                  <a href='https://www.zebrasunite.org'
+                    target='_blank'
+                    rel="noreferrer"
                     data-sal="fade-in"
                     data-sal-duration="1000"
                     data-sal-delay="250"
-                    data-sal-easing="easeOutElastic" />
+                    data-sal-easing="easeOutElastic"
+                  >
+                    <img src={zebrasUnite} alt="Zebras Unite!" />
+                  </a>
 
-                  <img src={bionutrientFoodAssociation} alt="Bionutrient Food Association"
+                  <a href='https://www.bionutrient.org'
+                    target='_blank'
+                    rel="noreferrer"
                     data-sal="fade-in"
                     data-sal-duration="1000"
                     data-sal-delay="250"
-                    data-sal-easing="easeOutElastic" />
+                    data-sal-easing="easeOutElastic"
+                  >
+                    <img src={bionutrientFoodAssociation} alt="Bionutrient Food Association" />
+                  </a>
 
-                  <img src={newPublic} alt="New_ Public"
+                  <a href='https://newpublic.org'
+                    target='_blank'
+                    rel="noreferrer"
                     data-sal="fade-in"
                     data-sal-duration="1000"
                     data-sal-delay="250"
-                    data-sal-easing="easeOutElastic" />
+                    data-sal-easing="easeOutElastic"
+                  >
+                    <img src={newPublic} alt="New_ Public" />
+                  </a>
 
-                  <img src={openTeam} alt="Open Team"
+                  <a href='https://openteam.community'
+                    target='_blank'
+                    rel="noreferrer"
                     data-sal="fade-in"
                     data-sal-duration="1000"
                     data-sal-delay="250"
-                    data-sal-easing="easeOutElastic" />
+                    data-sal-easing="easeOutElastic"
+                  >
+                    <img src={openTeam} alt="Open Team" />
+                  </a>
 
-                  <img src={pacificIntegral} alt="Pacific Integral"
+                  <a href='https://www.pacificintegral.com/'
+                    target='_blank'
+                    rel="noreferrer"
                     data-sal="fade-in"
                     data-sal-duration="1000"
                     data-sal-delay="250"
-                    data-sal-easing="easeOutElastic" />
+                    data-sal-easing="easeOutElastic"
+                  >
+                    <img src={pacificIntegral} alt="Pacific Integral" />
+                  </a>
 
-                  <img src={planetaryHealthAlliance} alt="Planetary Health Alliance"
+                  <a href='https://www.planetaryhealthalliance.org'
+                    target='_blank'
+                    rel="noreferrer"
                     data-sal="fade-in"
                     data-sal-duration="1000"
                     data-sal-delay="250"
-                    data-sal-easing="easeOutElastic" />
+                    data-sal-easing="easeOutElastic"
+                  >
+                    <img src={planetaryHealthAlliance} alt="Planetary Health Alliance" />
+                  </a>
 
-                  <img src={prosocialWorld} alt="Prosocial World"
+                  <a href='https://www.prosocial.world'
+                    target='_blank'
+                    rel="noreferrer"
                     data-sal="fade-in"
                     data-sal-duration="1000"
                     data-sal-delay="250"
-                    data-sal-easing="easeOutElastic" />
+                    data-sal-easing="easeOutElastic"
+                  >
+                    <img src={prosocialWorld} alt="Prosocial World" />
+                  </a>
 
-                  <img src={regenNetwork} alt="Regen Network"
+                  <a href='https://regen.network'
+                    target='_blank'
+                    rel="noreferrer"
                     data-sal="fade-in"
                     data-sal-duration="1000"
                     data-sal-delay="250"
-                    data-sal-easing="easeOutElastic" />
+                    data-sal-easing="easeOutElastic"
+                  >
+                    <img src={regenNetwork} alt="Regen Network" />
+                  </a>
 
-                  <img src={tribalResourceCenter} alt="Tribal Resource Center"
+                  <a href='https://tribalresourcecenter.net/benefits-of-digital/cultural-preservation/'
+                    target='_blank'
+                    rel="noreferrer"
                     data-sal="fade-in"
                     data-sal-duration="1000"
                     data-sal-delay="250"
-                    data-sal-easing="easeOutElastic" />
+                    data-sal-easing="easeOutElastic"
+                  >
+                    <img src={tribalResourceCenter} alt="Tribal Resource Center" />
+                  </a>
 
-                  <img src={salmonNationTrust} alt="Salmon Nation Trust"
+                  <a href='https://www.salmonnation.net'
+                    target='_blank'
+                    rel="noreferrer"
                     data-sal="fade-in"
                     data-sal-duration="1000"
                     data-sal-delay="250"
-                    data-sal-easing="easeOutElastic" />
+                    data-sal-easing="easeOutElastic"
+                  >
+                    <img src={salmonNationTrust} alt="Salmon Nation Trust" />
+                  </a>
 
-                  <img src={terranCollective} alt="Terran Collective"
+                  <a href='https://terran.io'
+                    target='_blank'
+                    rel="noreferrer"
                     data-sal="fade-in"
                     data-sal-duration="1000"
                     data-sal-delay="250"
-                    data-sal-easing="easeOutElastic" />
-
-
+                    data-sal-easing="easeOutElastic"
+                  >
+                    <img src={terranCollective} alt="Terran Collective" />
+                  </a>
                 </div>
               </div>
               <div className="bgContainer">
