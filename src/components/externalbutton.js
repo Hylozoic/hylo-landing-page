@@ -1,8 +1,8 @@
 import PropTypes from "prop-types"
 import React from "react"
 
-const ExternalButton = ({ label, link, color, background, border }) => (
-  <a href={link} target="_blank" rel="noopener noreferrer">
+const ExternalButton = ({ label, link, color, background, border, newTab }) => (
+  <a href={link} target={newTab ? "_blank" : ""} rel={newTab ? "noopener noreferrer" : ""}>
     <button style={{
         background,
         border,

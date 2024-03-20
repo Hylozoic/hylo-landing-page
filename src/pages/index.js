@@ -190,9 +190,9 @@ const IndexPage = () => {
         <div className="headingStyles">
           <h1><span>Create</span> <span>community</span><br/><span>with</span> <span>purpose</span> <span>on</span> <span>Hylo</span></h1>
           <div className="actions">
-          <Button label="Sign Up" link={process.env.NODE_ENV === "development" ? "http://localhost:3000/signup" : "https://www.hylo.com/signup"} background={`linear-gradient(rgba(0,0,0,1), rgba(0,0,0,1)) padding-box,
+          <ExternalButton label="Sign Up" link={process.env.NODE_ENV === "development" ? "http://localhost:3000/signup" : "https://www.hylo.com/signup"} background={`linear-gradient(rgba(0,0,0,1), rgba(0,0,0,1)) padding-box,
               linear-gradient(to right, #BB60A8, #40A1DD) border-box`} color="#fff" border={`4px solid transparent`}/>
-          <Button label="Log In" link={process.env.NODE_ENV === "development" ? "http://localhost:3000/login" : "https://www.hylo.com/login"} background={`linear-gradient(rgba(0,0,0,1), rgba(0,0,0,1)) padding-box,
+          <ExternalButton label="Log In" link={process.env.NODE_ENV === "development" ? "http://localhost:3000/login" : "https://www.hylo.com/login"} background={`linear-gradient(rgba(0,0,0,1), rgba(0,0,0,1)) padding-box,
               linear-gradient(to right, #6FCF97, #40A1DD) border-box`} color="#fff" border={`4px solid transparent`}/>
           </div>
         </div>
@@ -248,7 +248,7 @@ const IndexPage = () => {
                 data-sal-easing="easeOutElastic">It's a community where you can <strong>connect with others who share your purpose</strong> and work towards achieving your goals together.</p>
               <div style={{textAlign: `center`}}>
                 <h3>Ready to find where you belong?</h3>
-                <ExternalButton label="Explore Groups" link="https://www.hylo.com/public/groups" background={`linear-gradient(93deg, #0DC39F 7.65%, #6FCF97 100%)`} color="#fff" />
+                <ExternalButton newTab label="Explore Groups" link="https://www.hylo.com/public/groups" background={`linear-gradient(93deg, #0DC39F 7.65%, #6FCF97 100%)`} color="#fff" />
               </div>
             </div>
           </div>
@@ -271,7 +271,7 @@ const IndexPage = () => {
                 data-sal-easing="easeOutElastic">Hylo makes it easy for group members to step into leadership, enabling the group to grow and deepen its impact.</p>
               <div style={{textAlign: `center`}}>
                 <h3>Ready to gather your people?</h3>
-                <ExternalButton label="Create a Group" link="https://www.hylo.com/all/create/group" background={`linear-gradient(93deg, #B162AB 7.65%, #0175D8 100%)`} color="#fff"/>
+                <ExternalButton newTab label="Create a Group" link="https://www.hylo.com/all/create/group" background={`linear-gradient(93deg, #B162AB 7.65%, #0175D8 100%)`} color="#fff"/>
               </div>
             </div>
           </div>
@@ -808,7 +808,7 @@ const IndexPage = () => {
                 data-sal-duration="1000"
                 data-sal-delay="0"
                 data-sal-easing="easeOutElastic">
-            <ExternalButton label="Explore what's alive near you" link="https://www.hylo.com/public/map/" background={`linear-gradient(93deg, #B162AB 7.65%, #0175D8 100%)`} color="#fff" />
+            <ExternalButton newTab label="Explore what's alive near you" link="https://www.hylo.com/public/map/" background={`linear-gradient(93deg, #B162AB 7.65%, #0175D8 100%)`} color="#fff" />
           </div>
           <img src={valleyBackground} className="valleyBackground" alt=" " />
           <div className="valleyFade"></div>

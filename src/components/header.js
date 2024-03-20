@@ -2,7 +2,6 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React, { useState } from "react"
 
-import Button from "./button"
 import Menu from "./menu"
 
 import logo from "../images/logos/hylo-logo-white.svg"
