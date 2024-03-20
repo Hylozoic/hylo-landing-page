@@ -2,21 +2,19 @@ import PropTypes from "prop-types"
 import React from "react"
 
 const ExternalButton = ({ label, link, color, background, border }) => (
-    <a href={link} target="_blank" rel="noopener noreferrer">
-        <button style={{
+  <a href={link} target="_blank" rel="noopener noreferrer">
+    <button style={{
         background,
         border,
         borderRadius: `50px`,
         boxShadow: `0px 8px 15px 0px rgba(0, 0, 0, 0.15)`,
-        color,
-        fontFamily: `Circular-Bold, sans-serif`,
-        fontWeight: `200`,
-        margin: `10px`,
-        cursor: `pointer`,
-        }} className="renderedCtaButton">
-            {label}
-        </button>
-    </a>
+        color
+      }}
+      className="renderedCtaButton"
+    >
+      {label}
+    </button>
+  </a>
 )
 
 ExternalButton.propTypes = {

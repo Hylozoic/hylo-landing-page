@@ -190,9 +190,9 @@ const IndexPage = () => {
         <div className="headingStyles">
           <h1><span>Create</span> <span>community</span><br/><span>with</span> <span>purpose</span> <span>on</span> <span>Hylo</span></h1>
           <div className="actions">
-          <ExternalButton label="Sign Up" link="https://www.hylo.com/signup" background={`linear-gradient(rgba(0,0,0,1), rgba(0,0,0,1)) padding-box,
+          <Button label="Sign Up" link={process.env.NODE_ENV === "development" ? "http://localhost:3000/signup" : "https://www.hylo.com/signup"} background={`linear-gradient(rgba(0,0,0,1), rgba(0,0,0,1)) padding-box,
               linear-gradient(to right, #BB60A8, #40A1DD) border-box`} color="#fff" border={`4px solid transparent`}/>
-          <ExternalButton label="Log In" link="https://www.hylo.com/login" background={`linear-gradient(rgba(0,0,0,1), rgba(0,0,0,1)) padding-box,
+          <Button label="Log In" link={process.env.NODE_ENV === "development" ? "http://localhost:3000/login" : "https://www.hylo.com/login"} background={`linear-gradient(rgba(0,0,0,1), rgba(0,0,0,1)) padding-box,
               linear-gradient(to right, #6FCF97, #40A1DD) border-box`} color="#fff" border={`4px solid transparent`}/>
           </div>
         </div>

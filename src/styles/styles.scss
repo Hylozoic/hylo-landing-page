@@ -2987,7 +2987,16 @@ footer {
     display: inline-block;
 }
 
-.renderedCtaButton, .contributors h3 {
+.renderedCtaButton {
+    cursor: pointer;
+    font-family: "Circular-Bold", sans-serif;
+    font-weight: 200;
+    margin: 10px;
+    font-size: 24px;
+    padding: 10px 40px;
+}
+
+.contributors h3 {
     font-size: 24px;
     padding: 10px 40px;
 }
