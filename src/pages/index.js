@@ -185,7 +185,7 @@ const IndexPage = () => {
   }, []);
 
   return (
-    <Layout pageTitle="Home Page">
+    <Layout pageTitle="Hylo: Prosocial Coordination for Purpose-Driven Groups">
       <div className="hero">
         <div className="headingStyles">
           <h1><span>Create</span> <span>community</span><br/><span>with</span> <span>purpose</span> <span>on</span> <span>Hylo</span></h1>

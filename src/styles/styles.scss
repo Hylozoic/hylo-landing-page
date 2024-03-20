@@ -586,6 +586,7 @@ a {
 
     h3 {
         font-size: 20px;
+        cursor: pointer;
     }
 
     ul {
@@ -606,6 +607,7 @@ a {
 .menuHome {
     margin: 0 auto 30px;
     text-align: center;
+    cursor: pointer;
 }
 
 .menuWrapper {
@@ -674,6 +676,7 @@ a {
     animation-delay: 1.2s;
     animation-fill-mode: forwards;
     animation-timing-function: ease-out;
+    cursor: pointer;
 }
 
 .menuToggle img {
@@ -2074,6 +2077,7 @@ a {
 
     & > div {
         border-radius: 10px;
+        cursor: pointer;
     }
 
     h2 {
@@ -2776,6 +2780,7 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
+    cursor: pointer;
 }
 
 /* Footer Section Styles */
