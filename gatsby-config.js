@@ -2,7 +2,6 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
-  assetPrefix: `/static`,
   siteMetadata: {
     title: `Hylo: Prosocial Coordination for Purpose-Driven Groups`,
     description: `Hylo is the leading prosocial coordination and collaboration technology for purpose-driven groups.`,
