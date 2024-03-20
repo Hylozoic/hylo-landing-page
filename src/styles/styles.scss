@@ -1049,8 +1049,8 @@ a {
                 height: 42.8%;
                 top: 0;
                 right: 0;
-                transform: scale(0);
-                animation-name: bounce, rotate;
+                opacity: 0;
+                animation-name: fadeIn, rotate;
                 animation-delay: 0, .15s;
                 animation-duration: 1s, 15s;
                 animation-timing-function: ease-in-out, linear;
@@ -1091,8 +1091,8 @@ a {
                 height: 28.2%;
                 bottom: 0;
                 right: 0;
-                transform: scale(0);
-                animation-name: bounce, rotate;
+                opacity: 0;
+                animation-name: fadeIn, rotate;
                 animation-delay: 2s, 2.5s;
                 animation-duration: 1s, 15s;
                 animation-timing-function: ease-in-out, linear;
@@ -1133,12 +1133,13 @@ a {
                 height: 74.7%;
                 left: 0;
                 top: 10.7%;
-                transform: scale(0);
-                animation-name: bounce, rotate;
+                opacity: 0;
+                animation-name: fadeIn, rotate;
                 animation-delay: 1s, 1s;
                 animation-duration: 1.5s, 15s;
                 animation-timing-function: ease-in-out, linear;
                 animation-iteration-count: 1, infinite;
+                -webkit-animation-iteration-count: 1, infinite;
                 animation-fill-mode: forwards;
             }
 
@@ -1161,8 +1162,8 @@ a {
                 height: 17%;
                 top: 74.2%;
                 left: 38.2%;
-                transform: scale(0);
-                animation-name: bounce, rotate;
+                opacity: 0;
+                animation-name: fadeIn, rotate;
                 animation-delay: 2s, 2s;
                 animation-duration: 1.5s, 15s;
                 animation-timing-function: ease-in-out, linear;
