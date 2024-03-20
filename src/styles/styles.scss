@@ -525,6 +525,7 @@ a {
     flex-wrap: wrap;
     justify-content: flex-end;
     position: relative;
+    top: 14px;
 
     h3 {
         font-size: 19px;
@@ -539,7 +540,6 @@ a {
     }
 
     a {
-        font-size: 16px;
         transform: scale(0);
         opacity: 0;
         animation-name: fadeInBounce;
@@ -1054,7 +1054,7 @@ a {
                 right: 0;
                 opacity: 0;
                 animation-name: fadeIn, rotate;
-                animation-delay: 0, .15s;
+                animation-delay: .5, .15s;
                 animation-duration: 1s, 15s;
                 animation-timing-function: ease-in-out, linear;
                 animation-iteration-count: 1, infinite;
@@ -2992,6 +2992,16 @@ footer {
     padding: 10px 40px;
 }
 
+.participateCTA {
+    background-color: #fff;
+    color: rgba(63, 161, 221, 1.0);
+    font-size: 18px;
+    font-family: "Circular-Bold";
+    padding: 5px 10px;
+    border-radius: 24px;
+    margin-left: 8px;
+}
+
 /*  RESPONSIVE LAYOUT STYLES   */
 
 
@@ -3331,6 +3341,10 @@ footer {
 
 
 @media (max-width: 475px) {
+
+    .participateCTA {
+        display: none;
+    }
 
     .passionLabel {
         font-size: 14px;
