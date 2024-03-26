@@ -15,6 +15,7 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     "gatsby-plugin-scroll-reveal",
+    "gatsby-plugin-netlify",
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
