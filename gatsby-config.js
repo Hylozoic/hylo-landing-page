@@ -4,8 +4,10 @@
 module.exports = {
   siteMetadata: {
     title: `Hylo: Prosocial Coordination for Purpose-Driven Groups`,
-    description: `Hylo is the leading prosocial coordination and collaboration technology for purpose-driven groups.`,
-    siteUrl: `https://hylo.com`
+    description: `Hylo is the leading prosocial coordination and collaboration platform for purpose-driven groups.`,
+    siteUrl: `https://hylo.com`,
+    image: `/social-share.png`,
+    twitterUsername: `@hylo`
   },
   plugins: [
     "gatsby-plugin-sass",

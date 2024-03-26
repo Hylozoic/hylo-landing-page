@@ -2,12 +2,15 @@ import * as React from "react"
 
 import Footer from "../components/footer"
 import Layout from "../components/layout"
+import { SEO } from "../components/seo"
 
 import coevolutionary from "../images/coevolutionary.png"
 import sociocracy from "../images/sociocracy.png"
 import team from "../images/team.png"
 
 import "../styles/styles.scss"
+
+export const Head = ({ location }) => <SEO title="About | Hylo" pathname={location.pathname} />
 
 const AboutPage = () => {
   return (
@@ -157,5 +160,3 @@ const AboutPage = () => {
 }
 
 export default AboutPage
-
-export const Head = () => <title>About Hylo</title>

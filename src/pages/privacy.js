@@ -1,8 +1,11 @@
 import * as React from "react"
 import Footer from "../components/footer"
 import Layout from "../components/layout"
+import { SEO } from "../components/seo"
 
 import "../styles/styles.scss"
+
+export const Head = ({ location }) => <SEO title="Privacy Policy | Hylo" pathname={location.pathname} />
 
 const PrivacyPage = () => {
   return (
@@ -112,5 +115,3 @@ const PrivacyPage = () => {
 }
 
 export default PrivacyPage
-
-export const Head = () => <title>Hylo Privacy Policy</title>

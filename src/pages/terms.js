@@ -1,8 +1,11 @@
 import * as React from "react"
 import Footer from "../components/footer"
 import Layout from "../components/layout"
+import { SEO } from "../components/seo"
 
 import "../styles/styles.scss"
+
+export const Head = ({ location }) => <SEO title="Terms of Use | Hylo" pathname={location.pathname} />
 
 const TermsPage = () => {
   return (
@@ -190,5 +193,3 @@ const TermsPage = () => {
 }
 
 export default TermsPage
-
-export const Head = () => <title>Hylo Terms of Use</title>

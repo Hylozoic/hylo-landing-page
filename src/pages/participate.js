@@ -2,10 +2,13 @@ import * as React from "react"
 
 import Footer from "../components/footer"
 import Layout from "../components/layout"
+import { SEO } from "../components/seo"
 
 import meme from "../images/meme.png"
 
 import "../styles/styles.scss"
+
+export const Head = ({ location }) => <SEO title="Participate | Hylo" pathname={location.pathname} />
 
 const ParticipatePage = () => {
   return (
@@ -100,5 +103,3 @@ const ParticipatePage = () => {
 }
 
 export default ParticipatePage
-
-export const Head = () => <title>Participate in Hylo</title>

@@ -5,6 +5,7 @@ import ExternalButton from "../components/externalbutton"
 import Footer from "../components/footer"
 import Label from "../components/label"
 import Layout from "../components/layout"
+import { SEO } from "../components/seo"
 import Tool from "../components/tool"
 
 import leaf from "../images/icon/leaf-icon.svg"
@@ -162,6 +163,10 @@ const addAnimationOnScroll = (listenerClass, targetClass, animationClass, pixelO
       observer.observe(listenerElement);
   }
 };
+
+export const Head = () => (
+  <SEO />
+)
 
 const IndexPage = () => {
 

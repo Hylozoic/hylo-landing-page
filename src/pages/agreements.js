@@ -3,10 +3,13 @@ import { Link } from "gatsby"
 
 import Footer from "../components/footer"
 import Layout from "../components/layout"
+import { SEO } from "../components/seo"
 
 import values from "../images/hylo-values.png"
 
 import "../styles/styles.scss"
+
+export const Head = ({ location }) => <SEO title="Agreements | Hylo" pathname={location.pathname} />
 
 const AgreementsPage = () => {
   return (
@@ -348,5 +351,3 @@ const AgreementsPage = () => {
 }
 
 export default AgreementsPage
-
-export const Head = () => <title>Hylo Agreements</title>
