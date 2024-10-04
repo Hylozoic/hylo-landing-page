@@ -28,7 +28,7 @@ const ParticipatePage = () => {
             <div className="contentSection">
                 <p><strong>You are warmly invited to join the Hylo community</strong> and contribute your unique voice to stewarding this platform.
                     Hylo is its stakeholders &mdash; this technology is shaped with care by our members, partners,
-                    and our 500+ open source contributors. Come be a part of it!</p>
+                    and our 700+ open source contributors. Come be a part of it!</p>
 
                 <div className="asideImage">
                     <img src={meme} alt="Technology as a public good" width="100%" />
@@ -41,7 +41,7 @@ const ParticipatePage = () => {
                 Our community is doing something radically different. Here's how to get involved:</p>
 
             <h3>Building Hylo</h3>
-            <p>This is the main group for our open-source community with over 600 participants shaping the future of Hylo.
+            <p>This is the main group for our open-source community with over 750 participants shaping the future of Hylo.
                 Join this group to get the earliest product news, comment on upcoming designs and features,
                 share your ideas for the platform, learn about opportunities to contribute, and ask questions and chat
                 with the Hylo stewardship team and wider community. <br/><a target="_blank" rel="noopener noreferrer" href="https://www.hylo.com/groups/building-hylo/join/RcDe6vcG7u">Join here.</a></p>
@@ -62,16 +62,16 @@ const ParticipatePage = () => {
                 and ask questions and offer input to the Hylo stewardship team. You're invited to join us! </p>
             <h3>Upcoming Calls</h3>
             <ul>
-                <li><a target="_blank" rel="noopener noreferrer" href="https://lu.ma/hylo">March 20, 2024 @ 10am PDT (Register Here)</a></li>
-                <li><a target="_blank" rel="noopener noreferrer" href="https://lu.ma/hyloapril">April 16, 2024 @ 12pm PDT (Register Here)</a></li>
-                <li><a target="_blank" rel="noopener noreferrer" href="https://lu.ma/hylomay">May 23, 2024 @ 3pm PDT (Register Here)</a></li>
+                <li><a target="_blank" rel="noopener noreferrer" href="https://lu.ma/d8hkt9bc">October 23, 2024 @ 12pm PDT (Register Here)</a></li>
+                <li><a target="_blank" rel="noopener noreferrer" href="https://lu.ma/utq1exlb">November 26, 2024 @ 12pm PST (Register Here)</a></li>
+                <li><a target="_blank" rel="noopener noreferrer" href="https://lu.ma/jnef5ngc">END-OF-YEAR CELEBRATION December 12, 2024 @ 12pm PST (Register Here)</a></li>
             </ul>
 
             <h2 id="community-stewardship">Get community stewardship support</h2>
             <p><strong>An online community is a living thing</strong>, like a garden -- it needs care and attention to thrive.
                 Hylo is designed to help group stewards build engagement and collaboration, but no technology can take the place of dedicated tending from a human.
                 If building community online feels daunting, we are here to help! The <a target="_blank" rel="noopener noreferrer" href="https://hylozoic.gitbook.io/hylo/guides/building-engagement-in-your-group">Hylo documentation</a> includes a lot of guidance to help your group thrive and effectively take action toward your goals.</p>
-            <p>If you're looking for more support, the Hylo team offer community stewardship support at a variety of levels. Over the years,
+            <p>If you're looking for more support, the Hylo team offers community stewardship support at a variety of levels. Over the years,
                 we've learned a lot about what works and what doesn't for growing community online, and we love to share that insight to guide groups toward success.
                 You can learn more about our <a target="_blank" rel="noopener noreferrer" href="https://hylozoic.gitbook.io/hylo/about/community-stewardship-support-program-csaas">community stewardship offerings here</a>.
             </p>

@@ -71,6 +71,21 @@ const AboutPage = () => {
                 and human culture deeply embodies care, peace, and unity. In this future, our children are thriving.
                 We offer this work for our ancestors and the ones yet to come.</p>
 
+            <h3>Bioregions are key to a Just Transition</h3>
+
+            <p>Place-based organizing is central to this vision for change. A <strong>bioregion</strong> is a geographic area
+             defined by natural boundaries such as ecosystems, watersheds, and climate, as well as the cultural and community
+              practices that arise from living within that environment.</p>
+
+            <p>Organizing at the scale of the bioregion is essential because it aligns human activities with natural ecosystems,
+                 fostering sustainability by encouraging resource management and decision-making that respect local ecological limits,
+                  while also strengthening community resilience through place-based collaboration and cultural practices rooted in the environment.</p>
+
+            <p>Most humans today are disconnected from the land and each other. People want to help, but many of us don't
+                 know what to do when faced with climate chaos, and don't have the skills and tools to organize an effective response.
+                 <strong>Through bioregional organizing, we can remember how to be in relationship with the land we live on and each other
+                   - taking collective action toward community resilience and climate adaptation, ecological regeneration, and returning to lifeways in harmony with the living world.</strong></p>
+
             <h2 id="how-we-work">How We Work: Participatory Design</h2>
 
             <p>Hylo is built through 100% relationship-driven development. We listen to the needs of our partners —
