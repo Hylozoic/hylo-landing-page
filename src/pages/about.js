@@ -73,7 +73,7 @@ const AboutPage = () => {
 
             <h3>Bioregions are key to a Just Transition</h3>
 
-            <p>Place-based organizing is central to this vision for change. A <strong>bioregion</strong> is a geographic area
+            <p>Hylo is designed to support place-based organizing, a central component of this vision for change. A <strong>bioregion</strong> is a geographic area
              defined by natural boundaries such as ecosystems, watersheds, and climate, as well as the cultural and community
               practices that arise from living within that environment.</p>
 
