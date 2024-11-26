@@ -62,9 +62,7 @@ const ParticipatePage = () => {
                 and ask questions and offer input to the Hylo stewardship team. You're invited to join us! </p>
             <h3>Upcoming Calls</h3>
             <ul>
-                <li><a target="_blank" rel="noopener noreferrer" href="https://lu.ma/d8hkt9bc">October 23, 2024 @ 12pm PDT (Register Here)</a></li>
-                <li><a target="_blank" rel="noopener noreferrer" href="https://lu.ma/utq1exlb">November 26, 2024 @ 12pm PST (Register Here)</a></li>
-                <li><a target="_blank" rel="noopener noreferrer" href="https://lu.ma/jnef5ngc">END-OF-YEAR CELEBRATION December 12, 2024 @ 12pm PST (Register Here)</a></li>
+                <li><a target="_blank" rel="noopener noreferrer" href="https://lu.ma/41i6ejcz">END-OF-YEAR CELEBRATION December 19, 2024 @ 12pm PST (Register Here)</a></li>
             </ul>
 
             <h2 id="community-stewardship">Get community stewardship support</h2>
