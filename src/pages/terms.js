@@ -184,7 +184,7 @@ const TermsPage = () => {
 
 
             <h3>Effective Date</h3>
-            <p>This Terms of Use was last revised on January 1, 2024. This is version 2.0.</p>
+            <p>This Terms of Use was last revised on January 1, 2024. This is version 2.0. </p>
 
         </div>
         <Footer />
