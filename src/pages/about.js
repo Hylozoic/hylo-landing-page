@@ -138,6 +138,16 @@ const AboutPage = () => {
              stewardship, guiding numerous groups to grow communities that are equitable and impactful.
              She is a ProSocial facilitator and holds a B.A. in Political Science from the University of Virginia.
             </p>
+            <p><strong><a href="https://www.linkedin.com/in/treewillard" target="_blank" rel="noopener noreferrer">Tree Willard, Director of Development</a></strong><br/>
+            Tree is a Spirit-led, heart-centered, Two Spirit Cherokee citizen, a maker, healer, adventurer, and ceremonialist
+             who has been bridging cultures and nurturing holistic wellbeing in families and communities for more than twenty-five years. 
+             Their passion for justice and peace has grounded their work as a nonprofit leader, activist, and antiracist community organizer, 
+             as well as their journey as a parent, artist, and singer/songwriter. They have founded organizations and led grassroots 
+             campaigns for equitable practice and policy changes in power wielding systems from local schools to our national legislature. 
+             They currently co-chair <a href="http://youthpassageways.org/" target="_blank" rel="noopener noreferrer">Youth Passageways</a>, 
+             a national network of cultural restoration organizations, working to reclaim, remember, and restore Indigenous cultures and the 
+             practices and land that sustain our souls' thrival in relationship with the Great Mystery.
+            </p>
             <p><strong><a href='https://www.linkedin.com/in/krisha-subramanian-6911a939/' target="_blank" rel="noopener noreferrer">Krisha Subramanian, Community Lead</a></strong><br/>
             Krisha has a background in business development and sales, though her passions lie in holistic wellness,
             regenerative living, social justice, and earth-based traditions. She is a life-long student of Ayurveda
