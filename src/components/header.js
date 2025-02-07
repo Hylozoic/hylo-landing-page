@@ -23,7 +23,7 @@ const Header = ({ siteTitle }) => {
           </Link>
           {/* <h3><strong>Hylo is in open beta.</strong> We build in the open and you can be a part of it!</h3> */}
           <h3>
-            <a href='https://opencollective.com/hylo/contribute/matching-grant-2024-80795' target='_blank'>Support Hylo</a> before the end of the year with a tax-deductible donation and have it <a href='https://opencollective.com/hylo/contribute/matching-grant-2024-80795' target='_blank'>matched by a generous donor!</a>
+            Support Hylo with a tax-deductible donation and it will be <a href='https://opencollective.com/hylo/contribute/matching-grant-2024-80795' target='_blank'>matched by a generous donor!</a>
           </h3>
           <a href='https://opencollective.com/hylo/contribute/matching-grant-2024-80795' target='_blank' className="participateCTA">Donate</a>
           {/* <Link to="/participate/" className="participateCTA">Get involved</Link> */}
