@@ -1,0 +1,39 @@
+{
+  "linked_schemas": [
+    "organizations_schema-v1.0.0"
+  ],
+  "primary_url": "https://hylo.com",
+  "type": "Organization",
+  "name": "Hylo",
+  "description": "Prosocial Coordination for a Thriving Planet",
+  "tags": [
+    "Community",
+    "Social Network",
+    "Coordination",
+    "Cooperation",
+    "Collaboration",
+    "Prosocial",
+    "Open source",
+    "Bioregionalism"
+  ],
+  "image": "https://www.hylo.com/static-assets/Images/Logo.png",
+  "urls": [
+    {
+      "name": "Hylo",
+      "url": "https://www.hylo.com/groups/hylo"
+    }
+  ],
+  "status": "active",
+  "contact_details": {
+    "email": "hello@hylo.com"
+  },
+  "country_name": "United States",
+  "country_iso_3166": "US",
+  "geographic_scope": "international",
+  "relationships": [
+    {
+      "predicate_url": "https://schema.org/memberOf",
+      "object_url": "https://www.collaborative.tech/"
+    }
+  ]
+}
