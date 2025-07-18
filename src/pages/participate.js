@@ -1,4 +1,5 @@
-import * as React from "react"
+import React, { useEffect } from "react"
+import mixpanel from "mixpanel-browser"
 
 import Footer from "../components/footer"
 import Layout from "../components/layout"
@@ -11,6 +12,13 @@ import "../styles/styles.scss"
 export const Head = ({ location }) => <SEO title="Participate | Hylo" pathname={location.pathname} />
 
 const ParticipatePage = () => {
+  useEffect(() => {
+    mixpanel.init("0c3b277514b71b3520723f87fea9c6ad", {
+      debug: true,
+      track_pageview: true,
+      persistence: "localStorage",
+    });
+  }, []);
   return (
     <Layout pageTitle="Participate in Hylo">
         <div className="hero contentHero">
@@ -62,7 +70,14 @@ const ParticipatePage = () => {
                 and ask questions and offer input to the Hylo stewardship team. You're invited to join us! </p>
             <h3>Upcoming Calls</h3>
             <ul>
-                <li><a target="_blank" rel="noopener noreferrer" href="https://lu.ma/41i6ejcz">END-OF-YEAR CELEBRATION December 19, 2024 @ 12pm PST (Register Here)</a></li>
+                <li><a target="_blank" rel="noopener noreferrer" href="https://lu.ma/31bq2re0">Hylo Redesign Launch Party! Thursday March 20 @ 11am PT (Register Here)</a></li>
+                <li><a target="_blank" rel="noopener noreferrer" href="https://lu.ma/odyr1wsy">Hylo April Community Call - Thursday April 24 @ 3pm PT (Register Here)</a></li>
+                <li><a target="_blank" rel="noopener noreferrer" href="https://lu.ma/4aqkfu39">Hylo May Community Call - Thursday May 29 @ 11am PT (Register Here)</a></li>
+                <li><a target="_blank" rel="noopener noreferrer" href="https://lu.ma/v1zqeldn">Hylo June Community Call - Thursday June 26 @ 3pm PT (Register Here)</a></li>
+                <li><a target="_blank" rel="noopener noreferrer" href="https://lu.ma/pypw2ut4">Hylo July Community Call - Thursday July 31 @ 11am PT (Register Here)</a></li>
+                <li><a target="_blank" rel="noopener noreferrer" href="https://lu.ma/0jradlw7">Hylo August Community Call - Thursday August 21 @ 3pm PT (Register Here)</a></li>
+                <li><a target="_blank" rel="noopener noreferrer" href="https://lu.ma/ajb30whs">Hylo September Community Call - Thursday September 25 @ 11am PT (Register Here)</a></li>
+                <li><a target="_blank" rel="noopener noreferrer" href="https://lu.ma/3gztz4c2">Hylo October Community Call - Thursday October 30 @ 3pm PT (Register Here)</a></li>
             </ul>
 
             <h2 id="community-stewardship">Get community stewardship support</h2>

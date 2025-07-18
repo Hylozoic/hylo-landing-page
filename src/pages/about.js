@@ -1,4 +1,5 @@
-import * as React from "react"
+import React, { useEffect } from "react"
+import mixpanel from "mixpanel-browser"
 
 import Footer from "../components/footer"
 import Layout from "../components/layout"
@@ -13,6 +14,13 @@ import "../styles/styles.scss"
 export const Head = ({ location }) => <SEO title="About | Hylo" pathname={location.pathname} />
 
 const AboutPage = () => {
+  useEffect(() => {
+    mixpanel.init("0c3b277514b71b3520723f87fea9c6ad", {
+      debug: true,
+      track_pageview: true,
+      persistence: "localStorage",
+    });
+  }, []);
   return (
     <Layout pageTitle="About Hylo">
         <div className="hero contentHero">
@@ -107,7 +115,7 @@ const AboutPage = () => {
                 regenerating our communities and the planet. Hylo Foundation is a fiscally-sponsored 501c3, and Terran co-stewards
                 Hylo with <a href='https://holo.host' target='_blank' rel="noopener noreferrer">Holo Ltd</a> (the makers of <a href='https://www.holochain.org' target='_blank' rel="noopener noreferrer">Holochain</a>)
                 who make the technology available under the open source Apache License 2.0.
-                We are in the process of assembling an advisory board and establishing an indepedent business entity for Hylo.
+                We are in the process of assembling an advisory board and establishing an independent business entity for Hylo.
                 <strong> Our goal is to transition to a structure that enshrines Hylo as a technology commons with a participatory
                 governance model that formally includes stakeholder voices.</strong></p>
 
@@ -137,6 +145,16 @@ const AboutPage = () => {
              real-world groups. Through this work, Clare has developed a specialization in participatory governance and community
              stewardship, guiding numerous groups to grow communities that are equitable and impactful.
              She is a ProSocial facilitator and holds a B.A. in Political Science from the University of Virginia.
+            </p>
+            <p><strong><a href="https://www.linkedin.com/in/treewillard" target="_blank" rel="noopener noreferrer">Tree Willard, Director of Development</a></strong><br/>
+            Tree is a Spirit-led, heart-centered, Two Spirit Cherokee citizen, a maker, healer, adventurer, and ceremonialist
+             who has been bridging cultures and nurturing holistic wellbeing in families and communities for more than twenty-five years.
+             Their passion for justice and peace has grounded their work as a nonprofit leader, activist, and antiracist community organizer,
+             as well as their journey as a parent, artist, and singer/songwriter. They have founded organizations and led grassroots
+             campaigns for equitable practice and policy changes in power wielding systems from local schools to our national legislature.
+             They currently co-chair <a href="http://youthpassageways.org/" target="_blank" rel="noopener noreferrer">Youth Passageways</a>,
+             a national network of cultural restoration organizations, working to reclaim, remember, and restore Indigenous cultures and the
+             practices and land that sustain our souls' thrival in relationship with the Great Mystery.
             </p>
             <p><strong><a href='https://www.linkedin.com/in/krisha-subramanian-6911a939/' target="_blank" rel="noopener noreferrer">Krisha Subramanian, Community Lead</a></strong><br/>
             Krisha has a background in business development and sales, though her passions lie in holistic wellness,

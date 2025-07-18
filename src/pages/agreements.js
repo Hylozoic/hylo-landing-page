@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, { useEffect } from "react"
 import { Link } from "gatsby"
 
 import Footer from "../components/footer"
@@ -9,9 +9,19 @@ import values from "../images/hylo-values.png"
 
 import "../styles/styles.scss"
 
+import mixpanel from "mixpanel-browser"
+
 export const Head = ({ location }) => <SEO title="Agreements | Hylo" pathname={location.pathname} />
 
 const AgreementsPage = () => {
+  useEffect(() => {
+    mixpanel.init("0c3b277514b71b3520723f87fea9c6ad", {
+      debug: true,
+      track_pageview: true,
+      persistence: "localStorage",
+    });
+  }, []);
+
   return (
     <Layout pageTitle="Hylo Agreements">
         <div className="hero contentHero">
@@ -256,10 +266,6 @@ const AgreementsPage = () => {
                     <li>We do not allow public or private harassment such as threats, intimidation, pressure, or unwanted attention.</li>
                     <li>It is never ok to threaten or incite violence against any persons, groups, or 'types' of people, or glorify, or express desire for violence or harm, or to promote violent and hateful entities.</li>
                     <li>It is unacceptable to characterize anyone's personality or behaviors, or make jokes about them, on the basis of inherent traits such as national origin, ethnicity, race, gender, gender identity and expression, sexual orientation, disability or medical condition, or lifestyle factors such as parenthood or employment.</li>
-                    <li>Characterizing anyone's personality or behaviors, or making jokes about them,
-                        on the basis of inherent traits such as national origin, ethnicity, race, gender,
-                        gender identity and expression, sexual orientation, disability or medical condition, or lifestyle factors
-                        such as parenthood or employment.</li>
                     <li>Suicide: We want Hylo to remain a safe space that encourages mental health and wellbeing, so you may not promote or encourage suicide or self-harm.</li>
                 </ol>
             </div>

@@ -7,6 +7,7 @@ import Label from "../components/label"
 import Layout from "../components/layout"
 import { SEO } from "../components/seo"
 import Tool from "../components/tool"
+import mixpanel from "mixpanel-browser"
 
 import leaf from "../images/icon/leaf-icon.svg"
 import heart from "../images/icon/heart-icon.svg"
@@ -187,6 +188,15 @@ const IndexPage = () => {
     addAnimationOnScroll("planetaryDescription", "planetaryCoordination", "animate", -500);
     addAnimationOnScroll("planetaryDescription", "starBg", "animate", -500);
     addAnimationOnScroll("planetaryDescription", "planetaryContainer", "animate", -500);
+  }, []);
+
+  // Initialize Mixpanel once on mount
+  useEffect(() => {
+    mixpanel.init("0c3b277514b71b3520723f87fea9c6ad", {
+      debug: true,
+      track_pageview: true,
+      persistence: "localStorage",
+    });
   }, []);
 
   return (
