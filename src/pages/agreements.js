@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, { useEffect } from "react"
 import { Link } from "gatsby"
 
 import Footer from "../components/footer"
@@ -9,9 +9,19 @@ import values from "../images/hylo-values.png"
 
 import "../styles/styles.scss"
 
+import mixpanel from "mixpanel-browser"
+
 export const Head = ({ location }) => <SEO title="Agreements | Hylo" pathname={location.pathname} />
 
 const AgreementsPage = () => {
+  useEffect(() => {
+    mixpanel.init("0c3b277514b71b3520723f87fea9c6ad", {
+      debug: true,
+      track_pageview: true,
+      persistence: "localStorage",
+    });
+  }, []);
+
   return (
     <Layout pageTitle="Hylo Agreements">
         <div className="hero contentHero">

@@ -1,4 +1,5 @@
-import * as React from "react"
+import React, { useEffect } from "react"
+import mixpanel from "mixpanel-browser"
 import Footer from "../components/footer"
 import Layout from "../components/layout"
 import { SEO } from "../components/seo"
@@ -8,6 +9,13 @@ import "../styles/styles.scss"
 export const Head = ({ location }) => <SEO title="Terms of Use | Hylo" pathname={location.pathname} />
 
 const TermsPage = () => {
+  useEffect(() => {
+    mixpanel.init("0c3b277514b71b3520723f87fea9c6ad", {
+      debug: true,
+      track_pageview: true,
+      persistence: "localStorage",
+    });
+  }, []);
   return (
     <Layout pageTitle="Hylo Terms of Use">
         <div className="hero contentHero">
