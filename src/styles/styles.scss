@@ -351,7 +351,7 @@ a {
     }
 
     .gardenDayUser {
-        border: 10px solid #fff;
+        border: 8px solid #fff;
         border-radius: 100%;
         box-shadow: 0px 15px 25px rgba(42, 64, 89, 0.25);
         margin: 0 0 0 15px;
@@ -422,7 +422,9 @@ a {
     }
 
     .hero {
-        background-image: url(../images/around-the-fire-web.jpg);
+        background-image: url(../images/cospiracy-haybales-wide.jpg);
+        background-position: left;
+        background-size: contain;
     }
 
     .animate.gardenDay {
@@ -431,27 +433,29 @@ a {
 
     .gardenDay {
         display: none;
-        background-image: url(../images/gardening-web.jpg);
+        background-image: url(../images/rooftop-garden.jpg);
     }
 
     .about {
-        background-image: url(../images/about-page-header.png);
+        background-image: url(../images/cospiracy-big-circle.jpg);
+        background-position: left;
     }
 
     .participate {
-        background-image: url(../images/participate-page-header.png);
+        background-image: url(../images/cospiracy-dinner.jpg);
     }
 
     .agreements {
-        background-image: url(../images/agreements-page-header.png);
+        background-image: url(../images/cospiracy-hands.jpg);
+        background-position: left;
     }
 
     .terms {
-        background-image: url(../images/terms-page-header.png);
+        background-image: url(../images/cospiracy-promises.jpg);
     }
 
     .privacy {
-        background-image: url(../images/terms-page-header.png);
+        background-image: url(../images/cospiracy-tree.jpg);
     }
 
     .backgroundFade {
@@ -529,6 +533,7 @@ a {
 
     h3 {
         font-size: 19px;
+        text-shadow: 0px 4px 15px rgba(0, 0, 0, 0.50);
         transform: scale(0);
         opacity: 0;
         animation-name: fadeInBounce;
@@ -777,6 +782,17 @@ a {
 }
 /* Alive Section Styles */
 
+// <div className="holdingPhone">
+//               <img src={notification} className="notification" alt=" " />
+//               <div className="mask">
+//                 <img src={bikerbg} className="bikerbg" alt=" " />
+//               </div>
+//               <img src={handBackground} className="handBackground" alt=" " />
+//               <div className="tallMask">
+//                 <img src={biker} className="biker" alt=" " />
+//               </div>
+//             </div>
+
 .aliveContainer {
     background: linear-gradient(180deg, transparent 0%, #2F2A50 27.6%, #2F2A50 100%);
     position: relative;
@@ -816,6 +832,11 @@ a {
 }
 
 .aliveRight {
+    background-image: url(../images/cospiracy-fire.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: left;
+    background-size: cover;
     width: 50%;
 
     .animate.holdingPhone {
@@ -3042,6 +3063,7 @@ footer {
 
     .passionLabel {
         font-size: 18px;
+        // <div className="gardenDayUser"><img src={gardenDayUser1} alt="" /></div>
 
         img {
             margin-right: 10px;

@@ -20,7 +20,7 @@ const AboutPage = () => {
                 <h1>Unleashing the capacity of purpose-driven groups to change the world</h1>
             </div>
             <div className="backgroundWrapper">
-                <div className={'backgroundImage about'} style={{backgroundImage: `../images/about-page-header.png`}}></div>
+                <div className={'backgroundImage about'} style={{backgroundImage: `../images/cospiracy-big-circle.jpg`}}></div>
                 <div className="backgroundFade"></div>
             </div>
         </div>

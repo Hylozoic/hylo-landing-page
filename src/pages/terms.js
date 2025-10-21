@@ -15,7 +15,7 @@ const TermsPage = () => {
                 <h1>Terms of Use</h1>
             </div>
             <div className="backgroundWrapper">
-                <div className={'backgroundImage terms'} style={{backgroundImage: `../images/terms-page-header.png`}}></div>
+                <div className={'backgroundImage terms'} style={{backgroundImage: `../images/cospiracy-promises.jpg`}}></div>
                 <div className="backgroundFade"></div>
             </div>
         </div>

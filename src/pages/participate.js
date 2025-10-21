@@ -18,7 +18,7 @@ const ParticipatePage = () => {
                 <h1>A public good technology commons co-created by you</h1>
             </div>
             <div className="backgroundWrapper">
-                <div className={'backgroundImage participate'} style={{backgroundImage: `../images/participate-page-header.png`}}></div>
+                <div className={'backgroundImage participate'} style={{backgroundImage: `../images/cospiracy-dinner.jpg`}}></div>
                 <div className="backgroundFade"></div>
             </div>
         </div>
@@ -62,18 +62,11 @@ const ParticipatePage = () => {
                 and ask questions and offer input to the Hylo stewardship team. You're invited to join us! </p>
             <h3>Upcoming Calls</h3>
             <ul>
-                <li><a target="_blank" rel="noopener noreferrer" href="https://lu.ma/31bq2re0">Hylo Redesign Launch Party! Thursday March 20 @ 11am PT (Register Here)</a></li>
-                <li><a target="_blank" rel="noopener noreferrer" href="https://lu.ma/odyr1wsy">Hylo April Community Call - Thursday April 24 @ 3pm PT (Register Here)</a></li>
-                <li><a target="_blank" rel="noopener noreferrer" href="https://lu.ma/4aqkfu39">Hylo May Community Call - Thursday May 29 @ 11am PT (Register Here)</a></li>
-                <li><a target="_blank" rel="noopener noreferrer" href="https://lu.ma/v1zqeldn">Hylo June Community Call - Thursday June 26 @ 3pm PT (Register Here)</a></li>
-                <li><a target="_blank" rel="noopener noreferrer" href="https://lu.ma/pypw2ut4">Hylo July Community Call - Thursday July 31 @ 11am PT (Register Here)</a></li>
-                <li><a target="_blank" rel="noopener noreferrer" href="https://lu.ma/0jradlw7">Hylo August Community Call - Thursday August 21 @ 3pm PT (Register Here)</a></li>
-                <li><a target="_blank" rel="noopener noreferrer" href="https://lu.ma/ajb30whs">Hylo September Community Call - Thursday September 25 @ 11am PT (Register Here)</a></li>
                 <li><a target="_blank" rel="noopener noreferrer" href="https://lu.ma/3gztz4c2">Hylo October Community Call - Thursday October 30 @ 3pm PT (Register Here)</a></li>
             </ul>
 
             <h2 id="community-stewardship">Get community stewardship support</h2>
-            <p><strong>An online community is a living thing</strong>, like a garden -- it needs care and attention to thrive.
+            <p><strong>An online community is a living organism</strong>, like a garden -- it needs care and attention to thrive.
                 Hylo is designed to help group stewards build engagement and collaboration, but no technology can take the place of dedicated tending from a human.
                 If building community online feels daunting, we are here to help! The <a target="_blank" rel="noopener noreferrer" href="https://hylozoic.gitbook.io/hylo/guides/building-engagement-in-your-group">Hylo documentation</a> includes a lot of guidance to help your group thrive and effectively take action toward your goals.</p>
             <p>If you're looking for more support, the Hylo team offers community stewardship support at a variety of levels. Over the years,

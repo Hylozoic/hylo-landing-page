@@ -214,22 +214,19 @@ const IndexPage = () => {
                 data-sal-duration="0"
                 data-sal-delay="500"
                 data-sal-easing="easeOutElastic">
-                <Label label="Planning a garden day at the lake!" icon={leaf} />
-                <div className="gardenDayUser"><img src={gardenDayUser1} alt="" /></div>
+                <Label label="Planning a rooftop garden day!" icon={leaf} />
               </div>
               <div className="message message2" data-sal="slide-up"
                 data-sal-duration="333"
                 data-sal-delay="10s"
                 data-sal-easing="easeOutElastic">
-                <div className="gardenDayUser user2"><img src={gardenDayUser2} alt="" /></div>
-                <Label label="Anyone have extra shovels?" icon={heart} />
+                <Label label="Anyone have extra gloves?" icon={heart} />
               </div>
               <div className="message message3" data-sal="slide-up"
                 data-sal-duration="999"
                 data-sal-delay="2750"
                 data-sal-easing="easeOutElastic">
-                <Label label="Garden Day" icon={calendar} color="#EB5757" />
-                <div className="gardenDayUser"><img src={gardenDayUser3} alt="" /></div>
+                <Label label="Rooftop Garden Work Day" icon={calendar} color="#EB5757" />
               </div>
             </div>
             <div className="backgroundWrapper">
@@ -281,16 +278,7 @@ const IndexPage = () => {
             </div>
           </div>
           <div className="aliveRight">
-            <div className="holdingPhone">
-              <img src={notification} className="notification" alt=" " />
-              <div className="mask">
-                <img src={bikerbg} className="bikerbg" alt=" " />
-              </div>
-              <img src={handBackground} className="handBackground" alt=" " />
-              <div className="tallMask">
-                <img src={biker} className="biker" alt=" " />
-              </div>
-            </div>
+
           </div>
         </section>
       </div>
