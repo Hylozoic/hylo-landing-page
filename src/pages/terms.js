@@ -1,3 +1,4 @@
+import { Link } from "gatsby"
 import * as React from "react"
 import Footer from "../components/footer"
 import Layout from "../components/layout"
@@ -139,7 +140,7 @@ const TermsPage = () => {
             <p>Hylo, Hylos, Hylozoans is/are trademarks or registered trademarks of Hylo. These trademarks are currently held on behalf of Hylo by Terran Collective LLC. All other trademarks, trade names, service marks, service names are the property of their respective holders.</p>
 
             <h3>8. Privacy Policy</h3>
-            <p>Hylo respects your desire for privacy. Hylo's Privacy Policy can be found here. By using the Service, you are consenting to the terms of our Privacy Policy.</p>
+            <p>Hylo respects your desire for privacy. Hylo's <Link to="/privacy">Privacy Policy can be found here</Link>. By using the Service, you are consenting to the terms of our Privacy Policy.</p>
 
             <h3>9. Links to Third Party Websites</h3>
             <p>The Service may contain links to third-party sites which are not under the control of Hylo, and Hylo is not responsible for the contents of any linked site or any link contained in a linked site, or any changes or updates to such sites. Hylo is providing these links to you only as a convenience, and the inclusion of any link does not imply that Hylo endorses or accepts any responsibility for the content on such third-party sites.</p>
