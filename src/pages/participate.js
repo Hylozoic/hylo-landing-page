@@ -62,7 +62,9 @@ const ParticipatePage = () => {
                 and ask questions and offer input to the Hylo stewardship team. You're invited to join us! </p>
             <h3>Upcoming Calls</h3>
             <ul>
-                <li><a target="_blank" rel="noopener noreferrer" href="https://lu.ma/3gztz4c2">Hylo October Community Call - Thursday October 30 @ 3pm PT (Register Here)</a></li>
+                <li><a target="_blank" rel="noopener noreferrer" href="https://luma.com/m54it5cj">Hylo October Community Call - Thursday October 30 @ 3pm PT (Register Here)</a></li>
+                <li><a target="_blank" rel="noopener noreferrer" href="https://luma.com/p7zisfik?tk=pZDq00">Hylo November Community Call - Wednesday November 19 @ 10am PT (Register Here)</a></li>
+                <li><a target="_blank" rel="noopener noreferrer" href="https://luma.com/fyrm1zcj">Hylo December Community Call - Wednesday December 17 @ 10am PT (Register Here)</a></li>
             </ul>
 
             <h2 id="community-stewardship">Get community stewardship support</h2>
