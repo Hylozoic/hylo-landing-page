@@ -423,8 +423,7 @@ a {
 
     .hero {
         background-image: url(../images/cospiracy-haybales-wide.jpg);
-        background-position: left;
-        background-size: contain;
+        background-position: 60%;
     }
 
     .animate.gardenDay {
@@ -3126,7 +3125,7 @@ footer {
     }
 
     .passionLabel {
-        font-size: 16px; 
+        font-size: 16px;
 
         img {
             height: 36px;
@@ -3418,7 +3417,7 @@ footer {
 
 
 @media (max-width: 375px) {
-    
+
     .interdependenceLeft .interdependenceAnimation {
         transform: translateX(-8%);
     }
