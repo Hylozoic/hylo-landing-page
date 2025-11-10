@@ -54,6 +54,9 @@ const Footer = () => {
         <div className="footerAcknowledgement">
           <p>Hylo emerged from the California Bay Area Bioregion, supported and sustained by the mighty Sacramento River. This territory has been stewarded since before time by the original peoples here. The place that birthed Hylo is unceded Chochenyo speaking Ohlone territory. Hylo now receives contributions from all over the world. Wherever we builders go, we will honor truth in history. Wherever we we builders are, we seek to be in right relationship -- with the more-than-human living world, and its ancestral stewards.</p>
         </div>
+        <div>
+          <p>&copy; 2025 Hylo, a fiscally sponsored project of <a href="https://www.empowermentworks.org/" target="_blank" rel="noopener noreferrer">Empowerment WORKS</a>. Hylo is a trademark of <a href="https://terran.io" target="_blank" rel="noopener noreferrer">Terran Collective LLC</a>. All rights reserved.</p>
+        </div>
       </footer>
   );
 }
