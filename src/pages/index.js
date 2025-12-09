@@ -43,7 +43,7 @@ import workTogether from "../images/work-together.svg"
 import gardenDayUser1 from "../images/garden-day-user-1.png"
 import gardenDayUser2 from "../images/garden-day-user-2.png"
 import gardenDayUser3 from "../images/garden-day-user-3.png"
-import aroundTheFire from "../images/around-the-fire-web.jpg"
+import aroundTheFire from "../images/cospiracy-haybales-wide.jpg"
 
 // stewards of hylo
 import bionutrientFoodAssociation from "../images/stewards/bionutrient-food-association.png"
