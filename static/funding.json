@@ -29,7 +29,7 @@
     "channels": [
       {
           "guid": "opencollective",
-          "type": "crowdfunding",
+          "type": "payment-provider",
           "address": "https://opencollective.com/hylo",
           "description": "Hylo is a non-profit organization and we rely on the support of our community to continue our work. Please consider donating to help us continue our work."
       },
