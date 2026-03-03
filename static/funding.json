@@ -1,0 +1,137 @@
+{
+  "$schema": "https://fundingjson.org/schema/v1.1.0.json",
+  "version": "v1.1.0",
+  "entity": {
+      "type": "organisation",
+      "role": "steward",
+      "name": "Hylo",
+      "email": "hello@hylo.com",
+      "phone": "",
+      "description": "Hylo is an open source, non-profit community platform for coordinating purpose-driven and place-based groups.",
+      "webpageUrl": {
+        "url": "https://hylo.com"
+      }
+  },
+  "projects": [{
+    "guid": "hylo",
+    "name": "Hylo Platform",
+    "description": "Hylo is an open source, non-profit community platform for coordinating purpose-driven and place-based groups",
+    "webpageUrl": {
+      "url": "https://hylo.com"
+    },
+    "repositoryUrl": {
+      "url": "https://github.com/Hylozoic/hylo"
+    },
+    "licenses": ["spdx:Apache-2.0"],
+    "tags": ["socialnetwork", "communityplatform", "open-source", "non-profit", "collaboration", "coordination", "prosocial", "bioregionalism"]
+  }],
+  "funding": {
+    "channels": [
+      {
+          "guid": "opencollective",
+          "type": "crowdfunding",
+          "address": "https://opencollective.com/hylo",
+          "description": "Hylo is a non-profit organization and we rely on the support of our community to continue our work. Please consider donating to help us continue our work."
+      },
+      {
+          "guid": "bank-transfer",
+          "type": "bank",
+          "address": "Contact us at hello@hylo.com for details.",
+          "description": "Contact us at hello@hylo.com for details."
+      }
+    ],
+    "plans": [
+      {
+        "guid": "developer-month",
+        "status": "active",
+        "name": "Developer Month",
+        "description": "Support one of our developers full time salaries for a month.",
+        "amount": 10000,
+        "currency": "USD",
+        "frequency": "one-time",
+        "channels": ["opencollective", "bank-transfer"]
+      },
+      {
+        "guid": "major-feature-development",
+        "status": "active",
+        "name": "Major Feature Development",
+        "description": "Support the development of a major feature for Hylo. Projects on our roadmap include enabling paid group memberships, supporting phone base login, and greatly improving our mutual aid features.",
+        "amount": 50000,
+        "currency": "USD",
+        "frequency": "one-time",
+        "channels": ["opencollective", "bank-transfer"]
+      },
+      {
+        "guid": "core-partner",
+        "status": "active",
+        "name": "Core Partner",
+        "description": "Become a core partner of Hylo and help us build the platform we need to serve planetary flourishing.",
+        "amount": 100000,
+        "currency": "USD",
+        "frequency": "one-time",
+        "channels": ["opencollective", "bank-transfer"]
+      },
+      {
+        "guid": "one-time-gift",
+        "status": "active",
+        "name": "One-Time Gift",
+        "description": "Make a one-time gift to support Hylo's maintenance and growth.",
+        "amount": 0,
+        "currency": "USD",
+        "frequency": "one-time",
+        "channels": ["opencollective", "bank-transfer"]
+      },
+      {
+        "guid": "backer",
+        "status": "active",
+        "name": "Backer",
+        "description": "$5.00 per month covers the server costs of your use of Hylo",
+        "amount": 5,
+        "currency": "USD",
+        "frequency": "monthly",
+        "channels": ["opencollective"]
+      },
+      {
+        "guid": "supporter",
+        "status": "active",
+        "name": "Supporter",
+        "description": "$10.00 per month covers the server costs of your use of Hylo and supports our lean operations team.",
+        "amount": 10,
+        "currency": "USD",
+        "frequency": "monthly",
+        "channels": ["opencollective"]
+      },
+      {
+        "guid": "collaborator",
+        "status": "active",
+        "name": "Collaborator",
+        "description": "Your contribution of $20 per month supports our non-profit building Hylo to serve the community. This covers server & software costs, ops, and support costs (member support and some development) to ensure things are running smoothly.",
+        "amount": 20,
+        "currency": "USD",
+        "frequency": "monthly",
+        "channels": ["opencollective"]
+      },
+      {
+        "guid": "co-creator",
+        "status": "active",
+        "name": "Co-Creator",
+        "description": "Step into deeper reciprocity and partnership with us with a gift of $50 per month to support Hylo's growth. This covers all our costs (ops, product, development, design, outreach & relationships) to care for Hylo and continue improving the platform in service to our stakeholders.",
+        "amount": 50,
+        "currency": "USD",
+        "frequency": "monthly",
+        "channels": ["opencollective"]
+      },
+      {
+        "guid": "custom-mothly-donation",
+        "status": "active",
+        "name": "Custom Monthly Donation",
+        "description": "Make a custom monthly donation to support Hylo's flourishing.",
+        "amount": 0,
+        "currency": "USD",
+        "frequency": "monthly",
+        "channels": ["opencollective"]
+      }
+    ]
+  }
+}
+
