@@ -23,7 +23,7 @@
       "url": "https://github.com/Hylozoic/hylo"
     },
     "licenses": ["spdx:Apache-2.0"],
-    "tags": ["socialnetwork", "communityplatform", "open-source", "non-profit", "collaboration", "coordination", "prosocial", "bioregionalism"]
+    "tags": ["socialnetwork", "communityplatform", "open-source", "non-profit", "collaboration", "coordination", "prosocial", "bioregionalism", "dpg", "digital-public-goods"]
   }],
   "funding": {
     "channels": [
