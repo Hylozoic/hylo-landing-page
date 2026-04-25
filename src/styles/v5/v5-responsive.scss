@@ -1,0 +1,84 @@
+@use 'tokens' as *;
+
+// Responsive overrides for the inline-styled React island sections.
+// Inline styles have specificity 1000 — to override them from a stylesheet
+// we need !important. Each rule below corresponds to a structure that has
+// to collapse, restack, or shrink at narrow widths.
+//
+// Astro components (Map, Values, Footer) and Nav handle their own
+// responsive rules inside their scoped <style lang="scss"> blocks /
+// CSS-modules — they don't need overrides here.
+
+// ── Tablet portrait and below ───────────────────────────────────
+@media (max-width: 880px) {
+  .v5 {
+    // Hero
+    .v5-hero { padding: 120px 24px 72px !important; }
+    .v5-hero-grid {
+      grid-template-columns: 1fr !important;
+      gap: 48px !important;
+    }
+    .v5-hero-headline {
+      font-size: 48px !important;
+      letter-spacing: -1.4px !important;
+    }
+    .v5-hero-aside {
+      justify-self: stretch !important;
+    }
+
+    // FeaturedGroups
+    .v5-featured-header {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 16px !important;
+    }
+
+    // Journey — swap the absolute-positioned wave for a stacked card list
+    .v5-journey { padding: 80px 24px !important; }
+    .v5-journey-padding { display: none !important; }
+    .v5-journey-headline {
+      font-size: 36px !important;
+      letter-spacing: -1px !important;
+    }
+    .v5-journey-mobile { display: flex !important; }
+
+    // Toolkit
+    .v5-toolkit { padding: 80px 24px !important; }
+    .v5-toolkit-header-grid {
+      grid-template-columns: 1fr !important;
+      gap: 40px !important;
+    }
+    .v5-toolkit-headline {
+      font-size: 40px !important;
+      letter-spacing: -1.2px !important;
+    }
+    .v5-toolkit-card-grid {
+      grid-template-columns: 1fr !important;
+    }
+
+    // Invitation
+    .v5-invitation { padding: 80px 24px !important; }
+    .v5-invitation-headline {
+      font-size: 38px !important;
+      letter-spacing: -1.2px !important;
+    }
+    .v5-invitation-grid {
+      grid-template-columns: 1fr !important;
+    }
+  }
+}
+
+// ── Phone ────────────────────────────────────────────────────────
+@media (max-width: 480px) {
+  .v5 {
+    .v5-hero { padding: 100px 20px 56px !important; }
+    .v5-hero-headline { font-size: 40px !important; }
+
+    .v5-toolkit-headline,
+    .v5-invitation-headline {
+      font-size: 32px !important;
+    }
+
+    .v5-journey-headline { font-size: 30px !important; }
+  }
+}

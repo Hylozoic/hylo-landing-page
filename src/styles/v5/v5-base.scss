@@ -3,10 +3,17 @@
 
 // Document reset — strip the browser's default body margin so full-bleed
 // section backgrounds reach every edge of the viewport.
+//
+// `overflow-x: clip` prevents horizontal scroll from things that legitimately
+// extend past the viewport (off-screen mega-menu panel pre-open, the
+// scroll-snap featured-groups rail, decorative SVG geometry that breaks the
+// viewBox at narrow widths). Unlike `hidden` it doesn't create a new
+// scroll container, so position:sticky inside the page still works.
 html, body {
   margin: 0;
   padding: 0;
   background: #fff;
+  overflow-x: clip;
 }
 
 // Layout component applies the .v5 class to the root.

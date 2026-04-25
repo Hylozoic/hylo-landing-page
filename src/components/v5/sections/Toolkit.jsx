@@ -283,9 +283,9 @@ export default function Toolkit() {
   const [openCap, setOpenCap] = React.useState(null);
 
   return (
-    <section style={{ background: '#fff', padding: '112px 40px' }}>
+    <section className="v5-toolkit" style={{ background: '#fff', padding: '112px 40px' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-        <div style={{
+        <div className="v5-toolkit-header-grid" style={{
           display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: 64,
           alignItems: 'center', marginBottom: 80,
         }}>
@@ -296,7 +296,7 @@ export default function Toolkit() {
             }}>
               The Toolkit
             </div>
-            <h2 style={{
+            <h2 className="v5-toolkit-headline" style={{
               fontSize: 56, fontWeight: 700, color: tokens.ink,
               letterSpacing: -1.6, lineHeight: 1.02, margin: 0, textWrap: 'balance',
             }}>
@@ -377,7 +377,7 @@ export default function Toolkit() {
           </button>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+        <div className="v5-toolkit-card-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
           {[col0, col1].map((col, colIdx) => (
             <div key={colIdx} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
               {col.map((c, rowIdx) => (

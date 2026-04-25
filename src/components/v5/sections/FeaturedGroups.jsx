@@ -118,12 +118,12 @@ export default function FeaturedGroups() {
   };
 
   return (
-    <section style={{
+    <section className="v5-featured" style={{
       background: tokens.athensGray,
       padding: '88px 0 80px',
       borderTop: '1px solid rgba(42,39,35,0.1)',
     }}>
-      <div style={{
+      <div className="v5-featured-header" style={{
         padding: '0 40px 32px', maxWidth: 1280, margin: '0 auto',
         display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: 24,
       }}>

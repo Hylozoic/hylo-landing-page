@@ -176,11 +176,11 @@ export default function Hero() {
   ];
 
   return (
-    <section style={{
+    <section className="v5-hero" style={{
       background: 'linear-gradient(225deg, #DDE8EE 0%, #E9E5D9 45%, #F1EBDE 100%)',
       padding: '160px 40px 104px',
     }}>
-      <div style={{
+      <div className="v5-hero-grid" style={{
         maxWidth: 1240, margin: '0 auto',
         display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) 400px',
         gap: 64, alignItems: 'center',
@@ -201,7 +201,7 @@ export default function Hero() {
           </div>
 
           <FadeIn from="up" delay={0}>
-            <h1 style={{
+            <h1 className="v5-hero-headline" style={{
               fontSize: 68, fontWeight: 700, color: tokens.ink,
               letterSpacing: -2.2, lineHeight: 1, margin: 0, textWrap: 'balance',
             }}>
@@ -244,7 +244,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div style={{ justifySelf: 'end', width: '100%' }}>
+        <div className="v5-hero-aside" style={{ justifySelf: 'end', width: '100%' }}>
           <FadeIn from="up" delay={950}>
             <AuthCard />
           </FadeIn>

@@ -114,7 +114,7 @@ export default function Journey() {
     'C 900 240, 920 120, 1060 120';
 
   return (
-    <section style={{
+    <section className="v5-journey" style={{
       background: `linear-gradient(180deg, ${tokens.athensGray} 0%, #F3EEDE 100%)`,
       padding: '104px 40px',
     }}>
@@ -126,7 +126,7 @@ export default function Journey() {
           }}>
             The Arc of a Group
           </div>
-          <h2 style={{
+          <h2 className="v5-journey-headline" style={{
             fontSize: 52, fontWeight: 700, color: tokens.ink,
             letterSpacing: -1.6, lineHeight: 1.05, margin: 0, textWrap: 'balance',
           }}>
@@ -141,8 +141,36 @@ export default function Journey() {
           </p>
         </div>
 
-        <div style={{ padding: '120px 80px 140px' }}>
-          <div ref={waveRef} style={{ position: 'relative', maxWidth: 1000, margin: '0 auto' }}>
+        {/* Mobile fallback — the wave + 200px-wide absolute cards don't fit at
+            narrow widths. v5-responsive.scss flips display between these two. */}
+        <div
+          className="v5-journey-mobile"
+          style={{ display: 'none', flexDirection: 'column', gap: 16, marginTop: 16 }}
+        >
+          {JOURNEY_STEPS.map((s, i) => (
+            <div key={s.key} style={{
+              background: '#fff', borderRadius: 12, padding: '16px 18px',
+              border: `1.5px solid ${s.color}40`,
+              boxShadow: `0 6px 18px ${s.color}1a`,
+            }}>
+              <div style={{
+                fontSize: 11, fontWeight: 700, color: s.color,
+                textTransform: 'uppercase', letterSpacing: 0.8, marginBottom: 6,
+                fontVariantNumeric: 'tabular-nums',
+              }}>
+                0{i + 1} · {s.title}
+              </div>
+              <div style={{
+                fontSize: 14, color: 'rgba(42,39,35,0.78)', lineHeight: 1.5,
+              }}>
+                {s.body}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="v5-journey-padding" style={{ padding: '120px 80px 140px' }}>
+          <div ref={waveRef} className="v5-journey-stage" style={{ position: 'relative', maxWidth: 1000, margin: '0 auto' }}>
             <svg
               width="100%"
               height="360"

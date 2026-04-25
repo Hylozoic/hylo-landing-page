@@ -137,4 +137,20 @@
     font-weight: 600;
     cursor: pointer;
   }
+
+  // ── Tablet portrait and below ────────────────────────────────
+  @media (max-width: 880px) {
+    .frame { height: 480px; }
+    .copy {
+      width: 100%;
+      padding: 0 24px;
+    }
+    .headline { font-size: 36px; letter-spacing: -1px; }
+    .lede { max-width: none; font-size: 15.5px; }
+  }
+
+  @media (max-width: 480px) {
+    .frame { height: 440px; }
+    .headline { font-size: 30px; }
+  }
 </style>

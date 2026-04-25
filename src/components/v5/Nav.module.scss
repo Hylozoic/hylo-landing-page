@@ -42,6 +42,12 @@
   justify-self: center;
 }
 
+// Hide the centered menu on narrow widths — hamburger handles nav.
+@media (max-width: 880px) {
+  .menu { display: none; }
+  .inner { padding: 0 20px; }
+}
+
 .menuLink {
   font-size: 14px;
   color: $ink;
@@ -127,6 +133,10 @@
   pointer-events: none;
   transition: opacity .25s ease;
   font-family: $font-sans;
+  // The panel is hidden via translateX(100%) — without overflow:hidden the
+  // translated panel is counted in document scrollWidth, which adds a
+  // phantom horizontal scroll equal to the panel's width.
+  overflow: hidden;
 
   &.open {
     opacity: 1;

@@ -29,9 +29,9 @@ const CARDS = [
 
 export default function Invitation() {
   return (
-    <section style={{ background: tokens.cream, padding: '112px 40px' }}>
+    <section className="v5-invitation" style={{ background: tokens.cream, padding: '112px 40px' }}>
       <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-        <h2 style={{
+        <h2 className="v5-invitation-headline" style={{
           fontSize: 56, fontWeight: 700, color: tokens.ink,
           letterSpacing: -1.6, lineHeight: 1.02, margin: 0, maxWidth: 940, textWrap: 'balance',
         }}>
@@ -46,7 +46,7 @@ export default function Invitation() {
           Hylo grows with you. Start where you are.
         </p>
 
-        <div style={{
+        <div className="v5-invitation-grid" style={{
           display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, marginTop: 56,
         }}>
           {CARDS.map((c, i) => (
