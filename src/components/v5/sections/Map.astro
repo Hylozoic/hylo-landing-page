@@ -1,0 +1,140 @@
+---
+// Source: design_handoff_v5/design/variation-e.jsx (VE_Map).
+// Static — full-bleed map image with a 55° dark-warm gradient overlay; copy
+// sits on the bottom-left dark side. No JS shipped.
+---
+
+<section class="map">
+  <div class="frame">
+    <img src="/v5/hylo-map.png" alt="Hylo public map — groups worldwide" class="image" />
+    <div class="scrim" aria-hidden="true"></div>
+    <div class="copy">
+      <div class="eyebrow">Section III — Place</div>
+      <h2 class="headline">
+        Real change happens in <span class="accent">real places.</span>
+      </h2>
+      <p class="lede">
+        Hylo is built for the places you live — your neighborhood, your watershed,
+        your bioregion. Tune in to what's happening around you.
+      </p>
+      <div class="tags">
+        {['Local mutual aid', 'Tool libraries', 'Community gardens', 'Local orgs', 'Neighbors'].map((t) => (
+          <span class="tag">{t}</span>
+        ))}
+      </div>
+      <a class="cta">Open the full map →</a>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use '../../../styles/v5/tokens' as *;
+
+  $map-bg: #0F2A22;
+  $map-accent: #9BC9B1;
+
+  .map {
+    position: relative;
+    background: $map-bg;
+    font-family: $font-sans;
+  }
+
+  .frame {
+    position: relative;
+    height: 560px;
+    overflow: hidden;
+    background: #E8E6E1;
+  }
+
+  .image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  // 55° diagonal — bottom-left heavy, fading to upper-right.
+  .scrim {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      55deg,
+      rgba(15, 42, 34, 0.96) 0%,
+      rgba(15, 42, 34, 0.86) 24%,
+      rgba(15, 42, 34, 0.55) 52%,
+      rgba(15, 42, 34, 0.18) 78%,
+      rgba(15, 42, 34, 0) 100%
+    );
+  }
+
+  .copy {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 580px;
+    padding: 0 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+  }
+
+  .eyebrow {
+    font-size: 11.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: $map-accent;
+    margin-bottom: 20px;
+  }
+
+  .headline {
+    font-size: 48px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -1.4px;
+    line-height: 1.05;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .accent {
+    color: $map-accent;
+  }
+
+  .lede {
+    font-size: 16.5px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.88);
+    margin-top: 24px;
+    max-width: 400px;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 28px;
+  }
+
+  .tag {
+    font-size: 11px;
+    padding: 5px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+  }
+
+  .cta {
+    margin-top: 32px;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+  }
+</style>
