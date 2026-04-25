@@ -2,10 +2,11 @@
   "name": "hylo-landing-page",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "description": "The home page for Hylo: the prosocial coordination platform for a thriving planet",
   "author": "Clare Politano",
   "keywords": [
-    "gatsby",
+    "astro",
     "hylo",
     "prosocial",
     "bioregionalism",
@@ -14,27 +15,21 @@
     "community"
   ],
   "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
-    "build": "gatsby build",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
-    "gatsby": "^5.11.0",
-    "gatsby-plugin-google-gtag": "^5.11.0",
-    "gatsby-plugin-image": "^3.11.0",
-    "gatsby-plugin-manifest": "^5.13.1",
-    "gatsby-plugin-netlify": "^5.1.1",
-    "gatsby-plugin-sass": "^6.11.0",
-    "gatsby-plugin-scroll-reveal": "^0.0.7",
-    "gatsby-plugin-sharp": "^5.11.0",
-    "gatsby-source-filesystem": "^5.11.0",
-    "gatsby-transformer-sharp": "^5.11.0",
-    "gh-pages": "^6.1.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "sass": "^1.64.2"
+    "@astrojs/react": "^5.0.4",
+    "astro": "^6.1.9",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sass": "^1.83.0"
   },
-  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1"
+  }
 }

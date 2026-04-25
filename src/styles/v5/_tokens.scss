@@ -34,9 +34,10 @@ $chat-cyan: #5FD2FF;
 $ghost: #CCD1D7;
 $smoke: #6B7280;
 
-// Warm near-black used across v5 in place of pure black / rhino
+// Warm near-black used across v5 in place of pure black / rhino.
+// (The JS mirror in src/components/v5/tokens.js exposes the same value as a
+// comma-separated string for use in JS-side rgba() template literals.)
 $ink: #2A2723;
-$muted-rgb: 42, 39, 35;
 
 // Typography
 $font-sans: 'Onest', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;

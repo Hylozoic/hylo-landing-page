@@ -1,0 +1,43 @@
+---
+import '../styles/v5/v5-base.scss';
+import Nav from '../components/v5/Nav.jsx';
+import Footer from '../components/v5/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Hylo',
+  description = 'Hylo is the prosocial coordination platform for purpose-driven groups.',
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/v5/hylo-logo-dark.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;800&display=swap"
+    />
+
+    <title>{title}</title>
+  </head>
+  <body>
+    <div class="v5">
+      <Nav client:load />
+      <main>
+        <slot />
+      </main>
+      <Footer />
+    </div>
+  </body>
+</html>
