@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/v5/sections/Hero.jsx';
 import FeaturedGroups from '../components/v5/sections/FeaturedGroups.jsx';
+import Journey from '../components/v5/sections/Journey.jsx';
 import Map from '../components/v5/sections/Map.astro';
 import Toolkit from '../components/v5/sections/Toolkit.jsx';
 import Values from '../components/v5/sections/Values.astro';
@@ -11,7 +12,7 @@ import Invitation from '../components/v5/sections/Invitation.jsx';
 <Layout title="Hylo — Where people get organized, stay connected, and grow together.">
   <Hero client:load />
   <FeaturedGroups client:visible />
-  {/* Section in progress: Journey */}
+  <Journey client:visible />
   <Map />
   <Toolkit client:visible />
   <Values />
