@@ -1,6 +1,9 @@
 ---
-// Homepage — placeholder until the v5 homepage port lands.
-// For now redirect visitors to the foundation preview so there's something
-// real to see during the migration.
-return Astro.redirect('/v5-foundation');
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/v5/sections/Hero.jsx';
 ---
+
+<Layout title="Hylo — Where people get organized, stay connected, and grow together.">
+  <Hero client:load />
+  {/* Sections in progress: SocialRail, Journey, Map, Toolkit, Values, Invitation */}
+</Layout>
