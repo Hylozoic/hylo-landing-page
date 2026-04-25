@@ -1,8 +1,15 @@
 @use 'tokens' as *;
 @use 'animations';
 
-// Scoped to .v5 so it doesn't leak into the existing site while v5 pages and
-// legacy pages coexist. Layout component applies this class to the root.
+// Document reset — strip the browser's default body margin so full-bleed
+// section backgrounds reach every edge of the viewport.
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+}
+
+// Layout component applies the .v5 class to the root.
 .v5 {
   font-family: $font-sans;
   color: $ink;
