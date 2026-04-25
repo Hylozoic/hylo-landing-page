@@ -1,0 +1,21 @@
+@use 'tokens' as *;
+@use 'animations';
+
+// Scoped to .v5 so it doesn't leak into the existing site while v5 pages and
+// legacy pages coexist. Layout component applies this class to the root.
+.v5 {
+  font-family: $font-sans;
+  color: $ink;
+  background: $white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  p { text-wrap: pretty; }
+  h1, h2, h3 { text-wrap: balance; }
+
+  a { color: inherit; text-decoration: none; }
+
+  button { font-family: inherit; }
+}

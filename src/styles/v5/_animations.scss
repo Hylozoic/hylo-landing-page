@@ -1,0 +1,21 @@
+// Shared keyframes for v5 entrance animations.
+
+@keyframes v5-pop-up {
+  from { transform: translateY(18px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+@keyframes v5-fade-in-up {
+  from { opacity: 0; transform: translate3d(0, 24px, 0); }
+  to   { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@keyframes v5-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes v5-pulse {
+  0%, 100% { transform: scale(1);   opacity: 0.25; }
+  50%      { transform: scale(1.8); opacity: 0.05; }
+}
