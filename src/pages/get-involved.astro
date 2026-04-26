@@ -1,0 +1,628 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { tokens } from '../components/v5/tokens.js';
+
+// Source: design_handoff_v5/design/v5-get-involved.jsx + specs/get-involved.md.
+// Pure-static page (zero React islands). Seven sections: Hero, Quick Actions,
+// For organizers, For builders, Partner, Ecosystem, Closing.
+
+const QUICK_ACTIONS = [
+  { icon: 'people',   color: tokens.forest,         title: 'Join Building Hylo',
+    body: 'Our open community for everyone shaping Hylo’s future. Product news, upcoming designs, feature discussions, and direct access to the team.',
+    cta: 'Join on Hylo' },
+  { icon: 'calendar', color: tokens.eventRed,       title: 'Come to a community call',
+    body: 'Monthly open calls to connect, ask questions, and share input with the team and wider community. No preparation needed.',
+    cta: 'See upcoming calls' },
+  { icon: 'heart',    color: tokens.proposalPurple, title: 'Make a contribution',
+    body: 'Hylo is funded by the people who use it. A small recurring contribution — any amount — helps keep the platform free for everyone.',
+    cta: 'Contribute' },
+];
+
+const ORGANIZER_OFFERINGS = [
+  { title: 'Hylo Community Organizers',
+    body: 'A community of practice for group stewards to connect, share what’s working, and learn from each other. Access resources, best practices, and direct conversation with Hylo’s community team.',
+    cta: 'Join the group',
+    avatar: true },
+  { title: 'Guides and documentation',
+    body: 'Our documentation covers everything from setting up your first group to advanced stewardship practices — agreements, moderation, engagement strategies, and how to help your community grow.',
+    cta: 'Read the guides' },
+  { title: 'Hands-on stewardship support',
+    body: 'Need more than documentation? The Hylo team offers direct support: onboarding help, governance design, facilitation guidance, and ongoing coaching for groups navigating complex coordination. We’ve spent years learning what makes online communities thrive.',
+    cta: 'Learn about support options' },
+];
+
+const BUILDER_CARDS = [
+  { title: 'Contribute code',
+    body: 'Browse the codebase, pick up issues, or submit pull requests. Hylo is built with React, React Native, Node.js, and GraphQL.',
+    cta: 'View on GitHub' },
+  { title: 'Design',
+    body: 'Help improve the user experience. Review upcoming designs in the Building Hylo group and share feedback or propose improvements.',
+    cta: 'Join Building Hylo' },
+  { title: 'Research and writing',
+    body: 'Help with user research, case studies, documentation, or content. Good writing makes the whole project more accessible.',
+    cta: 'Get in touch' },
+  { title: 'Report issues',
+    body: 'Found a bug or something confusing? Report it through the in-app Feedback menu or file an issue on GitHub.',
+    cta: 'File an issue' },
+];
+---
+
+<Layout title="Hylo — Get involved">
+  {/* ── 1 · Hero ────────────────────────────────────────────── */}
+  <section class="hero">
+    <div class="hero-inner">
+      <h1 class="hero-title">Get involved</h1>
+      <p class="hero-lede">
+        Hylo is built in the open by a small team and a growing community.
+        Whether you have five minutes or five hours a month, there’s a real way
+        to contribute — and everything you put in makes the platform better for
+        everyone.
+      </p>
+    </div>
+  </section>
+
+  {/* ── 2 · Quick Actions ───────────────────────────────────── */}
+  <section class="quick">
+    <div class="quick-inner">
+      <div class="small-label">Start here</div>
+      <div class="quick-grid">
+        {QUICK_ACTIONS.map((a) => (
+          <div class="qa-card">
+            <div class="qa-icon" style={`background: ${a.color}26; color: ${a.color};`}>
+              {a.icon === 'people' && (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="9" cy="8" r="3" />
+                  <circle cx="17" cy="10" r="2.5" />
+                  <path d="M3 19c0-3 2.5-5 6-5s6 2 6 5" />
+                  <path d="M15 18c0-2 1.5-3.5 4-3.5s4 1.5 4 3.5" />
+                </svg>
+              )}
+              {a.icon === 'calendar' && (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3.5" y="5" width="17" height="15" rx="2" />
+                  <path d="M3.5 10h17M8 3v4M16 3v4" />
+                </svg>
+              )}
+              {a.icon === 'heart' && (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z" />
+                </svg>
+              )}
+            </div>
+            <div class="qa-title">{a.title}</div>
+            <p class="qa-body">{a.body}</p>
+            <a class="text-link">{a.cta} <span class="arrow">→</span></a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* ── 3 · For Community Organizers ────────────────────────── */}
+  <section class="org">
+    <div class="org-inner">
+      <h2 class="section-h">For community organizers</h2>
+      <p class="intro">
+        Running a community is real work — and doing it well online takes
+        practice. Whether you’re just getting started or you’ve been at it for
+        years, here’s how Hylo supports you.
+      </p>
+
+      <div class="org-list">
+        {ORGANIZER_OFFERINGS.map((o, i) => (
+          <>
+            {i > 0 && <div class="org-rule"></div>}
+            <div class="org-row">
+              <div>
+                <h3 class="org-h">{o.title}</h3>
+                <p class="org-body">{o.body}</p>
+              </div>
+              <div class="org-aside">
+                {o.avatar && (
+                  <div class="org-avatars">
+                    <span class="oa oa-1">C</span>
+                    <span class="oa oa-2">O</span>
+                    <span class="oa oa-3">G</span>
+                  </div>
+                )}
+                <a class="text-link">{o.cta} <span class="arrow">→</span></a>
+              </div>
+            </div>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* ── 4 · For Builders ────────────────────────────────────── */}
+  <section class="bld">
+    <div class="bld-inner">
+      <h2 class="section-h">For builders</h2>
+      <p class="intro">
+        Hylo is open source and always looking for contributors. Over 700 people
+        have contributed to the codebase. Whether you write code, design
+        interfaces, research communities, or write documentation, there’s a way
+        to plug in.
+      </p>
+
+      <div class="bld-grid">
+        {BUILDER_CARDS.map((c) => (
+          <div class="bld-card">
+            <h3 class="bld-h">{c.title}</h3>
+            <p class="bld-body">{c.body}</p>
+            <a class="text-link bld-cta">{c.cta} <span class="arrow">→</span></a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* ── 5 · Partner with us ─────────────────────────────────── */}
+  <section class="part">
+    <div class="part-inner">
+      <div class="part-copy">
+        <h2 class="section-h">Partner with us</h2>
+        <p class="part-prose">
+          Hylo’s strongest features were built in partnership with organizations
+          that needed them. Every partnership starts with a real coordination
+          challenge — a group that needs tools their current platform can’t
+          provide. We co-design the solution together, and then make it
+          available to every group on Hylo.
+        </p>
+        <p class="part-prose">
+          Past partners include the Planetary Health Alliance, Prosocial World,
+          Salmon Nation, and many others. Their work shaped Hylo’s nested
+          groups, cross-group coordination, map features, and governance tools.
+        </p>
+        <p class="part-prose">
+          If your organization has a coordination challenge and the resources to
+          address it together, we’d like to hear from you.
+        </p>
+      </div>
+
+      <div class="part-card">
+        <div class="part-card-h">Let’s build together.</div>
+        <p class="part-card-body">
+          Reach out to explore what a partnership could look like for your
+          organization.
+        </p>
+        <div class="part-card-row">
+          <a href="mailto:hello@hylo.com" class="part-email">hello@hylo.com</a>
+        </div>
+        <div class="part-card-row">
+          <a class="part-cta">Start a conversation →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ── 6 · Ecosystem ───────────────────────────────────────── */}
+  <section class="eco">
+    <div class="eco-inner">
+      <h2 class="eco-h">The wider ecosystem</h2>
+      <p class="eco-body">
+        Hylo is part of a growing ecosystem of tools and platforms building
+        toward an interoperable, values-aligned technology commons. The
+        Collaborative Technology Alliance, which Hylo co-stewards, brings
+        together builders working on social technology in service to a thriving
+        world. If you’re building aligned tools and want to explore
+        interoperability, collaboration, or shared standards, this is the
+        place.
+      </p>
+      <a class="text-link eco-link">
+        Join the Collaborative Technology Alliance <span class="arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  {/* ── 7 · Closing ─────────────────────────────────────────── */}
+  <section class="close">
+    <div class="close-inner">
+      <h2 class="close-h">Every contribution makes the commons stronger.</h2>
+      <p class="close-body">
+        Hylo is sustained by the people who use it and care about it. Whether
+        you join a call, file a bug, share your skills, or contribute a dollar
+        a month — it all matters. Thank you for being here.
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style lang="scss">
+  @use '../styles/v5/tokens' as *;
+
+  /* ── shared ──────────────────────────────────────────────── */
+  .section-h {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: $rhino;
+    margin: 0;
+    line-height: 1.15;
+  }
+  .small-label {
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: rgba($rhino, 0.5);
+    margin: 0;
+  }
+  .intro {
+    margin-top: 16px;
+    font-size: 16px;
+    line-height: 1.65;
+    color: rgba($rhino, 0.75);
+    max-width: 640px;
+    text-wrap: pretty;
+  }
+  .text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    color: $forest;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .arrow {
+    font-size: 16px;
+    line-height: 1;
+  }
+
+  /* ── 1 · Hero ────────────────────────────────────────────── */
+  .hero {
+    background: $cream;
+    padding: 160px 40px 60px;
+    font-family: $font-sans;
+    color: $rhino;
+  }
+  .hero-inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .hero-title {
+    font-size: 52px;
+    font-weight: 700;
+    letter-spacing: -1.2px;
+    line-height: 1.05;
+    margin: 0;
+    color: $rhino;
+    text-wrap: balance;
+  }
+  .hero-lede {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 24px 0 0;
+    color: rgba($rhino, 0.8);
+    max-width: 640px;
+    text-wrap: pretty;
+  }
+
+  /* ── 2 · Quick Actions ───────────────────────────────────── */
+  .quick {
+    background: #fff;
+    padding: 60px 40px 80px;
+    font-family: $font-sans;
+    color: $rhino;
+  }
+  .quick-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .quick-grid {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .qa-card {
+    background: $athens-gray;
+    border-radius: 4px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+  .qa-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .qa-title {
+    margin-top: 14px;
+    font-size: 17px;
+    font-weight: 500;
+    color: $rhino;
+  }
+  .qa-body {
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 1.55;
+    color: rgba($rhino, 0.7);
+    text-wrap: pretty;
+    flex: 1;
+  }
+  .qa-card .text-link { margin-top: 16px; }
+
+  /* ── 3 · Organizers ──────────────────────────────────────── */
+  .org {
+    background: $athens-gray;
+    padding: 60px 40px;
+    font-family: $font-sans;
+    color: $rhino;
+  }
+  .org-inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .org-list { margin-top: 32px; }
+  .org-rule {
+    height: 1px;
+    background: $athens-dark;
+    margin: 32px 0;
+  }
+  .org-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+    align-items: center;
+  }
+  .org-h {
+    font-size: 18px;
+    font-weight: 500;
+    color: $rhino;
+    margin: 0;
+    line-height: 1.3;
+  }
+  .org-body {
+    margin: 10px 0 0;
+    font-size: 15px;
+    line-height: 1.65;
+    color: rgba($rhino, 0.7);
+    text-wrap: pretty;
+  }
+  .org-aside {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+    min-width: 200px;
+  }
+  .org-avatars {
+    display: flex;
+    align-items: center;
+  }
+  .oa {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .oa-1 {
+    background: $forest;
+    color: #fff;
+  }
+  .oa-2 {
+    background: $request-teal;
+    color: #fff;
+    margin-left: -10px;
+  }
+  .oa-3 {
+    background: $forest-light;
+    color: $forest;
+    margin-left: -10px;
+  }
+
+  /* ── 4 · Builders ────────────────────────────────────────── */
+  .bld {
+    background: #fff;
+    padding: 60px 40px;
+    font-family: $font-sans;
+    color: $rhino;
+  }
+  .bld-inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .bld-grid {
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .bld-card {
+    background: #fff;
+    border: 1px solid $athens-dark;
+    border-radius: 4px;
+    padding: 20px;
+  }
+  .bld-h {
+    font-size: 16px;
+    font-weight: 500;
+    color: $rhino;
+    margin: 0;
+    line-height: 1.3;
+  }
+  .bld-body {
+    margin: 8px 0 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba($rhino, 0.7);
+    text-wrap: pretty;
+  }
+  .bld-cta { margin-top: 12px; }
+
+  /* ── 5 · Partner ─────────────────────────────────────────── */
+  .part {
+    background: $athens-gray;
+    padding: 60px 40px;
+    font-family: $font-sans;
+    color: $rhino;
+  }
+  .part-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 55fr 40fr;
+    gap: 40px;
+    align-items: start;
+  }
+  .part-prose {
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba($rhino, 0.8);
+    margin: 0;
+    text-wrap: pretty;
+  }
+  .part-prose + .part-prose { margin-top: 16px; }
+  .part-copy .section-h + .part-prose { margin-top: 20px; }
+
+  .part-card {
+    background: #fff;
+    border-radius: 4px;
+    padding: 24px;
+    box-shadow: 0 2px 14px rgba($rhino, 0.06);
+    border: 1px solid rgba($rhino, 0.05);
+    align-self: start;
+  }
+  .part-card-h {
+    font-size: 18px;
+    font-weight: 500;
+    color: $rhino;
+    line-height: 1.3;
+  }
+  .part-card-body {
+    margin: 10px 0 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba($rhino, 0.7);
+    text-wrap: pretty;
+  }
+  .part-card-row { margin-top: 16px; }
+  .part-email {
+    font-size: 15px;
+    font-weight: 500;
+    color: $forest;
+    text-decoration: none;
+  }
+  .part-cta {
+    display: inline-block;
+    background: $forest;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  /* ── 6 · Ecosystem ───────────────────────────────────────── */
+  .eco {
+    background: #fff;
+    padding: 40px;
+    font-family: $font-sans;
+    color: $rhino;
+  }
+  .eco-inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .eco-h {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    color: $rhino;
+    margin: 0;
+    line-height: 1.2;
+  }
+  .eco-body {
+    margin: 12px 0 0;
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba($rhino, 0.75);
+    text-wrap: pretty;
+  }
+  .eco-link { margin-top: 16px; }
+
+  /* ── 7 · Closing ─────────────────────────────────────────── */
+  .close {
+    background: $cream;
+    padding: 60px 40px 80px;
+    font-family: $font-sans;
+    color: $rhino;
+  }
+  .close-inner {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .close-h {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    color: $rhino;
+    margin: 0;
+    line-height: 1.2;
+    text-wrap: balance;
+  }
+  .close-body {
+    margin: 16px 0 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba($rhino, 0.7);
+    text-wrap: pretty;
+  }
+
+  /* ── Tablet portrait and below ──────────────────────────── */
+  @media (max-width: 880px) {
+    .hero { padding: 120px 24px 56px; }
+    .hero-title { font-size: 38px; letter-spacing: -1px; }
+    .hero-lede { font-size: 17px; }
+
+    .quick { padding: 56px 24px 72px; }
+    .quick-grid { grid-template-columns: 1fr; gap: 14px; }
+
+    .org { padding: 56px 24px; }
+    .org-row {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .org-aside {
+      align-items: flex-start;
+      min-width: 0;
+    }
+
+    .bld { padding: 56px 24px; }
+    .bld-grid { grid-template-columns: 1fr; }
+
+    .part { padding: 56px 24px; }
+    .part-inner {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+
+    .eco { padding: 32px 24px; }
+
+    .close { padding: 56px 24px 72px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-title { font-size: 32px; }
+    .close-h { font-size: 22px; }
+  }
+</style>
