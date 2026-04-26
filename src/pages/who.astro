@@ -1,0 +1,514 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { tokens } from '../components/v5/tokens.js';
+
+// Source: design_handoff_pricing_features_who_stories/pages/v5-who.jsx
+// + specs/hylo-who-is-it-for-spec.md.
+//
+// Pure-static Astro page (zero React islands). Eleven use-case sections —
+// scannable, with group-type tags so a fire chief, an HOA board member,
+// and a food co-op manager can spot themselves. Each section has a
+// per-category accent color that drives the number, the left accent bar,
+// and the helps-section eyebrow.
+//
+// The source positioned the accent bar absolutely at left: -20px so it
+// peeked into the gutter; we use border-left on the inner container
+// instead — same visual anchor, but no overflow risk on narrow widths.
+
+// Per-use-case accent colors
+const CARIB      = tokens.caribbean;       // #0DC39F — neighborhood / networks
+const TEAL       = tokens.requestTeal;     // #00C79D — mutual aid
+const EVENT      = tokens.eventRed;        // #FE4850 — disaster, events
+const PROPOSAL   = tokens.proposalPurple;  // #664BA5 — civic
+const DISCUSS    = tokens.discussBlue;     // #00A3E3 — nonprofits
+const PICTON     = '#40A1DD';              // — learning
+const MEADOW     = '#23CC80';              // — food
+const PROJECT    = tokens.projectOrange;   // #FC8000 — land
+const MED_PURPLE = '#9883E5';              // — co-ops
+
+const USE_CASES = [
+  {
+    id: 'place', num: 1,
+    title: 'Neighborhood and place-based organizing',
+    accent: CARIB, bg: 'light',
+    challenge: 'You want to connect people who share a place — a neighborhood, a town, a watershed. The challenge isn’t distance; it’s that people who live near each other often have no way to coordinate, share resources, or make decisions about the things they share. Existing tools are either social media (designed for attention, not action) or government portals (designed for broadcast, not participation).',
+    helps: 'Hylo organizes groups around geography. The map shows what’s happening near you. Requests and offers connect neighbors. Events bring people together in person. As trust builds, groups can move into collective decision-making — proposals about shared resources, participatory budgets, community agreements. Subgroups let neighborhoods coordinate within a city, blocks within a neighborhood.',
+    tags: ['Neighborhood associations', 'HOAs', 'Block clubs', 'Town councils', 'Civic engagement initiatives', 'Bioregional hubs', 'Watershed stewardship groups', 'Community land trusts'],
+    example: 'Common Good Missoula used Hylo to coordinate a zoning and land use reform campaign — bringing together diverse stakeholders across the city around shared goals for housing access. Cross-group posting let organizers share updates across neighborhood groups simultaneously.',
+  },
+  {
+    id: 'mutual-aid', num: 2,
+    title: 'Mutual aid and resource sharing',
+    accent: TEAL, bg: 'athens',
+    challenge: 'People in your community have needs and others have the capacity to meet them — skills, tools, food, time, rides, childcare. But there’s no system for connecting them. WhatsApp threads get buried. Facebook groups drown in noise. Spreadsheets go stale. And no one is tracking whether requests actually get fulfilled.',
+    helps: 'Requests and offers are first-class post types with location, timing, topic tags, and completion tracking. When someone helps, it’s recorded. Over time, the group builds a visible record of reciprocal support — the trust infrastructure that makes more complex coordination possible later. The map shows what’s needed and offered nearby. AI matching (coming soon) will accelerate connections.',
+    tags: ['Mutual aid networks', 'Buy Nothing groups', 'Tool lending libraries', 'Community fridges', 'Timebanks', 'Volunteer coordination groups', 'Disaster relief networks', 'Parent co-ops', 'Neighbor-to-neighbor support groups'],
+    example: 'When a community faces a crisis — wildfire, flood, economic disruption — mutual aid groups on Hylo can spin up rapidly, coordinate offers and needs geographically, and track who’s been helped and who still needs support. The map becomes the coordination surface.',
+  },
+  {
+    id: 'disaster', num: 3,
+    title: 'Disaster preparedness and emergency response',
+    accent: EVENT, bg: 'light',
+    challenge: 'When disaster hits, the communities that respond fastest are the ones that already know each other. But most neighborhoods have no pre-existing coordination infrastructure. Emergency management agencies can broadcast, but they can’t facilitate neighbor-to-neighbor support at scale. After the initial crisis, long-term recovery requires sustained coordination that emergency systems aren’t designed for.',
+    helps: 'Hylo gives communities the coordination infrastructure before they need it — and the same tools work during and after a crisis. Place-based groups connect neighbors. Requests and offers match needs to resources in real time, geographically. The map shows where help is needed and where it’s available. Cross-group posting lets mutual aid networks coordinate with official response agencies. Events organize work parties, supply distributions, check-in meetings. And because the infrastructure was built during calm times, trust is already in place when the storm hits.',
+    tags: ['CERT teams', 'Firewise communities', 'Neighborhood emergency preparedness groups', 'Volunteer fire departments', 'Community resilience networks', 'Red Cross chapters', 'Local emergency management agencies', 'Faith-based disaster response teams'],
+  },
+  {
+    id: 'civic', num: 4,
+    title: 'Civic participation and governance',
+    accent: PROPOSAL, bg: 'athens',
+    challenge: 'You want your community to make decisions together — real decisions about real resources — but the tools for democratic participation at the local level are terrible. Town halls are inaccessible. Email comment periods are performative. There’s no infrastructure for ongoing civic participation between elections. And every governance experiment reinvents the wheel because there’s no shared toolkit.',
+    helps: 'Proposals with flexible voting options (consent, consensus, ranked choice, gradients of agreement), quorum settings, and outcome tracking. Agreements that members consent to and that anchor moderation. Roles with distributed responsibilities. Funding rounds for participatory budgeting. All within a place-based group structure where participants share a geography, not just an opinion. Hylo makes governance participatory rather than performative.',
+    tags: ['City and town civic engagement portals', 'Participatory budgeting initiatives', 'Citizen assemblies', 'Community planning processes', 'Cooperative governance boards', 'Municipal advisory committees', 'Tribal governance bodies', 'Community development corporations'],
+    example: 'Float, the Funding Lab for Agroecological Technology, used Hylo’s funding rounds to distribute over $700,000 through participatory processes — community members reviewed proposals, discussed priorities, and collectively allocated real resources.',
+  },
+  {
+    id: 'nonprofits', num: 5,
+    title: 'Nonprofit and mission-driven organizations',
+    accent: DISCUSS, bg: 'light',
+    challenge: 'Your organization has staff, volunteers, board members, partners, and community members — all in different apps. Internal communication happens on Slack. Community engagement happens on Facebook. Events go through Eventbrite. Board decisions happen in email. Nobody can see the whole picture. And the platforms you’re using are either designed for companies (Slack) or designed to monetize your community’s attention (Facebook).',
+    helps: 'One platform for all of it: internal team coordination, community engagement, events, volunteer coordination, proposals and decisions, and cross-organization partnerships. Nested groups mean your board, your staff, your volunteer corps, and your public community all have their own spaces while staying connected. No ads, no data extraction, and open-source governance mean your organization’s home won’t be rug-pulled by a platform’s quarterly earnings call.',
+    tags: ['Environmental nonprofits', 'Community foundations', 'Advocacy organizations', 'Civic associations', 'Faith communities', 'Service clubs (Rotary, Lions, Kiwanis)', 'Cultural organizations', 'Health and wellness nonprofits', 'Social justice organizations'],
+  },
+  {
+    id: 'networks', num: 6,
+    title: 'Networks and coalitions',
+    accent: CARIB, bg: 'athens',
+    challenge: 'You’re trying to coordinate across multiple organizations that each have their own leadership, culture, and tools. Coalition meetings happen quarterly. Information silos are persistent. Nobody can see what the other groups are doing. Shared projects fall through the cracks between organizations. And every coalition platform you’ve tried is either another walled garden or a glorified mailing list.',
+    helps: 'Cross-group coordination is Hylo’s most distinctive capability. Groups can peer with other groups, share content across boundaries, and post to multiple groups simultaneously. A regional coalition can see itself — all the member organizations, their activities, and their people — on a single map. Network-level coordination becomes visible without requiring every organization to merge into one space. Parent groups can contain sub-organizations while respecting their autonomy.',
+    tags: ['Regional health networks', 'Farm-to-table coalitions', 'Watershed councils', 'Interfaith alliances', 'Housing advocacy coalitions', 'Climate action networks', 'Impact networks', 'Professional associations', 'Chambers of commerce', 'Arts and culture collaboratives'],
+  },
+  {
+    id: 'learning', num: 7,
+    title: 'Learning communities and cohort programs',
+    accent: PICTON, bg: 'light',
+    challenge: 'You run a program — a cohort, a fellowship, a course, a professional development track — and the learning experience lives in a dozen places. Content in an LMS. Discussion on Slack. Events on Luma. Assignments in Google Docs. Alumni scattered to the wind. There’s no persistent community that holds the learning, the relationships, and the ongoing connection after the program ends.',
+    helps: 'Learning tracks guide members through structured content with actions and completion tracking. Discussion posts create space for reflection and peer exchange. The community persists after the program ends — alumni stay connected, share resources, and continue learning together. Groups can nest program cohorts within a broader community. Badges earned through track completion signal expertise and unlock access. Paid tracks enable financially sustainable programming.',
+    tags: ['Fellowship programs', 'Leadership development cohorts', 'Professional development communities', 'Online course communities', 'Continuing education programs', 'Mentorship networks', 'University program alumni groups', 'Trade and craft learning circles'],
+    example: 'The Millennium Fellowship — a UN-funded leadership program with 5,000 accepted fellows across 170 nations — uses Hylo’s tracks extensively for weekly programming, campus-level coordination, and cross-cohort connection.',
+  },
+  {
+    id: 'food', num: 8,
+    title: 'Food systems and local economies',
+    accent: MEADOW, bg: 'athens',
+    challenge: 'Local food systems involve dozens of actors — farmers, markets, co-ops, restaurants, food banks, gleaning networks, community gardens — who all serve the same community but rarely coordinate. Information about what’s available, what’s needed, and who’s doing what stays locked in individual organizations. Seasonal coordination (harvest schedules, market logistics, surplus distribution) depends on phone calls and personal relationships that don’t scale.',
+    helps: 'A food systems group on Hylo becomes the coordination hub: requests and offers flow between producers and consumers, events announce markets and workshops, the map shows where food is grown, distributed, and needed. Subgroups organize by function (growers, distributors, kitchens). Cross-group posting connects a CSA’s announcement to the neighborhood groups it serves. Resource posts build a shared knowledge base of seasonal guides, preservation techniques, and supply chain contacts.',
+    tags: ['CSAs and farm shares', 'Farmers’ markets', 'Food co-ops', 'Gleaning networks', 'Community gardens', 'Food policy councils', 'Farm-to-school programs', 'Seed libraries', 'Community kitchens', 'Food banks and pantries'],
+  },
+  {
+    id: 'events', num: 9,
+    title: 'Events, conferences, and gatherings',
+    accent: EVENT, bg: 'light',
+    challenge: 'You run events — conferences, retreats, summits, festivals — and the community energy dissipates immediately after. Attendees connect intensely for three days and then scatter back to their inboxes. You want the relationships and momentum to persist, but a post-event Slack goes silent within a week. The next gathering starts from scratch.',
+    helps: 'Create a group for your event community that lives year-round — not just during the gathering. Between events, members discuss, share resources, collaborate on projects, and stay connected. When the next event approaches, the community is already warm. Cross-group posting lets you share across related event communities. The map helps attendees find each other geographically for local meetups between main events.',
+    tags: ['Annual conferences', 'Unconferences and summits', 'Retreats and intensives', 'Festival communities', 'Professional meetup networks', 'Community gathering series', 'Camp and reunion communities'],
+  },
+  {
+    id: 'land', num: 10,
+    title: 'Land stewardship and shared resources',
+    accent: PROJECT, bg: 'athens',
+    challenge: 'You share resources with other people — land, water, equipment, commons, buildings — and you need to coordinate how those resources are managed, maintained, and governed. Cohousing communities need to make decisions about shared spaces. Farm collectives need to coordinate equipment schedules. Land trusts need to engage the community in stewardship decisions. The governance challenge is real: how do you make fair, transparent decisions about things you share?',
+    helps: 'Proposals and voting for shared decisions. Agreements that everyone consents to. Roles that distribute responsibility. Requests and offers for equipment sharing, work trade, and mutual support. Events for work parties and governance meetings. Funding rounds for capital improvements. The governance infrastructure grows with the group — start with simple decisions, build toward complex resource allocation as trust deepens.',
+    tags: ['Cohousing and intentional communities', 'Community land trusts', 'Conservation easements', 'Cooperative farms', 'Makerspaces and workshops', 'Community centers', 'Shared office spaces', 'Water districts', 'Irrigation cooperatives', 'Grazing associations'],
+  },
+  {
+    id: 'coops', num: 11,
+    title: 'Cooperatives and worker-owned organizations',
+    accent: MED_PURPLE, bg: 'light',
+    challenge: 'Cooperatives need democratic governance baked into daily operations, not bolted on as an annual meeting. Member-owners need to participate in decisions, understand what’s happening, and hold leadership accountable — but the tools designed for top-down companies don’t support distributed authority. And most co-ops are too small to build custom tools.',
+    helps: 'Hylo’s governance tools were designed for exactly this: proposals with consent-based voting, roles with clearly scoped authority, agreements that bind, and moderation that’s accountable to the community. Working groups and committees each get their own subgroup. Cross-group posting keeps the whole membership informed without drowning them. The developmental progression — from conversation to mutual support to collective governance — mirrors how healthy cooperatives grow.',
+    tags: ['Worker cooperatives', 'Housing cooperatives', 'Consumer co-ops', 'Credit unions and community finance', 'Platform cooperatives', 'Cooperative groceries', 'Energy cooperatives', 'Cooperative childcare', 'Cooperative land management'],
+  },
+];
+---
+
+<Layout title="Hylo — Who is it for">
+  {/* ── Hero ─────────────────────────────────────────────────── */}
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Who is Hylo for</div>
+      <h1 class="hero-title">Hylo works for groups that need to do more than talk.</h1>
+      <p class="hero-lede">
+        If your group needs to coordinate across people, share resources, make
+        decisions together, or organize around a shared place — Hylo was built
+        for you. Here’s how groups like yours are using it.
+      </p>
+    </div>
+  </section>
+
+  {/* ── 11 Use cases ─────────────────────────────────────────── */}
+  {USE_CASES.map((u) => (
+    <section id={u.id} class={`uc uc-${u.bg}`}>
+      <div class="uc-inner" style={`border-left-color: ${u.accent}73;`}>
+        <div class="uc-head">
+          <span class="uc-num" style={`color: ${u.accent};`}>
+            {String(u.num).padStart(2, '0')}
+          </span>
+          <h2 class="uc-title">{u.title}</h2>
+        </div>
+
+        <p class="uc-challenge">{u.challenge}</p>
+
+        <div class="uc-helps-lbl">How Hylo helps</div>
+        <p class="uc-helps">{u.helps}</p>
+
+        <div class="uc-tags">
+          {u.tags.map((tag) => (
+            <span class="uc-tag">{tag}</span>
+          ))}
+        </div>
+
+        {u.example && <p class="uc-example">{u.example}</p>}
+      </div>
+    </section>
+  ))}
+
+  {/* ── For Individuals ──────────────────────────────────────── */}
+  <section class="ind">
+    <div class="ind-inner">
+      <h2 class="ind-h">Not sure where to start?</h2>
+      <p class="ind-prose">
+        You don’t need to bring a group to get value from Hylo. Browse the map.
+        Find communities near you. Explore the public commons. See what’s
+        happening in your watershed, your city, your bioregion. Join a group
+        that resonates. Ask for help. Offer what you can. Hylo is a good place
+        to find out where you fit.
+      </p>
+      <a href="#" class="ind-link">Explore the commons →</a>
+    </div>
+  </section>
+
+  {/* ── The Pattern (dark) ───────────────────────────────────── */}
+  <section class="pat">
+    <div class="pat-inner">
+      <div class="pat-eyebrow">The pattern</div>
+      <h2 class="pat-h">What these groups have in common</h2>
+      <div class="pat-prose">
+        <p>
+          Every group listed above faces the same underlying challenge: they
+          need to coordinate real action among real people, in ways that build
+          trust over time and distribute power rather than concentrating it.
+          They don’t need a better chat app. They don’t need a content
+          platform. They need coordination infrastructure — tools for mutual
+          support, collective decision-making, and shared stewardship.
+        </p>
+        <p>
+          That’s what Hylo is. Not a social network. Not a project management
+          tool. Not a governance app. A coordination platform that grows with
+          your group as trust deepens and complexity increases.
+        </p>
+        <p>
+          It starts with conversation. It builds through mutual support. It
+          matures into self-governance. Every group does this in its own way,
+          at its own pace. Hylo just makes the infrastructure available.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {/* ── Closing CTA ──────────────────────────────────────────── */}
+  <section class="closing">
+    <div class="closing-inner">
+      <h2 class="closing-h">See yourself here?</h2>
+      <p class="closing-prose">
+        Hylo is free for every group. Set up your community in about 15
+        minutes and start coordinating.
+      </p>
+      <div class="closing-ctas">
+        <a href="/bring-your-group" class="btn">Create your group — free</a>
+        <a href="/features" class="link">Explore features →</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style lang="scss">
+  @use '../styles/v5/tokens' as *;
+
+  /* ── Hero ─────────────────────────────────────────────────── */
+  .hero {
+    background: $cream;
+    padding: 160px 40px 60px;
+    font-family: $font-sans;
+    color: $rhino;
+  }
+  .hero-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: rgba($rhino, 0.55);
+    margin-bottom: 20px;
+  }
+  .hero-title {
+    font-size: clamp(28px, 5vw, 52px);
+    font-weight: 700;
+    letter-spacing: -1.2px;
+    line-height: 1.05;
+    margin: 0;
+    color: $rhino;
+    text-wrap: balance;
+  }
+  .hero-lede {
+    margin: 24px auto 0;
+    max-width: 640px;
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgba($rhino, 0.8);
+    text-wrap: pretty;
+  }
+
+  /* ── Use cases ────────────────────────────────────────────── */
+  .uc {
+    padding: 64px 40px;
+    font-family: $font-sans;
+    color: $rhino;
+    scroll-margin-top: 80px;
+  }
+  .uc-light  { background: #fff; }
+  .uc-athens { background: $athens-gray; }
+
+  // Border-left here serves the same visual role as the absolute-positioned
+  // accent bar in the source design — anchors the section in the gutter
+  // without overflowing on narrow viewports.
+  .uc-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    border-left: 4px solid;
+    padding-left: 20px;
+  }
+
+  .uc-head {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .uc-num {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    font-variant-numeric: tabular-nums;
+  }
+  .uc-title {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.4px;
+    color: $rhino;
+    margin: 0;
+    line-height: 1.2;
+    text-wrap: balance;
+  }
+
+  .uc-challenge {
+    margin: 12px 0 0;
+    font-size: 16px;
+    line-height: 1.65;
+    color: rgba($rhino, 0.8);
+    text-wrap: pretty;
+  }
+  .uc-helps-lbl {
+    margin: 24px 0 0;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: $forest;
+  }
+  .uc-helps {
+    margin: 16px 0 0;
+    font-size: 15px;
+    line-height: 1.65;
+    color: rgba($rhino, 0.7);
+    text-wrap: pretty;
+  }
+
+  .uc-tags {
+    margin-top: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .uc-tag {
+    display: inline-block;
+    padding: 6px 12px;
+    background: $athens-gray;
+    color: rgba($rhino, 0.72);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    border: 1px solid rgba($rhino, 0.08);
+    white-space: nowrap;
+  }
+  // Inverted tag swap so tags stay readable on the alternate row background
+  .uc-athens .uc-tag { background: #fff; }
+
+  .uc-example {
+    margin: 20px 0 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba($rhino, 0.55);
+    font-style: italic;
+    padding-left: 14px;
+    border-left: 2px solid rgba($rhino, 0.18);
+    text-wrap: pretty;
+  }
+
+  /* ── For Individuals ──────────────────────────────────────── */
+  .ind {
+    background: $athens-gray;
+    padding: 72px 40px;
+    font-family: $font-sans;
+    color: $rhino;
+  }
+  .ind-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .ind-h {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.4px;
+    color: $rhino;
+    margin: 0;
+    line-height: 1.2;
+  }
+  .ind-prose {
+    margin: 16px auto 0;
+    max-width: 640px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba($rhino, 0.8);
+    text-wrap: pretty;
+  }
+  .ind-link {
+    display: inline-block;
+    margin-top: 24px;
+    font-size: 14px;
+    font-weight: 500;
+    color: $forest;
+    text-decoration: none;
+  }
+
+  /* ── Pattern (dark) ───────────────────────────────────────── */
+  .pat {
+    background: $rhino;
+    padding: 96px 40px;
+    font-family: $font-sans;
+    color: #fff;
+  }
+  .pat-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .pat-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+    margin-bottom: 20px;
+  }
+  .pat-h {
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 700;
+    letter-spacing: -0.6px;
+    line-height: 1.15;
+    margin: 0;
+    color: #fff;
+    text-wrap: balance;
+  }
+  .pat-prose {
+    margin: 24px auto 0;
+    max-width: 640px;
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+    text-align: left;
+    text-wrap: pretty;
+
+    p { margin: 0; }
+    p + p { margin-top: 16px; }
+  }
+
+  /* ── Closing CTA ──────────────────────────────────────────── */
+  .closing {
+    background: $cream;
+    padding: 60px 40px 80px;
+    font-family: $font-sans;
+    color: $rhino;
+  }
+  .closing-inner {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .closing-h {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: $rhino;
+    margin: 0;
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+  .closing-prose {
+    margin: 16px auto 0;
+    max-width: 480px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba($rhino, 0.7);
+    text-wrap: pretty;
+  }
+  .closing-ctas {
+    margin-top: 28px;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-block;
+    background: $forest;
+    color: #fff;
+    padding: 0 24px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    text-decoration: none;
+  }
+  .link {
+    display: inline-block;
+    padding: 0 16px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    font-weight: 500;
+    color: $forest;
+    text-decoration: none;
+  }
+
+  /* ── Tablet portrait and below ──────────────────────────── */
+  @media (max-width: 880px) {
+    .hero { padding: 120px 24px 56px; }
+    .uc   { padding: 56px 24px; }
+    .uc-inner { padding-left: 16px; }
+    .uc-title { font-size: 22px; }
+    .ind  { padding: 56px 24px; }
+    .pat  { padding: 72px 24px; }
+    .closing { padding: 56px 24px 72px; }
+    .closing-h { font-size: 24px; }
+  }
+</style>
