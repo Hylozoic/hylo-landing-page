@@ -388,6 +388,16 @@ export default function Toolkit() {
             </div>
           ))}
         </div>
+
+        <div style={{ marginTop: 40, textAlign: 'center' }}>
+          <a href="/features" style={{
+            display: 'inline-block',
+            fontSize: 15, fontWeight: 600, color: ACCENT,
+            textDecoration: 'underline', textUnderlineOffset: 5,
+          }}>
+            See the full feature reference →
+          </a>
+        </div>
       </div>
       <FeatureModal cap={openCap} onClose={() => setOpenCap(null)} />
     </section>

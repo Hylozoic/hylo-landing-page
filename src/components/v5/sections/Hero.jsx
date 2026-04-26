@@ -224,20 +224,21 @@ export default function Hero() {
 
             <div style={{ display: 'flex', gap: 16, marginTop: 28, alignItems: 'center' }}>
               <FadeIn from="up" delay={550}>
-                <button type="button" style={{
-                  height: 50, padding: '0 24px', borderRadius: 8, border: 'none',
+                <a href="/bring-your-group" style={{
+                  display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                  height: 50, padding: '0 24px', borderRadius: 8,
                   background: ACCENT, color: '#fff', fontWeight: 600, fontSize: 15,
-                  cursor: 'pointer', fontFamily: 'inherit',
+                  textDecoration: 'none', fontFamily: 'inherit',
                 }}>
                   Bring your group →
-                </button>
+                </a>
               </FadeIn>
               <FadeIn from="up" delay={800}>
-                <a style={{
+                <a href="/features" style={{
                   fontSize: 15, color: ACCENT, fontWeight: 600,
-                  textDecoration: 'underline', textUnderlineOffset: 5, cursor: 'pointer',
+                  textDecoration: 'underline', textUnderlineOffset: 5,
                 }}>
-                  Explore the map
+                  Explore features
                 </a>
               </FadeIn>
             </div>

@@ -142,9 +142,12 @@ export default function FeaturedGroups() {
           </h3>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-          <div style={{ fontSize: 13, color: ACCENT, fontWeight: 600, letterSpacing: 0.3, cursor: 'pointer' }}>
+          <a href="/stories" style={{
+            fontSize: 13, color: ACCENT, fontWeight: 600, letterSpacing: 0.3,
+            textDecoration: 'none',
+          }}>
             Browse all groups →
-          </div>
+          </a>
           <div style={{ display: 'flex', gap: 8 }}>
             <button type="button" aria-label="Scroll left" onClick={() => scrollBy(-1)} style={arrowStyle}>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -270,14 +273,15 @@ export default function FeaturedGroups() {
           }}>
             Volunteer to be featured here and share your story with the commons.
           </div>
-          <button type="button" style={{
+          <a href="/get-involved" style={{
+            display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
             height: 40, padding: '0 20px', borderRadius: 8,
-            border: 'none', background: ACCENT, color: '#fff',
-            fontWeight: 600, fontSize: 13.5, cursor: 'pointer',
-            fontFamily: 'inherit', letterSpacing: 0.2,
+            background: ACCENT, color: '#fff',
+            fontWeight: 600, fontSize: 13.5,
+            textDecoration: 'none', fontFamily: 'inherit', letterSpacing: 0.2,
           }}>
             Volunteer your group →
-          </button>
+          </a>
         </div>
       </div>
     </section>

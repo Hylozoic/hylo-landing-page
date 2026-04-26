@@ -13,17 +13,20 @@ const CARDS = [
     t: 'Bring your group',
     body: 'Set up your community on Hylo. Free to start, powerful to grow.',
     cta: 'Get started',
+    href: '/bring-your-group',
     primary: true,
   },
   {
     t: 'Explore the commons',
-    body: 'Browse the map. Find groups near you. See what’s already happening.',
-    cta: 'Open the map',
+    body: 'See how real groups are coordinating, organizing, and governing themselves on Hylo.',
+    cta: 'Read community stories',
+    href: '/stories',
   },
   {
     t: 'Support the commons',
     body: 'Join Hylo Commons. Starting at $1/month — or contribute your time and skills.',
-    cta: 'Join',
+    cta: 'Get involved',
+    href: '/get-involved',
   },
 ];
 
@@ -84,15 +87,17 @@ export default function Invitation() {
                 }}>
                   {c.body}
                 </div>
-                <button type="button" style={{
+                <a href={c.href} style={{
+                  display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
                   marginTop: 28, height: 46, borderRadius: 8,
                   border: c.primary ? 'none' : '1px solid rgba(42,39,35,0.18)',
                   background: c.primary ? ACCENT : '#fff',
                   color: c.primary ? '#fff' : tokens.ink,
-                  fontWeight: 600, fontSize: 14.5, cursor: 'pointer', fontFamily: 'inherit',
+                  fontWeight: 600, fontSize: 14.5,
+                  textDecoration: 'none', fontFamily: 'inherit',
                 }}>
                   {c.cta} →
-                </button>
+                </a>
               </div>
             </FadeIn>
           ))}
