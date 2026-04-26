@@ -1,0 +1,664 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { tokens } from '../components/v5/tokens.js';
+
+// Source: design_handoff_v5/design/v5-stewardship-support.jsx + spec.
+// Pure-static page (zero React islands). The spec is explicit: no urgency,
+// no countdown timers, no "most popular" badges, no scarcity games. Prices
+// stated plainly. Each offer card has a colored left border that's the only
+// visual difference between tiers — no premium framing.
+//
+// Hero "See the options ↓" jumps to #offerings via native href + global
+// scroll-behavior: smooth. The offerings section has scroll-margin-top so
+// the sticky nav doesn't cover the heading.
+
+const OFFERS = [
+  { name: 'Support Call',
+    price: '$300',
+    border: '#40A1DD',
+    oneLiner: "A focused conversation about your group's specific challenges.",
+    items: [
+      "One hour with a Hylo team member, dedicated to your group's questions and situation",
+      "Practical advice tailored to your group's structure, goals, and stage of development",
+      'Follow-up notes summarizing recommendations and next steps',
+    ],
+    audience: 'Stewards who need targeted guidance on a specific challenge — onboarding, engagement, governance, or group structure.' },
+
+  { name: 'Pollination',
+    price: '$2,500',
+    priceSub: 'one-time',
+    border: tokens.caribbean,
+    oneLiner: "Everything your group needs to launch well on Hylo.",
+    items: [
+      "A deep-dive workshop to map your group's structure, purpose, and agreements onto Hylo",
+      'A strategy session to design your onboarding flow and engagement approach',
+      "A training call for your group's stewards — how to use Hylo's tools effectively",
+      "A demo and introduction call for your group members",
+      'Customizable guides and materials to share with your community',
+      'A custom analytics page to track engagement in your group',
+      'Custom iframe code to embed a Hylo view on your own website',
+      'A three-month check-in call to review how things are going and adjust',
+      "Our ongoing partnership in service to your group's success",
+    ],
+    audience: 'Organizations launching a new community on Hylo, or migrating an existing community and wanting to do it right from the start.' },
+
+  { name: 'Seed',
+    price: '$100',
+    priceSub: '/month',
+    border: '#23CC80',
+    oneLiner: 'Sustained partnership for groups that want ongoing connection to the Hylo team.',
+    items: [
+      'Access to the Hylo Alliance — a private group for partners and advisors',
+      'A monthly group support call with other dedicated stewards — learn from peers, share challenges, get direct input from the team',
+      'Priority bug fixes — your issues move to the top of the development queue',
+      'The knowledge that your contribution directly sustains an open-source, non-profit platform',
+    ],
+    audience: "Organizations that are established on Hylo and want to stay connected, supported, and contribute to the platform's sustainability." },
+
+  { name: 'Blossom',
+    price: '$1,000–$1,250',
+    priceSub: '/month',
+    border: '#9883E5',
+    oneLiner: 'Hands-on community support for groups in their critical early period.',
+    items: [
+      'Everything in Seed, plus:',
+      "A monthly strategy call with Hylo's community team to optimize your engagement and community health",
+      'An additional live demo, training, or presentation for your members',
+      'Weekly hands-on community support from our team — we show up in your group and help it come alive',
+    ],
+    extra: 'Our community team becomes an active participant in your group. We post 2–3 times per month, respond to members, connect people who should know each other, help newcomers find their footing, and nurture the kind of engagement that serves your group’s goals. We don’t replace your stewards — we work alongside them.',
+    commitOptions: [
+      '6-month commitment: $1,250/month',
+      '12-month commitment: $1,000/month',
+    ],
+    prerequisites: "We require that Blossom partners first complete a Pollination package, and that your group has its own dedicated stewards in addition to the support we provide. We're here to amplify your stewardship, not substitute for it.",
+    audience: 'Groups in their first year on Hylo that need active partnership to build healthy community culture, especially organizations without a dedicated community manager.' },
+
+  { name: 'Flourish',
+    price: 'Custom',
+    priceSub: 'reach out to discuss',
+    border: '#BB60A8',
+    oneLiner: 'A dedicated community manager from the Hylo team, embedded in your group.',
+    items: [
+      'Everything in Pollination and Seed, plus:',
+      'A dedicated Hylo community manager assigned to your group',
+      'Active, ongoing community support throughout the week — posting, connecting members, fielding questions, and nurturing engagement',
+      'Your community manager becomes a full member of your group, embodying your culture, values, and agreements',
+      'A monthly call with the Hylo core team and your community manager to review strategy',
+      'A monthly community-building call hosted by your community manager to convene your members',
+      "Training in Prosocial facilitation and sociocratic governance applied to your group's specific context",
+    ],
+    audience: "Organizations that need the equivalent of a community manager but don't have one on staff. This is the deepest level of partnership we offer — it's a real relationship, not a service contract." },
+];
+
+const MONEY = [
+  { label: 'Team compensation.',
+    body: 'The people who support your community are the same people who build Hylo. Your contribution pays for their time and expertise. We work toward equitable compensation across the team.' },
+  { label: 'Platform development.',
+    body: 'Revenue from stewardship support goes directly toward building and maintaining an open-source platform that hundreds of communities use for free. Your support makes that possible.' },
+  { label: 'The commons.',
+    body: 'Every feature built through a partnership is released to all groups on Hylo. When you invest in your community’s success, you’re investing in infrastructure that benefits everyone.' },
+];
+---
+
+<Layout title="Hylo — Community Stewardship Support">
+  {/* ── 1 · Hero ────────────────────────────────────────────── */}
+  <section class="hero">
+    <div class="hero-inner">
+      <h1 class="hero-title">Your community needs a steward. We can help.</h1>
+      <p class="hero-prose">
+        An online community is a living thing — it needs care, attention, and
+        someone who knows how to tend it. Most groups build the space and assume
+        people will show up and engage. They usually don’t. The difference
+        between a thriving community and an empty one is almost always
+        stewardship.
+      </p>
+      <p class="hero-prose">
+        Hylo’s team has spent years working alongside real communities —
+        learning what makes groups come alive, what causes them to go quiet,
+        and what it takes to build the kind of trust that makes collective
+        action possible. This program brings that experience directly to your
+        group.
+      </p>
+      <a href="#offerings" class="hero-jump">
+        See the options <span class="arrow-down">↓</span>
+      </a>
+    </div>
+  </section>
+
+  {/* ── 2 · Problem ─────────────────────────────────────────── */}
+  <section class="prob">
+    <div class="body-inner">
+      <h2 class="section-h">What we see, over and over</h2>
+      <div class="prose">
+        <p>
+          A group launches with energy. People join. There’s a burst of posts,
+          a flurry of introductions. Then it goes quiet. New members stop
+          coming. Existing members stop posting. The stewards blame the
+          platform, the timing, the audience — but the pattern is almost always
+          the same: nobody was tending the space.
+        </p>
+        <p>
+          Community doesn’t happen by default. It happens when someone welcomes
+          new members personally. When someone follows up on a request that
+          went unanswered. When someone notices who hasn’t posted in a while
+          and reaches out. When the purpose is clear, the agreements are alive,
+          and people feel like their contributions matter.
+        </p>
+        <p>
+          This is stewardship. It’s not glamorous, and it’s not optional. It’s
+          the thing that separates a group that grows from a group that goes
+          silent.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {/* ── 3 · What we bring ───────────────────────────────────── */}
+  <section class="bring">
+    <div class="body-inner">
+      <h2 class="section-h">What we’ve learned from working with hundreds of groups</h2>
+      <div class="prose">
+        <p>
+          Since 2012, we’ve worked alongside communities across sectors —
+          regenerative agriculture, climate action, global health networks,
+          civic organizing, learning communities, cooperatives. Some of them
+          thrived. Some of them didn’t. We’ve paid close attention to both.
+        </p>
+        <p>
+          What we bring to your group isn’t a playbook. It’s pattern
+          recognition. We know what onboarding flows actually get people
+          engaged. We know when a group needs more structure and when it needs
+          less. We know how to help stewards set agreements that hold without
+          rigidity, and how to build the kind of culture where mutual support
+          becomes normal rather than aspirational.
+        </p>
+        <p>
+          Our team is trained in Prosocial facilitation and sociocratic
+          governance — proven frameworks for helping groups collaborate, make
+          decisions, and resolve conflict. We bring those practices into
+          everything we do.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {/* ── 4 · Offerings ───────────────────────────────────────── */}
+  <section id="offerings" class="offers">
+    <div class="offers-inner">
+      <h2 class="offers-h">How we can work together</h2>
+      <p class="offers-intro">
+        All fees are tax-deductible contributions to Hylo, a fiscally sponsored
+        501(c)(3). Every dollar supports the ongoing development of an
+        open-source, non-profit coordination platform. Thank you for investing
+        in shared infrastructure.
+      </p>
+
+      <div class="cards">
+        {OFFERS.map((o) => (
+          <div class="card" style={`border-left-color: ${o.border};`}>
+            <div class="card-head">
+              <div class="card-name">{o.name}</div>
+              <div class="card-price">
+                {o.price}
+                {o.priceSub && <span class="card-price-sub">{o.priceSub}</span>}
+              </div>
+            </div>
+
+            <div class="card-one">{o.oneLiner}</div>
+
+            <div class="card-items">
+              {o.items.map((it) => (
+                <div class="card-item">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                    class="check" aria-hidden="true">
+                    <path d="M2.5 7.2l2.8 2.8L11.5 4" stroke-width="1.8"
+                      stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  <span>{it}</span>
+                </div>
+              ))}
+            </div>
+
+            {o.extra && (
+              <div class="card-extra">
+                <div class="card-extra-h">What this looks like in practice</div>
+                <div>{o.extra}</div>
+              </div>
+            )}
+
+            {o.commitOptions && (
+              <div class="card-commits">
+                {o.commitOptions.map((c) => <div>{c}</div>)}
+              </div>
+            )}
+
+            {o.prerequisites && (
+              <div class="card-prereq">{o.prerequisites}</div>
+            )}
+
+            <div class="card-aud">
+              <span class="card-aud-lbl">Who this is for: </span>
+              {o.audience}
+            </div>
+
+            <div class="card-cta">
+              <a href="mailto:hello@hylo.com" class="text-link">
+                Start a conversation <span class="arrow">→</span>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* ── 5 · Money ───────────────────────────────────────────── */}
+  <section class="money">
+    <div class="body-inner">
+      <h2 class="section-h">Where your contribution goes</h2>
+      <p class="prose-single">
+        All contributions to Hylo’s stewardship support program are
+        tax-deductible donations to a 501(c)(3) non-profit. There are no
+        investors, no shareholders, and no profit extraction. Here’s what your
+        support funds:
+      </p>
+      {MONEY.map((it) => (
+        <p class="prose-single money-item">
+          <strong class="money-lbl">{it.label} </strong>{it.body}
+        </p>
+      ))}
+    </div>
+  </section>
+
+  {/* ── 6 · Getting Started ─────────────────────────────────── */}
+  <section class="gs">
+    <div class="gs-inner">
+      <h2 class="gs-h">Ready to talk?</h2>
+      <p class="gs-prose">
+        Every partnership starts with a conversation. Tell us about your group,
+        what you’re trying to build, and where you’re stuck. We’ll be honest
+        about whether we can help and which level of support makes sense.
+      </p>
+      <div class="gs-cta-wrap">
+        <a href="mailto:hello@hylo.com" class="gs-cta">Get in touch</a>
+      </div>
+      <div class="gs-email">
+        Or email us directly at
+        {' '}<a href="mailto:hello@hylo.com" class="gs-email-link">hello@hylo.com</a>
+      </div>
+    </div>
+  </section>
+
+  {/* ── 7 · Closing ─────────────────────────────────────────── */}
+  <section class="close">
+    <div class="close-inner">
+      <p>
+        Building a healthy community is one of the most important things a
+        group can do — and one of the hardest. We’ve been at it long enough to
+        know that the difference is rarely the technology. It’s the care.
+        We’d be glad to bring what we’ve learned to your work.
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style lang="scss">
+  @use '../styles/v5/tokens' as *;
+
+  /* ── shared ──────────────────────────────────────────────── */
+  .body-inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .section-h {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.4px;
+    color: $rhino;
+    margin: 0;
+    line-height: 1.2;
+  }
+  .prose {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    p {
+      font-size: 16px;
+      line-height: 1.7;
+      margin: 0;
+      color: rgba($rhino, 0.8);
+      text-wrap: pretty;
+    }
+  }
+  .prose-single {
+    margin: 16px 0 0;
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba($rhino, 0.8);
+    text-wrap: pretty;
+  }
+  .text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    color: $caribbean;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .arrow      { font-size: 16px; line-height: 1; }
+  .arrow-down { font-size: 16px; line-height: 1; }
+
+  /* ── 1 · Hero ────────────────────────────────────────────── */
+  .hero {
+    background: $cream;
+    padding: 160px 40px 60px;
+    font-family: $font-sans;
+    color: $rhino;
+  }
+  .hero-inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .hero-title {
+    font-size: 52px;
+    font-weight: 700;
+    letter-spacing: -1.2px;
+    line-height: 1.05;
+    margin: 0;
+    color: $rhino;
+    text-wrap: balance;
+  }
+  .hero-prose {
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgba($rhino, 0.8);
+    max-width: 640px;
+    text-wrap: pretty;
+    margin: 24px 0 0;
+
+    & + .hero-prose { margin-top: 16px; }
+  }
+  .hero-jump {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 24px;
+    font-size: 14px;
+    font-weight: 500;
+    color: $caribbean;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  /* ── 2 · Problem ─────────────────────────────────────────── */
+  .prob {
+    background: #fff;
+    padding: 60px 40px;
+    font-family: $font-sans;
+    color: $rhino;
+  }
+
+  /* ── 3 · What we bring ───────────────────────────────────── */
+  .bring {
+    background: $athens-gray;
+    padding: 60px 40px;
+    font-family: $font-sans;
+    color: $rhino;
+  }
+
+  /* ── 4 · Offerings ───────────────────────────────────────── */
+  .offers {
+    background: #fff;
+    padding: 60px 40px;
+    font-family: $font-sans;
+    color: $rhino;
+    scroll-margin-top: 80px;
+  }
+  .offers-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .offers-h {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: $rhino;
+    margin: 0;
+    line-height: 1.15;
+    text-align: center;
+  }
+  .offers-intro {
+    margin: 16px auto 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba($rhino, 0.6);
+    text-align: center;
+    max-width: 600px;
+    text-wrap: pretty;
+  }
+
+  .cards {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  .card {
+    background: #fff;
+    border-radius: 4px;
+    border-left: 4px solid;
+    padding: 32px 32px 32px 36px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+    transition: box-shadow .25s ease;
+
+    &:hover {
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    }
+  }
+  .card-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .card-name {
+    font-size: 22px;
+    font-weight: 700;
+    color: $rhino;
+    letter-spacing: -0.3px;
+  }
+  .card-price {
+    font-size: 18px;
+    font-weight: 500;
+    color: $caribbean;
+    white-space: nowrap;
+  }
+  .card-price-sub {
+    font-size: 13px;
+    font-weight: 400;
+    color: rgba($rhino, 0.55);
+    margin-left: 6px;
+  }
+  .card-one {
+    margin-top: 8px;
+    font-size: 15px;
+    font-style: italic;
+    color: rgba($rhino, 0.6);
+    line-height: 1.5;
+  }
+  .card-items {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .card-item {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 15px;
+    line-height: 1.55;
+    color: rgba($rhino, 0.78);
+
+    span { text-wrap: pretty; }
+  }
+  .check {
+    stroke: $caribbean;
+    flex: none;
+    margin-top: 5px;
+  }
+  .card-extra {
+    margin-top: 12px;
+    padding-left: 12px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba($rhino, 0.7);
+    border-left: 2px solid rgba($rhino, 0.08);
+  }
+  .card-extra-h {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: rgba($rhino, 0.55);
+    margin-bottom: 6px;
+  }
+  .card-commits {
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 1.55;
+    color: rgba($rhino, 0.6);
+  }
+  .card-prereq {
+    margin-top: 12px;
+    font-size: 13px;
+    line-height: 1.55;
+    color: rgba($rhino, 0.52);
+  }
+  .card-aud {
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 1.55;
+    color: rgba($rhino, 0.55);
+  }
+  .card-aud-lbl {
+    font-weight: 500;
+    color: rgba($rhino, 0.65);
+  }
+  .card-cta { margin-top: 16px; }
+
+  /* ── 5 · Money ───────────────────────────────────────────── */
+  .money {
+    background: $athens-gray;
+    padding: 60px 40px;
+    font-family: $font-sans;
+    color: $rhino;
+  }
+  .money-item { margin-top: 16px; }
+  .money-lbl {
+    font-weight: 500;
+    color: $rhino;
+  }
+
+  /* ── 6 · Getting Started ─────────────────────────────────── */
+  .gs {
+    background: #fff;
+    padding: 60px 40px;
+    font-family: $font-sans;
+    color: $rhino;
+  }
+  .gs-inner {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .gs-h {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.4px;
+    color: $rhino;
+    margin: 0;
+    line-height: 1.2;
+  }
+  .gs-prose {
+    margin: 16px 0 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba($rhino, 0.75);
+    text-wrap: pretty;
+  }
+  .gs-cta-wrap { margin-top: 40px; }
+  .gs-cta {
+    display: inline-block;
+    background: $caribbean;
+    color: #fff;
+    padding: 0 24px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 0.2px;
+    white-space: nowrap;
+  }
+  .gs-email {
+    margin-top: 16px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba($rhino, 0.5);
+  }
+  .gs-email-link {
+    color: $caribbean;
+    text-decoration: none;
+  }
+
+  /* ── 7 · Closing ─────────────────────────────────────────── */
+  .close {
+    background: $cream;
+    padding: 60px 40px 80px;
+    font-family: $font-sans;
+    color: $rhino;
+  }
+  .close-inner {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+      margin: 0;
+      color: rgba($rhino, 0.7);
+      text-wrap: pretty;
+    }
+  }
+
+  /* ── Tablet portrait and below ──────────────────────────── */
+  @media (max-width: 880px) {
+    .hero { padding: 120px 24px 56px; }
+    .hero-title { font-size: 38px; letter-spacing: -1px; }
+    .hero-prose { font-size: 17px; }
+
+    .prob, .bring, .money { padding: 56px 24px; }
+    .offers { padding: 56px 24px; }
+    .offers-h { font-size: 24px; }
+
+    .card { padding: 28px 24px 28px 24px; }
+    .card-head { gap: 6px; }
+
+    .gs   { padding: 56px 24px; }
+    .close { padding: 56px 24px 72px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-title { font-size: 32px; }
+    .gs-h { font-size: 22px; }
+  }
+</style>
