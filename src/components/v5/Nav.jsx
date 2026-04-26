@@ -177,7 +177,9 @@ export default function Nav() {
       <header className={styles.nav}>
         <div className={styles.inner}>
           <div className={styles.logoSlot}>
-            <img src={LOGO_SRC} alt="Hylo" style={{ height: 36, display: 'block' }} />
+            <a href="/" aria-label="Hylo home" style={{ display: 'inline-flex' }}>
+              <img src={LOGO_SRC} alt="Hylo" style={{ height: 36, display: 'block' }} />
+            </a>
           </div>
 
           <nav className={styles.menu}>
