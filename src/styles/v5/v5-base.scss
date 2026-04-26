@@ -16,6 +16,13 @@ html, body {
   overflow-x: clip;
 }
 
+// Native smooth scroll for in-page anchor jumps (e.g. /bring-your-group's
+// platform quick-nav). Sticky nav is 64px tall — sections that are anchor
+// targets opt-in by setting their own scroll-margin-top.
+html {
+  scroll-behavior: smooth;
+}
+
 // Layout component applies the .v5 class to the root.
 .v5 {
   font-family: $font-sans;

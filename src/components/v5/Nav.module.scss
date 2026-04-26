@@ -42,12 +42,6 @@
   justify-self: center;
 }
 
-// Hide the centered menu on narrow widths — hamburger handles nav.
-@media (max-width: 880px) {
-  .menu { display: none; }
-  .inner { padding: 0 20px; }
-}
-
 .menuLink {
   font-size: 14px;
   color: $ink;
@@ -249,4 +243,30 @@
   font-size: 12px;
   color: rgba($ink, 0.55);
   letter-spacing: 0.2px;
+}
+
+// ── Tablet portrait and below ────────────────────────────────
+// Hide the centered link menu (hamburger covers nav). Keep Sign in /
+// Sign up visible but shrink them so they don't wrap or crowd the
+// hamburger. Grid collapses to two columns so the right cluster anchors
+// to the viewport edge instead of getting stuck in the now-empty middle
+// auto column. Placed at file-end so these rules win against the
+// unmediaed definitions above without !important.
+@media (max-width: 880px) {
+  .menu { display: none; }
+  .inner {
+    padding: 0 16px;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+  }
+  .right { gap: 8px; }
+  .auth { gap: 8px; }
+  .signIn { font-size: 12.5px; }
+  .signUp {
+    height: 32px;
+    padding: 0 12px;
+    font-size: 12.5px;
+    border-radius: 6px;
+  }
+  .hamburger { width: 36px; height: 36px; }
 }

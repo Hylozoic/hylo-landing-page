@@ -1,0 +1,211 @@
+---
+import PlatformIcon from './PlatformIcon.astro';
+
+// Source: design_handoff_v5/design/v5-bring-your-group.jsx (Comparison).
+// One platform-comparison block: header, two columns (what works / what
+// breaks vs. on Hylo), migration note. Section background varies per
+// platform via the inline `background` prop so the page alternates
+// athens-gray and white as you scroll through the platforms.
+
+interface PlatformContent {
+  id: string;
+  name: string;
+  icon: 'fb' | 'chat' | 'hash' | 'ring' | 'circle' | 'doc';
+  bg: string;
+  oneLiner: string;
+  works: string;
+  breaks: string;
+  hylo: { t: string; d: string }[];
+  migration: string;
+}
+
+interface Props {
+  platform: PlatformContent;
+}
+
+const { platform } = Astro.props;
+---
+
+<section
+  id={`section-${platform.id}`}
+  class="cmp"
+  style={`background: ${platform.bg};`}
+>
+  <div class="inner">
+    <div class="header">
+      <div class="iconWrap"><PlatformIcon kind={platform.icon} size={24} /></div>
+      <h3 class="name">{platform.name}</h3>
+    </div>
+    <p class="oneLiner">{platform.oneLiner}</p>
+
+    <div class="grid">
+      <div class="leftCol">
+        <div class="colHeader">What works</div>
+        <p class="prose">{platform.works}</p>
+        <div class="colHeader colHeaderMt">What breaks</div>
+        <p class="prose">{platform.breaks}</p>
+      </div>
+
+      <div class="rightCol">
+        <div class="hyloHeader">On Hylo</div>
+        <div class="hyloList">
+          {platform.hylo.map((f) => (
+            <div>
+              <div class="hyloItemTitle">{f.t}</div>
+              <div class="hyloItemBody">{f.d}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <div class="migration">
+      <strong class="migrationLabel">Making the switch:</strong>
+      {' '}{platform.migration}
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use '../../../styles/v5/tokens' as *;
+
+  .cmp {
+    padding: 80px 40px;
+    font-family: $font-sans;
+    color: $rhino;
+    // Sticky nav is 64px — leave a bit of breathing room when the page
+    // scrolls to a platform anchor.
+    scroll-margin-top: 80px;
+  }
+
+  .inner {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .iconWrap {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    background: rgba($rhino, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba($rhino, 0.55);
+  }
+
+  .name {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+    color: $rhino;
+    letter-spacing: -0.4px;
+  }
+
+  .oneLiner {
+    margin-top: 10px;
+    font-size: 15px;
+    color: rgba($rhino, 0.6);
+    font-style: italic;
+    max-width: 640px;
+  }
+
+  .grid {
+    margin-top: 36px;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 40px;
+  }
+
+  .leftCol {
+    min-width: 0;
+  }
+
+  .rightCol {
+    border-left: 3px solid rgba($forest, 0.3);
+    padding-left: 24px;
+    min-width: 0;
+  }
+
+  .colHeader {
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: rgba($rhino, 0.5);
+    margin-bottom: 12px;
+  }
+
+  .colHeaderMt {
+    margin-top: 28px;
+  }
+
+  .hyloHeader {
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: $forest;
+    margin-bottom: 12px;
+  }
+
+  .prose {
+    font-size: 15px;
+    line-height: 1.7;
+    margin: 0;
+    color: rgba($rhino, 0.75);
+    text-wrap: pretty;
+  }
+
+  .hyloList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 4px;
+  }
+
+  .hyloItemTitle {
+    font-size: 15px;
+    font-weight: 500;
+    color: $rhino;
+  }
+
+  .hyloItemBody {
+    font-size: 14px;
+    line-height: 1.55;
+    color: rgba($rhino, 0.72);
+    margin-top: 2px;
+  }
+
+  .migration {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid $athens-dark;
+    font-size: 14px;
+    color: rgba($rhino, 0.65);
+    line-height: 1.6;
+  }
+
+  .migrationLabel {
+    font-weight: 600;
+    color: $rhino;
+  }
+
+  // ── Tablet portrait and below ───────────────────────────────
+  @media (max-width: 880px) {
+    .cmp { padding: 64px 24px; }
+    .grid { grid-template-columns: 1fr; gap: 32px; }
+    .rightCol {
+      border-left: none;
+      border-top: 3px solid rgba($forest, 0.3);
+      padding-left: 0;
+      padding-top: 28px;
+    }
+  }
+</style>

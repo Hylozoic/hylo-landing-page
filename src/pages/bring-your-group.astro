@@ -1,0 +1,428 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Comparison from '../components/v5/byg/Comparison.astro';
+import PlatformIcon from '../components/v5/byg/PlatformIcon.astro';
+import { PLATFORMS } from '../components/v5/byg/platforms.js';
+
+// Source: design_handoff_v5/design/v5-bring-your-group.jsx +
+// design_handoff_v5/specs/bring-your-group.md.
+//
+// All-static page: zero React islands ship from this route. Hero anchor
+// nav uses `<a href="#section-...">` + the global `html { scroll-behavior:
+// smooth }` set in v5-base.scss; each Comparison sets `scroll-margin-top`
+// so the sticky nav doesn't cover the section header on jump.
+
+const ONLY_HYLO = [
+  { t: 'Cross-group coordination',
+    d: 'Groups on Hylo can nest inside each other, form peer relationships, and share posts across boundaries. A single request can reach three groups at once. A coalition can see itself. No other community platform has it.' },
+  { t: 'Place-based organizing',
+    d: 'Hylo organizes people around the places they share — neighborhoods, cities, watersheds, bioregions. A geographic map shows members, events, and activity near you. This is how coordination connects to the land.' },
+  { t: 'Governance & decisions',
+    d: 'Proposals, participatory budgets, collective moderation, community agreements, role-based stewardship. Built for groups evolving from conversation into self-governance — without concentrating power.' },
+  { t: 'Mutual support infrastructure',
+    d: 'Requests and offers aren’t just posts — they’re the engine of trust. Every fulfilled exchange strengthens the community’s fabric. AI matching helps scale what would otherwise depend on someone knowing exactly who to ask.' },
+  { t: 'A technology commons',
+    d: 'Open source, non-profit, and community-governed. No ads. No data sales. No enshittification. Your community’s home isn’t subject to quarterly earnings targets. The code is public. Your data is portable.' },
+];
+
+const STEPS = [
+  { t: 'Create your group.',   d: 'Sign up, name your group, add a purpose statement and agreements. Choose your visibility and access settings. Done.' },
+  { t: 'Invite your people.',  d: 'Share a link, send email invitations, or invite from your existing member list. Members can join from web or mobile.' },
+  { t: 'Start where you are.', d: 'Begin with conversations and events. Add requests and offers when you’re ready. Grow into proposals, governance, and cross-group coordination at your own pace. Hylo meets your group where you are.' },
+];
+---
+
+<Layout title="Hylo — Bring your group">
+  {/* ── Hero ─────────────────────────────────────────────────── */}
+  <section class="hero">
+    <div class="hero-inner">
+      <h1 class="hero-headline">Bring your group to Hylo.</h1>
+      <p class="hero-lede">
+        Your community deserves a platform built for coordination, not just
+        conversation. Here’s what changes when you move to Hylo — and how to make
+        the switch.
+      </p>
+
+      <div class="hero-ctas">
+        <button type="button" class="hero-cta-primary">Get started — it’s free</button>
+        <a href="#platform-nav" class="hero-cta-link">Jump to your platform ↓</a>
+      </div>
+
+      <div id="platform-nav" class="platform-nav">
+        {PLATFORMS.map((p) => (
+          <a href={`#section-${p.id}`} class="platform-pill">
+            <PlatformIcon kind={p.icon} size={18} />
+            {p.shortNav || p.name}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* ── Common problem ──────────────────────────────────────── */}
+  <section class="cp">
+    <div class="cp-inner">
+      <h2 class="cp-headline">Good tools for the wrong job.</h2>
+      <div class="cp-prose">
+        <p>
+          Most groups end up scattered across three or four platforms: a chat app
+          for quick messages, a social network for updates, a doc tool for notes, a
+          spreadsheet for tracking, and email for everything else. It works — until
+          it doesn’t. Things get lost. Decisions happen in side channels. Nobody
+          can see the whole picture. New members have no idea where to start.
+        </p>
+        <p>
+          The problem isn’t that these tools are bad. It’s that none of them were
+          built for groups that need to coordinate — to make decisions together,
+          share resources, organize across subgroups, and grow their capacity over
+          time. They were built for companies, for consumers, or for audiences. Not
+          for communities.
+        </p>
+        <p class="cp-emphasis">
+          Hylo was built for communities. Here’s what that means, depending on
+          where you’re coming from.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {/* ── Per-platform comparisons ────────────────────────────── */}
+  {PLATFORMS.map((p) => <Comparison platform={p} />)}
+
+  {/* ── What only Hylo enables ──────────────────────────────── */}
+  <section class="only">
+    <div class="only-inner">
+      <h2 class="only-headline">What only Hylo enables.</h2>
+      <p class="only-lede">
+        These aren’t feature advantages. They’re structural capabilities that
+        other platforms can’t add with a plugin — because they require a
+        fundamentally different architecture.
+      </p>
+
+      <div class="only-grid">
+        {ONLY_HYLO.map((c, i) => (
+          <div class={`only-card only-card-${i}`}>
+            <div class="only-card-title">{c.t}</div>
+            <p class="only-card-body">{c.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* ── Getting started ─────────────────────────────────────── */}
+  <section class="gs">
+    <div class="gs-inner">
+      <h2 class="gs-headline">Getting started takes 15 minutes.</h2>
+
+      <div class="gs-steps">
+        {STEPS.map((s, i) => (
+          <div class="gs-step">
+            <div class="gs-step-num">{i + 1}</div>
+            <div>
+              <div class="gs-step-title">{s.t}</div>
+              <p class="gs-step-body">{s.d}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="gs-foot">
+        <div class="gs-help">
+          Need help with your migration? We support groups making the switch — from
+          setup to onboarding your members.
+          {' '}<a class="gs-help-link">Get in touch →</a>
+        </div>
+        <button type="button" class="gs-cta">Create your group — free</button>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style lang="scss">
+  @use '../styles/v5/tokens' as *;
+
+  $rhino-rgb: 44, 64, 89;
+
+  /* ── Hero ─────────────────────────────────────────────────── */
+  .hero {
+    background: $cream;
+    padding: 160px 40px 60px;
+    font-family: $font-sans;
+    color: $rhino;
+  }
+  .hero-inner {
+    max-width: 820px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .hero-headline {
+    font-size: 56px;
+    font-weight: 700;
+    letter-spacing: -1.4px;
+    line-height: 1.05;
+    margin: 0;
+    color: $rhino;
+    text-wrap: balance;
+  }
+  .hero-lede {
+    margin: 28px auto 0;
+    font-size: 19px;
+    line-height: 1.55;
+    color: rgba($rhino, 0.75);
+    max-width: 620px;
+    text-wrap: pretty;
+  }
+  .hero-ctas {
+    margin-top: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .hero-cta-primary {
+    height: 44px;
+    padding: 0 20px;
+    border-radius: 8px;
+    border: 0;
+    background: $forest;
+    color: #fff;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .hero-cta-link {
+    font-size: 14px;
+    color: $forest;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .platform-nav {
+    margin-top: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    scroll-margin-top: 80px;
+  }
+  .platform-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    color: rgba($rhino, 0.65);
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid rgba($rhino, 0.1);
+    background: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+  }
+
+  /* ── Common problem ──────────────────────────────────────── */
+  .cp {
+    background: #fff;
+    padding: 100px 40px;
+    font-family: $font-sans;
+    color: $rhino;
+  }
+  .cp-inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .cp-headline {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.6px;
+    margin: 0;
+    color: $rhino;
+  }
+  .cp-prose {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .cp-prose p {
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 0;
+    color: rgba($rhino, 0.82);
+    text-wrap: pretty;
+  }
+  .cp-emphasis {
+    font-weight: 500 !important;
+    color: $rhino !important;
+  }
+
+  /* ── Only Hylo ───────────────────────────────────────────── */
+  .only {
+    background: $rhino;
+    padding: 100px 40px;
+    font-family: $font-sans;
+    color: #fff;
+  }
+  .only-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .only-headline {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.8px;
+    margin: 0;
+    color: #fff;
+  }
+  .only-lede {
+    margin: 16px auto 0;
+    font-size: 17px;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.72);
+    max-width: 720px;
+    text-wrap: pretty;
+  }
+  .only-grid {
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+    text-align: left;
+  }
+  // Top row: 3 cards spanning 2 cols each. Bottom row: 2 cards centered (cols 2-3 and 4-5).
+  .only-card-0 { grid-column: 1 / span 2; }
+  .only-card-1 { grid-column: 3 / span 2; }
+  .only-card-2 { grid-column: 5 / span 2; }
+  .only-card-3 { grid-column: 2 / span 2; }
+  .only-card-4 { grid-column: 4 / span 2; }
+  .only-card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    padding: 24px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+  .only-card-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+    letter-spacing: -0.2px;
+  }
+  .only-card-body {
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    text-wrap: pretty;
+  }
+
+  /* ── Getting started ─────────────────────────────────────── */
+  .gs {
+    background: $cream;
+    padding: 100px 40px 120px;
+    font-family: $font-sans;
+    color: $rhino;
+  }
+  .gs-inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .gs-headline {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.8px;
+    margin: 0;
+    color: $rhino;
+    text-align: center;
+  }
+  .gs-steps {
+    margin-top: 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  .gs-step {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+  .gs-step-num {
+    font-size: 56px;
+    font-weight: 700;
+    color: rgba($forest, 0.3);
+    line-height: 1;
+    letter-spacing: -2px;
+  }
+  .gs-step-title {
+    font-size: 20px;
+    font-weight: 500;
+    color: $rhino;
+    letter-spacing: -0.3px;
+  }
+  .gs-step-body {
+    margin-top: 6px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba($rhino, 0.72);
+    text-wrap: pretty;
+  }
+  .gs-foot {
+    margin-top: 48px;
+    text-align: center;
+  }
+  .gs-help {
+    font-size: 14px;
+    color: rgba($rhino, 0.62);
+  }
+  .gs-help-link {
+    color: $forest;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .gs-cta {
+    margin-top: 24px;
+    height: 44px;
+    padding: 0 22px;
+    border-radius: 8px;
+    border: 0;
+    background: $forest;
+    color: #fff;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  /* ── Tablet portrait and below ───────────────────────────── */
+  @media (max-width: 880px) {
+    .hero { padding: 120px 24px 56px; }
+    .hero-headline { font-size: 38px; letter-spacing: -1px; }
+    .hero-lede { font-size: 17px; }
+    .platform-nav { gap: 12px 14px; }
+
+    .cp { padding: 72px 24px; }
+    .cp-headline { font-size: 26px; }
+
+    .only { padding: 72px 24px; }
+    .only-headline { font-size: 30px; }
+    // Single column at narrow widths
+    .only-grid { grid-template-columns: 1fr; gap: 14px; }
+    .only-card,
+    .only-card-0, .only-card-1, .only-card-2,
+    .only-card-3, .only-card-4 { grid-column: auto; }
+
+    .gs { padding: 72px 24px 88px; }
+    .gs-headline { font-size: 28px; }
+    .gs-step { grid-template-columns: 56px 1fr; gap: 16px; }
+    .gs-step-num { font-size: 44px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-headline { font-size: 32px; }
+  }
+</style>
