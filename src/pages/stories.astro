@@ -1,0 +1,505 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { tokens } from '../components/v5/tokens.js';
+
+// Source: design_handoff_pricing_features_who_stories/pages/v5-stories.jsx
+// + specs/hylo-community-stories-spec.md.
+//
+// The "highest-trust page" on the site. Five real groups, each with the
+// same labeled structure (THE GROUP, THE CHALLENGE, WHAT THEY DID ON HYLO,
+// WHAT HAPPENED, IN THEIR WORDS). Honest [Quote needed] / team-note
+// markers are preserved from the source — they signal drafts-in-progress
+// without pretending to be finished copy.
+//
+// Pure static page (zero React islands ship). Index cards link to anchor
+// sections; html { scroll-behavior: smooth } is set globally and each
+// story section sets scroll-margin-top: 80px so the sticky nav doesn't
+// cover the section header on jump.
+
+// Per-category accent colors
+const CIVIC_PURPLE = tokens.proposalPurple;  // #664BA5
+const FUND_GREEN   = tokens.requestTeal;     // #00C79D
+const NETWORK_TEAL = tokens.caribbean;       // #0DC39F
+const LEARN_BLUE   = '#40A1DD';
+const PRACTICE_ORG = tokens.projectOrange;   // #FC8000
+
+const STORIES = [
+  {
+    id: 'missoula',
+    shortName: 'Common Good Missoula',
+    name: 'Common Good Missoula',
+    cardLine: 'A city that organized itself around housing — and won.',
+    category: 'Civic',
+    color: CIVIC_PURPLE,
+    tagline: 'A city that organized itself around housing — and won.',
+    imageLabel: 'A photo from a Missoula assembly, or a Hylo map view of the engaged neighborhoods.',
+    theGroup: 'Common Good Missoula is a civic organization that works to strengthen community engagement and participatory democracy in Missoula, Montana. They bring together residents, organizations, and local government around shared challenges — housing, land use, economic development — through assemblies, working groups, and collaborative processes.',
+    theChallenge: 'Missoula was facing a housing affordability crisis. Zoning reform was needed, but the standard approach — public comment periods, town hall meetings, advocacy campaigns — was fragmented. Different stakeholder groups were working in isolation. Residents felt excluded from planning processes. The city needed a way to bring diverse voices together, sustain coordination over months, and make the outcome feel legitimate to everyone involved.',
+    whatTheyDid: 'Common Good Missoula set up Hylo as their coordination hub for a sustained zoning and land use reform campaign. They used cross-group posting to share updates across neighborhood groups simultaneously, so different parts of the city stayed informed without anyone having to attend every meeting. The map grounded the conversation in geography — people could see which neighborhoods were engaged and where the gaps were. Discussions let residents weigh in asynchronously between assemblies. Events organized the assemblies themselves.',
+    whatHappened: 'The campaign succeeded. Missoula passed zoning and land use reforms that increased housing access. The process brought together stakeholders who would not have coordinated through traditional channels — renters and developers, longtime residents and newcomers, neighborhood associations and city staff. The group continues to use Hylo for ongoing civic engagement beyond the original campaign.',
+    teamNote: 'This story needs specific metrics. How many residents participated? How many neighborhood groups were involved? What was the timeline from launch to passage? What did the reforms actually change? These details transform a good story into a compelling one. Talk to the Common Good Missoula team and get numbers.',
+    quote: null,
+    quoteFrom: 'reach out to Common Good Missoula leadership for a statement about what Hylo made possible that wouldn’t have happened otherwise',
+  },
+  {
+    id: 'float',
+    shortName: 'Float',
+    name: 'Float — Funding Lab for Agroecological Technology',
+    cardLine: '$700,000 allocated by the community, not a committee.',
+    category: 'Participatory Funding',
+    color: FUND_GREEN,
+    tagline: '$700,000 allocated by the community, not a committee.',
+    imageLabel: 'A screenshot of a Float funding round on Hylo — proposals, discussion, or vote tally.',
+    theGroup: 'Float is a participatory funding initiative for agroecological technology. Rather than having a small panel of experts decide where money goes, Float distributes decision-making power to the community — the farmers, technologists, and land stewards who understand what’s needed on the ground.',
+    theChallenge: 'Traditional grantmaking concentrates decisions in the hands of program officers. The people closest to the work — who understand which technologies would actually help farmers, which projects have community support, which interventions would be most effective — rarely have a say in where the money flows. Float wanted to invert this: real participatory funding where the community reviews proposals, discusses priorities, and collectively allocates resources.',
+    whatTheyDid: 'Float used Hylo’s funding rounds to run their entire participatory allocation process. Community members submitted proposals for projects and technologies. During the discussion phase, the community reviewed and debated proposals — asking questions, challenging assumptions, and building shared understanding. During the voting phase, the community voted to allocate the funding pool across proposals. The entire process — submission, deliberation, decision — happened transparently within the Hylo group. Everyone could see the reasoning, the tradeoffs, and the outcomes.',
+    whatHappened: 'Float distributed over $700,000 USD through participatory funding rounds on Hylo in 2025. Resources flowed to projects that had genuine community support rather than institutional backing. The process demonstrated that communities can allocate significant resources through democratic processes when they have the infrastructure to do it well.',
+    teamNote: 'Flesh this out with specifics. How many proposals were submitted? How many community members voted? What was the average funding amount per project? How did the community feel about the outcomes? Were there any projects funded that wouldn’t have been under a traditional panel model? A quote from a funded project or from Float leadership would be powerful.',
+    quote: null,
+    quoteFrom: 'from Float leadership or a community member about the experience of participatory funding',
+  },
+  {
+    id: 'pha',
+    shortName: 'Planetary Health Alliance',
+    name: 'Planetary Health Alliance',
+    cardLine: '210 organizations across 47 countries, coordinating in one place.',
+    category: 'Global Network',
+    color: NETWORK_TEAL,
+    tagline: '210 organizations across 47 countries, coordinating in one place.',
+    imageLabel: 'A map view of PHA member organizations, or a photo from a PHA regional gathering.',
+    theGroup: 'The Planetary Health Alliance is a global consortium of over 210 organizations committed to understanding and addressing the human health impacts of environmental change. Based out of the Harvard T.H. Chan School of Public Health, PHA connects researchers, educators, practitioners, and policymakers across 47 countries.',
+    theChallenge: 'A global network of 210+ organizations with 5,000+ newsletter subscribers needed more than email blasts and annual conferences. Members wanted to find each other, collaborate on projects, join affinity groups, and share resources — but there was no persistent community infrastructure. Communications went one-way from HQ. Regional connections were invisible. People who might collaborate didn’t know each other existed.',
+    whatTheyDid: 'PHA built their community on Hylo with nested groups for regional hubs, thematic working groups, and special initiatives. The member directory helped researchers find collaborators across disciplines and geographies. Cross-group posting connected regional hubs to the global conversation. Events organized webinars, regional meetups, and the annual conference community. The platform became the persistent space where the network’s relationships lived between conferences.',
+    whatHappened: 'PHA moved from one-way communication to genuine multi-directional coordination. Regional hubs became active spaces for local collaboration. Members across countries discovered shared research interests and launched joint projects. The annual conference community on Hylo gave attendees a place to continue conversations and collaborations year-round rather than losing momentum after the event.',
+    teamNote: 'PHA is the most institutionally credible name on the platform. This story needs hard metrics: how many active members on Hylo, how many regional hubs are active, any research collaborations or projects that originated through connections made on the platform. A quote from PHA leadership (Marie, Max, or another leader) would carry enormous weight for funders and institutional partners.',
+    quote: null,
+    quoteFrom: 'from PHA leadership about the shift from one-way communication to community coordination',
+  },
+  {
+    id: 'millennium',
+    shortName: 'Millennium Fellowship',
+    name: 'Millennium Fellowship',
+    cardLine: '5,000 fellows across 170 nations, learning together on Hylo.',
+    category: 'Learning',
+    color: LEARN_BLUE,
+    tagline: '5,000 fellows across 170 nations, learning together on Hylo.',
+    imageLabel: 'A photo of fellows on campus, or a screenshot of the program’s learning track on Hylo.',
+    theGroup: 'The Millennium Fellowship is a UN-funded leadership development program run by the Millennium Campus Network. Each semester, thousands of fellows across hundreds of campuses worldwide go through a structured program focused on the Sustainable Development Goals. Each fellow completes a capstone project tied to their community’s needs.',
+    theChallenge: 'Coordinating a leadership program across 218 campuses in 48 nations, with content delivered weekly, progress tracked per student, and campus directors managing local teams — while keeping the whole cohort connected across borders. They needed structured learning (tracks), community discussion, cross-campus connection, and program administration in a single platform. Their previous tools couldn’t handle the scale or the structure.',
+    whatTheyDid: 'The Millennium Fellowship uses Hylo’s learning tracks extensively. Weekly tracks deliver program content with actions that fellows complete as they progress. Campus directors manage their local teams within campus-level subgroups, all nested under the global program group. Training-the-trainers tracks onboard new campus directors. Discussion posts create cross-campus dialogue. The platform holds both the structured curriculum and the organic community that forms around it.',
+    whatHappened: 'The program runs at scale on Hylo — 5,000 accepted fellows each semester, across 170 nations. Learning tracks structure the weekly program. The community persists across cohorts, building an alumni network that grows with each semester. Campus directors manage their local programs within the platform rather than juggling email, WhatsApp, and Google Docs.',
+    teamNote: 'The Millennium Fellowship is Hylo’s strongest "mainstream" case study — a UN-affiliated program at global scale. Metrics to gather: how many fellows have used the platform total, track completion rates, any measurable outcomes from capstone projects. A quote from a campus director or program leader would demonstrate that Hylo works for large, structured institutions, not just small values-aligned groups.',
+    quote: null,
+    quoteFrom: 'from a campus director or Millennium Campus Network leader about why Hylo works for their program',
+  },
+  {
+    id: 'great-simplification',
+    shortName: 'The Great Simplification',
+    name: 'The Great Simplification',
+    cardLine: 'Turning a global audience into local communities of action.',
+    category: 'Community of Practice',
+    color: PRACTICE_ORG,
+    tagline: 'Turning a global audience into local communities of action.',
+    imageLabel: 'A screenshot of a regional meetup post, or a Hylo map view of distributed members.',
+    theGroup: 'The Great Simplification is a media platform and community centered around Nate Hagens’ work on energy, ecology, economics, and human behavior. The community includes thousands of people worldwide who are engaged with the ideas and looking for ways to act on them — locally, practically, in their own lives and communities.',
+    theChallenge: 'The Great Simplification had a large, engaged audience — people watching videos, attending events, sharing ideas — but the community existed primarily as a passive audience consuming content. There was no infrastructure for members to connect with each other, find people near them, or organize local action. People in the same city who shared the same concerns had no way to discover each other through the platform.',
+    whatTheyDid: 'The community moved to Hylo as a space where audience becomes community. Discussion posts replaced passive consumption with active exchange. The map revealed that people who felt isolated in their concerns had neighbors who shared them. Topic-based discussions let members go deeper on specific themes. Events organized local meetups and study groups. The platform became the place where ideas about the great simplification translated into local relationships and action.',
+    whatHappened: 'Members transitioned from audience to community — posting discussions, organizing local meetups, and connecting with people in their own regions who share their concerns. The platform provided the infrastructure for a global intellectual community to develop local roots.',
+    teamNote: 'This story is important because it demonstrates Hylo’s value for "culture creator" communities — a large audience built around ideas that wants to become a participatory community. Metrics needed: active member count, number of local meetups organized, geographic spread of activity. A quote from Nate Hagens or Jeff (who has expressed interest in supporting Hylo financially) would be particularly valuable.',
+    quote: null,
+    quoteFrom: 'from community leadership about the transition from audience to participatory community',
+  },
+];
+---
+
+<Layout title="Hylo — Community stories">
+  {/* ── Hero ─────────────────────────────────────────────────── */}
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Community stories</div>
+      <h1 class="hero-title">What actually happened when communities used Hylo.</h1>
+      <p class="hero-lede">
+        Real groups using Hylo to coordinate, support each other, and make
+        decisions together. These are their stories — what they were trying to
+        do, how they used the platform, and what happened.
+      </p>
+    </div>
+  </section>
+
+  {/* ── Index cards ──────────────────────────────────────────── */}
+  <section class="index">
+    <div class="index-inner">
+      {STORIES.map((s) => (
+        <a href={`#${s.id}`} class="idx-card">
+          <div class="idx-name">{s.shortName}</div>
+          <div class="idx-line">{s.cardLine}</div>
+          <span class="cat-tag" style={`background: ${s.color}33; color: ${s.color};`}>
+            {s.category}
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  {/* ── Stories ──────────────────────────────────────────────── */}
+  {STORIES.map((s, i) => (
+    <section id={s.id} class={`story ${i % 2 === 0 ? 'story-light' : 'story-athens'}`}>
+      <div class="story-inner">
+        <header>
+          <h2 class="story-name">{s.name}</h2>
+          <div class="story-meta">
+            <p class="story-tagline">{s.tagline}</p>
+            <span class="cat-tag" style={`background: ${s.color}33; color: ${s.color};`}>
+              {s.category}
+            </span>
+          </div>
+        </header>
+
+        {s.imageLabel && (
+          <div class="img-ph" style={`background: linear-gradient(135deg, ${s.color}22, ${s.color}11); border: 1px dashed ${s.color}55;`}>
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+              stroke={s.color} stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <circle cx="8.5" cy="8.5" r="1.5" />
+              <polyline points="21 15 16 10 5 21" />
+            </svg>
+            <div class="img-ph-label" style={`color: ${s.color}bb;`}>Image placeholder</div>
+            <div class="img-ph-desc">{s.imageLabel}</div>
+          </div>
+        )}
+
+        <div class="story-body">
+          <div class="lbl">The group</div>
+          <p class="prose">{s.theGroup}</p>
+
+          <div class="lbl">The challenge</div>
+          <p class="prose">{s.theChallenge}</p>
+
+          <div class="lbl">What they did on Hylo</div>
+          <p class="prose">{s.whatTheyDid}</p>
+
+          <div class="lbl">What happened</div>
+          <p class="prose">{s.whatHappened}</p>
+
+          {s.teamNote && (
+            <div class="team-note">
+              <strong>Note for the team:</strong> {s.teamNote}
+            </div>
+          )}
+
+          <div class="lbl">In their words</div>
+          {s.quote ? (
+            <p class="quote">{s.quote}</p>
+          ) : (
+            <p class="quote-placeholder">
+              [Quote needed{s.quoteFrom ? ` — ${s.quoteFrom}` : ''}.]
+            </p>
+          )}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  {/* ── Closing CTA ──────────────────────────────────────────── */}
+  <section class="closing">
+    <div class="closing-inner">
+      <h2 class="closing-h">Your group’s story could be here.</h2>
+      <p class="closing-prose">
+        Every community on Hylo started with a few people deciding to coordinate
+        differently. Create your group and start building something worth
+        writing about.
+      </p>
+      <div class="closing-ctas">
+        <a href="/bring-your-group" class="btn">Create your group — free</a>
+        <a href="/get-involved" class="link">Share your story →</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style lang="scss">
+  @use '../styles/v5/tokens' as *;
+
+  /* ── Hero ─────────────────────────────────────────────────── */
+  .hero {
+    background: $cream;
+    padding: 160px 40px 60px;
+    font-family: $font-sans;
+    color: $rhino;
+  }
+  .hero-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: rgba($rhino, 0.55);
+    margin-bottom: 20px;
+  }
+  .hero-title {
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 700;
+    letter-spacing: -1px;
+    line-height: 1.05;
+    margin: 0;
+    color: $rhino;
+    text-wrap: balance;
+  }
+  .hero-lede {
+    margin: 28px auto 0;
+    max-width: 600px;
+    font-size: 17px;
+    line-height: 1.6;
+    color: rgba($rhino, 0.75);
+    text-wrap: pretty;
+  }
+
+  /* ── Index cards ──────────────────────────────────────────── */
+  .index {
+    background: #fff;
+    padding: 32px 40px;
+    font-family: $font-sans;
+    border-bottom: 1px solid rgba($rhino, 0.06);
+  }
+  .index-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+  }
+  .idx-card {
+    display: block;
+    background: $athens-gray;
+    border-radius: 4px;
+    padding: 20px;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid rgba($rhino, 0.06);
+    transition: border-color 120ms ease;
+
+    &:hover { border-color: rgba($rhino, 0.18); }
+  }
+  .idx-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: $rhino;
+    letter-spacing: -0.2px;
+    line-height: 1.25;
+  }
+  .idx-line {
+    font-size: 13px;
+    line-height: 1.45;
+    color: rgba($rhino, 0.6);
+    margin: 4px 0 12px;
+  }
+
+  /* ── Category tag (used in index + story header) ──────────── */
+  .cat-tag {
+    display: inline-block;
+    padding: 4px 10px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    border-radius: 999px;
+    vertical-align: middle;
+  }
+
+  /* ── Story sections ───────────────────────────────────────── */
+  .story {
+    padding: 60px 40px;
+    font-family: $font-sans;
+    color: $rhino;
+    scroll-margin-top: 80px;
+  }
+  .story-light  { background: #fff; }
+  .story-athens { background: $athens-gray; }
+  .story-inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .story-name {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: $rhino;
+    margin: 0;
+    line-height: 1.2;
+    text-wrap: balance;
+  }
+  .story-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    margin-top: 10px;
+  }
+  .story-tagline {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.5;
+    color: rgba($rhino, 0.65);
+    font-style: italic;
+    text-wrap: pretty;
+  }
+
+  .img-ph {
+    width: 100%;
+    height: 240px;
+    margin-top: 16px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+    color: rgba($rhino, 0.45);
+    font-size: 13px;
+  }
+  .img-ph-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+  }
+  .img-ph-desc {
+    font-size: 12px;
+    color: rgba($rhino, 0.5);
+    max-width: 360px;
+    text-align: center;
+    text-wrap: pretty;
+  }
+
+  .story-body { margin-top: 24px; }
+  .lbl {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: rgba($rhino, 0.4);
+    margin: 32px 0 0;
+  }
+  .lbl:first-child { margin-top: 0; }
+  .prose {
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 12px 0 0;
+    color: rgba($rhino, 0.8);
+    text-wrap: pretty;
+  }
+  .quote {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 14px 0 0;
+    color: $rhino;
+    font-weight: 500;
+    padding-left: 18px;
+    border-left: 3px solid $forest;
+    text-wrap: pretty;
+  }
+  // Honest "draft in progress" treatment — dashed border + italic, lighter
+  // weight — so the page reads as work-in-progress rather than finished
+  // copy with empty quotes.
+  .quote-placeholder {
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 14px 0 0;
+    color: rgba($rhino, 0.45);
+    font-weight: 400;
+    font-style: italic;
+    padding-left: 18px;
+    border-left: 3px dashed rgba($rhino, 0.2);
+    text-wrap: pretty;
+  }
+  .team-note {
+    margin-top: 18px;
+    padding: 12px 14px;
+    background: rgba($rhino, 0.04);
+    border-radius: 4px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: rgba($rhino, 0.55);
+    font-style: italic;
+    text-wrap: pretty;
+
+    strong {
+      font-style: normal;
+      color: rgba($rhino, 0.7);
+    }
+  }
+
+  /* ── Closing CTA ──────────────────────────────────────────── */
+  .closing {
+    background: $cream;
+    padding: 60px 40px 80px;
+    font-family: $font-sans;
+  }
+  .closing-inner {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .closing-h {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: $rhino;
+    margin: 0;
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+  .closing-prose {
+    margin: 16px auto 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba($rhino, 0.7);
+    text-wrap: pretty;
+  }
+  .closing-ctas {
+    margin-top: 28px;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .btn {
+    display: inline-block;
+    background: $forest;
+    color: #fff;
+    padding: 0 24px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    text-decoration: none;
+  }
+  .link {
+    display: inline-block;
+    padding: 0 12px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    font-weight: 500;
+    color: $forest;
+    text-decoration: none;
+  }
+
+  /* ── Tablet portrait and below ──────────────────────────── */
+  @media (max-width: 880px) {
+    .hero { padding: 120px 24px 56px; }
+    .index { padding: 24px; }
+    .story { padding: 56px 24px; }
+    .story-name { font-size: 24px; }
+    .closing { padding: 56px 24px 72px; }
+    .closing-h { font-size: 24px; }
+  }
+</style>
