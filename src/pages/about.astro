@@ -1,0 +1,897 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { tokens } from '../components/v5/tokens.js';
+
+// Source: design_handoff_v5/design/v5-about.jsx + specs/about.md.
+// Pure-static page (zero React islands ship from this route). Seven sections:
+// Who we are, What we believe, How we build, How we're governed, The team,
+// Recognition, Get involved. Page-level styles live in the <style> block at
+// the bottom; the component model is the .astro page itself, no per-section
+// child components since each section's structure is unique.
+
+const TEAM = [
+  { name: 'Tibet Sprague',     role: 'Director of Technology',
+    initials: 'TS', color: tokens.forest,
+    bio: 'Co-founder of Terran Collective and Hylo’s technical architect. Tibet has been building tools for cooperative coordination for over a decade. He also stewards the Collaborative Technology Alliance. Brown University CS.' },
+  { name: 'Clare Brodeur',     role: 'Director of Product',
+    initials: 'CB', color: tokens.discussBlue,
+    bio: 'A technologist and community organizer with a decade of experience mobilizing communities through technology. Clare leads Hylo’s participatory design process, working directly with groups to co-create the tools they need. ProSocial facilitator. UVA Political Science.' },
+  { name: 'Aaron Brodeur',     role: 'Director of Design',
+    initials: 'AB', color: tokens.projectOrange,
+    bio: 'Systems designer and entrepreneur whose work in social technology, solar energy, and distributed governance has reached millions. Aaron leads Hylo’s interface and experience design, and contributes to the Holochain ecosystem through Lightningrod Labs.' },
+  { name: 'Krisha Subramanian', role: 'Community Lead',
+    initials: 'KS', color: tokens.proposalPurple,
+    bio: 'Background in business development with deep roots in regenerative living and social justice. Krisha manages Hylo’s community relationships and stewards a 50-hectare regenerative land project in Costa Rica’s cloud forest.' },
+  { name: 'Tom Watson',        role: 'Senior Software Engineer',
+    initials: 'TW', color: tokens.requestTeal,
+    bio: 'Based in Canberra, Australia. Tom leads Hylo’s mobile development and thinks seriously about what “regenerative culture” means when it stops being a slogan and starts being a design constraint.' },
+  { name: 'Yasmine El Baggari', role: 'Community Steward',
+    initials: 'YE', color: tokens.eventRed,
+    bio: 'Originally from Morocco, now in San Francisco. Yasmine has worked with the World Bank, the US State Department, and launched Voyaj to foster cross-cultural connection. Harvard Graduate School of Education. She brings global perspective to Hylo’s community work.' },
+];
+
+const CIRCLES = [
+  ['General',     'Strategy and coherence'],
+  ['Product',     'Direction and design'],
+  ['Development', 'Technical implementation'],
+  ['Community',   'Relationships and care'],
+  ['Fundraising', 'Resourcing and sustainability'],
+];
+
+const FUNDERS = [
+  'NoVo Foundation · Regional Futures Fund',
+  '11th Hour Foundation',
+  'Jeff Parrett · Rising Foundation',
+];
+
+const ECOSYSTEM = [
+  'Planetary Health Alliance', 'Prosocial World', 'Salmon Nation', 'OpenTEAM',
+  'Regen Network', 'Bloom Network', 'Collaborative Technology Alliance',
+  'Holomovement', 'Common Good Missoula',
+];
+
+const ACTIONS = [
+  { icon: 'people',   color: tokens.forest,         title: 'Bring your group',
+    body: 'Set up your community on Hylo. It’s free to start.',
+    cta: 'Get started' },
+  { icon: 'calendar', color: tokens.eventRed,       title: 'Attend a community call',
+    body: 'Monthly calls open to everyone. See what’s being built, share what you need.',
+    cta: 'See upcoming calls' },
+  { icon: 'code',     color: tokens.projectOrange,  title: 'Contribute to the codebase',
+    body: 'Hylo is open source. Browse the code, file issues, submit PRs.',
+    cta: 'View on GitHub' },
+  { icon: 'heart',    color: tokens.proposalPurple, title: 'Support the commons',
+    body: 'Join Hylo Commons or make a contribution. Every dollar stays in the project.',
+    cta: 'Learn more' },
+];
+
+const BUILDING_HYLO_POSTS = [
+  { color: tokens.forest,         author: 'Krisha S.', kind: 'Discussion',
+    body: 'Notes from today’s co-creation call — we heard loud and clear that…' },
+  { color: tokens.proposalPurple, author: 'Tom W.',    kind: 'Proposal',
+    body: 'Moving mobile notifications to opt-in by default for new members.' },
+  { color: tokens.projectOrange,  author: 'Clare B.',  kind: 'Project',
+    body: 'Participatory roadmap: Q2 co-design sprints — sign-up open.' },
+];
+---
+
+<Layout title="Hylo — About">
+  {/* ── 1 · Who we are ──────────────────────────────────────── */}
+  <section class="who">
+    <div class="who-inner">
+      <h1 class="who-title">About Hylo</h1>
+      <p class="who-lede">
+        Hylo is a coordination platform for groups that are trying to do something
+        together — and need better tools to do it. We build software for
+        communities that want to organize, support each other, make decisions,
+        and take collective action. We’re open source, non-profit, and
+        community-governed.
+      </p>
+      <p class="who-sub">
+        Hylo is maintained by Terran Collective, a small team based in the San
+        Francisco Bay Area. We’ve been building this since 2012 — first as a
+        tool for connecting purpose-driven people, now as coordination
+        infrastructure for communities organizing around shared places,
+        resources, and goals. Hundreds of groups use Hylo today, from
+        neighborhood mutual aid networks to global learning communities to
+        bioregional organizing hubs.
+      </p>
+    </div>
+  </section>
+
+  {/* ── 2 · What we believe ─────────────────────────────────── */}
+  <section class="believe">
+    <div class="body-inner">
+      <h2 class="section-h">Why we build this</h2>
+      <div class="prose">
+        <p>
+          The biggest challenges facing communities today — climate disruption,
+          economic precarity, eroding trust — are coordination problems at their
+          root. People want to help. Organizations are trying. But the tools we
+          have either fragment our efforts across a dozen apps or lock us into
+          platforms designed to extract attention rather than support action.
+        </p>
+        <p>
+          We believe that when people can actually see each other, support each
+          other, and make decisions together, they become capable of things that
+          no top-down program or market incentive can replicate. A neighborhood
+          that knows how to coordinate mutual aid before a disaster hits. A
+          watershed where land stewards talk to each other across property lines.
+          A city where residents have a real voice in how shared resources are
+          allocated.
+        </p>
+        <p>
+          This doesn’t happen automatically. It requires trust, and trust
+          requires practice. Hylo is designed to support that practice — starting
+          with simple conversation and mutual support, and growing with groups as
+          they develop the capacity for more complex coordination, collective
+          governance, and shared stewardship.
+        </p>
+      </div>
+
+      <p class="punch">If Hylo works, a watershed can govern itself.</p>
+
+      <a class="link-arrow">
+        Read the Hylo Whitepaper
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor"
+          stroke-width="1.6" aria-hidden="true">
+          <path d="M2 6h7M6 3l3 3-3 3" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  {/* ── 3 · How we build ────────────────────────────────────── */}
+  <section class="build">
+    <div class="build-inner">
+      <div class="build-copy">
+        <h2 class="section-h">Built with the communities who use it</h2>
+        <p class="prose">
+          Every major feature in Hylo was designed in partnership with real
+          groups working on real problems. We don’t build what we think
+          communities need — we listen, co-design, and build what they tell us
+          they need. Then we make it available to everyone on the platform.
+        </p>
+        <p class="prose">
+          Our design partners have included the Planetary Health Alliance,
+          Prosocial World, Salmon Nation, and dozens of local organizing groups.
+          Monthly community calls, co-creation sessions, and the Building Hylo
+          group on Hylo itself keep our roadmap accountable to the people who
+          depend on it.
+        </p>
+        <div class="award-line">
+          <div class="award-tag">NTEN</div>
+          <span>2026 Pizzigati Prize winner — NTEN’s award for open-source public interest technology.</span>
+        </div>
+      </div>
+
+      {/* Building Hylo group screenshot mockup */}
+      <div class="bh-card">
+        <div class="bh-head">
+          <div class="bh-avatar">H</div>
+          <div>
+            <div class="bh-group-name">Building Hylo</div>
+            <div class="bh-group-meta">612 members · Public</div>
+          </div>
+        </div>
+        <div class="bh-feed">
+          {BUILDING_HYLO_POSTS.map((p) => (
+            <div class="bh-post">
+              <div class="bh-stripe" style={`background: ${p.color};`}></div>
+              <div class="bh-post-body">
+                <div class="bh-post-meta">
+                  <span class="bh-post-author">{p.author}</span>
+                  <span class="bh-post-kind" style={`color: ${p.color};`}>{p.kind}</span>
+                </div>
+                <div class="bh-post-text">{p.body}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ── 4 · How we're governed ──────────────────────────────── */}
+  <section class="gov">
+    <div class="body-inner">
+      <h2 class="section-h">A technology commons</h2>
+      <p class="prose">
+        Hylo is not owned by investors and never will be. It’s a fiscally
+        sponsored non-profit, built on open-source code under the Apache 2.0
+        license. We’re working toward a permanent structure — likely a
+        purpose-locked nonprofit with cooperative governance — that ensures Hylo
+        can never be captured, sold, or repurposed against the communities it
+        serves.
+      </p>
+      <p class="prose">
+        We govern ourselves using sociocracy — a system of distributed authority
+        where decisions are made by the people closest to the work, through
+        consent rather than top-down control. Our team operates through
+        interconnected circles, each with a clear domain.
+      </p>
+
+      <div class="circles">
+        {CIRCLES.map(([name, domain]) => (
+          <div class="circle-card">
+            <div class="ring">
+              <div class="ring-dot"></div>
+            </div>
+            <div class="circle-name">{name}</div>
+            <div class="circle-domain">{domain}</div>
+          </div>
+        ))}
+      </div>
+
+      <p class="commit">
+        <strong>What this means in practice:</strong>{' '}
+        Your data belongs to you. Our code is public. Our finances are
+        transparent. Communities can leave Hylo and take their data with them.
+        And we’re building toward a future where the people who use Hylo have
+        real governance authority over how it’s built and run — not just
+        advisory input.
+      </p>
+    </div>
+  </section>
+
+  {/* ── 5 · Team ────────────────────────────────────────────── */}
+  <section class="team">
+    <div class="team-inner">
+      <h2 class="section-h">The team</h2>
+      <p class="prose team-lede">
+        Hylo is built by Terran Collective — a small, distributed team that
+        practices the same coordination principles we build into the platform.
+        We operate on shared governance, mutual support, and a commitment to
+        building technology that outlasts any one of us.
+      </p>
+
+      <div class="team-grid">
+        {TEAM.map((m) => (
+          <div class="member">
+            <div class="member-avatar" style={`background: ${m.color};`}>{m.initials}</div>
+            <div class="member-name">{m.name}</div>
+            <div class="member-role">{m.role}</div>
+            <p class="member-bio">{m.bio}</p>
+          </div>
+        ))}
+      </div>
+
+      <p class="team-note">Avatars shown are placeholders — real team photos pending.</p>
+    </div>
+  </section>
+
+  {/* ── 6 · Recognition & Partners ──────────────────────────── */}
+  <section class="recog">
+    <div class="recog-inner">
+      <h2 class="section-h section-h-center">Partners and recognition</h2>
+
+      <div class="award-card">
+        <div class="award-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor"
+            stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 2h8v4a4 4 0 01-8 0V2z" />
+            <path d="M4 3H2v2a3 3 0 003 3M16 3h2v2a3 3 0 01-3 3" />
+            <path d="M8 12h4v2H8zM6 14h8v3H6z" />
+          </svg>
+        </div>
+        <div class="award-text">
+          <strong>2026 Pizzigati Prize</strong> — NTEN’s award for open-source
+          technology serving the public interest.
+        </div>
+      </div>
+
+      <div class="recog-block">
+        <div class="recog-sub">Current partners and funders</div>
+        <div class="funders">
+          {FUNDERS.map((f) => <div class="funder">{f}</div>)}
+        </div>
+      </div>
+
+      <div class="recog-block">
+        <div class="recog-sub">Ecosystem</div>
+        <div class="ecosystem">
+          {ECOSYSTEM.map((e, i) => (
+            <>
+              <span class="eco">{e}</span>
+              {i < ECOSYSTEM.length - 1 && <span class="eco-sep">·</span>}
+            </>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ── 7 · Get involved ────────────────────────────────────── */}
+  <section class="gi">
+    <div class="gi-inner">
+      <h2 class="gi-title">There’s a place for you here.</h2>
+      <p class="gi-lede">
+        Hylo is built in the open. Whether you want to bring your community,
+        contribute code, attend a call, or just explore — here’s where to start.
+      </p>
+
+      <div class="gi-grid">
+        {ACTIONS.map((a) => (
+          <div class="gi-card">
+            <div class="gi-icon" style={`background: ${a.color}26; color: ${a.color};`}>
+              {a.icon === 'people' && (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="9" cy="8" r="3" />
+                  <circle cx="17" cy="10" r="2.5" />
+                  <path d="M3 19c0-3 2.5-5 6-5s6 2 6 5" />
+                  <path d="M15 18c0-2 1.5-3.5 4-3.5s4 1.5 4 3.5" />
+                </svg>
+              )}
+              {a.icon === 'calendar' && (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3.5" y="5" width="17" height="15" rx="2" />
+                  <path d="M3.5 10h17M8 3v4M16 3v4" />
+                </svg>
+              )}
+              {a.icon === 'code' && (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16" />
+                </svg>
+              )}
+              {a.icon === 'heart' && (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 20s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.5-7 10-7 10z" />
+                </svg>
+              )}
+            </div>
+            <div class="gi-card-title">{a.title}</div>
+            <p class="gi-card-body">{a.body}</p>
+            <a class="gi-card-cta" style={`color: ${tokens.forest};`}>
+              {a.cta} <span class="gi-arrow">→</span>
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style lang="scss">
+  @use '../styles/v5/tokens' as *;
+
+  $body-w: 720px;
+  $wide-w: 1000px;
+
+  /* ── shared ───────────────────────────────────────────────── */
+  .body-inner {
+    max-width: $body-w;
+    margin: 0 auto;
+  }
+
+  .section-h {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: $rhino;
+    margin: 0;
+    line-height: 1.15;
+  }
+  .section-h-center { text-align: center; }
+
+  .prose {
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 0;
+    color: rgba($rhino, 0.82);
+    text-wrap: pretty;
+  }
+  .prose + .prose { margin-top: 20px; }
+
+  /* ── 1 · Who we are ───────────────────────────────────────── */
+  .who {
+    background: $cream;
+    padding: 160px 40px 60px;
+    font-family: $font-sans;
+    color: $rhino;
+  }
+  .who-inner {
+    max-width: $body-w;
+    margin: 0 auto;
+  }
+  .who-title {
+    font-size: 52px;
+    font-weight: 700;
+    letter-spacing: -1.2px;
+    line-height: 1.05;
+    margin: 0;
+    color: $rhino;
+    text-wrap: balance;
+  }
+  .who-lede {
+    font-size: 20px;
+    line-height: 1.6;
+    margin: 28px 0 0;
+    color: rgba($rhino, 0.82);
+    max-width: 640px;
+    text-wrap: pretty;
+  }
+  .who-sub {
+    font-size: 16px;
+    line-height: 1.65;
+    margin: 24px 0 0;
+    color: rgba($rhino, 0.72);
+    max-width: 640px;
+    text-wrap: pretty;
+  }
+
+  /* ── 2 · What we believe ──────────────────────────────────── */
+  .believe {
+    background: #fff;
+    padding: 100px 40px;
+    font-family: $font-sans;
+    color: $rhino;
+  }
+  .punch {
+    font-size: 20px;
+    font-weight: 500;
+    color: $rhino;
+    margin: 36px 0 0;
+    line-height: 1.4;
+    letter-spacing: -0.3px;
+  }
+  .link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 40px;
+    font-size: 14px;
+    color: $forest;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  /* ── 3 · How we build ─────────────────────────────────────── */
+  .build {
+    background: $athens-gray;
+    padding: 100px 40px;
+    font-family: $font-sans;
+    color: $rhino;
+  }
+  .build-inner {
+    max-width: $wide-w;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .build-copy { max-width: 480px; }
+
+  .award-line {
+    margin-top: 28px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: rgba($rhino, 0.6);
+  }
+  .award-tag {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    background: rgba($rhino, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    color: $rhino;
+    flex: none;
+  }
+
+  /* Building Hylo mockup */
+  .bh-card {
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid $athens-dark;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .bh-head {
+    padding: 14px 16px;
+    border-bottom: 1px solid $athens-dark;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #fff;
+  }
+  .bh-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    background: $forest;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .bh-group-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: $rhino;
+  }
+  .bh-group-meta {
+    font-size: 11px;
+    color: rgba($rhino, 0.55);
+  }
+  .bh-feed {
+    flex: 1;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: hidden;
+  }
+  .bh-post {
+    display: flex;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    background: $athens-gray;
+    border: 1px solid $athens-dark;
+  }
+  .bh-stripe {
+    width: 4px;
+    border-radius: 2px;
+    flex: none;
+  }
+  .bh-post-body {
+    min-width: 0;
+    flex: 1;
+  }
+  .bh-post-meta {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 2px;
+  }
+  .bh-post-author {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: $rhino;
+  }
+  .bh-post-kind {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+  .bh-post-text {
+    font-size: 12px;
+    color: rgba($rhino, 0.72);
+    line-height: 1.45;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  /* ── 4 · How we're governed ───────────────────────────────── */
+  .gov {
+    background: #fff;
+    padding: 100px 40px;
+    font-family: $font-sans;
+    color: $rhino;
+  }
+  .circles {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+  }
+  .circle-card {
+    border: 1px solid $athens-dark;
+    border-radius: 4px;
+    padding: 16px;
+    text-align: center;
+    background: #fff;
+  }
+  .ring {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid $forest;
+    margin: 0 auto 10px;
+    position: relative;
+  }
+  .ring-dot {
+    position: absolute;
+    inset: 6px;
+    border-radius: 50%;
+    background: $forest;
+    opacity: 0.12;
+  }
+  .circle-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: $rhino;
+    margin-bottom: 4px;
+  }
+  .circle-domain {
+    font-size: 12px;
+    color: rgba($rhino, 0.6);
+    line-height: 1.4;
+  }
+  .commit {
+    margin-top: 40px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba($rhino, 0.78);
+    max-width: 640px;
+    text-wrap: pretty;
+
+    strong {
+      color: $rhino;
+      font-weight: 600;
+    }
+  }
+
+  /* ── 5 · Team ─────────────────────────────────────────────── */
+  .team {
+    background: $athens-gray;
+    padding: 100px 40px;
+    font-family: $font-sans;
+    color: $rhino;
+  }
+  .team-inner {
+    max-width: $wide-w;
+    margin: 0 auto;
+  }
+  .team-lede {
+    margin-top: 20px;
+    max-width: 640px;
+  }
+  .team-grid {
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  .member-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    box-shadow: inset 0 -8px 24px rgba(0, 0, 0, 0.08);
+  }
+  .member-name {
+    margin-top: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    color: $rhino;
+  }
+  .member-role {
+    margin-top: 2px;
+    font-size: 13px;
+    color: $forest;
+  }
+  .member-bio {
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 1.55;
+    color: rgba($rhino, 0.72);
+    text-wrap: pretty;
+  }
+  .team-note {
+    margin-top: 28px;
+    font-size: 12px;
+    color: rgba($rhino, 0.45);
+    font-style: italic;
+  }
+
+  /* ── 6 · Recognition ──────────────────────────────────────── */
+  .recog {
+    background: #fff;
+    padding: 100px 40px;
+    font-family: $font-sans;
+    color: $rhino;
+  }
+  .recog-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .award-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 28px;
+    max-width: 540px;
+    width: 100%;
+    background: #fff;
+    border: 1px solid rgba($forest, 0.3);
+    border-radius: 4px;
+    padding: 24px;
+    text-align: left;
+  }
+  .award-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    background: $forest-light;
+    color: $forest;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+  }
+  .award-text {
+    font-size: 15px;
+    line-height: 1.5;
+    color: $rhino;
+
+    strong { font-weight: 600; }
+  }
+  .recog-block {
+    margin-top: 56px;
+    text-align: left;
+  }
+  .recog-sub {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba($rhino, 0.6);
+  }
+  .funders {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 32px;
+    align-items: center;
+  }
+  .funder {
+    font-size: 15px;
+    color: rgba($rhino, 0.72);
+    padding: 8px 14px;
+    border: 1px solid $athens-dark;
+    border-radius: 4px;
+    background: $athens-gray;
+  }
+  .ecosystem {
+    margin-top: 14px;
+    font-size: 13px;
+    color: rgba($rhino, 0.55);
+    line-height: 1.8;
+  }
+  .eco { cursor: pointer; }
+  .eco-sep {
+    margin: 0 10px;
+    opacity: 0.5;
+  }
+
+  /* ── 7 · Get involved ─────────────────────────────────────── */
+  .gi {
+    background: $cream;
+    padding: 100px 40px 120px;
+    font-family: $font-sans;
+    color: $rhino;
+  }
+  .gi-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .gi-title {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.8px;
+    color: $rhino;
+    margin: 0;
+    line-height: 1.1;
+    text-wrap: balance;
+  }
+  .gi-lede {
+    margin: 16px auto 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba($rhino, 0.72);
+    max-width: 560px;
+    text-wrap: pretty;
+  }
+  .gi-grid {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    text-align: left;
+  }
+  .gi-card {
+    background: #fff;
+    border-radius: 4px;
+    padding: 24px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba($rhino, 0.06);
+  }
+  .gi-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .gi-card-title {
+    margin-top: 16px;
+    font-size: 17px;
+    font-weight: 500;
+    color: $rhino;
+  }
+  .gi-card-body {
+    margin-top: 6px;
+    font-size: 14px;
+    line-height: 1.55;
+    color: rgba($rhino, 0.7);
+    text-wrap: pretty;
+  }
+  .gi-card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 16px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .gi-arrow {
+    font-size: 16px;
+    line-height: 1;
+  }
+
+  /* ── Tablet portrait and below ──────────────────────────── */
+  @media (max-width: 880px) {
+    .who { padding: 120px 24px 56px; }
+    .who-title { font-size: 38px; letter-spacing: -1px; }
+    .who-lede { font-size: 17px; }
+
+    .believe { padding: 72px 24px; }
+    .build { padding: 72px 24px; }
+    .build-inner {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .build-copy { max-width: none; }
+
+    .gov { padding: 72px 24px; }
+    .circles { grid-template-columns: 1fr 1fr; gap: 12px; }
+
+    .team { padding: 72px 24px; }
+    .team-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+
+    .recog { padding: 72px 24px; }
+
+    .gi { padding: 72px 24px 88px; }
+    .gi-title { font-size: 30px; }
+    .gi-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 480px) {
+    .who-title { font-size: 32px; }
+    .gi-title { font-size: 26px; }
+    .team-grid { grid-template-columns: 1fr; gap: 24px; }
+    .circles { grid-template-columns: 1fr; }
+  }
+</style>
