@@ -8,31 +8,48 @@ import styles from './Nav.module.scss';
 
 const LOGO_SRC = '/v5/hylo-logo-dark.svg';
 
-const MENU_TOP = ['Product', 'Commons', 'About', 'Open Source', 'Pricing'];
+// Menu items support three shapes:
+//   'Plain text'                          → no link, just text (placeholder)
+//   { t: 'Label', href: '/path' }         → internal navigation
+//   { t: 'Label', ext: true, href?: '…' } → external link (renders the ↗ icon)
+
+const MENU_TOP = [
+  { t: 'Features', href: '/features' },
+  { t: 'Pricing',  href: '/pricing'  },
+  { t: 'Who',      href: '/who'      },
+  { t: 'Stories',  href: '/stories'  },
+  { t: 'Blog',     href: '/blog'     },
+];
 
 const MENU_SECTIONS = [
   {
     h: 'About Hylo',
     l: [
-      'Our Purpose & Vision',
-      'How We Work: Participatory Design',
-      'Hylo’s Stewardship',
-      'Team',
+      { t: 'About Hylo',         href: '/about'   },
+      { t: 'Community stories',  href: '/stories' },
+      { t: 'Hylo’s Stewardship', href: '/about'   },
+      { t: 'Team',               href: '/about'   },
     ],
   },
   {
     h: 'Using Hylo',
     l: [
-      { t: 'Member Guide', ext: true },
-      { t: 'Steward Guide', ext: true },
-      { t: 'Documentation', ext: true },
-      { t: 'Community Stewardship Support', ext: true },
-      { t: 'Code', ext: true },
+      { t: 'Bring your group',     href: '/bring-your-group'    },
+      { t: 'Features',             href: '/features'            },
+      { t: 'Pricing',              href: '/pricing'             },
+      { t: 'Stewardship support',  href: '/stewardship-support' },
+      { t: 'Member Guide',         ext: true },
+      { t: 'Steward Guide',        ext: true },
+      { t: 'Documentation',        ext: true },
+      { t: 'Code',                 ext: true },
     ],
   },
   {
     h: 'Participate',
     l: [
+      { t: 'Get involved', href: '/get-involved' },
+      { t: 'Blog',         href: '/blog'         },
+      { t: 'Who is it for', href: '/who'         },
       'Join our open-source community',
       'Attend a community call',
       'Partner with us',
@@ -42,11 +59,11 @@ const MENU_SECTIONS = [
   {
     h: 'Agreements',
     l: [
-      'Hylo Values',
-      'Code of Conduct',
-      'Hylo Platform Agreements',
-      'Terms of Use',
-      'Privacy Policy',
+      { t: 'Hylo Values',              href: '/agreements#values'      },
+      { t: 'Code of Conduct',          href: '/agreements#conduct'     },
+      { t: 'Hylo Platform Agreements', href: '/agreements#agreements'  },
+      { t: 'Terms of Use',             href: '/agreements'             },
+      { t: 'Privacy Policy',           href: '/agreements'             },
     ],
   },
 ];
@@ -104,8 +121,16 @@ function MegaMenu({ open, onClose }) {
                 {col.l.map((x) => {
                   const label = typeof x === 'string' ? x : x.t;
                   const ext = typeof x === 'object' && x.ext;
+                  const href = typeof x === 'object' ? x.href : undefined;
                   return (
-                    <a key={label} className={styles.megaLink}>
+                    <a
+                      key={label}
+                      className={styles.megaLink}
+                      href={href}
+                      onClick={href ? onClose : undefined}
+                      target={ext && href ? '_blank' : undefined}
+                      rel={ext && href ? 'noopener noreferrer' : undefined}
+                    >
                       {label}
                       {ext && <ExtIcon />}
                     </a>
@@ -157,7 +182,7 @@ export default function Nav() {
 
           <nav className={styles.menu}>
             {MENU_TOP.map((l) => (
-              <a key={l} className={styles.menuLink}>{l}</a>
+              <a key={l.t} href={l.href} className={styles.menuLink}>{l.t}</a>
             ))}
           </nav>
 
