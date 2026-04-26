@@ -1,0 +1,858 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { tokens } from '../components/v5/tokens.js';
+
+// Source: design_handoff_v5/design/v5-agreements.jsx + specs/agreements.md.
+// Pure-static page (zero React islands ship from this route). Six sections:
+// Header, Values, Platform Agreements, Code of Conduct, Enforcement, Closing.
+// Header pills are native `<a href="#section">` jumps; html { scroll-behavior:
+// smooth } is set globally and each anchored section sets scroll-margin-top.
+//
+// Adds two ad-hoc accent colors not yet in the token palette:
+//   amaranth #EE4266 — "not allowed" markers in Code of Conduct
+//   warning  #FFB949 — first two enforcement steps (Correction, Warning)
+
+const TOC = [
+  ['Values',           'values'],
+  ['Agreements',       'agreements'],
+  ['Code of conduct',  'conduct'],
+  ['Enforcement',      'enforcement'],
+];
+
+const VALUES = [
+  { name: 'Stewardship',
+    def: 'We treat Hylo — and the communities, data, and relationships on it — as shared resources to be cared for, not owned or exploited. We build for the long term, not for quick returns.',
+    commits: [
+      'Hylo’s development is guided by its purpose, not profit. We will never sell user data or optimize for addictive engagement.',
+      'We are building toward a governance structure where the people who use Hylo have real authority over how it’s run.',
+      'We communicate openly and honestly with our users about decisions that affect them.',
+    ] },
+  { name: 'Co-Creation',
+    def: 'Hylo is built in partnership with the communities that use it. We listen first, design together, and make what we build available to everyone on the platform.',
+    commits: [
+      'Every major feature is designed through participatory processes with real groups working on real problems.',
+      'Our code is open source. We use open standards and protocols wherever possible so Hylo can work alongside other tools.',
+      'Before building something new, we look for existing solutions that already work and integrate them.',
+    ] },
+  { name: 'Wellbeing',
+    def: 'Technology shapes behavior. Hylo is designed to support the health of its members and their communities — not to capture attention, generate anxiety, or optimize for engagement at the expense of people’s time and peace of mind.',
+    commits: [
+      'We design for meaningful interaction, not compulsive use. No dark patterns, no infinite scroll, no manufactured urgency.',
+      'We take responsibility for the impact our technology has on the people and communities using it.',
+      'We treat the people on Hylo as whole human beings, not “users” to be optimized.',
+    ] },
+  { name: 'Justice',
+    def: 'Coordination infrastructure is never neutral. It either concentrates power or distributes it. We build Hylo to support equity, repair harm, and reduce structural injustice — in how the platform works, in who has voice, and in what kinds of organizing it makes possible.',
+    commits: [
+      'We build inclusive and accessible digital spaces. We follow Design Justice principles.',
+      'We learn from Indigenous knowledge systems and historically marginalized communities, with respect and accountability, not extraction.',
+      'We work toward equitable compensation and recognition among everyone who builds and maintains Hylo.',
+    ] },
+  { name: 'Adaptation',
+    def: 'We expect to get things wrong and learn from it. Hylo is a living system — we build in feedback loops, listen to what isn’t working, and evolve in response to real use rather than rigid plans.',
+    commits: [
+      'We incorporate feedback from communities into every phase of our design process.',
+      'We move at the speed of trust — making sure there’s always time for care, relationship, and doing things well.',
+      'We hold Hylo as something that grows and changes. Governance, features, and practices are all subject to revision when they need to be.',
+    ] },
+  { name: 'Agency',
+    def: 'People and groups should control their own experience, their own data, and their own participation. Hylo doesn’t use opaque algorithms, doesn’t harvest attention, and doesn’t lock communities in.',
+    commits: [
+      'No black-box algorithms. You control your notifications, your feed, and what you see.',
+      'We never share personal data without informed consent.',
+      'We work to make Hylo usable across ability, language, culture, and bandwidth — because agency requires access.',
+    ] },
+];
+
+const AGREEMENTS = [
+  { t: 'Contribute, don’t just consume.',
+    d: 'Hylo works because people show up for each other — sharing ideas, responding to requests, joining projects. Bring what you have. Ask for what you need.' },
+  { t: 'Be kind and constructive.',
+    d: 'Talk to people the way you would face to face. Respect differing viewpoints. When you disagree, stay curious. When something goes wrong, take responsibility.' },
+  { t: 'Respect the space.',
+    d: 'Follow the code of conduct below. Honor your group’s agreements. Flag harmful content when you see it. Take care with other people’s stories and information.' },
+  { t: 'Help make it better.',
+    d: 'If something isn’t working — in your group or on the platform — say so. Suggest improvements. Report bugs. This is a commons, and it gets better when everyone tends it.' },
+];
+
+const GOOD = [
+  { h: 'Take care of each other', accent: tokens.requestTeal,
+    items: [
+      'Post requests when you need help. Post offers when you can give it.',
+      'Reach out to someone who might be struggling — a check-in goes a long way.',
+      'Communicate the way you would in person: kind, direct, and constructive.',
+      'Take breaks from screens. Move your body. This platform is a tool, not a destination.',
+    ] },
+  { h: 'Build together', accent: tokens.projectOrange,
+    items: [
+      'Start or join a project in service to your group’s goals.',
+      'Comment on others’ posts — build on their ideas rather than just scrolling past.',
+      'Co-host an event. Organize a meetup. Move things into the real world when you can.',
+      'Connect your group with other aligned groups on Hylo for cross-group collaboration.',
+    ] },
+  { h: 'Govern well', accent: tokens.proposalPurple,
+    items: [
+      'Follow through on commitments you make to your group.',
+      'Participate in proposals and decisions when they affect you.',
+      'If you see something that isn’t working, name it constructively. Suggest a better approach.',
+      'If your group’s purpose or agreements need to evolve, help make that happen through legitimate process.',
+    ] },
+  { h: 'Help Hylo grow', accent: tokens.forest,
+    items: [
+      'Report bugs through the Feedback & Support menu.',
+      'Join the Building Hylo group and share ideas for the platform.',
+      'Contribute code, design, research, or writing if you’re able.',
+      'Consider supporting Hylo financially — every contribution stays in the project.',
+    ] },
+];
+
+const NOT_OK = [
+  { h: 'Harassment and abuse', items: [
+    'No threats, intimidation, pressure, stalking, or unwanted attention — public or private.',
+    'No characterizing or mocking people based on inherent traits: race, ethnicity, gender, gender identity, sexual orientation, disability, national origin, or medical condition.',
+    'No inciting, threatening, or glorifying violence against any person or group.',
+    'No promoting or encouraging suicide or self-harm.',
+  ] },
+  { h: 'Privacy violations', items: [
+    'No publishing someone’s private information (address, contact details, photos) without their explicit consent.',
+    'No sharing intimate images or videos of someone without their consent.',
+    'No threatening to expose private information.',
+  ] },
+  { h: 'Manipulation and deception', items: [
+    'No impersonating individuals, groups, or organizations.',
+    'No using Hylo to manipulate elections or civic processes, suppress participation, or spread deliberate misinformation about how to participate.',
+    'No artificial amplification, spam, or platform manipulation.',
+    'No accessing other people’s accounts or data without authorization.',
+  ] },
+  { h: 'Illegal activity', items: [
+    'No facilitating illegal transactions or promoting illegal activities.',
+    'Zero tolerance for child sexual exploitation of any kind.',
+    'No violating copyright or trademark.',
+  ] },
+  { h: 'Spam and promotion', items: [
+    'No advertising, promotion, or link-dropping without a genuine invitation for others to participate.',
+    'No cross-posting promotional content into groups or the public commons without adding real value.',
+  ] },
+];
+
+const PUBLIC_GOOD = [
+  '“I’m hosting a permaculture workshop — what topics are you most interested in learning about?”',
+  '“Here’s an article I found about watershed governance. What do you think about this approach?”',
+  '“I’m offering a legal clinic for cooperatives. Can you share this with co-ops in your community?”',
+];
+
+const PUBLIC_NOT_OK = [
+  '“Rereve Health Family Healthcare is a patient-focused medical facility. Call now!”',
+  '“Taxi service to Prague! Taxi service to Berlin!”',
+  '[Video title] [Video link] [Hashtags] [No other commentary]',
+];
+
+const STEPS = [
+  { t: 'Correction',     accent: '#FFB949',
+    when: 'Inappropriate language or behavior that’s unwelcome but not severe.',
+    what: 'A private message from a steward explaining what happened and why it’s not OK. A public apology may be requested.' },
+  { t: 'Warning',        accent: '#FFB949',
+    when: 'A single incident that’s more serious, or a repeated minor issue.',
+    what: 'A formal warning with clear consequences for continued behavior. The person is put on notice.' },
+  { t: 'Temporary Ban',  accent: '#EE426699',
+    when: 'Serious violations or a sustained pattern of harmful behavior.',
+    what: 'Temporary removal from the community or platform for a set period. A mediated conversation or conflict resolution process may be offered.' },
+  { t: 'Permanent Ban',  accent: '#EE4266',
+    when: 'A pattern of violations, a single very serious violation, or refusal to participate in accountability.',
+    what: 'Permanent removal from the community or platform.' },
+];
+---
+
+<Layout title="Hylo — How we agree to be together">
+  {/* ── 1 · Header ──────────────────────────────────────────── */}
+  <section class="hdr">
+    <div class="hdr-inner">
+      <h1 class="hdr-title">How we agree to be together</h1>
+      <p class="hdr-lede">
+        Hylo is a shared space. Like any shared space, it works because the
+        people in it agree on a few things: how to treat each other, what to do
+        when something goes wrong, and what kind of community we’re building
+        together. These are our values, our agreements, and our code of conduct.
+        They apply to everyone — including us.
+      </p>
+
+      <div class="toc">
+        {TOC.map(([label, id]) => (
+          <a href={`#${id}`} class="toc-pill">{label}</a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* ── 2 · Values ──────────────────────────────────────────── */}
+  <section id="values" class="vals">
+    <div class="vals-inner">
+      <h2 class="section-h">Our values</h2>
+      <p class="section-intro">
+        These values guide how we build Hylo and how we ask everyone on the
+        platform to show up. They’re not aspirational slogans — they’re working
+        principles we hold ourselves to and invite you to hold us to as well.
+      </p>
+
+      <div class="vals-list">
+        {VALUES.map((v, i) => (
+          <div class="val">
+            <div class="val-num">{String(i + 1).padStart(2, '0')}</div>
+            <div class="val-body">
+              <h3 class="val-name">{v.name}</h3>
+              <p class="val-def">{v.def}</p>
+
+              <div class="commits-h">Our commitments</div>
+              <ul class="commits">
+                {v.commits.map((c) => (
+                  <li>
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" class="check" aria-hidden="true">
+                      <path d="M2.5 7.5L5.5 10.5L11.5 3.5" />
+                    </svg>
+                    <span>{c}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* ── 3 · Platform Agreements ─────────────────────────────── */}
+  <section id="agreements" class="agr">
+    <div class="agr-inner">
+      <h2 class="section-h section-h-md">When you join Hylo, here’s what we agree on.</h2>
+      <p class="section-intro">
+        These aren’t terms buried in a legal document. They’re a simple social
+        contract between you and everyone else on the platform. By using Hylo,
+        you’re agreeing to these four things:
+      </p>
+
+      <div class="agr-cards">
+        {AGREEMENTS.map((a, i) => (
+          <div class="agr-card">
+            <div class="agr-num">{i + 1}</div>
+            <div class="agr-text">
+              <strong>{a.t}</strong>{' '}
+              <span class="agr-desc">{a.d}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* ── 4 · Code of Conduct ─────────────────────────────────── */}
+  <section id="conduct" class="coc">
+    <div class="coc-inner">
+      <h2 class="section-h">Code of conduct</h2>
+      <p class="section-intro">
+        This code of conduct applies everywhere on Hylo — in groups, in direct
+        messages, in the public commons. Group stewards may add their own
+        agreements on top of these, but these are the baseline.
+      </p>
+
+      <h3 class="coc-part">How to be a good community member</h3>
+      <p class="coc-part-intro">
+        None of this is mandatory (except treating people with respect). But
+        these are the kinds of behaviors that make Hylo communities thrive:
+      </p>
+      <div class="coc-cats">
+        {GOOD.map((g) => (
+          <div class="cat">
+            <div class="cat-head" style={`border-left-color: ${g.accent}66;`}>
+              <h4 class="cat-h">{g.h}</h4>
+            </div>
+            <ul class="cat-list">
+              {g.items.map((it) => (
+                <li>
+                  <span class="dot" style={`background: ${g.accent};`}></span>
+                  <span>{it}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      <h3 class="coc-part">What is not allowed on Hylo</h3>
+      <p class="coc-part-intro">
+        These rules apply everywhere on the platform. If you see content that
+        violates them, flag it immediately. Group stewards and Hylo platform
+        stewards will respond.
+      </p>
+      <div class="coc-cats">
+        {NOT_OK.map((g) => (
+          <div class="cat">
+            <div class="cat-head cat-head-x">
+              <h4 class="cat-h">{g.h}</h4>
+            </div>
+            <ul class="cat-list">
+              {g.items.map((it) => (
+                <li>
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                    class="x-mark" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                    <path d="M2.5 2.5l7 7M9.5 2.5l-7 7" />
+                  </svg>
+                  <span>{it}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      <h3 class="coc-part coc-part-sm">Additional guidelines for public posts</h3>
+      <p class="coc-part-intro">
+        Hylo has a public stream and a Group Explorer where anyone can discover
+        communities and conversations. To keep this space useful and
+        collaborative, public posts should include a genuine invitation for
+        others to participate. This space is for cross-pollination, not
+        promotion.
+      </p>
+      <div class="ex-grid">
+        <div class="ex-card ex-good">
+          <div class="ex-h ex-h-good">Good examples</div>
+          {PUBLIC_GOOD.map((e) => <p class="ex-quote">{e}</p>)}
+        </div>
+        <div class="ex-card ex-bad">
+          <div class="ex-h ex-h-bad">Not OK</div>
+          {PUBLIC_NOT_OK.map((e) => <p class="ex-quote">{e}</p>)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ── 5 · Enforcement ─────────────────────────────────────── */}
+  <section id="enforcement" class="enf">
+    <div class="enf-inner">
+      <h2 class="section-h section-h-md">What happens when agreements are broken</h2>
+      <p class="section-intro">
+        We believe in graduated response — matching the consequence to the
+        severity and pattern of the behavior. The goal is always to repair harm
+        and restore trust, not to punish. But some behaviors require removal to
+        protect the community.
+      </p>
+      <p class="enf-sub">
+        In groups, stewards are responsible for enforcing the code of conduct
+        within their space. For the public commons and platform-level issues,
+        Hylo’s platform stewards handle enforcement. Anyone can flag content
+        that violates these agreements, and all reports are reviewed promptly.
+      </p>
+
+      <div class="steps">
+        {STEPS.map((s, i) => (
+          <div class="step" style={`border-top-color: ${s.accent};`}>
+            <div class="step-i">Step {i + 1}</div>
+            <div class="step-t">{s.t}</div>
+            <div>
+              <div class="step-lbl">When</div>
+              <div class="step-when">{s.when}</div>
+            </div>
+            <div>
+              <div class="step-lbl">What happens</div>
+              <div class="step-what">{s.what}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <p class="enf-credit">
+        This enforcement structure is adapted from the
+        {' '}<a class="enf-link">Contributor Covenant</a>, version 2.1.
+      </p>
+      <p class="enf-flag">
+        If you experience or witness a violation, flag the content directly on
+        the platform. You can also reach Hylo’s stewardship team at
+        {' '}<a class="enf-link">hello@hylo.com</a>.
+      </p>
+    </div>
+  </section>
+
+  {/* ── 6 · Closing ─────────────────────────────────────────── */}
+  <section class="close">
+    <div class="close-inner">
+      <p>
+        These agreements are a living document. As Hylo grows and the
+        communities on it evolve, so will these commitments. If you think
+        something here should change,
+        {' '}<a class="close-link">tell us</a> — or better yet, start a
+        discussion in the {' '}<a class="close-link">Building Hylo</a> group.
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style lang="scss">
+  @use '../styles/v5/tokens' as *;
+
+  $amaranth: #EE4266;
+
+  /* ── shared ──────────────────────────────────────────────── */
+  .section-h {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: $rhino;
+    margin: 0;
+    line-height: 1.15;
+  }
+  .section-h-md { font-size: 26px; }
+
+  .section-intro {
+    margin-top: 16px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba($rhino, 0.75);
+    max-width: 640px;
+    text-wrap: pretty;
+  }
+
+  /* ── 1 · Header ──────────────────────────────────────────── */
+  .hdr {
+    background: $cream;
+    padding: 160px 40px 80px;
+    font-family: $font-sans;
+    color: $rhino;
+  }
+  .hdr-inner {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .hdr-title {
+    font-size: 52px;
+    font-weight: 700;
+    letter-spacing: -1.2px;
+    line-height: 1.05;
+    margin: 0;
+    color: $rhino;
+    text-wrap: balance;
+  }
+  .hdr-lede {
+    margin-top: 28px;
+    font-size: 19px;
+    line-height: 1.6;
+    color: rgba($rhino, 0.8);
+    max-width: 640px;
+    text-wrap: pretty;
+  }
+  .toc {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .toc-pill {
+    font-size: 13px;
+    color: rgba($rhino, 0.7);
+    padding: 7px 12px;
+    border: 1px solid rgba($rhino, 0.14);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.6);
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  /* ── 2 · Values ──────────────────────────────────────────── */
+  .vals {
+    background: #fff;
+    padding: 100px 40px;
+    font-family: $font-sans;
+    color: $rhino;
+    scroll-margin-top: 80px;
+  }
+  .vals-inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .vals-list {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  .val {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+  .val-num {
+    text-align: right;
+    padding-top: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    color: $forest;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+  }
+  .val-body {
+    border-left: 3px solid rgba($forest, 0.3);
+    padding-left: 24px;
+    min-width: 0;
+  }
+  .val-name {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0;
+    color: $rhino;
+    letter-spacing: -0.3px;
+  }
+  .val-def {
+    margin-top: 10px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba($rhino, 0.8);
+    text-wrap: pretty;
+  }
+  .commits-h {
+    margin-top: 18px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: rgba($rhino, 0.55);
+  }
+  .commits {
+    margin: 10px 0 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin-top: 10px;
+      font-size: 15px;
+      line-height: 1.55;
+      color: rgba($rhino, 0.72);
+
+      &:first-child { margin-top: 0; }
+      span { text-wrap: pretty; }
+    }
+  }
+  .check {
+    color: $forest;
+    flex: none;
+    margin-top: 4px;
+  }
+
+  /* ── 3 · Agreements ──────────────────────────────────────── */
+  .agr {
+    background: $athens-gray;
+    padding: 100px 40px;
+    font-family: $font-sans;
+    color: $rhino;
+    scroll-margin-top: 80px;
+  }
+  .agr-inner {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .agr-cards {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .agr-card {
+    background: #fff;
+    border-radius: 4px;
+    padding: 24px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+  .agr-num {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+    color: rgba($forest, 0.4);
+    letter-spacing: -1px;
+  }
+  .agr-text {
+    font-size: 16px;
+    font-weight: 500;
+    color: $rhino;
+    line-height: 1.4;
+
+    strong { font-weight: 600; }
+  }
+  .agr-desc {
+    font-weight: 400;
+    color: rgba($rhino, 0.78);
+  }
+
+  /* ── 4 · Code of Conduct ─────────────────────────────────── */
+  .coc {
+    background: #fff;
+    padding: 100px 40px;
+    font-family: $font-sans;
+    color: $rhino;
+    scroll-margin-top: 80px;
+  }
+  .coc-inner {
+    max-width: 820px;
+    margin: 0 auto;
+  }
+  .coc-part {
+    margin-top: 48px;
+    font-size: 20px;
+    font-weight: 500;
+    color: $rhino;
+    letter-spacing: -0.2px;
+  }
+  .coc-part:not(:first-of-type) {
+    margin-top: 64px;
+  }
+  .coc-part-sm {
+    margin-top: 56px !important;
+    font-size: 17px;
+  }
+  .coc-part-intro {
+    margin-top: 10px;
+    font-size: 15px;
+    color: rgba($rhino, 0.72);
+    line-height: 1.55;
+    text-wrap: pretty;
+  }
+  .coc-cats {
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  .cat-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-left: 12px;
+    border-left: 3px solid;
+  }
+  .cat-head-x { border-left-color: rgba($amaranth, 0.4); }
+  .cat-h {
+    font-size: 17px;
+    font-weight: 500;
+    margin: 0;
+    color: $rhino;
+  }
+  .cat-list {
+    margin: 14px 0 0 15px;
+    padding: 0;
+    list-style: none;
+
+    li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin-top: 10px;
+      font-size: 14.5px;
+      line-height: 1.55;
+      color: rgba($rhino, 0.72);
+
+      &:first-child { margin-top: 0; }
+      span { text-wrap: pretty; }
+    }
+  }
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex: none;
+    margin-top: 7px;
+  }
+  .x-mark {
+    stroke: $amaranth;
+    opacity: 0.75;
+    margin-top: 5px;
+    flex: none;
+  }
+
+  .ex-grid {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .ex-card {
+    border-radius: 4px;
+    padding: 20px;
+  }
+  .ex-good {
+    background: rgba($request-teal, 0.07);
+    border: 1px solid rgba($request-teal, 0.2);
+  }
+  .ex-bad {
+    background: rgba($amaranth, 0.06);
+    border: 1px solid rgba($amaranth, 0.2);
+  }
+  .ex-h {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 14px;
+  }
+  .ex-h-good { color: $request-teal; }
+  .ex-h-bad  { color: $amaranth; }
+  .ex-quote {
+    margin: 12px 0 0;
+    font-size: 14px;
+    color: rgba($rhino, 0.78);
+    font-style: italic;
+    line-height: 1.5;
+
+    &:first-of-type { margin-top: 0; }
+  }
+
+  /* ── 5 · Enforcement ─────────────────────────────────────── */
+  .enf {
+    background: $athens-gray;
+    padding: 100px 40px;
+    font-family: $font-sans;
+    color: $rhino;
+    scroll-margin-top: 80px;
+  }
+  .enf-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .enf-sub {
+    margin-top: 16px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba($rhino, 0.7);
+    max-width: 720px;
+    text-wrap: pretty;
+  }
+  .steps {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+  .step {
+    background: #fff;
+    border-radius: 4px;
+    padding: 20px;
+    border-top: 3px solid;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  }
+  .step-i {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba($rhino, 0.5);
+  }
+  .step-t {
+    font-size: 16px;
+    font-weight: 500;
+    color: $rhino;
+    letter-spacing: -0.2px;
+  }
+  .step-lbl {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: rgba($rhino, 0.55);
+  }
+  .step-when {
+    margin-top: 4px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: rgba($rhino, 0.68);
+    text-wrap: pretty;
+  }
+  .step-what {
+    margin-top: 4px;
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: rgba($rhino, 0.78);
+    text-wrap: pretty;
+  }
+  .enf-credit {
+    margin-top: 40px;
+    font-size: 13px;
+    color: rgba($rhino, 0.5);
+  }
+  .enf-flag {
+    margin-top: 14px;
+    font-size: 14px;
+    color: rgba($rhino, 0.65);
+    line-height: 1.55;
+  }
+  .enf-link {
+    color: $forest;
+    cursor: pointer;
+  }
+
+  /* ── 6 · Closing ─────────────────────────────────────────── */
+  .close {
+    background: $cream;
+    padding: 80px 40px 100px;
+    font-family: $font-sans;
+    color: $rhino;
+    text-align: center;
+  }
+  .close-inner {
+    max-width: 620px;
+    margin: 0 auto;
+
+    p {
+      font-size: 17px;
+      line-height: 1.65;
+      color: rgba($rhino, 0.78);
+      margin: 0;
+      text-wrap: pretty;
+    }
+  }
+  .close-link {
+    color: $forest;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  /* ── Tablet portrait and below ───────────────────────────── */
+  @media (max-width: 880px) {
+    .hdr { padding: 120px 24px 56px; }
+    .hdr-title { font-size: 38px; letter-spacing: -1px; }
+    .hdr-lede { font-size: 17px; }
+
+    .vals { padding: 72px 24px; }
+    .val {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+    .val-num { text-align: left; }
+    .val-body { padding-left: 16px; }
+
+    .agr { padding: 72px 24px; }
+    .agr-card { padding: 20px; gap: 16px; grid-template-columns: 36px 1fr; }
+    .agr-num { font-size: 26px; }
+
+    .coc { padding: 72px 24px; }
+    .ex-grid { grid-template-columns: 1fr; gap: 12px; }
+
+    .enf { padding: 72px 24px; }
+    .steps { grid-template-columns: 1fr 1fr; }
+
+    .close { padding: 56px 24px 72px; }
+  }
+
+  @media (max-width: 480px) {
+    .hdr-title { font-size: 32px; }
+    .steps { grid-template-columns: 1fr; }
+  }
+</style>
