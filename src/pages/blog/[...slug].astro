@@ -1,0 +1,451 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Cover from '../../components/v5/blog/Cover.astro';
+import CategoryChip from '../../components/v5/blog/CategoryChip.astro';
+import { CATEGORIES } from '../../components/v5/blog/categories.js';
+
+// Source: design_handoff_v5/design/v5-blog-post.jsx (BlogPostPage).
+// One static page per post in src/content/blog/. The MDX body is rendered
+// inline; styles are scoped to .post-prose so headings, paragraphs,
+// blockquotes, and lists pick up the design tokens without needing custom
+// MDX components.
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props:  { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const allPosts = (await getCollection('blog'))
+  .filter((p) => p.id !== post.id)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+// Prefer same-category, then fill with most recent from any category.
+const sameCat = allPosts.filter((p) => p.data.category === post.data.category);
+const otherCat = allPosts.filter((p) => p.data.category !== post.data.category);
+const related = [...sameCat, ...otherCat].slice(0, 3);
+
+// Force UTC so a 2026-04-18 frontmatter date doesn't shift to "April 17" in
+// timezones west of UTC.
+const fmtDate = (d) =>
+  d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+
+const initials = post.data.author.name
+  .split(/\s+/)
+  .filter(Boolean)
+  .slice(0, 2)
+  .map((w) => w[0].toUpperCase())
+  .join('');
+
+const authorColor = CATEGORIES[post.data.category]?.color ?? '#087736';
+---
+
+<Layout title={`${post.data.title} — Hylo blog`} description={post.data.excerpt}>
+  {/* ── Breadcrumb ──────────────────────────────────────────── */}
+  <div class="topbar">
+    <div class="topbar-inner">
+      <a href="/blog" class="back">
+        <span class="back-arrow">←</span> The Hylo blog
+      </a>
+      <span class="sep">/</span>
+      <CategoryChip slug={post.data.category} />
+    </div>
+  </div>
+
+  {/* ── Header ──────────────────────────────────────────────── */}
+  <header class="article-h">
+    <div class="article-h-inner">
+      <h1 class="title">{post.data.title}</h1>
+      <p class="excerpt">{post.data.excerpt}</p>
+      <div class="byline">
+        <div class="avatar" style={`background: ${authorColor};`}>{initials}</div>
+        <div>
+          <div class="byline-name">{post.data.author.name}</div>
+          <div class="byline-meta">
+            {post.data.author.role && <span>{post.data.author.role}</span>}
+            {post.data.author.role && <span class="dot"></span>}
+            <span>{fmtDate(post.data.date)}</span>
+            <span class="dot"></span>
+            <span>{post.data.readTime}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  {/* ── Cover ───────────────────────────────────────────────── */}
+  <div class="cover-wrap">
+    <div class="cover-inner">
+      <Cover cover={post.data.cover} height={420} patternId="cover-article" />
+    </div>
+  </div>
+
+  {/* ── Body ────────────────────────────────────────────────── */}
+  <div class="body-wrap">
+    <div class="body-inner post-prose">
+      <Content />
+    </div>
+  </div>
+
+  {/* ── Signoff ─────────────────────────────────────────────── */}
+  <div class="signoff-wrap">
+    <div class="signoff-inner">
+      <div class="avatar avatar-lg" style={`background: ${authorColor};`}>{initials}</div>
+      <div>
+        <div class="signoff-name">{post.data.author.name}</div>
+        {post.data.author.role && <div class="signoff-role">{post.data.author.role}</div>}
+        <div class="signoff-body">
+          Thoughts, corrections, or something to add? We’d love to hear from
+          you — reply to the newsletter, or find us in the open community.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* ── Related ─────────────────────────────────────────────── */}
+  {related.length > 0 && (
+    <section class="related">
+      <div class="related-inner">
+        <div class="related-head">
+          <h2 class="related-h">Keep reading</h2>
+          <a href="/blog" class="related-all">All posts →</a>
+        </div>
+        <div class="related-grid">
+          {related.map((r, i) => (
+            <a href={`/blog/${r.id}`} class="related-card">
+              <Cover cover={r.data.cover} height={170} patternId={`cover-rel-${i}`} />
+              <div class="related-body">
+                <CategoryChip slug={r.data.category} />
+                <h3 class="related-title">{r.data.title}</h3>
+                <div class="meta">
+                  <span>{r.data.author.name}</span>
+                  <span class="dot"></span>
+                  <span>{r.data.readTime}</span>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+</Layout>
+
+<style lang="scss">
+  @use '../../styles/v5/tokens' as *;
+
+  /* ── Breadcrumb ──────────────────────────────────────────── */
+  .topbar {
+    padding-top: 120px;
+    padding-bottom: 24px;
+    font-family: $font-sans;
+    color: rgba($rhino, 0.55);
+  }
+  .topbar-inner {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+  }
+  .back {
+    color: rgba($rhino, 0.55);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .back-arrow { font-size: 14px; }
+  .sep { color: rgba($rhino, 0.3); }
+
+  /* ── Header ──────────────────────────────────────────────── */
+  .article-h {
+    font-family: $font-sans;
+    color: $rhino;
+    padding: 0 40px 40px;
+  }
+  .article-h-inner {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .title {
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: -1.1px;
+    line-height: 1.08;
+    margin: 0;
+    color: $rhino;
+    text-wrap: balance;
+  }
+  .excerpt {
+    margin-top: 20px;
+    font-size: 20px;
+    line-height: 1.5;
+    color: rgba($rhino, 0.68);
+    text-wrap: pretty;
+  }
+
+  .byline {
+    margin-top: 28px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    flex: none;
+  }
+  .avatar-lg {
+    width: 52px;
+    height: 52px;
+    font-size: 20px;
+  }
+  .byline-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: $rhino;
+  }
+  .byline-meta {
+    margin-top: 2px;
+    font-size: 13px;
+    color: rgba($rhino, 0.55);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 999px;
+    background: rgba($rhino, 0.25);
+    flex: none;
+  }
+
+  /* ── Cover ───────────────────────────────────────────────── */
+  .cover-wrap { padding: 0 40px 48px; }
+  .cover-inner {
+    max-width: 980px;
+    margin: 0 auto;
+  }
+
+  /* ── Body ────────────────────────────────────────────────── */
+  .body-wrap {
+    padding: 0 40px;
+    font-family: $font-sans;
+    color: $rhino;
+  }
+  .body-inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  /* MDX content styling — global so the rendered <Content /> picks up. */
+  :global(.post-prose p) {
+    margin: 0 0 22px;
+    font-size: 18px;
+    line-height: 1.72;
+    color: rgba($rhino, 0.85);
+    text-wrap: pretty;
+  }
+  :global(.post-prose h2) {
+    margin: 40px 0 16px;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: $rhino;
+    line-height: 1.2;
+    text-wrap: balance;
+  }
+  :global(.post-prose h3) {
+    margin: 32px 0 12px;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    color: $rhino;
+    line-height: 1.25;
+  }
+  :global(.post-prose blockquote) {
+    margin: 32px 0;
+    padding: 8px 0 8px 28px;
+    border-left: 3px solid $forest;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.4;
+    color: $rhino;
+    font-style: italic;
+    text-wrap: balance;
+  }
+  :global(.post-prose blockquote p) {
+    margin: 0;
+    font-size: inherit;
+    color: inherit;
+    line-height: inherit;
+  }
+  :global(.post-prose ul) {
+    margin: 0 0 24px;
+    padding: 0;
+    list-style: none;
+  }
+  :global(.post-prose ul li) {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 10px 0;
+    border-bottom: 1px solid $athens-dark;
+    font-size: 17px;
+    line-height: 1.55;
+    color: rgba($rhino, 0.82);
+  }
+  :global(.post-prose ul li:last-child) { border-bottom: none; }
+  :global(.post-prose ul li::before) {
+    content: '';
+    margin-top: 10px;
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: $forest;
+    flex: none;
+  }
+  :global(.post-prose a) {
+    color: $forest;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  :global(.post-prose code) {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 0.92em;
+    padding: 2px 5px;
+    border-radius: 4px;
+    background: $athens-gray;
+  }
+
+  /* ── Signoff ─────────────────────────────────────────────── */
+  .signoff-wrap {
+    padding: 40px 40px 0;
+    font-family: $font-sans;
+  }
+  .signoff-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    padding-top: 28px;
+    border-top: 1px solid $athens-dark;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .signoff-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: $rhino;
+  }
+  .signoff-role {
+    margin-top: 2px;
+    font-size: 13px;
+    color: rgba($rhino, 0.55);
+  }
+  .signoff-body {
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba($rhino, 0.68);
+    text-wrap: pretty;
+  }
+
+  /* ── Related ─────────────────────────────────────────────── */
+  .related {
+    margin-top: 72px;
+    background: $athens-gray;
+    padding: 64px 40px;
+    font-family: $font-sans;
+    color: $rhino;
+  }
+  .related-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .related-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 32px;
+  }
+  .related-h {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.4px;
+    color: $rhino;
+    margin: 0;
+    line-height: 1.2;
+  }
+  .related-all {
+    font-size: 14px;
+    font-weight: 500;
+    color: $forest;
+    text-decoration: none;
+  }
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  .related-card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  .related-body { padding: 14px 2px 0; }
+  .related-title {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    line-height: 1.25;
+    color: $rhino;
+    text-wrap: balance;
+  }
+  .meta {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12.5px;
+    color: rgba($rhino, 0.55);
+  }
+
+  /* ── Tablet portrait and below ──────────────────────────── */
+  @media (max-width: 880px) {
+    .topbar { padding-top: 96px; }
+    .topbar-inner { padding: 0 24px; }
+    .article-h { padding: 0 24px 32px; }
+    .title { font-size: 34px; letter-spacing: -0.8px; }
+    .excerpt { font-size: 17px; }
+    .cover-wrap { padding: 0 24px 32px; }
+    .body-wrap { padding: 0 24px; }
+    :global(.post-prose p) { font-size: 17px; }
+    :global(.post-prose h2) { font-size: 22px; }
+    :global(.post-prose blockquote) { font-size: 19px; padding-left: 20px; }
+    :global(.post-prose ul li) { font-size: 16px; }
+    .signoff-wrap { padding: 32px 24px 0; }
+
+    .related { padding: 48px 24px; }
+    .related-grid { grid-template-columns: 1fr; gap: 32px; }
+  }
+</style>
