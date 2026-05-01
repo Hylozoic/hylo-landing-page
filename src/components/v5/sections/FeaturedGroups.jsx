@@ -192,9 +192,19 @@ export default function FeaturedGroups() {
             marginLeft: i === 0 ? 40 : 0,
           }}>
             <div style={{ position: 'relative' }}>
-              <GeoCover seed={i + 1} color={g.color} size={300} />
+              {g.coverImg
+                ? <img src={g.coverImg} alt="" width={300} height={200}
+                    style={{ display: 'block', width: '100%', height: 200, objectFit: 'cover' }} />
+                : <GeoCover seed={i + 1} color={g.color} size={300} />}
               <div style={{ position: 'absolute', left: 20, bottom: -28 }}>
-                <AvatarMark seed={i + 1} color={g.color} size={64} />
+                {g.avatarImg
+                  ? <img src={g.avatarImg} alt={g.name}
+                      style={{
+                        width: 64, height: 64, borderRadius: 14, objectFit: 'cover',
+                        boxShadow: `0 8px 22px ${g.avatar}66, 0 0 0 4px rgba(255,255,255,0.85)`,
+                        display: 'block',
+                      }} />
+                  : <AvatarMark seed={i + 1} color={g.color} size={64} />}
               </div>
               <div style={{
                 position: 'absolute', top: 14, right: 14,
@@ -230,14 +240,18 @@ export default function FeaturedGroups() {
               }}>
                 {g.purpose}
               </div>
-              <button type="button" style={{
-                marginTop: 18, height: 38, borderRadius: 8,
-                border: `1px solid ${g.color}33`, background: `${g.color}10`,
-                color: g.color, fontWeight: 600, fontSize: 13, cursor: 'pointer',
-                fontFamily: 'inherit', letterSpacing: 0.2,
-              }}>
+              <a href={g.url || undefined} target="_blank" rel="noopener noreferrer"
+                style={{
+                  marginTop: 18, height: 38, borderRadius: 8,
+                  border: `1px solid ${g.color}33`, background: `${g.color}10`,
+                  color: g.color, fontWeight: 600, fontSize: 13,
+                  fontFamily: 'inherit', letterSpacing: 0.2,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  textDecoration: 'none',
+                  pointerEvents: g.url ? 'auto' : 'none',
+                }}>
                 View group →
-              </button>
+              </a>
             </div>
           </div>
         ))}
