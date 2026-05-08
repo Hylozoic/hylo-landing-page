@@ -17,7 +17,6 @@ const MENU_TOP = [
   { t: 'Features', href: '/features' },
   { t: 'Pricing',  href: '/pricing'  },
   { t: 'Who',      href: '/who'      },
-  { t: 'Stories',  href: '/stories'  },
   { t: 'Blog',     href: '/blog'     },
 ];
 
@@ -26,8 +25,7 @@ const MENU_SECTIONS = [
     h: 'About Hylo',
     l: [
       { t: 'About Hylo',         href: '/about'   },
-      { t: 'Community stories',  href: '/stories' },
-      { t: 'Hylo’s Stewardship', href: '/about'   },
+      { t: "Hylo Stewardship", href: '/about'   },
       { t: 'Team',               href: '/about'   },
     ],
   },
