@@ -39,12 +39,12 @@ const GOLD   = '#D4A516';
 // and the feature array (each feature: name, desc, optional badge).
 const CATEGORIES = [
   { id: 'groups', title: 'Groups & Community Structure', icon: 'people', iconColor: tokens.forest, bg: 'light',
-    intro: "Hylo's group system is the structural foundation of everything else. Groups can nest inside each other, peer with other groups, and share content across boundaries.",
+    intro: "Hylo's group system is the structural foundation of everything else. Groups can be nested and connected with peer groups, and creating networks to collaborate across boundaries.",
     features: [
       { name: 'Create and manage groups', desc: 'Set up a group with a name, purpose statement, description, location, and banner image. Control visibility (public, protected, or private) and access (open, by request, or invite-only).' },
       { name: 'Nested groups (subgroups)', desc: 'Create groups within groups to any depth. A bioregional hub can contain neighborhood groups. A network can contain working committees. Each subgroup has its own space, agreements, and stewards while remaining connected to the parent.' },
-      { name: 'Peer-to-peer group relationships', desc: "Connect groups as peers — two independent groups that choose to share a relationship. Peer groups can see each other's public content and members, enabling coalition-building without hierarchy." },
-      { name: 'Cross-group posting', desc: 'Post a single discussion, event, request, or offer to multiple groups at once. The post lives in all selected groups simultaneously — no duplication, no drift.' },
+      { name: 'Peer-to-peer group relationships', desc: "Connect groups as peers: two independent groups that choose to share a relationship. Peer groups can see each other's public content and members, enabling coalition-building without hierarchy." },
+      { name: 'Cross-group posting', desc: 'Post a single discussion, event, request, or offer to multiple groups at once. The post lives in all selected groups simultaneously for one shared conversation.' },
       { name: 'Group Explorer', desc: 'A public directory where anyone can browse and discover groups on Hylo. Groups can apply to be listed. Filter by location, topic, or purpose.' },
       { name: 'Join questions', desc: "When someone requests to join a group, stewards can ask custom questions to understand who's joining and why. Answers are visible to stewards during the approval process." },
       { name: 'Group types and presets', desc: 'Groups can be configured for different purposes: mutual aid networks, learning communities, project teams, bioregional hubs, civic groups. Same underlying structure, different default views and suggested features.' },
@@ -54,8 +54,8 @@ const CATEGORIES = [
     intro: 'Hylo supports three modes of communication — persistent posts for depth, real-time chat for speed, and direct messages for privacy — all within a unified system.',
     features: [
       { name: 'Posts (Discussions)', desc: "Threaded, persistent posts with rich text, media, file attachments, geographic location, and topic tags. Posts support reactions and nested comment threads. Discussions are the backbone of deeper coordination — they don't disappear after a day of scrolling." },
-      { name: 'Chat rooms', desc: 'Real-time, topic-based chat within any group. Chat rooms sit alongside the post stream — fast conversation and structured discussion coexist without competing. Groups can create multiple rooms for different topics or working teams.' },
-      { name: 'Direct messages', desc: 'Private 1:1 or small-group conversations. Invite-only, end-to-end within Hylo.' },
+      { name: 'Chat rooms', desc: 'Real-time, topic-based chat within any group. Chat rooms sit alongside the post stream, so fast conversation and structured discussion coexist without competing. Groups can create multiple rooms for different topics or working teams.' },
+      { name: 'Direct messages', desc: 'Private 1:1 or small-group conversations.' },
       { name: 'Cross-group posting', desc: 'A single post can belong to multiple groups or chat rooms simultaneously, creating living nodes of coordination across the network.' },
       { name: 'Rich media', desc: 'Posts and comments support images, files, links with previews, embedded video, and location data. Drag and drop to attach.' },
       { name: 'Topic tags', desc: "Tag posts with topics to organize content thematically. Topics work across groups — follow a topic to see related posts everywhere you're a member." },
@@ -65,8 +65,8 @@ const CATEGORIES = [
       { name: 'Search', desc: 'Full-text search across posts, comments, members, and topics within your groups.' },
     ] },
 
-  { id: 'events', title: 'Events & Gatherings', icon: 'calendar', iconColor: tokens.eventRed, bg: 'light',
-    intro: 'In-person and virtual events with the tools groups actually need — RSVPs, calendar integration, and geographic location.',
+  { id: 'events', title: 'Events', icon: 'calendar', iconColor: tokens.eventRed, bg: 'light',
+    intro: 'In-person and virtual events with the tools groups need: RSVPs, calendar integration, and geographic location.',
     features: [
       { name: 'Create events', desc: 'Events are a post type with start/end times, location (physical or virtual), timezone support, and description. They appear in the stream and on the calendar view.' },
       { name: 'RSVPs', desc: "Members can indicate whether they're attending. Stewards can see the guest list and count." },
@@ -77,7 +77,7 @@ const CATEGORIES = [
     ] },
 
   { id: 'mutual', title: 'Mutual Support', icon: 'exchange', iconColor: tokens.requestTeal, bg: 'athens',
-    intro: "Requests and offers are the trust-building engine of Hylo. Every fulfilled exchange is a deposit in the community's social fabric.",
+    intro: "Requests and offers are the relationship-building engine of Hylo. Every fulfilled exchange grows accountability and trust.",
     features: [
       { name: 'Requests', desc: 'Post what you need — skills, tools, time, knowledge, labor, rides, advice. Set scope, timing, and location. Visible to your group and, if cross-posted, to connected groups.' },
       { name: 'Offers', desc: 'Share what you can give. Same structure as requests — searchable, taggable, locatable.' },
@@ -88,17 +88,17 @@ const CATEGORIES = [
       { name: 'AI-assisted matching', badge: 'soon', desc: 'The AI matchmaker will surface relevant requests and offers to members whose skills, interests, location, and history suggest they can help — reducing the gap between need and response.' },
     ] },
 
-  { id: 'projects', title: 'Projects & Coordination', icon: 'clipboard', iconColor: tokens.projectOrange, bg: 'light',
-    intro: 'For work that goes beyond a single post — ongoing efforts with tasks, contributors, and timelines.',
+  { id: 'projects', title: 'Projects', icon: 'clipboard', iconColor: tokens.projectOrange, bg: 'light',
+    intro: 'For work that goes beyond a single post, ongoing efforts with tasks, contributors, and timelines.',
     features: [
       { name: 'Projects', desc: 'Create a project post with a description, members, and linked content. Projects provide a persistent home for coordinated work within a group.' },
-      { name: 'Tasks and actions', badge: 'soon', desc: "Assign tasks with statuses and due dates within projects. Contribution visibility over time — see who's doing what. Kanban and other visualizations planned." },
+      { name: 'Tasks', badge: 'soon', desc: "Assign tasks with statuses and due dates within projects. Contribution visibility over time — see who's doing what. Kanban and other visualizations planned." },
       { name: 'Linked content', desc: 'Connect posts, events, requests, and offers to a project. Everything related to an effort lives in one place.' },
       { name: 'Project membership', desc: 'Members can join projects to indicate their involvement. Project contributors are visible to the group.' },
     ] },
 
   { id: 'governance', title: 'Governance & Decision-Making', icon: 'vote', iconColor: tokens.proposalPurple, bg: 'athens',
-    intro: "Hylo's governance tools support groups at every stage — from simple polls to structured decision-making processes with quorum, consent-based voting, and formal outcome tracking.",
+    intro: "Hylo's governance tools support groups at every stage, from simple polls to structured decision-making processes with quorum, consent-based voting, and formal outcome tracking.",
     features: [
       { name: 'Proposals', desc: 'Create a proposal with a question, description, and voting options. Proposals progress through discussion, voting, and completed phases with visible outcomes.' },
       { name: 'Flexible voting options', desc: "Configure voting with custom options or use presets: Agree/Disagree, Consent/Block/Abstain, Sense Check, or Gradients of Agreement (from whole-hearted endorsement to veto). Choose what fits your group's decision-making culture." },
@@ -115,18 +115,18 @@ const CATEGORIES = [
     ] },
 
   { id: 'map', title: 'Map & Place', icon: 'pin', iconColor: tokens.forest, bg: 'light',
-    intro: "Hylo organizes people around the places they share. The map is not a feature bolted on — it's a fundamental part of how the platform thinks about community.",
+    intro: "Hylo organizes people around the places they share. Discover what's happening in your community.",
     features: [
       { name: 'Geographic map', desc: "An interactive map showing members, groups, events, requests, offers, and other activity spatially. See what's happening near you, discover nearby groups, and understand the geographic fabric of your community." },
       { name: 'Group locations', desc: 'Groups have geographic locations that appear on the map. A neighborhood group, a regional network, and a global alliance all have different spatial footprints.' },
       { name: 'Member locations', desc: 'Members can share their location (at whatever precision they choose) to be discoverable on the map. Location obfuscation protects privacy while still enabling proximity-based discovery.' },
-      { name: 'Watershed and ecological layers', desc: 'Map layers showing watersheds, catchment basins, and other ecological boundaries. These help communities understand and organize around their landscape rather than arbitrary political boundaries.' },
+      { name: 'Map layers: Native territories', desc: 'Toggle the map layer that show Native territories. Additional map layers showing watersheds, catchment basins, and other ecological boundaries coming soon.' },
       { name: 'Location on posts', desc: "Any post — discussion, event, request, offer — can include a location. Content appears on the map where it's relevant." },
       { name: 'Embed via iframe', desc: 'Groups can embed a Hylo map view on their own website using a custom iframe code block — bringing the living map to wherever their community already gathers online.' },
     ] },
 
   { id: 'funding', title: 'Funding Rounds', icon: 'coin', iconColor: GOLD, bg: 'athens',
-    intro: 'Participatory funding rounds let groups pool resources and collectively decide where to direct them. This is governance made real — communities allocating actual money through democratic process.',
+    intro: 'Participatory funding rounds let groups pool resources and collectively decide where to direct them.',
     features: [
       { name: 'Create a funding round', desc: 'Set up a round with a total amount, timeline, submission criteria, and voting method. Guide your community through each phase from submission to allocation.' },
       { name: 'Submission phase', desc: 'Members submit proposals for funding. Stewards define criteria that submissions need to address. Submissions can be visible during the submission period or hidden until voting begins.' },
@@ -140,10 +140,10 @@ const CATEGORIES = [
     intro: 'Tracks are structured sequences of content and actions that guide members through a learning journey, onboarding process, or program curriculum.',
     features: [
       { name: 'Create tracks', desc: 'Build a track with ordered steps — each step can include content, media, discussion prompts, and actions for the member to complete.' },
-      { name: 'Track actions', desc: 'Individual tasks or checkpoints within a track that members complete as they progress. Completion is tracked per member.' },
+      { name: 'Customizeable modules', desc: 'Actions are individual steps or modules within a track that members complete as they progress. Can be renamed to fit how you use them.' },
       { name: 'Track membership and progress', desc: 'See who has started a track, where they are in it, and who has completed it. Stewards get visibility into participation without micromanaging.' },
       { name: 'Badges on completion', desc: 'Members who complete a track can receive a badge — visible on their profile. Badges can also unlock specific roles, permissions, or access to certain content or chat rooms within the group.' },
-      { name: 'Track-gated access', desc: 'Require completion of a track before accessing certain areas of a group. Useful for onboarding sequences where you want members to have context before participating fully.' },
+      { name: 'Track-gated access', badge: 'soon', desc: 'Require completion of a track before accessing certain areas of a group. Useful for onboarding sequences where you want members to have context before participating fully.' },
       { name: 'Paid tracks', badge: 'pro', desc: 'Tracks can be gated behind a payment. Stripe integration handles transactions. Stewards manage subscriptions and access.' },
     ] },
 
@@ -206,8 +206,8 @@ const ROADMAP = [
   { name: 'Project Management Upgrades', desc: 'Tasks with assignments, statuses, and due dates within projects. Kanban visualization. Contribution tracking over time.' },
   { name: 'Recurring Events', desc: 'Events that repeat on a schedule — weekly meetings, monthly gatherings. Appear automatically on the calendar and in digests.' },
   { name: 'Audio and Video Integration', desc: 'Open-source conferencing built into Hylo. Voice notes for posts and comments. No external platform required for group calls.' },
-  { name: 'Hylo Pro', desc: 'Expanded storage, video streaming, priority support, and API access for groups that need more capacity.', timeline: '$60/month per group · Launching Summer 2026' },
-  { name: 'Hylo Whitelabel', desc: "A dedicated Hylo deployment under your organization's brand, domain, and visual identity.", timeline: '$100/month · Launching Summer 2026' },
+  { name: 'Hylo Pro', desc: 'Expanded storage, video streaming, priority support, and API access for groups that need more capacity.', timeline: '$60/month per group · Launching Fall 2026' },
+  { name: 'Hylo Whitelabel', desc: "A dedicated Hylo deployment under your organization's brand, domain, and visual identity.", timeline: '$100/month · Launching Fall 2026' },
   { name: 'Ecosystem Interoperability', desc: 'Federation and data exchange with aligned platforms using AT Protocol and other open standards. Requests and offers visible across platforms. Shared identity and portable communities.' },
   { name: 'Member-Led Groups', desc: 'A governance model where stewardship roles are earned through cumulative trust rather than granted to whoever created the group. Time-bound, scoped leadership designed for shared stewardship.' },
   { name: 'Hylo Local', desc: 'Distributed, peer-to-peer infrastructure built on Holochain for communities that need coordination tools resistant to institutional surveillance.' },

@@ -129,8 +129,7 @@ const COLS = [
       <p class="hero-lede">
         Hylo's full coordination platform is free — for every group, forever.
         Paid products exist for groups that need more capacity or hands-on
-        support, and every dollar sustains an open-source commons. No trial
-        periods. No feature gates. No bait and switch.
+        support, and every dollar sustains an open-source commons. 
       </p>
     </div>
   </section>
@@ -164,7 +163,36 @@ const COLS = [
     </div>
   </section>
 
-  {/* ── 3 · Hylo Pro ────────────────────────────────────────── */}
+  {/* ── 3 · Stewardship support bridge ──────────────────────── */}
+  <section class="bridge">
+    <div class="bridge-inner">
+      <h2 class="section-h">Need hands-on help building your community?</h2>
+      <p class="bridge-prose">
+        Technology alone doesn't make a community thrive — stewardship does.
+        Hylo's team offers direct support for groups at every stage:
+        onboarding workshops, strategy sessions, ongoing coaching, and even
+        dedicated community management. We've spent years learning what makes
+        online communities come alive, and we bring that experience to your
+        group.
+      </p>
+
+      <div class="tier-row">
+        {STEWARD_TIERS.map((t) => (
+          <div class="tier" style={`border-left-color: ${t.border};`}>
+            <div class="tier-name">{t.name}</div>
+            <div class="tier-price">{t.price}</div>
+            <div class="tier-line">{t.line}</div>
+          </div>
+        ))}
+      </div>
+
+      <a href="/stewardship-support" class="bridge-link">
+        Learn more about stewardship support →
+      </a>
+    </div>
+  </section>
+
+  {/* ── 4 · Hylo Pro ────────────────────────────────────────── */}
   <section class="prod prod-pro">
     <div class="prod-inner">
       <header class="prod-head">
@@ -172,7 +200,7 @@ const COLS = [
         <div class="prod-price">$60/month per group</div>
       </header>
       <div class="badge-row">
-        <span class="badge badge-forest">Launching Summer 2026</span>
+        <span class="badge badge-forest">Launching Fall 2026</span>
       </div>
       <p class="one-liner">
         For groups that need more capacity. Everything in Hylo Free, plus
@@ -222,10 +250,10 @@ const COLS = [
 
       <p class="prod-summary">
         <strong>$60/month per group.</strong> One price, every member included.
-        Launching Summer 2026.
+        Launching Fall 2026.
       </p>
       <div class="prod-cta">
-        <a href="#waitlist-pro" class="btn">Join the Pro waitlist</a>
+        <button type="button" class="btn" data-waitlist="Pro">Join the Pro waitlist</button>
       </div>
     </div>
   </section>
@@ -239,7 +267,7 @@ const COLS = [
           <div class="prod-price">$100/month</div>
         </header>
         <div class="badge-row">
-          <span class="badge badge-forest">Launching Summer 2026</span>
+          <span class="badge badge-forest">Launching Fall 2026</span>
         </div>
 
         <div class="wl-prose">
@@ -279,9 +307,9 @@ const COLS = [
         <div class="wl-card-price">$100/month.</div>
         <div class="wl-card-line">Your brand. Your domain. Full platform.</div>
         <div class="wl-card-line">
-          Launching Summer 2026. Join the waitlist to reserve your deployment.
+          Launching Fall 2026. Join the waitlist to reserve your deployment.
         </div>
-        <a href="#waitlist-whitelabel" class="btn btn-block">Join the Whitelabel waitlist</a>
+        <button type="button" class="btn btn-block" data-waitlist="Whitelabel">Join the Whitelabel waitlist</button>
         <div class="wl-card-help">
           Questions?
           {' '}<a href="mailto:hello@hylo.com" class="wl-mailto">hello@hylo.com</a>
@@ -357,37 +385,8 @@ const COLS = [
         when it launches.
       </p>
       <div class="prod-cta">
-        <a href="#waitlist-assistant" class="btn btn-purple">Join the Assistant waitlist</a>
+        <button type="button" class="btn btn-purple" data-waitlist="Assistant">Join the Assistant waitlist</button>
       </div>
-    </div>
-  </section>
-
-  {/* ── 6 · Stewardship support bridge ──────────────────────── */}
-  <section class="bridge">
-    <div class="bridge-inner">
-      <h2 class="section-h">Need hands-on help building your community?</h2>
-      <p class="bridge-prose">
-        Technology alone doesn't make a community thrive — stewardship does.
-        Hylo's team offers direct support for groups at every stage:
-        onboarding workshops, strategy sessions, ongoing coaching, and even
-        dedicated community management. We've spent years learning what makes
-        online communities come alive, and we bring that experience to your
-        group.
-      </p>
-
-      <div class="tier-row">
-        {STEWARD_TIERS.map((t) => (
-          <div class="tier" style={`border-left-color: ${t.border};`}>
-            <div class="tier-name">{t.name}</div>
-            <div class="tier-price">{t.price}</div>
-            <div class="tier-line">{t.line}</div>
-          </div>
-        ))}
-      </div>
-
-      <a href="/stewardship-support" class="bridge-link">
-        Learn more about stewardship support →
-      </a>
     </div>
   </section>
 
@@ -408,12 +407,7 @@ const COLS = [
           support, that money goes to three places: compensating the people
           who build and maintain Hylo, funding platform development that
           benefits every group (including the free ones), and keeping the
-          infrastructure running. That's it.
-        </p>
-        <p>
-          This is the model. It's not complicated. It's just uncommon —
-          because most platforms are built to extract value, and Hylo is
-          built to sustain a commons.
+          infrastructure running. Hylo is built to sustain a commons.
         </p>
       </div>
 
@@ -494,6 +488,51 @@ const COLS = [
       </div>
     </div>
   </section>
+
+  {/* ── Waitlist modal ──────────────────────────────────────────── */}
+  <div id="wl-modal" class="wl-modal" role="dialog" aria-modal="true" aria-labelledby="wl-modal-title">
+    <div class="wl-scrim"></div>
+    <div class="wl-box">
+      <button type="button" class="wl-close" aria-label="Close">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18" />
+        </svg>
+      </button>
+
+      <div class="wl-form-wrap">
+        <h2 id="wl-modal-title" class="wl-title">Join the waitlist</h2>
+        <p class="wl-sub">We'll notify you when it launches. No spam, ever.</p>
+
+        <form name="waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="wl-form">
+          <input type="hidden" name="form-name" value="waitlist" />
+          <input type="hidden" name="product" id="wl-product" value="" />
+          <p hidden><label>Don't fill this out: <input name="bot-field" /></label></p>
+
+          <div class="wl-field">
+            <label for="wl-name-input">Name</label>
+            <input type="text" id="wl-name-input" name="name" placeholder="Your name" autocomplete="name" />
+          </div>
+          <div class="wl-field">
+            <label for="wl-email-input">Email <span class="wl-req">*</span></label>
+            <input type="email" id="wl-email-input" name="email" placeholder="you@example.com" autocomplete="email" required />
+          </div>
+
+          <button type="submit" class="btn wl-submit-btn">Join waitlist</button>
+        </form>
+      </div>
+
+      <div class="wl-success" hidden>
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="10" />
+          <path d="m8 12 3 3 5-5" />
+        </svg>
+        <h2 class="wl-title">You're on the list!</h2>
+        <p class="wl-sub">We'll be in touch when <strong class="wl-success-product"></strong> launches.</p>
+      </div>
+    </div>
+  </div>
 
   {/* ── 9 · Closing CTA ─────────────────────────────────────── */}
   <section class="closing">
@@ -1091,4 +1130,192 @@ const COLS = [
     }
     .badge-row { justify-content: flex-start; }
   }
+
+  /* ── btn as button element ───────────────────────────────── */
+  button.btn {
+    border: none;
+    cursor: pointer;
+    font-family: $font-sans;
+  }
+
+  /* ── Waitlist modal ──────────────────────────────────────── */
+  .wl-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+
+    &.open { display: flex; }
+  }
+
+  .wl-scrim {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+  }
+
+  .wl-box {
+    position: relative;
+    background: #fff;
+    border-radius: 12px;
+    padding: 40px;
+    width: 100%;
+    max-width: 440px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+    font-family: $font-sans;
+  }
+
+  .wl-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: rgba($rhino, 0.4);
+    padding: 6px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.15s, background 0.15s;
+
+    &:hover {
+      color: $rhino;
+      background: $athens-gray;
+    }
+  }
+
+  .wl-title {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.4px;
+    color: $rhino;
+    margin: 0;
+  }
+
+  .wl-sub {
+    margin: 8px 0 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: rgba($rhino, 0.55);
+  }
+
+  .wl-form { margin-top: 24px; }
+
+  .wl-field {
+    margin-bottom: 16px;
+
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: $rhino;
+      margin-bottom: 6px;
+    }
+
+    input {
+      width: 100%;
+      height: 40px;
+      padding: 0 12px;
+      border: 1px solid $athens-dark;
+      border-radius: 6px;
+      font-size: 15px;
+      font-family: $font-sans;
+      color: $rhino;
+      background: #fff;
+      box-sizing: border-box;
+      transition: border-color 0.15s;
+
+      &::placeholder { color: rgba($rhino, 0.35); }
+      &:focus {
+        outline: none;
+        border-color: $forest;
+        box-shadow: 0 0 0 3px rgba($forest, 0.12);
+      }
+    }
+  }
+
+  .wl-req { color: $forest; }
+
+  .wl-submit-btn {
+    width: 100%;
+    margin-top: 8px;
+    height: 44px;
+    line-height: 44px;
+    font-size: 15px;
+  }
+
+  .wl-success {
+    text-align: center;
+    padding: 16px 0 8px;
+    color: $forest;
+
+    .wl-title { margin-top: 16px; text-align: center; }
+    .wl-sub { text-align: center; color: rgba($rhino, 0.55); }
+  }
+
+  @media (max-width: 480px) {
+    .wl-box { padding: 32px 24px; }
+  }
 </style>
+
+<script>
+  const modal    = document.getElementById('wl-modal') as HTMLElement;
+  const scrim    = modal.querySelector('.wl-scrim') as HTMLElement;
+  const closeBtn = modal.querySelector('.wl-close') as HTMLButtonElement;
+  const formWrap = modal.querySelector('.wl-form-wrap') as HTMLElement;
+  const success  = modal.querySelector('.wl-success') as HTMLElement;
+  const form     = modal.querySelector('.wl-form') as HTMLFormElement;
+  const productInput   = document.getElementById('wl-product') as HTMLInputElement;
+  const titleEl        = document.getElementById('wl-modal-title') as HTMLElement;
+  const successProduct = modal.querySelector('.wl-success-product') as HTMLElement;
+  const emailInput     = document.getElementById('wl-email-input') as HTMLInputElement;
+
+  function openModal(product: string) {
+    productInput.value = product;
+    titleEl.textContent = `Join the Hylo ${product} waitlist`;
+    formWrap.hidden = false;
+    success.hidden = true;
+    form.reset();
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    emailInput.focus();
+  }
+
+  function closeModal() {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll<HTMLButtonElement>('[data-waitlist]').forEach(btn => {
+    btn.addEventListener('click', () => openModal(btn.dataset.waitlist!));
+  });
+
+  scrim.addEventListener('click', closeModal);
+  closeBtn.addEventListener('click', closeModal);
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && !modal.hidden) closeModal();
+  });
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const body = new URLSearchParams(new FormData(form) as any).toString();
+    try {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body,
+      });
+      successProduct.textContent = `Hylo ${productInput.value}`;
+      formWrap.hidden = true;
+      success.hidden = false;
+    } catch {
+      form.submit();
+    }
+  });
+</script>
