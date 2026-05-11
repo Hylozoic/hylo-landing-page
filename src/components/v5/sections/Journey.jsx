@@ -16,10 +16,10 @@ const JOURNEY_STEPS = [
   { key: 'support',  title: 'Support',  color: tokens.requestTeal,
     body: 'Members post what they need and what they can offer. Every fulfilled exchange builds trust.' },
   { key: 'organize', title: 'Organize', color: tokens.projectOrange,
-    body: 'Projects, working groups and events with real follow-through. Coordinate complex work.' },
+    body: 'Projects, working groups, and events with real follow-through. Coordinate complex work.' },
   { key: 'decide',   title: 'Decide',   color: tokens.proposalPurple,
-    body: 'Proposals, participatory budgets, collective funding. Govern shared resources — together.' },
-  { key: 'weave',    title: 'Weave',    color: tokens.forest,
+    body: 'Proposals, participatory funding, collective decisions. Govern shared resources — together.' },
+  { key: 'scale',    title: 'Scale',    color: tokens.forest,
     body: 'Connect with neighboring groups. Coordinate at the scale of a watershed or a movement.' },
 ];
 
@@ -130,14 +130,14 @@ export default function Journey() {
             fontSize: 52, fontWeight: 700, color: tokens.ink,
             letterSpacing: -1.6, lineHeight: 1.05, margin: 0, textWrap: 'balance',
           }}>
-            Start with <span style={{ color: ACCENT }}>conversation.</span> End up changing your world.
+            Start with <span style={{ color: ACCENT }}>conversation.</span><br/>End up changing your world.
           </h2>
           <p style={{
             fontSize: 17, color: 'rgba(42,39,35,0.72)',
             maxWidth: 620, margin: '20px auto 0', lineHeight: 1.55,
           }}>
-            Groups evolve. The platform grows with them. Here's how it tends to go — though never
-            in a straight line, and never on anyone else's timeline.
+            Hylo guides groups on an evolutionary journey, from conversation to action. 
+            Start with nurturing trust and relationships, and your group will grow capacity for increasingly impactful work.
           </p>
         </div>
 

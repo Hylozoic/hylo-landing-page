@@ -17,10 +17,10 @@ const CARDS = [
     primary: true,
   },
   {
-    t: 'Explore the commons',
-    body: 'See how real groups are coordinating, organizing, and governing themselves on Hylo.',
-    cta: 'Read community stories',
-    href: '/stories',
+    t: 'Get inspired',
+    body: 'Learn how Hylo helps groups coordinate, organize, and govern themselves.',
+    cta: 'Explore use cases',
+    href: '/who',
   },
   {
     t: 'Support the commons',
@@ -38,8 +38,8 @@ export default function Invitation() {
           fontSize: 56, fontWeight: 700, color: tokens.ink,
           letterSpacing: -1.6, lineHeight: 1.02, margin: 0, maxWidth: 940, textWrap: 'balance',
         }}>
-          The coordination tool your community needs{' '}
-          <span style={{ color: ACCENT }}>already exists.</span> Come build with us.
+          The coordination tool you need{' '}
+          <span style={{ color: ACCENT }}>already exists.</span><br/>Come build with us.
         </h2>
         <p style={{
           fontSize: 17, color: 'rgba(42,39,35,0.72)', maxWidth: 560,

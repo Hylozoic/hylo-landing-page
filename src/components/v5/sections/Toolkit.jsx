@@ -32,54 +32,12 @@ function CapIcon({ kind, color = '#fff', size = 26 }) {
     case 'funding':
       return <svg {...s} viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M9 9.5c0-1 1-2 3-2s3 1 3 2-1 1.5-3 2-3 1-3 2 1 2 3 2 3-1 3-2M12 6v2M12 16v2" /></svg>;
     case 'tracks':
-      return <svg {...s} viewBox="0 0 24 24"><path d="M4 7h4l2 10h4l2-10h4" /><circle cx="6" cy="7" r="1.5" /><circle cx="18" cy="7" r="1.5" /></svg>;
+      return <svg {...s} viewBox="0 0 24 24"><path d="M4 19V6a2 2 0 0 1 2-2h13v13H6a2 2 0 0 0-2 2zm0 0a2 2 0 0 0 2 2h13" /><path d="M9 10h6M9 14h4" /></svg>;
     default:
       return null;
   }
 }
 
-function PhotoPlaceholder({ label, tint }) {
-  const id = `ph-${label.replace(/\W/g, '')}`;
-  return (
-    <div style={{
-      position: 'absolute', inset: 0, borderRadius: 'inherit', overflow: 'hidden',
-      background: `linear-gradient(135deg, ${tint}e6 0%, ${tint}b3 100%)`,
-    }}>
-      <svg width="100%" height="100%" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"
-        style={{ position: 'absolute', inset: 0, display: 'block' }}>
-        <defs>
-          <linearGradient id={id} x1="0" x2="1" y1="0" y2="1">
-            <stop offset="0%" stopColor="rgba(255,255,255,0.35)" />
-            <stop offset="100%" stopColor="rgba(0,0,0,0.15)" />
-          </linearGradient>
-        </defs>
-        <rect width="400" height="300" fill={`url(#${id})`} />
-        <circle cx="340" cy="70" r="42" fill="rgba(255,255,255,0.28)" />
-        <path d="M0 220 C 80 180, 160 240, 260 200 S 380 210, 400 220 L 400 300 L 0 300 Z"
-          fill="rgba(0,0,0,0.18)" />
-        <path d="M0 250 C 100 220, 180 270, 280 245 S 380 260, 400 250 L 400 300 L 0 300 Z"
-          fill="rgba(0,0,0,0.14)" />
-      </svg>
-      <div style={{
-        position: 'absolute', top: 14, left: 14,
-        fontSize: 10, fontFamily: "'JetBrains Mono', monospace", letterSpacing: 0.8,
-        color: 'rgba(255,255,255,0.95)', textTransform: 'uppercase', fontWeight: 600,
-        padding: '4px 8px', borderRadius: 999, background: 'rgba(0,0,0,0.28)',
-        backdropFilter: 'blur(6px)',
-      }}>
-        photo placeholder
-      </div>
-      <div style={{
-        position: 'absolute', right: 16, bottom: 14,
-        fontSize: 12, color: '#fff', fontWeight: 500, letterSpacing: 0.2,
-        textShadow: '0 1px 4px rgba(0,0,0,0.5)',
-        maxWidth: '65%', textAlign: 'right', lineHeight: 1.35,
-      }}>
-        {label}
-      </div>
-    </div>
-  );
-}
 
 function ToolkitCard({ cap, onOpen }) {
   const [hover, setHover] = React.useState(false);
@@ -107,11 +65,19 @@ function ToolkitCard({ cap, onOpen }) {
         opacity: hover ? 0 : 1,
       }} />
       <div style={{
-        position: 'absolute', inset: 0, borderRadius: 18,
+        position: 'absolute', inset: 0, borderRadius: 18, overflow: 'hidden',
         opacity: hover ? 1 : 0, transition: 'opacity .35s ease',
         pointerEvents: 'none',
+        background: `linear-gradient(135deg, ${cap.color}e6 0%, ${cap.color}b3 100%)`,
       }}>
-        <PhotoPlaceholder label={cap.photoHint} tint={cap.color} />
+        <svg width="100%" height="100%" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"
+          style={{ position: 'absolute', inset: 0, display: 'block' }}>
+          <circle cx="340" cy="70" r="42" fill="rgba(255,255,255,0.28)" />
+          <path d="M0 220 C 80 180, 160 240, 260 200 S 380 210, 400 220 L 400 300 L 0 300 Z"
+            fill="rgba(0,0,0,0.18)" />
+          <path d="M0 250 C 100 220, 180 270, 280 245 S 380 260, 400 250 L 400 300 L 0 300 Z"
+            fill="rgba(0,0,0,0.14)" />
+        </svg>
         <div style={{
           position: 'absolute', inset: 0,
           background: `linear-gradient(180deg, ${cap.color}66 0%, ${cap.color}bb 60%, ${cap.color}e6 100%)`,
@@ -306,7 +272,7 @@ export default function Toolkit() {
               fontSize: 17, color: 'rgba(42,39,35,0.72)',
               marginTop: 20, lineHeight: 1.6,
             }}>
-              No more juggling Slack, Google Docs, Eventbrite, and email chains.
+              Tools for when you outgrow the group chat and you're ready to get things done.
               Hylo brings it together.
             </p>
             <div style={{

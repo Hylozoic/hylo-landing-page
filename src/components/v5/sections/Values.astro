@@ -5,7 +5,7 @@
 // brand SVGs when they land.
 
 const STATS = [
-  { big: 'MIT',  label: 'Open source · on GitHub' },
+  { big: 'Apache 2.0',  label: 'Open source · on GitHub' },
   { big: 'Ø',    label: 'Ads ever placed' },
   { big: '100%', label: 'Your data stays yours' },
   { big: '2026', label: 'Pizzigati Prize · NTEN' },
@@ -14,7 +14,7 @@ const STATS = [
 
 <section class="values">
   <div class="container">
-    <div class="eyebrow">A Quiet Flex</div>
+    <div class="eyebrow">Backed by values</div>
     <h2 class="headline">
       Built as a <span class="accent">commons.</span> Owned by no one.
       Stewarded by <span class="accent">everyone.</span>
@@ -22,8 +22,8 @@ const STATS = [
 
     <div class="lede-grid">
       <p class="lede">
-        Hylo is open source, community-governed, and funded by the people who use it
-        — not by ads, data sales, or venture capital. Your data belongs to you.
+        Hylo is open source, community-governed, and funded by the people who use it.
+        No ads, data stealing, or dopamine hacking. Your data belongs to you.
         Your community belongs to itself.
       </p>
       <p class="punch">
@@ -41,7 +41,7 @@ const STATS = [
           <path d="M5 12h14M13 5l7 7-7 7" />
         </svg>
       </a>
-      <a href="https://github.com/Hylozoic/hylo-evo" target="_blank" rel="noopener noreferrer"
+      <a href="https://github.com/Hylozoic/hylo" target="_blank" rel="noopener noreferrer"
         class="cta cta-secondary">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.1-1.47-1.1-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.95 0-1.1.39-2 1.03-2.7-.1-.26-.45-1.28.1-2.67 0 0 .84-.27 2.75 1.03a9.52 9.52 0 0 1 5 0c1.91-1.3 2.75-1.03 2.75-1.03.55 1.39.2 2.41.1 2.67.64.7 1.03 1.6 1.03 2.7 0 3.85-2.34 4.7-4.57 4.95.36.31.68.92.68 1.85v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2Z" />
@@ -64,7 +64,7 @@ const STATS = [
     </div>
 
     <div class="contrib">
-      <span class="contrib-num">800 individual contributors,</span>
+      <span class="contrib-num">800+ individual contributors,</span>
       and material support from
       <span class="contrib-num">18+ organizations.</span>
     </div>
@@ -76,83 +76,18 @@ const STATS = [
       {/* Set duplicated for seamless loop */}
       {Array.from({ length: 2 }).map(() => (
         <>
-          <div class="logo">
-            <div class="logo-stack">
-              <div class="zu-coop">CO<span class="zu-dash">–</span>OP</div>
-              <div class="zu-name">ZEBRAS UNITE</div>
-            </div>
-          </div>
-          <div class="logo">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 3c4 4 4 10 0 14-4-4-4-10 0-14Z" /><path d="M12 17v4" />
-            </svg>
-            <div class="logo-stack">
-              <div class="bn-name">BIONUTRIENT</div>
-              <div class="bn-sub">FOOD ASSOCIATION</div>
-            </div>
-          </div>
-          <div class="logo new-public">
-            New<span class="np-roman">_</span> Public
-          </div>
-          <div class="logo open-team">
-            Open<span class="ot-team">TEAM</span>
-          </div>
-          <div class="logo">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.3">
-              {Array.from({ length: 8 }).map((_, i) => {
-                const a = (i * Math.PI) / 4;
-                return (
-                  <line x1="12" y1="12" x2={12 + 10 * Math.cos(a)} y2={12 + 10 * Math.sin(a)} />
-                );
-              })}
-            </svg>
-            <div class="pi-name">PACIFIC INTEGRAL</div>
-          </div>
-          <div class="logo">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.2">
-              <circle cx="12" cy="12" r="10" />
-              <path d="M2 12h20M12 2a16 16 0 0 1 0 20M12 2a16 16 0 0 0 0 20" />
-            </svg>
-            <div class="logo-stack pha">
-              <div>PLANETARY</div>
-              <div>HEALTH</div>
-              <div class="pha-sub">ALLIANCE</div>
-            </div>
-          </div>
-          <div class="logo">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.2">
-              {Array.from({ length: 12 }).map((_, i) => (
-                <line x1="12" y1="12"
-                  x2={12 + 10 * Math.cos(i * Math.PI / 6)}
-                  y2={12 + 10 * Math.sin(i * Math.PI / 6)} />
-              ))}
-            </svg>
-            <div class="logo-stack">
-              <div class="rn-name">REGEN</div>
-              <div class="rn-sub">NETWORK</div>
-            </div>
-          </div>
-          <div class="logo">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.6">
-              <circle cx="12" cy="12" r="10" />
-              <path d="M4 12h16M8 7l8 10M16 7L8 17" />
-            </svg>
-            <div class="terran">TERRAN</div>
-          </div>
-          <div class="logo holochain">
-            <span class="hc-text">HOL</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="1.4">
-              <circle cx="12" cy="12" r="6" />
-              <circle cx="12" cy="12" r="2" fill="currentColor" />
-            </svg>
-            <span class="hc-text">CHAIN</span>
-          </div>
+          <div class="logo"><img src="/v5/logos/zebras-unite.png" alt="Zebras Unite" style="height:75px;width:auto;opacity:0.82;" /></div>
+          <div class="logo"><img src="/v5/logos/bionutrients.png" alt="Bionutrient Food Association" style="height:75px;width:auto;opacity:0.82;" /></div>
+          <div class="logo"><img src="/v5/logos/new-public.png" alt="New Public" style="height:75px;width:auto;opacity:0.82;" /></div>
+          <div class="logo"><img src="/v5/logos/openteam.png" alt="OpenTeam" style="height:75px;width:auto;opacity:0.82;" /></div>
+          <div class="logo"><img src="/v5/logos/pacific-integral.png" alt="Pacific Integral" style="height:75px;width:auto;opacity:0.82;" /></div>
+          <div class="logo"><img src="/v5/logos/planetary-health.png" alt="Planetary Health Alliance" style="height:75px;width:auto;opacity:0.82;" /></div>
+          <div class="logo"><img src="/v5/logos/prosocial.png" alt="Prosocial" style="height:75px;width:auto;opacity:0.82;" /></div>
+          <div class="logo"><img src="/v5/logos/regen-network.png" alt="Regen Network" style="height:75px;width:auto;opacity:0.82;" /></div>
+          <div class="logo"><img src="/v5/logos/salmon-nation.png" alt="Salmon Nation" style="height:75px;width:auto;opacity:0.82;" /></div>
+          <div class="logo"><img src="/v5/logos/terran.png" alt="Terran" style="height:75px;width:auto;opacity:0.82;" /></div>
+          <div class="logo"><img src="/v5/logos/tribal-resource-center.png" alt="Tribal Resource Center" style="height:75px;width:auto;opacity:0.82;" /></div>
+          <div class="logo"><img src="/v5/logos/holochain.png" alt="Holochain" style="height:75px;width:auto;opacity:0.82;" /></div>
         </>
       ))}
     </div>
@@ -281,7 +216,7 @@ const STATS = [
   }
 
   .stat-big {
-    font-size: 60px;
+    font-size: 48px;
     font-weight: 700;
     color: $values-accent;
     letter-spacing: -2.2px;

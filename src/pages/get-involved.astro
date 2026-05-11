@@ -8,26 +8,26 @@ import { tokens } from '../components/v5/tokens.js';
 
 const QUICK_ACTIONS = [
   { icon: 'people',   color: tokens.forest,         title: 'Join Building Hylo',
-    body: 'Our open community for everyone shaping Hylo’s future. Product news, upcoming designs, feature discussions, and direct access to the team.',
-    cta: 'Join on Hylo' },
+    body: `Our open community for everyone shaping Hylo's future. Product news, upcoming designs, feature discussions, and direct access to the team.`,
+    cta: 'Join on Hylo', href: 'https://www.hylo.com/groups/building-hylo' },
   { icon: 'calendar', color: tokens.eventRed,       title: 'Come to a community call',
     body: 'Monthly open calls to connect, ask questions, and share input with the team and wider community. No preparation needed.',
-    cta: 'See upcoming calls' },
+    cta: 'See upcoming calls', href: 'https://luma.com/calendar/cal-neuN1NsBDApQ8Cb' },
   { icon: 'heart',    color: tokens.proposalPurple, title: 'Make a contribution',
     body: 'Hylo is funded by the people who use it. A small recurring contribution — any amount — helps keep the platform free for everyone.',
-    cta: 'Contribute' },
+    cta: 'Contribute', href: 'https://opencollective.com/hylo' },
 ];
 
 const ORGANIZER_OFFERINGS = [
   { title: 'Hylo Community Organizers',
-    body: 'A community of practice for group stewards to connect, share what’s working, and learn from each other. Access resources, best practices, and direct conversation with Hylo’s community team.',
+    body: `A community of practice for group stewards to connect, share what's working, and learn from each other. Access resources, best practices, and direct conversation with Hylo's community team.`,
     cta: 'Join the group',
     avatar: true },
   { title: 'Guides and documentation',
     body: 'Our documentation covers everything from setting up your first group to advanced stewardship practices — agreements, moderation, engagement strategies, and how to help your community grow.',
     cta: 'Read the guides' },
   { title: 'Hands-on stewardship support',
-    body: 'Need more than documentation? The Hylo team offers direct support: onboarding help, governance design, facilitation guidance, and ongoing coaching for groups navigating complex coordination. We’ve spent years learning what makes online communities thrive.',
+    body: `Need more than documentation? The Hylo team offers direct support: onboarding help, governance design, facilitation guidance, and ongoing coaching for groups navigating complex coordination. We've spent years learning what makes online communities thrive.`,
     cta: 'Learn about support options' },
 ];
 
@@ -94,7 +94,7 @@ const BUILDER_CARDS = [
             </div>
             <div class="qa-title">{a.title}</div>
             <p class="qa-body">{a.body}</p>
-            <a class="text-link">{a.cta} <span class="arrow">→</span></a>
+            <a class="text-link" href={a.href} target="_blank" rel="noopener noreferrer">{a.cta} <span class="arrow">→</span></a>
           </div>
         ))}
       </div>

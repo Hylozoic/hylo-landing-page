@@ -142,11 +142,11 @@ export default function FeaturedGroups() {
           </h3>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-          <a href="/stories" style={{
+          <a href="https://www.hylo.com/public/groups" style={{
             fontSize: 13, color: ACCENT, fontWeight: 600, letterSpacing: 0.3,
             textDecoration: 'none',
           }}>
-            Browse all groups →
+            Browse public groups →
           </a>
           <div style={{ display: 'flex', gap: 8 }}>
             <button type="button" aria-label="Scroll left" onClick={() => scrollBy(-1)} style={arrowStyle}>
