@@ -10,13 +10,5 @@
 # from running on this branch.
 
 [build]
-  # The site previously used Gatsby; Netlify still runs @netlify/plugin-gatsby
-  # (installed as a UI plugin) even though this is now an Astro project. That
-  # plugin's onBuild hook looks for .cache/imageCdnEncryptionConfig.json and
-  # fails with ENOENT if it's missing. Creating a stub file before the Astro
-  # build satisfies the plugin so the overall build succeeds.
-  command = "mkdir -p .cache && echo '{}' > .cache/imageCdnEncryptionConfig.json && yarn build"
+  command = "yarn build"
   publish = "dist"
-
-[build.environment]
-  GATSBY_PRECOMPILE_DEVELOP_FUNCTIONS = "false"
