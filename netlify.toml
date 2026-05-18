@@ -1,13 +1,6 @@
 # Astro on Netlify: the @astrojs/netlify adapter (configured in
 # astro.config.mjs) wires SSR routes to Netlify Functions; the rest of the
 # site is prerendered HTML in dist/.
-#
-# Explicit build settings here also override Netlify's framework
-# auto-detection. The repo's history was Gatsby and Netlify still
-# auto-installs @netlify/plugin-gatsby on the site, which then fails
-# trying to read Gatsby's .cache/imageCdnEncryptionConfig.json. Pinning
-# the build/publish dirs and Astro framework signals stops that plugin
-# from running on this branch.
 
 [build]
   command = "yarn build"
