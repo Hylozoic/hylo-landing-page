@@ -18,11 +18,13 @@ const blog = defineCollection({
     readTime: z.string(),
     featured: z.boolean().default(false),
     cover: z.object({
-      caption: z.string(),
-      palette1: z.string(),
-      palette2: z.string(),
-      palette3: z.string(),
-      accent: z.string(),
+      image:       z.string().optional(),
+      caption:     z.string(),
+      hideCaption: z.boolean().optional().default(false),
+      palette1:    z.string().optional(),
+      palette2:    z.string().optional(),
+      palette3:    z.string().optional(),
+      accent:      z.string().optional(),
     }),
   }),
 });

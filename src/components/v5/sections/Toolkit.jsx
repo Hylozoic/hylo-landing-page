@@ -216,25 +216,31 @@ function FeatureModal({ cap, onClose }) {
           </button>
           <div style={{
             flex: 1, borderRadius: 12, overflow: 'hidden',
-            border: `1px dashed ${cap.color}66`, background: `${cap.color}0d`,
-            minHeight: 420, position: 'relative',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            background: '#000', minHeight: 420, position: 'relative',
           }}>
-            <div style={{ textAlign: 'center', padding: 40, maxWidth: 420 }}>
+            {cap.video ? (
+              <video
+                key={cap.key}
+                src={cap.video}
+                autoPlay
+                loop
+                muted
+                playsInline
+                style={{ display: 'block', width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+            ) : (
               <div style={{
-                display: 'inline-block',
-                fontSize: 10, fontFamily: "'JetBrains Mono', monospace", letterSpacing: 1,
-                color: cap.color, textTransform: 'uppercase', fontWeight: 700,
-                padding: '4px 10px', borderRadius: 999, background: `${cap.color}1a`,
-                marginBottom: 16,
+                position: 'absolute', inset: 0,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                background: `${cap.color}0d`,
               }}>
-                screenshot placeholder
+                <div style={{ textAlign: 'center', padding: 40, maxWidth: 420 }}>
+                  <div style={{ fontSize: 15, color: 'rgba(42,39,35,0.7)', lineHeight: 1.55 }}>
+                    {cap.shotHint}
+                  </div>
+                </div>
               </div>
-              <div style={{ fontSize: 15, color: 'rgba(42,39,35,0.7)', lineHeight: 1.55 }}>
-                Product screenshot of <strong style={{ color: tokens.ink }}>{cap.title}</strong> in
-                action goes here — {cap.shotHint.toLowerCase()}.
-              </div>
-            </div>
+            )}
           </div>
         </div>
       </div>
@@ -279,68 +285,89 @@ export default function Toolkit() {
               marginTop: 28, fontSize: 12, color: 'rgba(42,39,35,0.55)',
               fontFamily: "'JetBrains Mono', monospace", letterSpacing: 0.2,
             }}>
-              The Great Simplification · #general
+              Hylo video overview in 60 seconds
             </div>
           </div>
 
           {/* Speedrun screenshot + play button */}
-          <button
-            type="button"
-            aria-label="Play the Hylo speedrun — a 1-minute tour"
-            style={{
-              position: 'relative', padding: 0, border: 'none', background: 'transparent',
-              cursor: 'pointer', fontFamily: 'inherit', display: 'block',
-              borderRadius: 14, overflow: 'hidden',
-              boxShadow: '0 24px 60px rgba(20,30,50,0.14), 0 4px 14px rgba(20,30,50,0.06)',
-            }}
-          >
-            <div style={{
-              border: '1px solid rgba(42,39,35,0.14)', borderRadius: 14, overflow: 'hidden',
-              background: '#fff',
-            }}>
-              <img
-                src="/v5/hylo-screenshot.png"
-                alt="Hylo — The Great Simplification, #general"
-                style={{ display: 'block', width: '100%', height: 'auto' }}
-              />
-            </div>
-            <div style={{
-              position: 'absolute', inset: 0, borderRadius: 14,
-              background: 'linear-gradient(180deg, rgba(20,20,18,0) 40%, rgba(20,20,18,0.35) 100%)',
-              pointerEvents: 'none',
-            }} />
-            <div style={{
-              position: 'absolute', top: '50%', left: '50%',
-              transform: 'translate(-50%, -50%)',
-              width: 88, height: 88, borderRadius: 999,
-              background: '#fff', color: ACCENT,
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              boxShadow: '0 12px 32px rgba(0,0,0,0.25), 0 0 0 8px rgba(255,255,255,0.22)',
-            }}>
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"
-                style={{ marginLeft: 4 }}>
-                <path d="M6 4.5v15a1 1 0 0 0 1.54.84l11.5-7.5a1 1 0 0 0 0-1.68L7.54 3.66A1 1 0 0 0 6 4.5Z" />
-              </svg>
-            </div>
-            <div style={{
-              position: 'absolute', left: 18, bottom: 18,
-              display: 'flex', alignItems: 'center', gap: 10,
-              padding: '8px 14px 8px 10px', borderRadius: 999,
-              background: 'rgba(15,15,14,0.72)', backdropFilter: 'blur(10px)',
-              color: '#fff', fontSize: 12.5, fontWeight: 600, letterSpacing: 0.2,
-            }}>
-              <span style={{
-                display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                width: 20, height: 20, borderRadius: 999, background: '#fff', color: ACCENT,
+          {(() => {
+            const [playing, setPlaying] = React.useState(false);
+            const videoRef = React.useRef(null);
+            const handlePlay = () => {
+              setPlaying(true);
+              // autoplay once the video element mounts
+              requestAnimationFrame(() => videoRef.current?.play());
+            };
+            return (
+              <div style={{
+                position: 'relative', borderRadius: 14, overflow: 'hidden',
+                boxShadow: '0 24px 60px rgba(20,30,50,0.14), 0 4px 14px rgba(20,30,50,0.06)',
+                border: '1px solid rgba(42,39,35,0.14)', background: '#000',
               }}>
-                <svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M6 4.5v15a1 1 0 0 0 1.54.84l11.5-7.5a1 1 0 0 0 0-1.68L7.54 3.66A1 1 0 0 0 6 4.5Z" />
-                </svg>
-              </span>
-              <span>Hylo speedrun</span>
-              <span style={{ opacity: 0.7, fontWeight: 500 }}>· 1 min tour</span>
-            </div>
-          </button>
+                {playing ? (
+                  <video
+                    ref={videoRef}
+                    src="/v5/video/Hylo-Speedrun.mp4"
+                    controls
+                    playsInline
+                    style={{ display: 'block', width: '100%', height: 'auto' }}
+                  />
+                ) : (
+                  <button
+                    type="button"
+                    aria-label="Play the Hylo speedrun — a 1-minute tour"
+                    onClick={handlePlay}
+                    style={{
+                      display: 'block', width: '100%', padding: 0,
+                      border: 'none', background: 'transparent', cursor: 'pointer',
+                    }}
+                  >
+                    <img
+                      src="/v5/hylo-screenshot.png"
+                      alt="Hylo — The Great Simplification, #general"
+                      style={{ display: 'block', width: '100%', height: 'auto' }}
+                    />
+                    <div style={{
+                      position: 'absolute', inset: 0,
+                      background: 'linear-gradient(180deg, rgba(20,20,18,0) 40%, rgba(20,20,18,0.35) 100%)',
+                      pointerEvents: 'none',
+                    }} />
+                    <div style={{
+                      position: 'absolute', top: '50%', left: '50%',
+                      transform: 'translate(-50%, -50%)',
+                      width: 88, height: 88, borderRadius: 999,
+                      background: '#fff', color: ACCENT,
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      boxShadow: '0 12px 32px rgba(0,0,0,0.25), 0 0 0 8px rgba(255,255,255,0.22)',
+                    }}>
+                      <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"
+                        style={{ marginLeft: 4 }}>
+                        <path d="M6 4.5v15a1 1 0 0 0 1.54.84l11.5-7.5a1 1 0 0 0 0-1.68L7.54 3.66A1 1 0 0 0 6 4.5Z" />
+                      </svg>
+                    </div>
+                    <div style={{
+                      position: 'absolute', left: 18, bottom: 18,
+                      display: 'flex', alignItems: 'center', gap: 10,
+                      padding: '8px 14px 8px 10px', borderRadius: 999,
+                      background: 'rgba(15,15,14,0.72)', backdropFilter: 'blur(10px)',
+                      color: '#fff', fontSize: 12.5, fontWeight: 600, letterSpacing: 0.2,
+                    }}>
+                      <span style={{
+                        display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                        width: 20, height: 20, borderRadius: 999, background: '#fff', color: ACCENT,
+                      }}>
+                        <svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M6 4.5v15a1 1 0 0 0 1.54.84l11.5-7.5a1 1 0 0 0 0-1.68L7.54 3.66A1 1 0 0 0 6 4.5Z" />
+                        </svg>
+                      </span>
+                      <span>Hylo speedrun</span>
+                      <span style={{ opacity: 0.7, fontWeight: 500 }}>· 1 min tour</span>
+                    </div>
+                  </button>
+                )}
+              </div>
+            );
+          })()}
         </div>
 
         <div className="v5-toolkit-card-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>

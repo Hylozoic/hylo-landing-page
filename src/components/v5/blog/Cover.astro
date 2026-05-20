@@ -1,16 +1,16 @@
 ---
-// Procedural cover placeholder — diagonal gradient between the three palette
-// colors with a subtle ring pattern overlay and a caption chip in the corner.
-// Used in the v5 design until real cover photos land. Source:
-// design_handoff_v5/design/v5-blog.jsx (CoverPlaceholder).
+// Blog post cover — renders a real photo when cover.image is set, otherwise
+// falls back to the procedural gradient + ring pattern placeholder.
 
 interface Props {
   cover: {
+    image?: string;
     caption: string;
-    palette1: string;
-    palette2: string;
-    palette3: string;
-    accent: string;
+    hideCaption?: boolean;
+    palette1?: string;
+    palette2?: string;
+    palette3?: string;
+    accent?: string;
   };
   height?: number;
   patternId?: string;
@@ -18,25 +18,29 @@ interface Props {
 
 const { cover, height = 240, patternId } = Astro.props;
 
-// Deterministic pattern id per cover so multiple covers on the same page
-// don't collide. Falls back to a hash of the caption.
 const id = patternId ??
-  `cover-${cover.caption.length}-${cover.accent.replace('#', '')}`;
+  `cover-${cover.caption.length}-${(cover.accent ?? '#087736').replace('#', '')}`;
 ---
 
 <div
   class="cover"
-  style={`--h:${height}px; background: linear-gradient(135deg, ${cover.palette1} 0%, ${cover.palette2} 55%, ${cover.palette3} 100%);`}
+  style={cover.image
+    ? `--h:${height}px;`
+    : `--h:${height}px; background: linear-gradient(135deg, ${cover.palette1} 0%, ${cover.palette2} 55%, ${cover.palette3} 100%);`}
 >
-  <svg width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 400 240" class="rings">
-    <defs>
-      <pattern id={id} width="36" height="36" patternUnits="userSpaceOnUse">
-        <circle cx="18" cy="18" r="16" fill="none" stroke={cover.accent} stroke-width="0.7" />
-      </pattern>
-    </defs>
-    <rect width="400" height="240" fill={`url(#${id})`} />
-  </svg>
-  <div class="caption">{cover.caption}</div>
+  {cover.image ? (
+    <img src={cover.image} alt={cover.caption} class="photo" />
+  ) : (
+    <svg width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 400 240" class="rings">
+      <defs>
+        <pattern id={id} width="36" height="36" patternUnits="userSpaceOnUse">
+          <circle cx="18" cy="18" r="16" fill="none" stroke={cover.accent} stroke-width="0.7" />
+        </pattern>
+      </defs>
+      <rect width="400" height="240" fill={`url(#${id})`} />
+    </svg>
+  )}
+  {!cover.hideCaption && <div class="caption">{cover.caption}</div>}
 </div>
 
 <style lang="scss">
@@ -48,6 +52,15 @@ const id = patternId ??
     height: var(--h);
     border-radius: 10px;
     overflow: hidden;
+  }
+
+  .photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 
   .rings {
