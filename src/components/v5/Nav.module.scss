@@ -51,6 +51,23 @@
   background: none;
   border: 0;
   padding: 0;
+
+  &.active {
+    opacity: 1;
+    font-weight: 700;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -4px;
+      height: 2px;
+      border-radius: 999px;
+      background: $forest;
+    }
+  }
 }
 
 .right {

@@ -34,7 +34,7 @@ const {
   </head>
   <body>
     <div class="v5">
-      <Nav client:load />
+      <Nav client:load currentPath={Astro.url.pathname} />
       <main>
         <slot />
       </main>

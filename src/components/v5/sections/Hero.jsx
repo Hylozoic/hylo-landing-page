@@ -95,7 +95,7 @@ function AuthCard() {
             cursor: 'pointer', fontFamily: 'inherit', letterSpacing: 0.2,
           }}
         >
-          {isLogin ? 'Log in' : 'Create account'}
+          {isLogin ? 'Log in to Hylo' : 'Create account on Hylo'}
         </button>
       </form>
 
@@ -217,14 +217,14 @@ export default function Hero() {
                 fontSize: 19, lineHeight: 1.5, color: 'rgba(42,39,35,0.78)',
                 margin: 0, fontWeight: 400, textWrap: 'pretty',
               }}>
-                Unlock deeper trust, better coordination, and the capacity to tackle complex
+                On Hylo, groups unlock deeper trust, better coordination, and the capacity to tackle complex
                 challenges — together.
               </p>
             </FadeIn>
 
             <div style={{ display: 'flex', gap: 16, marginTop: 28, alignItems: 'center' }}>
               <FadeIn from="up" delay={550}>
-                <a href="/bring-your-group" style={{
+                <a href="https://www.hylo.com/create-group" style={{
                   display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
                   height: 50, padding: '0 24px', borderRadius: 8,
                   background: ACCENT, color: '#fff', fontWeight: 600, fontSize: 15,
@@ -234,11 +234,11 @@ export default function Hero() {
                 </a>
               </FadeIn>
               <FadeIn from="up" delay={800}>
-                <a href="/features" style={{
+                <a href="/why-choose-hylo" style={{
                   fontSize: 15, color: ACCENT, fontWeight: 600,
                   textDecoration: 'underline', textUnderlineOffset: 5,
                 }}>
-                  Explore features
+                  Why choose Hylo
                 </a>
               </FadeIn>
             </div>

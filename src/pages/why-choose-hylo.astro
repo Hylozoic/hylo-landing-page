@@ -32,11 +32,11 @@ const STEPS = [
 ];
 ---
 
-<Layout title="Hylo — Bring your group">
+<Layout title="Why Choose Hylo">
   {/* ── Hero ─────────────────────────────────────────────────── */}
   <section class="hero">
     <div class="hero-inner">
-      <h1 class="hero-headline">Bring your group to Hylo.</h1>
+      <h1 class="hero-headline">Why choose Hylo.</h1>
       <p class="hero-lede">
         Your community deserves a platform built for coordination, not just
         conversation. Here’s what changes when you move to Hylo — and how to make
@@ -44,8 +44,8 @@ const STEPS = [
       </p>
 
       <div class="hero-ctas">
-        <button type="button" class="hero-cta-primary">Get started — it’s free</button>
-        <a href="#platform-nav" class="hero-cta-link">Jump to your platform ↓</a>
+        <a href="https://www.hylo.com/create-group" class="hero-cta-primary">Get started — it’s free</a>
+        <a href="/features" class="hero-cta-link">Explore features</a>
       </div>
 
       <div id="platform-nav" class="platform-nav">
@@ -106,6 +106,10 @@ const STEPS = [
             <p class="only-card-body">{c.d}</p>
           </div>
         ))}
+      </div>
+
+      <div class="only-foot">
+        <a href="/features" class="only-cta">Explore all features →</a>
       </div>
     </div>
   </section>
@@ -182,6 +186,8 @@ const STEPS = [
     flex-wrap: wrap;
   }
   .hero-cta-primary {
+    display: inline-flex;
+    align-items: center;
     height: 44px;
     padding: 0 20px;
     border-radius: 8px;
@@ -192,6 +198,7 @@ const STEPS = [
     font-size: 15px;
     cursor: pointer;
     font-family: inherit;
+    text-decoration: none;
   }
   .hero-cta-link {
     font-size: 14px;
@@ -318,6 +325,27 @@ const STEPS = [
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.8);
     text-wrap: pretty;
+  }
+  .only-foot {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+  }
+  .only-cta {
+    display: inline-flex;
+    align-items: center;
+    height: 44px;
+    padding: 0 22px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    font-family: inherit;
+    transition: background 0.15s;
+    &:hover { background: rgba(255, 255, 255, 0.2); }
   }
 
   /* ── Getting started ─────────────────────────────────────── */

@@ -14,9 +14,10 @@ const LOGO_SRC = '/v5/hylo-logo-dark.svg';
 //   { t: 'Label', ext: true, href?: '…' } → external link (renders the ↗ icon)
 
 const MENU_TOP = [
+  { t: 'About', href: '/about' },
   { t: 'Features', href: '/features' },
   { t: 'Pricing',  href: '/pricing'  },
-  { t: 'Who',      href: '/who'      },
+  { t: 'Who is Hylo for?',      href: '/who-is-hylo-for'      },
   { t: 'Blog',     href: '/blog'     },
 ];
 
@@ -25,6 +26,7 @@ const MENU_SECTIONS = [
     h: 'About Hylo',
     l: [
       { t: 'About Hylo',         href: '/about'   },
+      { t: 'Blog',         href: '/blog'         },
       { t: "Hylo Stewardship", href: '/about'   },
       { t: 'Team',               href: '/about'   },
     ],
@@ -32,7 +34,7 @@ const MENU_SECTIONS = [
   {
     h: 'Using Hylo',
     l: [
-      { t: 'Bring your group',     href: '/bring-your-group'    },
+      { t: 'Why choose Hylo',     href: '/why-choose-hylo'    },
       { t: 'Features',             href: '/features'            },
       { t: 'Pricing',              href: '/pricing'             },
       { t: 'Stewardship support',  href: '/stewardship-support' },
@@ -46,8 +48,7 @@ const MENU_SECTIONS = [
     h: 'Participate',
     l: [
       { t: 'Get involved', href: '/get-involved' },
-      { t: 'Blog',         href: '/blog'         },
-      { t: 'Who is it for', href: '/who'         },
+      { t: 'Who is Hylo for', href: '/who-is-hylo-for'         },
       'Join our open-source community',
       'Attend a community call',
       'Partner with us',
@@ -153,7 +154,7 @@ function MegaMenu({ open, onClose }) {
   );
 }
 
-export default function Nav() {
+export default function Nav({ currentPath = '' }) {
   const [scrolled, setScrolled] = React.useState(false);
   const [menuOpen, setMenuOpen] = React.useState(false);
   const sentinelRef = React.useRef(null);
@@ -182,7 +183,11 @@ export default function Nav() {
 
           <nav className={styles.menu}>
             {MENU_TOP.map((l) => (
-              <a key={l.t} href={l.href} className={styles.menuLink}>{l.t}</a>
+              <a
+                key={l.t}
+                href={l.href}
+                className={`${styles.menuLink} ${currentPath === l.href ? styles.active : ''}`}
+              >{l.t}</a>
             ))}
           </nav>
 
