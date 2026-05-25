@@ -25,8 +25,10 @@ const MENU_SECTIONS = [
   {
     h: 'About Hylo',
     l: [
-      { t: 'About Hylo',         href: '/about'   },
       { t: 'Blog',         href: '/blog'         },
+      { t: 'About Hylo',         href: '/about'   },
+      { t: 'Who is Hylo for', href: '/who-is-hylo-for'         },
+      { t: 'Why choose Hylo',     href: '/why-choose-hylo'    },
       { t: "Hylo Stewardship", href: '/about'   },
       { t: 'Team',               href: '/about'   },
     ],
@@ -34,25 +36,23 @@ const MENU_SECTIONS = [
   {
     h: 'Using Hylo',
     l: [
-      { t: 'Why choose Hylo',     href: '/why-choose-hylo'    },
       { t: 'Features',             href: '/features'            },
       { t: 'Pricing',              href: '/pricing'             },
       { t: 'Stewardship support',  href: '/stewardship-support' },
-      { t: 'Member Guide',         ext: true },
-      { t: 'Steward Guide',        ext: true },
-      { t: 'Documentation',        ext: true },
-      { t: 'Code',                 ext: true },
+      { t: 'Member Guide',         ext: 'https://hylozoic.gitbook.io/hylo/guides/hylo-user-guide' },
+      { t: 'Steward Guide',        ext: 'https://hylozoic.gitbook.io/hylo/guides/hylo-steward-guide' },
+      { t: 'Documentation',        ext: 'https://hylozoic.gitbook.io/hylo' },
+      { t: 'Code',                 ext: 'https://github.com/Hylozoic/hylo' },
     ],
   },
   {
     h: 'Participate',
     l: [
       { t: 'Get involved', href: '/get-involved' },
-      { t: 'Who is Hylo for', href: '/who-is-hylo-for'         },
-      'Join our open-source community',
-      'Attend a community call',
-      'Partner with us',
-      'Contribute to Hylo',
+      { t: 'Join our open-source community',     ext: 'https://www.hylo.com/groups/building-hylo' },
+      { t: 'Attend a community call',     ext: 'https://luma.com/calendar/cal-neuN1NsBDApQ8Cb' },
+      { t: 'Partner with us',     href: '/get-involved#partner' },
+      { t: 'Donate',     ext: 'https://opencollective.com/hylo' },
     ],
   },
   {
