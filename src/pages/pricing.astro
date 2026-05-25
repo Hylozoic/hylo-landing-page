@@ -49,10 +49,11 @@ const PRO_CARDS = [
     desc: 'Faster response times from the Hylo team when your group needs help. Direct access for technical and stewardship questions.' },
   { icon: 'plug',    name: 'API access & integrations',
     desc: 'Connect Hylo to your existing tools and workflows. Build custom integrations, automate processes, and extend the platform to fit your stack.' },
+  { icon: 'palette', name: 'Custom colors',
+    desc: 'Choose colors for your group UI that match your branding. Make Hylo feel like home for your community from the moment members arrive.' },
 ];
 
 const WL_INCLUDED = [
-  'Dedicated instance under your domain',
   'Full visual customization — your brand, your themes',
   'All Hylo platform features',
   'Ongoing updates from core platform development',
@@ -94,7 +95,6 @@ const COMPARISON = [
   { feat: 'Requests & offers',          vals: [true, true, true, true] },
   { feat: 'Projects',                   vals: [true, true, true, true] },
   { feat: 'Proposals & decisions',      vals: [true, true, true, true] },
-  { feat: 'Governance tools',           vals: [true, true, true, true] },
   { feat: 'Map & place',                vals: [true, true, true, true] },
   { feat: 'Mobile apps',                vals: [true, true, true, true] },
   { feat: 'Unlimited members',          vals: [true, true, true, true] },
@@ -108,16 +108,16 @@ const COMPARISON = [
   { feat: 'Growth & health guidance',   vals: [false, false, true, 'Available'] },
   { feat: 'Moderation awareness',       vals: [false, false, true, 'Available'] },
   { feat: 'Custom domain',              vals: [false, false, false, true] },
-  { feat: 'Custom branding',            vals: [false, false, false, true] },
-  { feat: 'Dedicated instance',         vals: [false, false, false, true] },
+  { feat: 'Custom branding',            vals: [false, true, false, true] },
+  { feat: 'Dedicated instance',         vals: [false, false, false, 'Custom'] },
   { feat: 'Custom development',         vals: [false, false, false, 'Available'] },
 ];
 
 const COLS = [
   { name: 'Hylo Free',       price: 'Free forever',     priceColor: tokens.forest },
-  { name: 'Hylo Pro',        price: '$60/mo per group', priceColor: tokens.forest },
-  { name: 'Hylo Assistant',  price: '$20/mo per group', priceColor: PURPLE },
-  { name: 'Hylo Whitelabel', price: '$100/mo',          priceColor: tokens.forest },
+  { name: 'Hylo Pro',        price: 'Est. $60/mo per group', priceColor: tokens.forest },
+  { name: 'Hylo Assistant',  price: 'Est. $20/mo per group', priceColor: PURPLE },
+  { name: 'Hylo Whitelabel', price: 'Custom',          priceColor: tokens.forest },
 ];
 ---
 
@@ -197,10 +197,10 @@ const COLS = [
     <div class="prod-inner">
       <header class="prod-head">
         <h2 class="prod-name">Hylo Pro</h2>
-        <div class="prod-price">$60/month per group</div>
+        <div class="prod-price">Est. $60/month per group</div>
       </header>
       <div class="badge-row">
-        <span class="badge badge-forest">Launching Fall 2026</span>
+        <span class="badge badge-forest">Coming Soon</span>
       </div>
       <p class="one-liner">
         For groups that need more capacity. Everything in Hylo Free, plus
@@ -241,6 +241,16 @@ const COLS = [
                   <path d="M12 19v3" />
                 </svg>
               )}
+              {c.icon === 'palette' && (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 2a10 10 0 1 0 6 18c1-.8 1.4-2 .7-3-.6-1-1.7-1-2.7-1h-1a2 2 0 0 1-2-2 2 2 0 0 1 .6-1.4" />
+                  <circle cx="8"  cy="9"  r="1.2" fill="currentColor" stroke="none" />
+                  <circle cx="12" cy="7"  r="1.2" fill="currentColor" stroke="none" />
+                  <circle cx="16" cy="9"  r="1.2" fill="currentColor" stroke="none" />
+                  <circle cx="7"  cy="13" r="1.2" fill="currentColor" stroke="none" />
+                </svg>
+              )}
             </span>
             <div class="pro-card-name">{c.name}</div>
             <div class="pro-card-desc">{c.desc}</div>
@@ -249,8 +259,8 @@ const COLS = [
       </div>
 
       <p class="prod-summary">
-        <strong>$60/month per group.</strong> One price, every member included.
-        Launching Fall 2026.
+        One price, every member included.
+        Coming soon.
       </p>
       <div class="prod-cta">
         <button type="button" class="btn" data-waitlist="Pro">Join the Pro waitlist</button>
@@ -264,30 +274,23 @@ const COLS = [
       <div>
         <header class="prod-head">
           <h2 class="prod-name">Hylo Whitelabel</h2>
-          <div class="prod-price">$100/month</div>
+          <div class="prod-price">Custom</div>
         </header>
         <div class="badge-row">
-          <span class="badge badge-forest">Launching Fall 2026</span>
+          <span class="badge badge-forest">Coming soon</span>
         </div>
 
         <div class="wl-prose">
           <p>
             Some organizations need Hylo's coordination infrastructure under
             their own brand — their domain, their identity, their experience.
-            Hylo Whitelabel is a dedicated deployment of the platform,
-            configured for your organization.
+            Hylo Whitelabel is configured for your organization.
           </p>
           <p>
             Your community gets the full power of Hylo's coordination tools —
             groups, governance, mutual support, map, cross-group coordination —
             inside an environment that looks and feels entirely like yours.
             Your brand, your colors, your domain.
-          </p>
-          <p>
-            Because Hylo is open source, whitelabel deployments benefit from
-            ongoing platform development while maintaining full independence.
-            You're not locked into a vendor relationship — you're building on
-            a commons.
           </p>
         </div>
 
@@ -304,10 +307,10 @@ const COLS = [
       </div>
 
       <aside class="wl-card">
-        <div class="wl-card-price">$100/month.</div>
+
         <div class="wl-card-line">Your brand. Your domain. Full platform.</div>
         <div class="wl-card-line">
-          Launching Fall 2026. Join the waitlist to reserve your deployment.
+          Coming soon. Join the waitlist to reserve your spot.
         </div>
         <button type="button" class="btn btn-block" data-waitlist="Whitelabel">Join the Whitelabel waitlist</button>
         <div class="wl-card-help">
@@ -323,7 +326,7 @@ const COLS = [
     <div class="prod-inner">
       <header class="prod-head">
         <h2 class="prod-name">Hylo Assistant</h2>
-        <div class="prod-price prod-price-purple">$20/month per group</div>
+        <div class="prod-price prod-price-purple">Est. $20/month per group</div>
       </header>
       <div class="badge-row">
         <span class="badge badge-purple">Coming soon</span>
@@ -380,7 +383,7 @@ const COLS = [
       </div>
 
       <p class="prod-summary">
-        <strong>$20/month per group.</strong> Add the Assistant to any Hylo
+        Add the Assistant to any Hylo
         group — Free, Pro, or Whitelabel. Join the waitlist to be notified
         when it launches.
       </p>
@@ -544,7 +547,7 @@ const COLS = [
         For now — bring your group and see what becomes possible.
       </p>
       <div class="closing-cta">
-        <a href="/bring-your-group" class="btn">Create your group — free</a>
+        <a href="https://www.hylo.com/create-group" class="btn">Create your group — free</a>
       </div>
     </div>
   </section>
