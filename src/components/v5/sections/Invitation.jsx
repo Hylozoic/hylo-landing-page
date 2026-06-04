@@ -23,8 +23,8 @@ const CARDS = [
     href: '/who',
   },
   {
-    t: 'Support the commons',
-    body: 'Join Hylo Commons. Starting at $1/month — or contribute your time and skills.',
+    t: 'Grow the commons',
+    body: 'There is a role for you in co-creating Hylo. Come be a part of our community!',
     cta: 'Get involved',
     href: '/get-involved',
   },
