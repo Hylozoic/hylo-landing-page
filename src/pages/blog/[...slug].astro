@@ -102,7 +102,7 @@ const authorColor = CATEGORIES[post.data.category]?.color ?? '#087736';
         {post.data.author.role && <div class="signoff-role">{post.data.author.role}</div>}
         <div class="signoff-body">
           Thoughts, corrections, or something to add? We’d love to hear from
-          you — reply to the newsletter, or find us in the open community.
+          you — find us in the <a href="https://www.hylo.com/groups/building-hylo">Building Hylo</a> community.
         </div>
       </div>
     </div>
@@ -305,10 +305,8 @@ const authorColor = CATEGORIES[post.data.category]?.color ?? '#087736';
     list-style: none;
   }
   :global(.post-prose ul li) {
-    display: flex;
-    gap: 14px;
-    align-items: flex-start;
-    padding: 10px 0;
+    position: relative;
+    padding: 10px 0 10px 20px;
     border-bottom: 1px solid $athens-dark;
     font-size: 17px;
     line-height: 1.55;
@@ -317,12 +315,13 @@ const authorColor = CATEGORIES[post.data.category]?.color ?? '#087736';
   :global(.post-prose ul li:last-child) { border-bottom: none; }
   :global(.post-prose ul li::before) {
     content: '';
-    margin-top: 10px;
+    position: absolute;
+    left: 0;
+    top: 20px;
     width: 6px;
     height: 6px;
     border-radius: 999px;
     background: $forest;
-    flex: none;
   }
   :global(.post-prose a) {
     color: $forest;

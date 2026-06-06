@@ -61,8 +61,8 @@ const MENU_SECTIONS = [
       { t: 'Hylo Values',              href: '/agreements#values'      },
       { t: 'Code of Conduct',          href: '/agreements#conduct'     },
       { t: 'Hylo Platform Agreements', href: '/agreements#agreements'  },
-      { t: 'Terms of Use',             href: '/agreements'             },
-      { t: 'Privacy Policy',           href: '/agreements'             },
+      { t: 'Terms of Use',             href: '/terms'             },
+      { t: 'Privacy Policy',           href: '/privacy'             },
     ],
   },
 ];
