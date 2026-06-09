@@ -142,8 +142,8 @@ function MegaMenu({ open, onClose }) {
 
         <div className={styles.megaFooter}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-            <a className={styles.signIn}>Sign in</a>
-            <button type="button" className={styles.megaCtaSignUp}>Sign up</button>
+            <a href="https://www.hylo.com/login" className={styles.signIn}>Sign in</a>
+            <a href="https://www.hylo.com/signup" className={styles.megaCtaSignUp}>Sign up</a>
           </div>
           <div className={styles.megaTagline}>
             Built with care by Terran Collective &middot; MIT
@@ -193,8 +193,8 @@ export default function Nav({ currentPath = '' }) {
 
           <div className={styles.right}>
             <div className={`${styles.auth} ${scrolled ? styles.scrolled : ''}`}>
-              <a className={styles.signIn}>Sign in</a>
-              <button type="button" className={styles.signUp}>Sign up</button>
+              <a href="https://www.hylo.com/login" className={styles.signIn}>Sign in</a>
+              <a href="https://www.hylo.com/signup" className={styles.signUp}>Sign up</a>
             </div>
             <button
               type="button"
