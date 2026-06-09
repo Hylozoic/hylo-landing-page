@@ -137,7 +137,7 @@ const STEPS = [
           setup to onboarding your members.
           {' '}<a class="gs-help-link">Get in touch →</a>
         </div>
-        <button type="button" class="gs-cta">Create your group — free</button>
+        <a href="https://www.hylo.com/create-group" class="gs-cta">Create your group — free</a>
       </div>
     </div>
   </section>
@@ -413,6 +413,8 @@ const STEPS = [
     cursor: pointer;
   }
   .gs-cta {
+    display: inline-flex;
+    align-items: center;
     margin-top: 24px;
     height: 44px;
     padding: 0 22px;
@@ -424,6 +426,7 @@ const STEPS = [
     font-size: 15px;
     cursor: pointer;
     font-family: inherit;
+    text-decoration: none;
   }
 
   /* ── Tablet portrait and below ───────────────────────────── */

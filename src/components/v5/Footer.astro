@@ -20,14 +20,13 @@ const COLUMNS = [
   {
     h: 'Using Hylo',
     l: [
-      { t: 'Bring your group',     href: '/bring-your-group'    },
       { t: 'Features',             href: '/features'            },
       { t: 'Pricing',              href: '/pricing'             },
       { t: 'Stewardship support',  href: '/stewardship-support' },
-      { t: 'Member Guide',         ext: true },
-      { t: 'Steward Guide',        ext: true },
-      { t: 'Documentation',        ext: true },
-      { t: 'Code',                 ext: true },
+      { t: 'Member Guide',         ext: true, href: 'https://hylozoic.gitbook.io/hylo/guides/hylo-user-guide'      },
+      { t: 'Steward Guide',        ext: true, href: 'https://hylozoic.gitbook.io/hylo/guides/onboarding-your-group' },
+      { t: 'Documentation',        ext: true, href: 'https://hylozoic.gitbook.io/hylo'                            },
+      { t: 'Code',                 ext: true, href: 'https://github.com/hylozoic'                                 },
     ],
   },
   {
@@ -35,11 +34,11 @@ const COLUMNS = [
     l: [
       { t: 'Get involved',  href: '/get-involved' },
       { t: 'Blog',          href: '/blog'         },
-      { t: 'Who is it for', href: '/who'          },
-      'Join our open-source community',
-      'Attend a community call',
-      'Partner with us',
-      'Contribute to Hylo',
+      { t: 'Who is it for', href: '/who-is-hylo-for' },
+      { t: 'Join our open-source community', href: '/get-involved#builders' },
+      { t: 'Attend a community call',        ext: true, href: 'https://luma.com/calendar/cal-neuN1NsBDApQ8Cb' },
+      { t: 'Partner with us',                href: '/get-involved#partner' },
+      { t: 'Contribute to Hylo',             ext: true, href: 'https://opencollective.com/hylo' },
     ],
   },
   {
@@ -48,8 +47,8 @@ const COLUMNS = [
       { t: 'Hylo Values',              href: '/agreements#values'     },
       { t: 'Code of Conduct',          href: '/agreements#conduct'    },
       { t: 'Hylo Platform Agreements', href: '/agreements#agreements' },
-      { t: 'Terms of Use',             href: '/agreements'            },
-      { t: 'Privacy Policy',           href: '/agreements'            },
+      { t: 'Terms of Use',             href: '/terms'                 },
+      { t: 'Privacy Policy',           href: '/privacy'               },
     ],
   },
 ];
