@@ -9,9 +9,79 @@ import { tokens } from '../tokens.js';
 
 const ACCENT = tokens.forest;
 
+const HYLO_BACKEND = import.meta.env.DEV ? 'http://localhost:3001' : 'https://www.hylo.com';
+const HYLO_WEB = import.meta.env.DEV ? 'http://localhost:3000' : 'https://www.hylo.com';
+const HYLO_API = `${HYLO_BACKEND}/noo/graphql`;
+const HYLO_APP = `${HYLO_WEB}/app`;
+
 function AuthCard() {
   const [mode, setMode] = React.useState('login'); // 'login' | 'signup'
   const isLogin = mode === 'login';
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+  const [error, setError] = React.useState(null);
+  const [loading, setLoading] = React.useState(false);
+
+  const handleLogin = async (e) => {
+    e?.preventDefault();
+    if (!email || !password || loading) return;
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await fetch(HYLO_API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({
+          query: `mutation ($email: String, $password: String) {
+            login(email: $email, password: $password) {
+              me { id }
+              error
+            }
+          }`,
+          variables: { email, password },
+        }),
+      });
+      const { data } = await res.json();
+      if (data?.login?.error) {
+        setError(data.login.error);
+      } else if (data?.login?.me) {
+        window.location.href = HYLO_APP;
+      } else {
+        setError("Sorry, that email and password combination didn't work.");
+      }
+    } catch (err) {
+      setError('Something went wrong. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleGoogleLogin = () => {
+    setError(null);
+    const authContext = 'login';
+    const returnDomain = window.location.origin;
+    const { clientWidth, clientHeight } = document.documentElement;
+    const [width, height] = [420, 480];
+    const popup = window.open(
+      `${HYLO_BACKEND}/noo/login/google?returnDomain=${encodeURIComponent(returnDomain)}&authContext=${authContext}`,
+      'googleAuth',
+      `width=${width},height=${height},left=${clientWidth / 2 - width / 2},top=${clientHeight / 2 - height / 2},titlebar=no,toolbar=no,menubar=no`
+    );
+
+    window.popupDone = ({ context, error: popupError }) => {
+      if (context !== authContext) return;
+      popup?.close();
+      if (popupError) { setError(popupError); return; }
+      window.location.href = HYLO_APP;
+    };
+
+    const onMessage = ({ data }) => {
+      if (data?.type === 'third party auth') window.popupDone(data);
+    };
+    window.addEventListener('message', onMessage);
+  };
+
   const input = {
     width: '100%', height: 44, borderRadius: 8, boxSizing: 'border-box',
     border: '1px solid rgba(42,39,35,0.18)', background: '#fff',
@@ -38,7 +108,7 @@ function AuthCard() {
           <button
             key={t.k}
             type="button"
-            onClick={() => setMode(t.k)}
+            onClick={() => { setMode(t.k); setError(null); }}
             style={{
               height: 34, borderRadius: 7, border: 'none',
               background: mode === t.k ? '#fff' : 'transparent',
@@ -67,7 +137,16 @@ function AuthCard() {
         {isLogin ? 'Pick up where you left off.' : 'Free to start. No credit card required.'}
       </p>
 
-      <form onSubmit={(e) => e.preventDefault()} style={{ display: 'grid', gap: 12 }}>
+      {error && (
+        <div style={{
+          background: '#fff0f0', border: '1px solid #fca5a5', borderRadius: 8,
+          padding: '10px 14px', fontSize: 13, color: '#b91c1c', marginBottom: 4,
+        }}>
+          {error}
+        </div>
+      )}
+
+      <form onSubmit={isLogin ? handleLogin : (e) => { e.preventDefault(); window.location.href = `${HYLO_WEB}/signup`; }} style={{ display: 'grid', gap: 12 }}>
         {!isLogin && (
           <div>
             <label style={label}>Full name</label>
@@ -76,26 +155,38 @@ function AuthCard() {
         )}
         <div>
           <label style={label}>Email</label>
-          <input type="email" style={input} placeholder="you@community.org" />
+          <input
+            type="email" style={input} placeholder="you@community.org"
+            value={email} onChange={(e) => setEmail(e.target.value)}
+            autoComplete="email"
+          />
         </div>
         <div>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
             <label style={label}>Password</label>
             {isLogin && (
-              <a style={{ fontSize: 12, color: ACCENT, fontWeight: 600, cursor: 'pointer' }}>Forgot?</a>
+              <a href={`${HYLO_WEB}/reset-password`} style={{ fontSize: 12, color: ACCENT, fontWeight: 600 }}>Forgot?</a>
             )}
           </div>
-          <input type="password" style={input} placeholder="••••••••" />
+          <input
+            type="password" style={input} placeholder="••••••••"
+            value={password} onChange={(e) => setPassword(e.target.value)}
+            autoComplete={isLogin ? 'current-password' : 'new-password'}
+          />
         </div>
         <button
           type="submit"
+          disabled={isLogin ? (!email || !password || loading) : false}
           style={{
             marginTop: 6, height: 46, borderRadius: 8, border: 'none',
-            background: ACCENT, color: '#fff', fontWeight: 600, fontSize: 14.5,
-            cursor: 'pointer', fontFamily: 'inherit', letterSpacing: 0.2,
+            background: (isLogin && (!email || !password)) ? 'rgba(42,39,35,0.3)' : ACCENT,
+            color: '#fff', fontWeight: 600, fontSize: 14.5,
+            cursor: (isLogin && (!email || !password || loading)) ? 'not-allowed' : 'pointer',
+            fontFamily: 'inherit', letterSpacing: 0.2,
+            transition: 'background .18s',
           }}
         >
-          {isLogin ? 'Log in to Hylo' : 'Create account on Hylo'}
+          {loading ? 'Signing in…' : (isLogin ? 'Log in to Hylo' : 'Create account on Hylo')}
         </button>
       </form>
 
@@ -109,8 +200,8 @@ function AuthCard() {
         <div style={{ flex: 1, height: 1, background: 'rgba(42,39,35,0.1)' }} />
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, marginBottom: 4 }}>
-        <button type="button" style={{
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 8, marginBottom: 4 }}>
+        <button type="button" onClick={handleGoogleLogin} style={{
           height: 42, borderRadius: 8, border: '1px solid rgba(42,39,35,0.18)',
           background: '#fff', color: tokens.ink, fontWeight: 600, fontSize: 13.5,
           cursor: 'pointer', fontFamily: 'inherit',
@@ -124,6 +215,7 @@ function AuthCard() {
           </svg>
           Google
         </button>
+        {/* TODO: Add phone login button
         <button type="button" style={{
           height: 42, borderRadius: 8, border: '1px solid rgba(42,39,35,0.18)',
           background: '#fff', color: tokens.ink, fontWeight: 600, fontSize: 13.5,
@@ -136,7 +228,7 @@ function AuthCard() {
             <path d="M11 18h2" />
           </svg>
           Phone
-        </button>
+        </button> */}
       </div>
 
       <div style={{
