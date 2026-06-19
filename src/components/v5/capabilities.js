@@ -11,7 +11,7 @@ export const CAPABILITIES = [
     color: tokens.discussBlue,
     body: "Threaded discussions for depth. Chat rooms for speed. Cross-post to multiple groups at once — Hylo's superpower.",
     photoHint: 'Neighbors around a kitchen table, mugs, notebooks, warm lamp light',
-    shotHint: 'Threaded discussion with cross-posted chip to sibling groups',
+    shotHint: 'Reactions, rich text formatting, images, videos and more',
     video: '/v5/video/chat.mp4' },
 
   { key: 'event',
@@ -19,7 +19,7 @@ export const CAPABILITIES = [
     color: tokens.eventRed,
     body: 'Bring your group together — in person and online. RSVPs, calendar sync, and reminders bring everyone together.',
     photoHint: 'Outdoor community potluck, string lights, kids and elders mingling',
-    shotHint: 'Event page with RSVPs, location map, and calendar sync',
+    shotHint: 'Share public event pages, invite your friends. Coming soon: ticketing!',
     video: '/v5/video/event.mp4' },
 
   { key: 'exchange',
@@ -27,7 +27,7 @@ export const CAPABILITIES = [
     color: tokens.requestTeal,
     body: 'Post what you need. Share what you can give. Every completed exchange grows community resilience.',
     photoHint: 'Hands exchanging a toolbox at a tool-library pickup window',
-    shotHint: 'Offer/request feed with map-pinned local exchanges',
+    shotHint: 'Use the map for local mutual aid. Coming soon: contribution tracking and AI-assisted matching!',
     video: '/v5/video/exchange.mp4' },
 
   { key: 'project',
@@ -35,7 +35,7 @@ export const CAPABILITIES = [
     color: tokens.projectOrange,
     body: 'Coordinate real work with tasks, roles, and timelines. Make contribution visible so effort is recognized, not invisible.',
     photoHint: 'Volunteers building a trail bridge, tools laid out, crew planning',
-    shotHint: 'Project board with tasks, roles and a timeline',
+    shotHint: 'Coming soon: Project boards with tasks, roles and a timeline',
     video: '/v5/video/project.mp4' },
 
   { key: 'vote',
@@ -43,7 +43,7 @@ export const CAPABILITIES = [
     color: tokens.proposalPurple,
     body: 'Polls, proposals, and structured decision-making. When your group is ready to govern together, the tools are here.',
     photoHint: 'Assembly meeting with hands raised, facilitator at the front',
-    shotHint: 'Proposal page with ranked-choice vote and comment threads',
+    shotHint: 'Quorums, anonymous voting. Coming soon: Ranked-choice voting, and outcome tracking',
     video: '/v5/video/vote.mp4' },
 
   { key: 'funding',
@@ -51,7 +51,7 @@ export const CAPABILITIES = [
     color: tokens.forest,
     body: 'Decide together how to spend shared money. Pool funds, vet requests, and allocate transparently as a group.',
     photoHint: 'Group around a wall of proposals with stickers for votes',
-    shotHint: 'Funding round view with pooled balance, proposals and allocations',
+    shotHint: 'Flexible voting options including cobudgeting. Coming soon: quadratic voting, connections to bank accounts',
     video: '/v5/video/funding.mp4' },
 
   { key: 'pin',
@@ -59,7 +59,7 @@ export const CAPABILITIES = [
     color: tokens.forest,
     body: "See your community spatially. Find what's near you. Organize around the landscapes, watersheds, and neighborhoods you share.",
     photoHint: 'Aerial of a watershed at dawn, small town nestled in river valley',
-    shotHint: 'Map view with groups, events and offers pinned to places',
+    shotHint: 'Map view with groups, posts, events, projects, all connected to place',
     video: '/v5/video/map.mp4' },
 
   { key: 'tracks',
