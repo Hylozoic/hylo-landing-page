@@ -57,9 +57,44 @@ function AuthCard() {
     }
   };
 
+  const handleSignup = async (e) => {
+    e?.preventDefault();
+    if (!email || loading) return;
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await fetch(HYLO_API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({
+          query: `mutation ($email: String!) {
+            sendEmailVerification(email: $email) {
+              success
+              error
+            }
+          }`,
+          variables: { email },
+        }),
+      });
+      const { data } = await res.json();
+      if (data?.sendEmailVerification?.error) {
+        setError(data.sendEmailVerification.error);
+      } else if (data?.sendEmailVerification?.success) {
+        window.location.href = `${HYLO_WEB}/signup/verify-email?email=${encodeURIComponent(email)}`;
+      } else {
+        setError('Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      setError('Something went wrong. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const handleGoogleLogin = () => {
     setError(null);
-    const authContext = 'login';
+    const authContext = isLogin ? 'login' : 'signup';
     const returnDomain = window.location.origin;
     const { clientWidth, clientHeight } = document.documentElement;
     const [width, height] = [420, 480];
@@ -73,7 +108,9 @@ function AuthCard() {
       if (context !== authContext) return;
       popup?.close();
       if (popupError) { setError(popupError); return; }
-      window.location.href = HYLO_APP;
+      window.location.href = authContext === 'signup'
+        ? `${HYLO_WEB}/signup/finish`
+        : HYLO_APP;
     };
 
     const onMessage = ({ data }) => {
@@ -146,13 +183,7 @@ function AuthCard() {
         </div>
       )}
 
-      <form onSubmit={isLogin ? handleLogin : (e) => { e.preventDefault(); window.location.href = `${HYLO_WEB}/signup`; }} style={{ display: 'grid', gap: 12 }}>
-        {!isLogin && (
-          <div>
-            <label style={label}>Full name</label>
-            <input style={input} placeholder="Jane Rivera" />
-          </div>
-        )}
+      <form onSubmit={isLogin ? handleLogin : handleSignup} style={{ display: 'grid', gap: 12 }}>
         <div>
           <label style={label}>Email</label>
           <input
@@ -161,32 +192,32 @@ function AuthCard() {
             autoComplete="email"
           />
         </div>
-        <div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
-            <label style={label}>Password</label>
-            {isLogin && (
+        {isLogin && (
+          <div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+              <label style={label}>Password</label>
               <a href={`${HYLO_WEB}/reset-password`} style={{ fontSize: 12, color: ACCENT, fontWeight: 600 }}>Forgot?</a>
-            )}
+            </div>
+            <input
+              type="password" style={input} placeholder="••••••••"
+              value={password} onChange={(e) => setPassword(e.target.value)}
+              autoComplete="current-password"
+            />
           </div>
-          <input
-            type="password" style={input} placeholder="••••••••"
-            value={password} onChange={(e) => setPassword(e.target.value)}
-            autoComplete={isLogin ? 'current-password' : 'new-password'}
-          />
-        </div>
+        )}
         <button
           type="submit"
-          disabled={isLogin ? (!email || !password || loading) : false}
+          disabled={isLogin ? (!email || !password || loading) : (!email || loading)}
           style={{
             marginTop: 6, height: 46, borderRadius: 8, border: 'none',
-            background: (isLogin && (!email || !password)) ? 'rgba(42,39,35,0.3)' : ACCENT,
+            background: (!email || (isLogin && !password)) ? 'rgba(42,39,35,0.3)' : ACCENT,
             color: '#fff', fontWeight: 600, fontSize: 14.5,
-            cursor: (isLogin && (!email || !password || loading)) ? 'not-allowed' : 'pointer',
+            cursor: (!email || (isLogin && !password) || loading) ? 'not-allowed' : 'pointer',
             fontFamily: 'inherit', letterSpacing: 0.2,
             transition: 'background .18s',
           }}
         >
-          {loading ? 'Signing in…' : (isLogin ? 'Log in to Hylo' : 'Create account on Hylo')}
+          {loading ? (isLogin ? 'Signing in…' : 'Sending…') : (isLogin ? 'Log in to Hylo' : 'Continue with email')}
         </button>
       </form>
 
