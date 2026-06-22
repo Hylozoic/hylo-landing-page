@@ -37,12 +37,13 @@ const GOLD   = '#D4A516';
 
 // Each category: id, title, icon kind, icon color, alternating bg, intro,
 // and the feature array (each feature: name, desc, optional badge).
+// desc may include inline HTML links, rendered via set:html.
 const CATEGORIES = [
   { id: 'groups', title: 'Groups & Community Structure', icon: 'people', iconColor: tokens.forest, bg: 'light',
     intro: "Hylo's group system is the structural foundation of everything else. Groups can be nested and connected with peer groups, creating networks to collaborate across boundaries.",
     features: [
       { name: 'Create and manage groups', desc: 'Set up a group with a name, purpose statement, description, location, and banner image. Control visibility (public, protected, or private) and access (open, by request, or invite-only).' },
-      { name: 'Nested groups (subgroups)', desc: 'Create groups within groups to any depth. A bioregional hub can contain neighborhood groups. A network can contain working committees. Each subgroup has its own space, agreements, and stewards while remaining connected to the parent.' },
+      { name: 'Nested groups (subgroups)', desc: 'Create groups within groups to any depth. A bioregional hub can contain neighborhood groups. A company can contain working committees. Each subgroup has its own agreements, stewards and posts while remaining connected to the parent.' },
       { name: 'Peer-to-peer group relationships', desc: "Connect groups as peers: two independent groups that choose to share a relationship. Peer groups can see each other's public content and members, enabling coalition-building without hierarchy." },
       { name: 'Cross-group posting', desc: 'Post a single discussion, event, request, or offer to multiple groups at once. The post lives in all selected groups simultaneously for one shared conversation.' },
       { name: 'Group Explorer', desc: 'A public directory where anyone can browse and discover groups on Hylo. Groups can apply to be listed. Filter by location, topic, or purpose.' },
@@ -53,15 +54,15 @@ const CATEGORIES = [
   { id: 'communication', title: 'Communication', icon: 'chat', iconColor: tokens.discussBlue, bg: 'athens',
     intro: 'Hylo supports three modes of communication — persistent posts for depth, real-time chat for speed, and direct messages for privacy — all within a unified system.',
     features: [
-      { name: 'Posts (Discussions)', desc: "Threaded, persistent posts with rich text, media, file attachments, geographic location, and topic tags. Posts support reactions and nested comment threads. Discussions are the backbone of deeper coordination — they don't disappear after a day of scrolling." },
+      { name: 'Posts (Discussions)', desc: "Persistent posts with rich text, media, file attachments, geographic location, and topic tags. Posts support reactions and nested comment threads. Discussions are the backbone of deeper coordination — they don't disappear after a day of scrolling." },
       { name: 'Chat rooms', desc: 'Real-time, topic-based chat within any group. Chat rooms sit alongside the post stream, so fast conversation and structured discussion coexist without competing. Groups can create multiple rooms for different topics or working teams.' },
-      { name: 'Direct messages', desc: 'Private 1:1 or small-group conversations.' },
+      { name: 'Direct messages', desc: 'Private 1:1 or small-group conversations. You can message anyone in any group you are a member of.' },
       { name: 'Cross-group posting', desc: 'A single post can belong to multiple groups or chat rooms simultaneously, creating living nodes of coordination across the network.' },
-      { name: 'Rich media', desc: 'Posts and comments support images, files, links with previews, embedded video, and location data. Drag and drop to attach.' },
-      { name: 'Topic tags', desc: "Tag posts with topics to organize content thematically. Topics work across groups — follow a topic to see related posts everywhere you're a member." },
-      { name: 'Mentions', desc: "@mention members or groups in posts and comments. Mentioned people receive notifications. The inbox collects all posts where you've been mentioned." },
+      { name: 'Rich media', desc: 'Posts and comments support images, files, links with previews, embedded video, and location data.' },
+      { name: 'Topic tags', desc: "Tag posts with #topics to organize content thematically. You can search by #tag and create custom views to filter content by topic." },
+      { name: 'Mentions', desc: "@mention members or groups in posts and comments. Mentioned people receive notifications. Your inbox collects all posts where you've been mentioned." },
       { name: 'Reactions', desc: 'React to posts and comments with emoji. Lightweight feedback without requiring a full reply.' },
-      { name: 'Multiple view types', desc: 'View shared content as a stream, list, grid, calendar, or map. Groups can customize which views appear in their navigation and which is the default.' },
+      { name: 'Multiple view types', desc: 'View shared content as a stream, list, grid, calendar, or map. Groups can customize which views appear in their navigation and which is the default home view.' },
       { name: 'Search', desc: 'Full-text search across posts, comments, members, and topics within your groups.' },
     ] },
 
@@ -71,7 +72,7 @@ const CATEGORIES = [
       { name: 'Create events', desc: 'Events are a post type with start/end times, location (physical or virtual), timezone support, and description. They appear in the stream and on the calendar view.' },
       { name: 'RSVPs', desc: "Members can indicate whether they're attending. Stewards can see the guest list and count." },
       { name: 'Calendar view', desc: 'See all upcoming events for a group displayed on a calendar. Filter by group or view across all your groups.' },
-      { name: 'Calendar integration', desc: 'Export events to external calendars (Google Calendar, iCal, etc.) via calendar invite emails.' },
+      { name: 'Calendar integration', desc: 'Export events to external calendars (Google Calendar, iCal, etc.) by RSVPing to an event and receiving a calendar invite email. You can also subscribe to a calendar of all your events in a group, or all your RSVPed events across all your groups.' },
       { name: 'Location and map', desc: "Events can include a physical location that appears on the group's map. Helpful for in-person gatherings where people need to find the place." },
       { name: 'Live indicator', desc: 'Events currently in progress are marked as live in the stream and calendar.' },
     ] },
@@ -81,34 +82,34 @@ const CATEGORIES = [
     features: [
       { name: 'Requests', desc: 'Post what you need — skills, tools, time, knowledge, labor, rides, advice. Set scope, timing, and location. Visible to your group and, if cross-posted, to connected groups.' },
       { name: 'Offers', desc: 'Share what you can give. Same structure as requests — searchable, taggable, locatable.' },
-      { name: 'Completion tracking', desc: 'Mark requests and offers as fulfilled. Select the people who helped complete them. This creates a visible record of mutual support within the community.' },
+      { name: 'Completion tracking', desc: 'Mark requests and offers as fulfilled and they fade from active view. Coming Soon: Select the people who helped complete them. This creates a visible record of mutual support within the community.' },
       { name: 'Geographic relevance', desc: "Requests and offers include location data. Members can browse what's needed or available near them." },
       { name: 'Topic categorization', desc: 'Tag requests and offers by topic — tools, food, transportation, skills, childcare — so members can browse by category.' },
-      { name: 'Expiration and reminders', desc: 'Requests and offers can have expiration dates. Notifications remind creators to update or close out posts that are no longer active.' },
+      { name: 'Expiration and reminders', desc: 'Requests and offers can have expiration dates. Coming soon: Notifications remind creators to update or close out posts that are no longer active.' },
       { name: 'AI-assisted matching', badge: 'soon', desc: 'The AI matchmaker will surface relevant requests and offers to members whose skills, interests, location, and history suggest they can help — reducing the gap between need and response.' },
     ] },
 
   { id: 'projects', title: 'Projects', icon: 'clipboard', iconColor: tokens.projectOrange, bg: 'light',
     intro: 'For work that goes beyond a single post, ongoing efforts with tasks, contributors, and timelines.',
     features: [
-      { name: 'Projects', desc: 'Create a project post with a description, members, and linked content. Projects provide a persistent home for coordinated work within a group.' },
+      { name: 'Projects', desc: 'Create a project post with a description, members, and linked project management tool. Projects provide a persistent home for coordinated work within a group.' },
       { name: 'Tasks', badge: 'soon', desc: "Assign tasks with statuses and due dates within projects. Contribution visibility over time — see who's doing what. Kanban and other visualizations planned." },
       { name: 'Linked content', desc: 'Connect posts, events, requests, and offers to a project. Everything related to an effort lives in one place.' },
       { name: 'Project membership', desc: 'Members can join projects to indicate their involvement. Project contributors are visible to the group.' },
     ] },
 
   { id: 'governance', title: 'Governance & Decision-Making', icon: 'vote', iconColor: tokens.proposalPurple, bg: 'athens',
-    intro: "Hylo's governance tools support groups at every stage, from simple polls to structured decision-making processes with quorum, consent-based voting, and formal outcome tracking.",
+    intro: "Hylo's governance tools support groups at every stage, from simple polls to structured decision-making processes with quorum and outcome tracking.",
     features: [
       { name: 'Proposals', desc: 'Create a proposal with a question, description, and voting options. Proposals progress through discussion, voting, and completed phases with visible outcomes.' },
       { name: 'Flexible voting options', desc: "Configure voting with custom options or use presets: Agree/Disagree, Consent/Block/Abstain, Sense Check, or Gradients of Agreement (from whole-hearted endorsement to veto). Choose what fits your group's decision-making culture." },
-      { name: 'Quorum settings', desc: "Set a minimum participation threshold for a vote to be valid. Adjustable percentage. If quorum isn't reached, stewards are notified." },
+      { name: 'Quorum settings', desc: "Set a minimum participation threshold for a vote to be valid. Adjustable percentage of group membership." },
       { name: 'Voting timeline', desc: 'Set start and end times for voting periods. Proposals move through phases automatically, or stewards can manage timing manually.' },
       { name: 'Outcome tracking', desc: 'Completed proposals display vote tallies, quorum status, and an outcome summary field where the author can document what was decided and what happens next.' },
-      { name: 'Governance view', desc: "A dedicated view showing active and past proposals. Active proposals at the top, completed proposals (now \"decisions\") below with their outcomes. Also displays the group's purpose, values, and agreements." },
+      { name: 'Governance view', badge: 'soon', desc: "A dedicated view showing active and past proposals. Active proposals at the top, completed proposals (now \"decisions\") below with their outcomes. Also displays the group's purpose, values, and agreements." },
       { name: 'Agreements', desc: "Groups can establish written agreements — commitments, norms, decision-making protocols, codes of conduct. Agreements are displayed on the group's About page and presented to new members for consent before joining." },
-      { name: 'Agreement consent tracking', desc: "Track whether members have consented to current agreements. If agreements change, members are prompted to review and re-consent. Backend tracking of each person's consent to each agreement." },
-      { name: 'Roles and responsibilities', desc: 'Assign roles to members with specific platform responsibilities. Three common roles come with every group: Coordinator (administration), Moderator (content management), and Host (welcoming and inviting). Each role carries defined powers.' },
+      { name: 'Agreement consent', desc: "All members must consent to current agreements to join a group. If agreements change, members are prompted to review and re-consent." },
+      { name: 'Roles and responsibilities', desc: 'Assign roles to members with specific platform responsibilities. Three common roles come with every group: Coordinator (full administration), Moderator (content management), and Host (welcoming and inviting). Each role carries defined powers.' },
       { name: 'Custom roles', desc: 'Create roles specific to your group — equipment manager, garden coordinator, childcare lead, outreach coordinator. Custom roles can carry platform responsibilities or simply denote real-world functions. Roles display as badges on member profiles.' },
       { name: 'Custom responsibilities', desc: 'Beyond platform responsibilities, create custom ones that represent work members do outside of Hylo. Assign responsibilities to roles so everyone can see who does what.' },
       { name: 'Collective moderation', desc: 'Any member can flag a post as violating group agreements. Flagged content is blurred for other members. Others can agree or disagree with the flag. Moderators review and make final decisions.' },
@@ -129,20 +130,21 @@ const CATEGORIES = [
     intro: 'Participatory funding rounds let groups pool resources and collectively decide where to direct them.',
     features: [
       { name: 'Create a funding round', desc: 'Set up a round with a total amount, timeline, submission criteria, and voting method. Guide your community through each phase from submission to allocation.' },
+      { name: 'Flexible voting', desc: 'You can assign any number of votes per participant and set a maximum number of votes they can allocate per submission. You can also distribute currencies/tokens to participants to allocate directly to submissions for a cobudgeting style of voting.' },
       { name: 'Submission phase', desc: 'Members submit proposals for funding. Stewards define criteria that submissions need to address. Submissions can be visible during the submission period or hidden until voting begins.' },
       { name: 'Discussion phase', desc: 'Community reviews and discusses submitted proposals before voting. Comments, questions, and feedback help the group make informed decisions.' },
-      { name: 'Voting phase', desc: 'Members vote to allocate the pool across proposals. Results determine distribution. Notifications guide members through each stage of the process.' },
-      { name: 'Outcome and allocation', desc: 'Results are displayed transparently. The group can see exactly how funds were allocated and why. Completed rounds become part of the group\'s decision history.' },
+      { name: 'Voting phase', desc: 'Members vote to allocate the pool across proposals. Results determine distribution.' },
+      { name: 'Outcome and allocation', desc: 'Results can be displayed transparently or kept anonymous depending on round settings. Completed rounds become part of the group\'s decision history.' },
       { name: 'Real-world impact', desc: "Float, the Funding Lab for Agroecological Technology, used Hylo's funding rounds to distribute over $700,000 USD to projects in 2025." },
     ] },
 
   { id: 'tracks', title: 'Learning Tracks', icon: 'path', iconColor: PICTON, bg: 'light',
-    intro: 'Tracks are structured sequences of content and actions that guide members through a learning journey, onboarding process, or program curriculum.',
+    intro: 'Tracks are structured sequences of content and associated actions that guide members through a learning journey, onboarding process, or program curriculum.',
     features: [
       { name: 'Create tracks', desc: 'Build a track with ordered steps — each step can include content, media, discussion prompts, and actions for the member to complete.' },
-      { name: 'Customizeable modules', desc: 'Actions are individual steps or modules within a track that members complete as they progress. Can be renamed to fit how you use them.' },
+      { name: 'Customizeable modules', desc: 'Actions are individual steps or modules within a track that members complete as they progress. They can be renamed to fit how you use them (e.g. modules, lessons...).' },
       { name: 'Track membership and progress', desc: 'See who has started a track, where they are in it, and who has completed it. Stewards get visibility into participation without micromanaging.' },
-      { name: 'Badges on completion', desc: 'Members who complete a track can receive a badge — visible on their profile. Badges can also unlock specific roles, permissions, or access to certain content or chat rooms within the group.' },
+      { name: 'Badges on completion', desc: 'Members who complete a track can receive a badge — visible on their profile. Badges can also unlock specific roles, permissions, or soon access to certain content or chat rooms within the group.' },
       { name: 'Track-gated access', badge: 'soon', desc: 'Require completion of a track before accessing certain areas of a group. Useful for onboarding sequences where you want members to have context before participating fully.' },
       { name: 'Paid tracks', badge: 'pro', desc: 'Tracks can be gated behind a payment. Stripe integration handles transactions. Stewards manage subscriptions and access.' },
     ] },
@@ -150,10 +152,10 @@ const CATEGORIES = [
   { id: 'profiles', title: 'Profiles & Directory', icon: 'profile', iconColor: tokens.forest, bg: 'athens',
     intro: 'Member profiles are how people find each other and understand what each person brings to the community.',
     features: [
-      { name: 'Member profiles', desc: 'Each member has a profile with name, photo, bio, location, skills, interests, and affiliated groups. Profiles are visible to co-members and (for public groups) to anyone browsing the platform.' },
-      { name: 'Skills and interests', desc: 'Members list their skills and areas of interest. These are used for discovery, matching, and helping stewards understand what capacity exists within the group.' },
+      { name: 'Member profiles', desc: 'Each member has a profile with name, photo, bio, location, skills, interests, and affiliated groups. Profiles are visible to other group members.' },
+      { name: 'Skills and interests', desc: 'Members list their skills and areas of interest. These are used for discovery, matching, and helping stewards understand what capacities exist within the group.' },
       { name: 'Member directory', desc: 'Browse all members of a group with search, filtering, and sorting. See roles, badges, and location at a glance.' },
-      { name: 'Group affiliations', desc: "A member's profile shows which groups they belong to (respecting visibility settings — private group memberships aren't exposed to non-members)." },
+      { name: 'Group affiliations', desc: "A member's profile shows which groups they belong to (respecting visibility settings — private group memberships aren't exposed to non-members), as well as other affiliations." },
       { name: 'Role and badge display', desc: 'Roles and badges earned through tracks or assigned by stewards are displayed on profiles and next to member names throughout the platform. Hover/tap to see the role description and responsibilities.' },
     ] },
 
@@ -162,9 +164,9 @@ const CATEGORIES = [
     features: [
       { name: 'Custom navigation', desc: "Group stewards can choose which views appear in the group's navigation menu and in what order. Show only what's relevant to your community — hide views you don't use." },
       { name: 'Custom views', desc: "Create custom filtered views of content — by topic, post type, or other criteria. Pin them to the group's navigation for quick access." },
-      { name: 'Nine visual themes', desc: 'Choose from nine visual themes (Default, Stone, Forest, Ocean, Desert, Snow, Jungle, Blossom, Fall), each with light and dark variants. Themes apply to the entire interface.' },
-      { name: 'Group branding', desc: 'Each group has its own avatar, banner image, purpose statement, and description. Groups look and feel distinct even within a shared platform.' },
-      { name: 'Notification customization', desc: 'Members control their own notification preferences: email, push, in-app, and digest frequency. Per-group settings let you stay on top of active groups without being overwhelmed by quieter ones.' },
+      { name: 'Visual themes', desc: 'Choose from nine visual themes, each with light and dark variants. Themes apply to the entire interface.' },
+      { name: 'Group branding', desc: 'Each group has its own avatar, banner image, purpose statement, and description. Groups look and feel distinct even within a shared platform. Coming soon: custom group color themes.' },
+      { name: 'Notification customization', desc: 'Members control their own notification preferences: email, push, in-app, and email digest frequency. Per-group settings let you stay on top of active groups without being overwhelmed by quieter ones.' },
       { name: 'Stream and feed controls', desc: "Members can customize how content is ranked and aggregated in their stream. No algorithmic manipulation — you choose what's surfaced." },
     ] },
 
@@ -190,7 +192,7 @@ const CATEGORIES = [
   { id: 'platform', title: 'Platform & Infrastructure', icon: 'platform', iconColor: tokens.forest, bg: 'athens',
     intro: 'The structural commitments that make Hylo different from every other community platform.',
     features: [
-      { name: 'Open source', desc: "Hylo's entire codebase is public under the Apache 2.0 license. Inspect it, contribute to it, fork it." },
+      { name: 'Open source', desc: "Hylo's <a href='https://github.com/Hylozoic/hylo' target='_blank'>entire codebase</a> is public under the Apache 2.0 license. Inspect it, contribute to it, fork it." },
       { name: 'No ads, no data sales', desc: 'Hylo does not display advertising and does not sell user data. Ever. Revenue comes from paid products and community contributions.' },
       { name: 'No algorithmic manipulation', desc: 'There is no black-box algorithm deciding what you see. Members control their own feed ranking and notification preferences.' },
       { name: 'Data portability', desc: 'Groups can export their data. If you leave Hylo, you leave with your information. No lock-in.' },
@@ -202,13 +204,13 @@ const CATEGORIES = [
 
 const ROADMAP = [
   { name: 'AI-Assisted Matching', desc: 'Intelligent matching of requests, offers, and potential collaborators based on skills, interests, location, and group history. Opt-in per group.' },
-  { name: 'Hylo Assistant', desc: "A group-level AI assistant with full context across your group's history, documents, and decisions. Helps stewards with community health, growth guidance, and moderation awareness.", timeline: '$20/month per group' },
+  { name: 'Hylo Assistant', desc: "A group-level AI assistant with full context across your group's history, documents, and decisions. Helps stewards with community health, growth guidance, and moderation awareness.", timeline: 'Paid feature' },
   { name: 'Project Management Upgrades', desc: 'Tasks with assignments, statuses, and due dates within projects. Kanban visualization. Contribution tracking over time.' },
   { name: 'Recurring Events', desc: 'Events that repeat on a schedule — weekly meetings, monthly gatherings. Appear automatically on the calendar and in digests.' },
   { name: 'Audio and Video Integration', desc: 'Open-source conferencing built into Hylo. Voice notes for posts and comments. No external platform required for group calls.' },
-  { name: 'Hylo Pro', desc: 'Expanded storage, video streaming, priority support, and API access for groups that need more capacity.', timeline: '$60/month per group · Launching Fall 2026' },
-  { name: 'Hylo Whitelabel', desc: "A dedicated Hylo deployment under your organization's brand, domain, and visual identity.", timeline: '$100/month · Launching Fall 2026' },
-  { name: 'Ecosystem Interoperability', desc: 'Federation and data exchange with aligned platforms using AT Protocol and other open standards. Requests and offers visible across platforms. Shared identity and portable communities.' },
+  { name: 'Hylo Pro', desc: 'Expanded storage, video streaming, priority support, and API access for groups that need more capacity.', timeline: 'Paid feature · Launching Fall 2026' },
+  { name: 'Hylo Whitelabel', desc: "A dedicated Hylo deployment under your organization's brand, domain, and visual identity.", timeline: 'Paid feature · Launching Winter 2026' },
+  { name: 'Ecosystem Interoperability', desc: 'Federation and data exchange with aligned platforms using AT Protocol and/or other open standards. Requests and offers visible across platforms. Shared identity and portable communities.' },
   { name: 'Member-Led Groups', desc: 'A governance model where stewardship roles are earned through cumulative trust rather than granted to whoever created the group. Time-bound, scoped leadership designed for shared stewardship.' },
   { name: 'Hylo Local', desc: 'Distributed, peer-to-peer infrastructure built on Holochain for communities that need coordination tools resistant to institutional surveillance.' },
 ];
@@ -360,7 +362,7 @@ const ROADMAP = [
                 {f.badge === 'soon' && <span class="badge badge-soon">Coming soon</span>}
                 {f.badge === 'pro'  && <span class="badge badge-pro">Pro</span>}
               </h3>
-              <p class="feat-desc">{f.desc}</p>
+              <p class="feat-desc" set:html={f.desc} />
             </div>
           ))}
         </div>
@@ -381,7 +383,7 @@ const ROADMAP = [
         {ROADMAP.map((r, i) => (
           <div class={`roadmap-item ${i < ROADMAP.length - 1 ? 'roadmap-rule' : ''}`}>
             <h3 class="feat-name">{r.name}</h3>
-            <p class="feat-desc">{r.desc}</p>
+            <p class="feat-desc" set:html={r.desc} />
             {r.timeline && <div class="roadmap-timeline">{r.timeline}</div>}
           </div>
         ))}
@@ -521,6 +523,14 @@ const ROADMAP = [
     line-height: 1.55;
     color: rgba($rhino, 0.7);
     text-wrap: pretty;
+
+    :global(a) {
+      color: $forest;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+
+      &:hover { color: darken($forest, 8%); }
+    }
   }
 
   /* ── Badges ───────────────────────────────────────────────── */
