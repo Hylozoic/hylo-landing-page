@@ -14,6 +14,9 @@ import { tokens } from '../components/v5/tokens.js';
 // The source positioned the accent bar absolutely at left: -20px so it
 // peeked into the gutter; we use border-left on the inner container
 // instead — same visual anchor, but no overflow risk on narrow widths.
+//
+// Quick nav at the top of the page uses native href anchor jumps with
+// global scroll-behavior: smooth; each use case sets scroll-margin-top.
 
 // Per-use-case accent colors
 const CARIB      = tokens.caribbean;       // #0DC39F — neighborhood / networks
@@ -118,6 +121,8 @@ const USE_CASES = [
     tags: ['Worker cooperatives', 'Housing cooperatives', 'Consumer co-ops', 'Credit unions and community finance', 'Platform cooperatives', 'Cooperative groceries', 'Energy cooperatives', 'Cooperative childcare', 'Cooperative land management'],
   },
 ];
+
+const QUICK_NAV = USE_CASES.map(({ id, title }) => ({ id, label: title }));
 ---
 
 <Layout title="Hylo — Who is it for">
@@ -131,6 +136,15 @@ const USE_CASES = [
         decisions together, or organizes around a shared place or purpose — Hylo was built
         for you. Here’s how groups like yours are using it.
       </p>
+    </div>
+
+    <div class="quick-nav">
+      {QUICK_NAV.map((q, i) => (
+        <>
+          <a href={`#${q.id}`} class="qn-link">{q.label}</a>
+          {i < QUICK_NAV.length - 1 && <span class="qn-sep">·</span>}
+        </>
+      ))}
     </div>
   </section>
 
@@ -258,6 +272,31 @@ const USE_CASES = [
     line-height: 1.6;
     color: rgba($rhino, 0.8);
     text-wrap: pretty;
+  }
+
+  .quick-nav {
+    margin: 32px auto 0;
+    max-width: 980px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 0;
+  }
+  .qn-link {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba($rhino, 0.55);
+    text-decoration: none;
+    padding: 4px 10px;
+    white-space: nowrap;
+    transition: color 0.15s;
+
+    &:hover { color: $forest; }
+  }
+  .qn-sep {
+    color: rgba($rhino, 0.25);
+    font-size: 12px;
   }
 
   /* ── Use cases ────────────────────────────────────────────── */
@@ -499,7 +538,19 @@ const USE_CASES = [
 
   /* ── Tablet portrait and below ──────────────────────────── */
   @media (max-width: 880px) {
-    .hero { padding: 120px 24px 56px; }
+    .hero { padding: 120px 24px 40px; }
+
+    .quick-nav {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      justify-content: flex-start;
+      scroll-snap-type: x mandatory;
+      padding: 0 16px;
+      &::-webkit-scrollbar { display: none; height: 0; }
+      scrollbar-width: none;
+    }
+    .qn-link { scroll-snap-align: start; }
+
     .uc   { padding: 56px 24px; }
     .uc-inner { padding-left: 16px; }
     .uc-title { font-size: 22px; }
