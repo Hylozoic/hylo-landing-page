@@ -39,15 +39,36 @@ const CIRCLES = [
 ];
 
 const FUNDERS = [
-  'NoVo Foundation · Regional Futures Fund',
-  '11th Hour Foundation',
-  'Jeff Parrett · Rising Foundation'
+  { name: 'NoVo Foundation · Regional Futures Fund', href: 'https://novofoundation.org/' },
+  { name: '11th Hour Project', href: 'https://11thhourproject.org/' },
+  { name: 'Jeff Parrett · Rising Foundation', href: 'https://therisingfoundation.com/' },
+];
+
+const PAST_FUNDERS = [
+  { name: 'Prosocial World', href: 'https://www.prosocial.world/' },
+  { name: 'Planetary Health Alliance', href: 'https://www.planetaryhealthalliance.org/' },
+  { name: 'Zebras Unite', href: 'https://www.zebrasunite.org/' },
+  { name: 'Bionutrients Food Association', href: 'https://www.bionutrient.org/' },
+  { name: 'Pacific Integral', href: 'https://www.pacificintegral.com/' },
+  { name: 'Holochain', href: 'https://holochain.org/' },
+  { name: 'Regen Network', href: 'https://www.regen.network/' },
+  { name: 'OpenTEAM', href: 'https://openteam.community/' },
+  { name: 'Tribal Resource Center', href: 'https://tribalresourcecenter.com/' },
+  { name: 'People Centered Internet', href: 'https://peoplecentered.net/' },
 ];
 
 const ECOSYSTEM = [
-  'Planetary Health Alliance', 'BioFi', 'LIFT Economy', 'Salmon Nation', 'OpenTEAM',
-  'Regen Network', 'Collaborative Technology Alliance',
-  'Common Good Missoula', 'Zebras Unite', 'otherWise', 'The Great Simplification'
+  { name: 'Planetary Health Alliance', href: 'https://www.planetaryhealthalliance.org/' },
+  { name: 'BioFi', href: 'https://www.biofi.earth/' },
+  { name: 'LIFT Economy', href: 'https://www.lifteconomy.com/' },
+  { name: 'Salmon Nation', href: 'https://www.salmonnation.net/' },
+  { name: 'OpenTEAM', href: 'https://openteam.community/' },
+  { name: 'Regen Network', href: 'https://www.regen.network/' },
+  { name: 'Collaborative Technology Alliance', href: 'https://www.collaborative.tech/' },
+  { name: 'Common Good Missoula', href: 'https://www.commongoodmissoula.org/' },
+  { name: 'Zebras Unite', href: 'https://www.zebrasunite.org/' },
+  { name: 'otherWise', href: 'https://otherwise.one/' },
+  { name: 'The Great Simplification', href: 'https://www.thegreatsimplification.com/' },
 ];
 
 const ACTIONS = [
@@ -283,16 +304,30 @@ const BUILDING_HYLO_POSTS = [
       <div class="recog-block">
         <div class="recog-sub">Current partners and funders</div>
         <div class="funders">
-          {FUNDERS.map((f) => <div class="funder">{f}</div>)}
+          {FUNDERS.map((f) => (
+            <a class="funder" href={f.href} target="_blank" rel="noopener noreferrer">{f.name}</a>
+          ))}
         </div>
       </div>
 
       <div class="recog-block">
-        <div class="recog-sub">Ecosystem</div>
+        <div class="recog-sub">Past partners and funders</div>
+        <div class="ecosystem">
+          {PAST_FUNDERS.map((e, i) => (
+            <>
+              <a class="eco" href={e.href} target="_blank" rel="noopener noreferrer">{e.name}</a>
+              {i < PAST_FUNDERS.length - 1 && <span class="eco-sep">·</span>}
+            </>
+          ))}
+        </div>
+      </div>
+
+      <div class="recog-block">
+        <div class="recog-sub">Ecosystem Partners</div>
         <div class="ecosystem">
           {ECOSYSTEM.map((e, i) => (
             <>
-              <span class="eco">{e}</span>
+              <a class="eco" href={e.href} target="_blank" rel="noopener noreferrer">{e.name}</a>
               {i < ECOSYSTEM.length - 1 && <span class="eco-sep">·</span>}
             </>
           ))}
@@ -770,6 +805,12 @@ const BUILDING_HYLO_POSTS = [
     border: 1px solid $athens-dark;
     border-radius: 4px;
     background: $athens-gray;
+    text-decoration: none;
+    transition: color 0.15s, border-color 0.15s;
+    &:hover {
+      color: rgba($rhino, 0.9);
+      border-color: rgba($rhino, 0.35);
+    }
   }
   .ecosystem {
     margin-top: 14px;
@@ -777,7 +818,12 @@ const BUILDING_HYLO_POSTS = [
     color: rgba($rhino, 0.55);
     line-height: 1.8;
   }
-  .eco { cursor: pointer; }
+  .eco {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.15s;
+    &:hover { color: rgba($rhino, 0.85); text-decoration: underline; }
+  }
   .eco-sep {
     margin: 0 10px;
     opacity: 0.5;
