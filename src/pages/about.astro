@@ -74,16 +74,20 @@ const ECOSYSTEM = [
 const ACTIONS = [
   { icon: 'people',   color: tokens.forest,         title: 'Bring your group',
     body: 'Set up your community on Hylo. It’s free to start.',
-    cta: 'Get started' },
+    cta: 'Get started',
+    href: 'https://www.hylo.com/create-group' },
   { icon: 'calendar', color: tokens.eventRed,       title: 'Attend a community call',
     body: 'Monthly calls open to everyone. See what’s being built, share what you need.',
-    cta: 'See upcoming calls' },
+    cta: 'See upcoming calls',
+    href: 'https://luma.com/calendar/cal-neuN1NsBDApQ8Cb', ext: true },
   { icon: 'code',     color: tokens.projectOrange,  title: 'Contribute to the codebase',
     body: 'Hylo is open source. Browse the code, file issues, submit PRs.',
-    cta: 'View on GitHub' },
+    cta: 'View on GitHub',
+    href: 'https://github.com/hylozoic', ext: true },
   { icon: 'heart',    color: tokens.proposalPurple, title: 'Support the commons',
     body: 'Join Hylo Commons or make a contribution. Every dollar stays in the project.',
-    cta: 'Learn more' },
+    cta: 'Learn more',
+    href: 'https://opencollective.com/hylo', ext: true },
 ];
 
 const BUILDING_HYLO_POSTS = [
@@ -152,7 +156,7 @@ const BUILDING_HYLO_POSTS = [
 
       <p class="punch">If Hylo works, a watershed can govern itself.</p>
 
-      <a class="link-arrow">
+      <a class="link-arrow" href="https://docsend.com/v/n8vrg/hylo-strategy-2026" target="_blank">
         Read the Hylo Whitepaper
         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor"
           stroke-width="1.6" aria-hidden="true">
@@ -182,7 +186,7 @@ const BUILDING_HYLO_POSTS = [
         </p>
         <div class="award-line">
           <div class="award-tag">NTEN</div>
-          <span>2026 Pizzigati Prize winner — NTEN’s award for open-source public interest technology.</span>
+          <a href="https://www.nten.org/change/pizzigati-prize" target="_blank">2026 Pizzigati Prize winner — NTEN’s award for open-source public interest technology.</a>
         </div>
       </div>
 
@@ -214,7 +218,7 @@ const BUILDING_HYLO_POSTS = [
   </section>
 
   {/* ── 4 · How we're governed ──────────────────────────────── */}
-  <section class="gov">
+  <section id="stewardship" class="gov">
     <div class="body-inner">
       <h2 class="section-h">A technology commons</h2>
       <p class="prose">
@@ -256,7 +260,7 @@ const BUILDING_HYLO_POSTS = [
   </section>
 
   {/* ── 5 · Team ────────────────────────────────────────────── */}
-  <section class="team">
+  <section id="team" class="team">
     <div class="team-inner">
       <h2 class="section-h">The team</h2>
       <p class="prose team-lede">
@@ -380,7 +384,9 @@ const BUILDING_HYLO_POSTS = [
             </div>
             <div class="gi-card-title">{a.title}</div>
             <p class="gi-card-body">{a.body}</p>
-            <a class="gi-card-cta" style={`color: ${tokens.forest};`}>
+            <a class="gi-card-cta" href={a.href} style={`color: ${tokens.forest};`}
+               target={a.ext ? '_blank' : undefined}
+               rel={a.ext ? 'noopener noreferrer' : undefined}>
               {a.cta} <span class="gi-arrow">→</span>
             </a>
           </div>
@@ -624,6 +630,7 @@ const BUILDING_HYLO_POSTS = [
     padding: 100px 40px;
     font-family: $font-sans;
     color: $rhino;
+    scroll-margin-top: 80px;
   }
   .circles {
     margin-top: 40px;
@@ -684,6 +691,7 @@ const BUILDING_HYLO_POSTS = [
     padding: 100px 40px;
     font-family: $font-sans;
     color: $rhino;
+    scroll-margin-top: 80px;
   }
   .team-inner {
     max-width: $wide-w;
@@ -896,6 +904,8 @@ const BUILDING_HYLO_POSTS = [
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
+    text-decoration: none;
+    &:hover { text-decoration: underline; }
   }
   .gi-arrow {
     font-size: 16px;

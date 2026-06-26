@@ -29,8 +29,8 @@ const MENU_SECTIONS = [
       { t: 'About Hylo',         href: '/about'   },
       { t: 'Who is Hylo for', href: '/who-is-hylo-for'         },
       { t: 'Why choose Hylo',     href: '/why-choose-hylo'    },
-      { t: "Hylo Stewardship", href: '/about'   },
-      { t: 'Team',               href: '/about'   },
+      { t: "Hylo Stewardship", href: '/about#stewardship' },
+      { t: 'Team',               href: '/about#team'        },
     ],
   },
   {
