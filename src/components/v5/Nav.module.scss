@@ -263,6 +263,15 @@
   text-decoration: none;
 }
 
+// The global `.v5 a { color: inherit }` reset (specificity 0,1,1) outranks the
+// plain `.signUp` / `.megaCtaSignUp` class (0,1,0), so the white label fell back
+// to inherited ink on the green button. Re-assert white with a doubled-class
+// selector (0,2,0) — color only, so the responsive size overrides still win.
+.signUp.signUp,
+.megaCtaSignUp.megaCtaSignUp {
+  color: #fff;
+}
+
 .megaTagline {
   font-size: 12px;
   color: rgba($ink, 0.55);

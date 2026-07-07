@@ -49,6 +49,7 @@ const MENU_SECTIONS = [
     h: 'Participate',
     l: [
       { t: 'Get involved', href: '/get-involved' },
+      { t: 'Regional Resilience', href: '/regional-resilience' },
       { t: 'Join our open-source community', ext: true, href: 'https://www.hylo.com/groups/building-hylo' },
       { t: 'Attend a community call',        ext: true, href: 'https://luma.com/calendar/cal-neuN1NsBDApQ8Cb' },
       { t: 'Partner with us',                href: '/get-involved#partner' },

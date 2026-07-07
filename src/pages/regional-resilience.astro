@@ -1,0 +1,785 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { tokens } from '../components/v5/tokens.js';
+
+// Source: design export "Hylo Regional Resilience" (v5-regional-resilience.jsx).
+// Rebuilt natively on the site's Layout (real Nav + Footer) instead of the
+// prototype's placeholder chrome. Vision-led invitation to become a pilot
+// partner / member. Linked from the Participate menu in Nav.jsx + Footer.astro.
+
+const RESILIENCE = [
+  { icon: 'hands',   color: tokens.forest,         title: 'Mutual aid that flows',     body: 'Needs and offers move through the network freely — non-transactionally — so help arrives without a transaction.' },
+  { icon: 'shield',  color: tokens.eventRed,       title: 'Ready for the hard days',   body: 'Emergency prep and disaster response woven into everyday life, not stood up in a panic.' },
+  { icon: 'sprout',  color: tokens.projectOrange,  title: 'Stronger local food',       body: 'Free pantries, food forests, crop swaps, and buying clubs that keep people fed close to home.' },
+  { icon: 'leaf',    color: tokens.requestTeal,    title: 'Land in regeneration',      body: 'Riparian restoration, stream clean-ups, and care for the watershed we all depend on.' },
+  { icon: 'web',     color: tokens.proposalPurple, title: 'A stronger community web',  body: 'Trusted relationships and real collaboration between groups that used to work alone.' },
+  { icon: 'compass', color: tokens.discussBlue,    title: 'Shared self-governance',    body: 'Members making real decisions together — building the culture for democratic stewardship.' },
+];
+
+const ARC = [
+  { tag: 'Year one',   title: 'Activate the network',    body: 'Recruit founding anchors, train and compensate local stewards, and start building community through in-person events and everyday mutual aid on Hylo.' },
+  { tag: 'Year two',   title: 'From pilot to template',  body: 'Deepen stewardship through ongoing projects, encourage cross-group collaboration, and document the model so another region could pick it up.' },
+  { tag: 'Year three', title: 'Evaluate and evolve',     body: 'Measure what changed against where we started, share an honest public report, and refine the model for broader adoption.' },
+];
+
+const FIT_YES = [
+  'You’re an established group already doing resilience work in your community, with real trust and relationships.',
+  'You have a community you could invite into a shared experiment — and the willingness to try.',
+  'You can work across tension and difference, and you’re curious about coordinating with groups beyond your own.',
+  'You can nominate someone to steward your space on Hylo and help organize in person.',
+  'You’re an individual who cares about your place and wants to help weave it together — as a steward, a contributor, or a neighbor.',
+];
+
+const FIT_QS = [
+  'What does resilience mean to you, in your place?',
+  'When this network is succeeding, what would you see and feel?',
+  'What resilience work are you already doing that this could strengthen?',
+  'Who would you trust to help steward it — maybe even you?',
+];
+
+// Inline icon set for the resilience cards (24×24, stroke = card color).
+const ICONS = {
+  hands:   '<path d="M7 11V6a1.5 1.5 0 013 0v4"/><path d="M10 10V4.5a1.5 1.5 0 013 0V10"/><path d="M13 10V6a1.5 1.5 0 013 0v6"/><path d="M16 9.5a1.5 1.5 0 013 0V14a6 6 0 01-6 6h-1.5a5 5 0 01-3.6-1.5L4 14.6a1.6 1.6 0 012.2-2.3L8 14"/>',
+  shield:  '<path d="M12 3l7 3v5c0 4.5-3 7.8-7 9-4-1.2-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/>',
+  sprout:  '<path d="M12 21V11"/><path d="M12 11C12 8 9.5 6 6 6c0 3.5 2.5 5 6 5z"/><path d="M12 12c0-2.5 2.2-4.5 5.5-4.5C17.5 11 15 12 12 12z"/>',
+  web:     '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"/>',
+  leaf:    '<path d="M5 19c0-9 6-14 14-14 0 9-5 14-14 14z"/><path d="M5 19c3-5 6-8 11-10"/>',
+  compass: '<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>',
+};
+---
+
+<Layout title="Hylo — Regional Resilience" description="A Hylo pilot growing regional resilience — mutual aid, disaster readiness, food systems and watershed care, coordinated on a shared backbone. We're looking for partners.">
+  {/* ── 1 · Hero ────────────────────────────────────────────── */}
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="label label-forest">A Hylo pilot · Regional resilience</div>
+      <h1 class="hero-title">A region where neighbors have each other’s backs.</h1>
+      <p class="hero-lede">
+        Picture a place where a need rarely goes unmet — where a tool gets
+        borrowed instead of bought, a meal shows up after a hard week, and when
+        the heat wave or the fire comes, people already know who to call. Not
+        because an agency arranged it, but because the relationships were already
+        there.
+      </p>
+      <p class="hero-sub">
+        We’re starting a pilot to find out what it takes to grow that kind of
+        resilience on purpose — and we’re looking for partners to build it with us.
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#join">Become a partner</a>
+        <a class="btn btn-ghost" href="#fit">Is this for us?</a>
+      </div>
+    </div>
+  </section>
+
+  {/* ── 2 · The experiment ──────────────────────────────────── */}
+  <section class="experiment">
+    <div class="body-inner">
+      <div class="label">The experiment</div>
+      <h2 class="section-h">Can a coordination layer make a region measurably more resilient?</h2>
+      <div class="stack">
+        <p class="intro">
+          Lots of people and groups are already doing resilience work — mutual
+          aid, food systems, disaster prep, watershed care. They rarely have a
+          good way to find each other, share resources, or move together when it
+          matters. So energy gets lost, and good work stays siloed.
+        </p>
+        <p class="intro">
+          The pilot is a living laboratory: trained, compensated local stewards
+          working alongside trusted anchor organizations, using Hylo as a shared
+          coordination backbone. We connect people and resources, build trust
+          across neighborhoods, and practice mutual aid <em>before</em> a crisis
+          — so the network is already alive when one arrives.
+        </p>
+        <p class="intro">
+          We’re beginning in the <strong>East Bay (Oakland)</strong>, but the
+          real goal is a model others can carry home. If it works here, we want
+          the structure documented clearly enough that any region could adopt it.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {/* ── 3 · What we mean by resilience ──────────────────────── */}
+  <section class="resilience">
+    <div class="wide-inner">
+      <div class="label">What we mean by resilience</div>
+      <h2 class="section-h res-h">More than bouncing back. A region that holds together.</h2>
+      <div class="res-grid">
+        {RESILIENCE.map((r) => (
+          <div class="res-card">
+            <div class="res-icon" style={`background: ${r.color}15;`}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={r.color}
+                stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
+                set:html={ICONS[r.icon]} />
+            </div>
+            <div class="res-title">{r.title}</div>
+            <p class="res-body">{r.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* ── 4 · The arc ─────────────────────────────────────────── */}
+  <section class="arc">
+    <div class="wide-inner">
+      <div class="label">How it unfolds</div>
+      <h2 class="section-h">A patient three-year arc.</h2>
+      <p class="intro">
+        We move at the speed of trust. The shape will change as we learn — this
+        is a sketch, not a blueprint.
+      </p>
+      <div class="arc-grid">
+        {ARC.map((a, i) => (
+          <div class="arc-step">
+            <div class="arc-num">{i + 1}</div>
+            <div class="label label-forest">{a.tag}</div>
+            <div class="arc-title">{a.title}</div>
+            <p class="arc-body">{a.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* ── 5 · Good fit ────────────────────────────────────────── */}
+  <section id="fit" class="fit">
+    <div class="wide-inner fit-grid">
+      <div>
+        <div class="label">Are we a good fit?</div>
+        <h2 class="section-h">We’re looking for partners, not just users.</h2>
+        <p class="intro">
+          Our primary ask is for <strong>anchor organizations</strong> — but
+          individual stewards and neighbors are just as welcome. You might be a
+          fit if…
+        </p>
+        <ul class="fit-list">
+          {FIT_YES.map((t) => (
+            <li class="fit-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={tokens.forest}
+                stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12l4.5 4.5L19 7" />
+              </svg>
+              <span>{t}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="fit-card">
+        <div class="fit-card-h">A few questions to sit with</div>
+        <p class="fit-card-p">
+          These are the same questions we’d ask in a first conversation. If they
+          spark something, we should talk.
+        </p>
+        <ol class="fit-qs">
+          {FIT_QS.map((q, i) => (
+            <li class="fit-q">
+              <span class="fit-q-num">{i + 1}</span>
+              <span>{q}</span>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  {/* ── 6 · Join ────────────────────────────────────────────── */}
+  <section id="join" class="join">
+    <div class="wide-inner join-grid">
+      <div>
+        <div class="label">Get involved</div>
+        <h2 class="section-h">Let’s start a conversation.</h2>
+        <p class="intro">
+          The right regions and partners emerge through relationships, not
+          top-down assignment. So the first step is simply to talk.
+        </p>
+        <div class="join-aside">
+          <div class="join-card">
+            <div class="join-card-h">Join the network on Hylo</div>
+            <p class="join-card-p">
+              See what’s taking shape, meet the people involved, and start
+              exchanging offers and requests.
+            </p>
+            <a class="text-link" href="https://www.hylo.com" target="_blank" rel="noopener noreferrer">
+              Open the group on Hylo <span class="arrow">→</span>
+            </a>
+          </div>
+          <div class="join-email">
+            Prefer email? Write us at
+            <a href="mailto:hello@hylo.com">hello@hylo.com</a>.
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="join-form-h">Or tell us a little about you</div>
+        <form id="rr-form" class="rr-form" name="regional-resilience" method="POST"
+          data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="regional-resilience" />
+          <p hidden><label>Don’t fill this out: <input name="bot-field" /></label></p>
+          <div class="form-row">
+            <div>
+              <label class="form-label" for="rr-name">Your name</label>
+              <input id="rr-name" class="form-field" name="name" required />
+            </div>
+            <div>
+              <label class="form-label" for="rr-org">Organization <span class="opt">(if any)</span></label>
+              <input id="rr-org" class="form-field" name="org" />
+            </div>
+          </div>
+          <div class="form-block">
+            <label class="form-label" for="rr-role">How would you like to take part?</label>
+            <select id="rr-role" class="form-field" name="role" required>
+              <option value="" disabled selected>Select one…</option>
+              <option>As an anchor organization</option>
+              <option>As a steward</option>
+              <option>As a community member</option>
+              <option>As a supporter / funder</option>
+              <option>Just exploring</option>
+            </select>
+          </div>
+          <div class="form-block">
+            <label class="form-label" for="rr-message">What drew you here?</label>
+            <textarea id="rr-message" class="form-field form-textarea" name="message"
+              placeholder="A line or two about the work you’re doing, or what resilience means to you."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Send your interest</button>
+        </form>
+
+        <div id="rr-sent" class="rr-sent" hidden>
+          <div class="rr-sent-check">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff"
+              stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12l4.5 4.5L19 7" />
+            </svg>
+          </div>
+          <div class="rr-sent-h">Thank you — we’ll be in touch.</div>
+          <p class="rr-sent-p">
+            We read every note personally. Expect a real reply, not an
+            autoresponder.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ── 7 · Closing ─────────────────────────────────────────── */}
+  <section class="close">
+    <div class="close-inner">
+      <h2 class="close-h">Resilience isn’t built in a crisis. It’s built beforehand, together.</h2>
+      <p class="close-body">
+        If any of this resonates with the work you’re already doing — or the
+        place you call home — we’d love to hear from you.
+      </p>
+      <div class="close-cta">
+        <a class="btn btn-primary" href="#join">Become a partner</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Submit to Netlify Forms (form name "regional-resilience"), then surface the
+  // designed "thank you" state. Mirrors the waitlist form in pricing.astro:
+  // POST the form-encoded body to "/" so Netlify captures it, with a native
+  // submit fallback if the fetch fails. Submissions appear in the Netlify
+  // dashboard under Forms.
+  const form = document.getElementById('rr-form') as HTMLFormElement | null;
+  const sent = document.getElementById('rr-sent');
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const body = new URLSearchParams(new FormData(form) as any).toString();
+    try {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body,
+      });
+      form.setAttribute('hidden', '');
+      sent?.removeAttribute('hidden');
+      sent?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } catch {
+      form.submit();
+    }
+  });
+</script>
+
+<style lang="scss">
+  @use '../styles/v5/tokens' as *;
+
+  $rhino-rgb: 44, 64, 89;
+
+  /* ── shared ──────────────────────────────────────────────── */
+  .label {
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: rgba($rhino, 0.5);
+    margin: 0;
+  }
+  .label-forest { color: $forest; }
+
+  .section-h {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.6px;
+    color: $rhino;
+    margin: 16px 0 0;
+    line-height: 1.15;
+  }
+  .intro {
+    margin: 16px 0 0;
+    font-size: 16.5px;
+    line-height: 1.7;
+    color: rgba($rhino, 0.78);
+    max-width: 660px;
+    text-wrap: pretty;
+
+    strong { font-weight: 600; }
+  }
+
+  .body-inner { max-width: 720px; margin: 0 auto; }
+  .wide-inner { max-width: 1100px; margin: 0 auto; }
+
+  .text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14.5px;
+    font-weight: 500;
+    color: $forest;
+    text-decoration: none;
+  }
+  .text-link:hover { text-decoration: underline; }
+  .arrow { font-size: 16px; line-height: 1; }
+
+  /* ── buttons ─────────────────────────────────────────────── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 24px;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: $font-sans;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-primary { background: $forest; color: #fff; }
+  .btn-primary:hover { background: $forest-deep; }
+  .btn-ghost {
+    background: rgba(#fff, 0.6);
+    color: $rhino;
+    border: 1px solid rgba($rhino, 0.18);
+  }
+  .btn-ghost:hover { background: rgba(#fff, 0.9); }
+  .btn-block { width: 100%; }
+
+  /* ── 1 · Hero ────────────────────────────────────────────── */
+  .hero {
+    background: linear-gradient(225deg, #DDE8EE 0%, #E9E5D9 45%, #F1EBDE 100%);
+    padding: 170px 40px 96px;
+    font-family: $font-sans;
+    color: $rhino;
+  }
+  .hero-inner { max-width: 1100px; margin: 0 auto; }
+  .hero-title {
+    font-size: 60px;
+    font-weight: 700;
+    letter-spacing: -1.6px;
+    line-height: 1.03;
+    margin: 20px 0 0;
+    color: $rhino;
+    max-width: 900px;
+    text-wrap: balance;
+  }
+  .hero-lede {
+    font-size: 19px;
+    line-height: 1.6;
+    margin: 26px 0 0;
+    color: rgba($rhino, 0.8);
+    max-width: 680px;
+    text-wrap: pretty;
+  }
+  .hero-sub {
+    font-size: 16px;
+    line-height: 1.65;
+    margin: 18px 0 0;
+    color: rgba($rhino, 0.62);
+    max-width: 640px;
+    text-wrap: pretty;
+  }
+  .hero-cta {
+    margin-top: 32px;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  /* ── 2 · The experiment ──────────────────────────────────── */
+  .experiment {
+    background: #fff;
+    padding: 88px 40px;
+    font-family: $font-sans;
+    color: $rhino;
+  }
+  .stack {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .stack .intro { margin: 0; }
+
+  /* ── 3 · Resilience ──────────────────────────────────────── */
+  .resilience {
+    background: $athens-gray;
+    padding: 88px 40px;
+    font-family: $font-sans;
+    color: $rhino;
+  }
+  .res-h { max-width: 760px; }
+  .res-grid {
+    margin-top: 36px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .res-card {
+    background: #fff;
+    border-radius: 4px;
+    padding: 24px;
+    border: 1px solid $athens-dark;
+  }
+  .res-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .res-title {
+    margin-top: 16px;
+    font-size: 17px;
+    font-weight: 600;
+    color: $rhino;
+  }
+  .res-body {
+    margin: 8px 0 0;
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: rgba($rhino, 0.7);
+    text-wrap: pretty;
+  }
+
+  /* ── 4 · The arc ─────────────────────────────────────────── */
+  .arc {
+    background: #fff;
+    padding: 88px 40px;
+    font-family: $font-sans;
+    color: $rhino;
+  }
+  .arc-grid {
+    margin-top: 36px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .arc-step {
+    position: relative;
+    padding-top: 24px;
+    border-top: 2px solid $forest;
+  }
+  .arc-num {
+    position: absolute;
+    top: -13px;
+    left: 0;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: $forest;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .arc-title {
+    margin-top: 10px;
+    font-size: 19px;
+    font-weight: 600;
+    color: $rhino;
+  }
+  .arc-body {
+    margin: 10px 0 0;
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: rgba($rhino, 0.7);
+    text-wrap: pretty;
+  }
+
+  /* ── 5 · Good fit ────────────────────────────────────────── */
+  .fit {
+    background: $athens-gray;
+    padding: 88px 40px;
+    font-family: $font-sans;
+    color: $rhino;
+  }
+  .fit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .fit-list {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .fit-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+
+    svg { flex: none; margin-top: 2px; }
+    span {
+      font-size: 15px;
+      line-height: 1.55;
+      color: rgba($rhino, 0.82);
+      text-wrap: pretty;
+    }
+  }
+  .fit-card {
+    background: #fff;
+    border-radius: 6px;
+    padding: 32px;
+    border: 1px solid $athens-dark;
+    align-self: start;
+  }
+  .fit-card-h {
+    font-size: 18px;
+    font-weight: 600;
+    color: $rhino;
+    line-height: 1.3;
+  }
+  .fit-card-p {
+    margin: 10px 0 0;
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: rgba($rhino, 0.7);
+  }
+  .fit-qs {
+    margin: 22px 0 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .fit-q {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+
+    span:last-child {
+      font-size: 15.5px;
+      line-height: 1.5;
+      color: $rhino;
+      font-weight: 500;
+    }
+  }
+  .fit-q-num {
+    flex: none;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: $forest-light;
+    color: $forest;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ── 6 · Join ────────────────────────────────────────────── */
+  .join {
+    background: #fff;
+    padding: 88px 40px;
+    font-family: $font-sans;
+    color: $rhino;
+  }
+  .join-grid {
+    display: grid;
+    grid-template-columns: 40fr 55fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .join-aside {
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .join-card {
+    background: $athens-gray;
+    border: 1px solid $athens-dark;
+    border-radius: 6px;
+    padding: 22px;
+  }
+  .join-card-h { font-size: 16px; font-weight: 600; color: $rhino; }
+  .join-card-p {
+    margin: 6px 0 14px;
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: rgba($rhino, 0.7);
+  }
+  .join-email {
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba($rhino, 0.6);
+
+    a { color: $forest; font-weight: 500; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  }
+  .join-form-h {
+    font-size: 16px;
+    font-weight: 600;
+    color: $rhino;
+    margin-bottom: 14px;
+  }
+
+  /* form */
+  .rr-form {
+    background: #fff;
+    border: 1px solid $athens-dark;
+    border-radius: 6px;
+    padding: 28px;
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .form-block { margin-top: 16px; }
+  .form-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba($rhino, 0.7);
+    margin-bottom: 6px;
+    display: block;
+
+    .opt { font-weight: 400; opacity: 0.6; }
+  }
+  .form-field {
+    width: 100%;
+    padding: 11px 13px;
+    font-size: 15px;
+    font-family: $font-sans;
+    color: $rhino;
+    background: #fff;
+    border: 1px solid $athens-dark;
+    border-radius: 4px;
+    outline: none;
+  }
+  .form-field:focus { border-color: $forest; }
+  select.form-field { appearance: none; cursor: pointer; }
+  .form-textarea { min-height: 110px; resize: vertical; }
+  .rr-form .btn-block { margin-top: 20px; }
+
+  .rr-sent {
+    background: $forest-light;
+    border: 1px solid $forest-tint;
+    border-radius: 6px;
+    padding: 32px;
+    text-align: center;
+  }
+  .rr-sent-check {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: $forest;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .rr-sent-h {
+    margin-top: 16px;
+    font-size: 19px;
+    font-weight: 600;
+    color: $rhino;
+  }
+  .rr-sent-p {
+    margin: 8px auto 0;
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: rgba($rhino, 0.72);
+    max-width: 380px;
+  }
+
+  /* ── 7 · Closing ─────────────────────────────────────────── */
+  .close {
+    background: $cream;
+    padding: 96px 40px;
+    font-family: $font-sans;
+    color: $rhino;
+  }
+  .close-inner { max-width: 640px; margin: 0 auto; text-align: center; }
+  .close-h {
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -0.6px;
+    color: $rhino;
+    margin: 0;
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+  .close-body {
+    margin: 18px 0 0;
+    font-size: 16.5px;
+    line-height: 1.65;
+    color: rgba($rhino, 0.72);
+    text-wrap: pretty;
+  }
+  .close-cta { margin-top: 28px; }
+
+  /* ── Tablet portrait and below ───────────────────────────── */
+  @media (max-width: 880px) {
+    .hero { padding: 120px 24px 64px; }
+    .hero-title { font-size: 40px; letter-spacing: -1.2px; }
+    .hero-lede { font-size: 17px; }
+
+    .experiment,
+    .resilience,
+    .arc,
+    .fit,
+    .join { padding: 64px 24px; }
+
+    .res-grid { grid-template-columns: 1fr; gap: 14px; }
+    .arc-grid { grid-template-columns: 1fr; gap: 32px; }
+    .arc-step { padding-top: 28px; }
+
+    .fit-grid { grid-template-columns: 1fr; gap: 32px; }
+    .join-grid { grid-template-columns: 1fr; gap: 32px; }
+
+    .close { padding: 72px 24px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-title { font-size: 32px; }
+    .section-h { font-size: 22px; }
+    .close-h { font-size: 24px; }
+    .form-row { grid-template-columns: 1fr; }
+    .rr-form { padding: 22px; }
+  }
+</style>
