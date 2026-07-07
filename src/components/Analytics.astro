@@ -1,0 +1,89 @@
+---
+// Site-wide analytics — included once from Layout.astro <head>.
+//
+// Hybrid setup (see also docs in .env.example):
+//   • Plausible  — privacy-friendly marketing metrics (pageviews, sources,
+//                  UTM campaigns, outbound-link clicks). Cookieless, no banner.
+//   • Mixpanel   — the same tool the app uses. Here it captures pageviews plus
+//                  a few "bridge" conversion events (Signup Clicked, RR Interest
+//                  Submitted) and carries its distinct_id onto hylo.com signup
+//                  links so the app can .identify() the same visitor and stitch
+//                  an acquisition → signup → activation funnel.
+//
+// Both are gated to production builds AND to their env var being present, so
+// nothing loads in `astro dev` or until the keys are configured in Netlify.
+const isProd = import.meta.env.PROD;
+const plausibleDomain = import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN;
+const mixpanelToken = import.meta.env.PUBLIC_MIXPANEL_TOKEN;
+
+const enablePlausible = Boolean(isProd && plausibleDomain);
+const enableMixpanel = Boolean(isProd && mixpanelToken);
+---
+
+{enablePlausible && (
+  <Fragment>
+    <script
+      is:inline
+      defer
+      data-domain={plausibleDomain}
+      src="https://plausible.io/js/script.outbound-links.js"
+    />
+    {/* Queue stub so window.plausible(...) calls work before the script loads. */}
+    <script is:inline>
+      window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments); };
+    </script>
+  </Fragment>
+)}
+
+{enableMixpanel && (
+  <script is:inline define:vars={{ mixpanelToken }}>
+    (function () {
+      // Load Mixpanel from its CDN, then init on load so no queue stub is needed.
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js';
+      s.onload = function () {
+        var mp = window.mixpanel;
+        if (!mp || !mp.init) return;
+        mp.init(mixpanelToken, { track_pageview: true, persistence: 'localStorage' });
+
+        // Persist UTM params as super properties for the whole session.
+        try {
+          var params = new URLSearchParams(location.search);
+          var utm = {};
+          ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(function (k) {
+            var v = params.get(k);
+            if (v) utm[k] = v;
+          });
+          if (Object.keys(utm).length) mp.register(utm);
+        } catch (e) {}
+
+        // One helper the rest of the site can call; fans out to Plausible too.
+        window.hyloTrack = function (name, props) {
+          try { mp.track(name, props || {}); } catch (e) {}
+          if (typeof window.plausible === 'function') window.plausible(name, props ? { props: props } : undefined);
+        };
+
+        // Track auth CTAs anywhere on the site, and hand the app our distinct_id
+        // so it can associate this visitor with the account they create.
+        document.addEventListener('click', function (e) {
+          var a = e.target && e.target.closest ? e.target.closest('a[href*="/signup"], a[href*="/login"]') : null;
+          if (!a) return;
+          var isSignup = a.href.indexOf('/signup') !== -1;
+          window.hyloTrack(isSignup ? 'Signup Clicked' : 'Login Clicked', { location: location.pathname });
+          try {
+            var did = mp.get_distinct_id && mp.get_distinct_id();
+            if (did && a.hostname && a.hostname.indexOf('hylo.com') !== -1) {
+              var u = new URL(a.href);
+              if (!u.searchParams.has('mp_distinct_id')) {
+                u.searchParams.set('mp_distinct_id', did);
+                a.href = u.toString();
+              }
+            }
+          } catch (e) {}
+        }, true);
+      };
+      document.head.appendChild(s);
+    })();
+  </script>
+)}

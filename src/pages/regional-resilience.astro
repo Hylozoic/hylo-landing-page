@@ -299,6 +299,12 @@ const ICONS = {
       form.setAttribute('hidden', '');
       sent?.removeAttribute('hidden');
       sent?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      // Bridge conversion event → Mixpanel (+ Plausible). No-ops if analytics
+      // isn't loaded (dev, or keys unset). See src/components/Analytics.astro.
+      const track = (window as any).hyloTrack;
+      const role = (document.getElementById('rr-role') as HTMLSelectElement | null)?.value;
+      if (typeof track === 'function') track('RR Interest Submitted', { role });
+      else if (typeof (window as any).plausible === 'function') (window as any).plausible('RR Interest Submitted');
     } catch {
       form.submit();
     }

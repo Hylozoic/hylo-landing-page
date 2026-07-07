@@ -3,6 +3,7 @@ import '../styles/v5/v5-base.scss';
 import '../styles/v5/v5-responsive.scss';
 import Nav from '../components/v5/Nav.jsx';
 import Footer from '../components/v5/Footer.astro';
+import Analytics from '../components/Analytics.astro';
 
 interface Props {
   title?: string;
@@ -31,6 +32,8 @@ const {
     />
 
     <title>{title}</title>
+
+    <Analytics />
   </head>
   <body>
     <div class="v5">
