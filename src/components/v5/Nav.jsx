@@ -14,12 +14,13 @@ const LOGO_SRC = '/v5/hylo-logo-dark.svg';
 //   { t: 'Label', ext: true, href?: '…' } → external link (renders the ↗ icon)
 
 const MENU_TOP = [
+  { t: 'Demo', href: 'https://hylo.com/sandbox' },
   { t: 'About', href: '/about' },
   { t: 'Features', href: '/features' },
   { t: 'Pricing',  href: '/pricing'  },
   { t: 'Who is Hylo for?',      href: '/who-is-hylo-for'      },
   { t: 'Blog',     href: '/blog'     },
-];
+]
 
 const MENU_SECTIONS = [
   {
@@ -36,6 +37,7 @@ const MENU_SECTIONS = [
   {
     h: 'Using Hylo',
     l: [
+      { t: 'Demo', href: 'https://hylo.com/sandbox' },
       { t: 'Features',             href: '/features'            },
       { t: 'Pricing',              href: '/pricing'             },
       { t: 'Stewardship support',  href: '/stewardship-support' },
