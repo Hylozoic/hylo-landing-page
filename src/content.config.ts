@@ -9,7 +9,7 @@ const blog = defineCollection({
   schema: z.object({
     title: z.string(),
     excerpt: z.string(),
-    category: z.enum(['announcements', 'product', 'stories', 'notes', 'essays']),
+    category: z.enum(['announcements', 'product', 'stories', 'notes', 'essays', 'guides']),
     author: z.object({
       name: z.string(),
       role: z.string().optional().default(''),

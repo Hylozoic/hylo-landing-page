@@ -60,6 +60,7 @@ export default config({
             { label: 'Community stories', value: 'stories' },
             { label: 'Field notes',       value: 'notes' },
             { label: 'Essays',            value: 'essays' },
+            { label: 'Guides',            value: 'guides' },
           ],
           defaultValue: 'essays',
         }),

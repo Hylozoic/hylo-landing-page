@@ -5,9 +5,10 @@
 export const CATEGORIES = {
   announcements: { label: 'Announcements',     color: '#087736' },
   product:       { label: 'Product',           color: '#40A1DD' },
-  stories:       { label: 'Community stories', color: '#BB60A8' },
+  stories:       { label: 'Community stories', color: '#9b3785ff' },
   notes:         { label: 'Field notes',       color: '#23CC80' },
-  essays:        { label: 'Essays',            color: '#9883E5' },
+  essays:        { label: 'Essays',            color: '#5432d0ff' },
+  guides:        { label: 'Guides',            color: '#b32b0dff' },
 };
 
 export const CATEGORY_KEYS = Object.keys(CATEGORIES);
